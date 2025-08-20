@@ -1,0 +1,58 @@
+{% extends "gymapp/base.html" %}
+
+{% block content %}
+<div class="container mt-4 rutina-form">
+    <h3>Rutinas de {{ member.nombre_apellido }}</h3>
+    <hr>
+
+    {% for rutina in rutinas %}
+        <div class="card mb-4 shadow-sm">
+            <div class="card-header bg-dark text-white">
+                {{ rutina.get_estructura_display }} - {{ rutina.fecha_creacion|date:"d/m/Y H:i" }}
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered text-center align-middle bg-white">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Categoría</th>
+                            <th>Ejercicio</th>
+                            <th>Series</th>
+                            <th>Reps</th>
+                            <th>Peso</th>
+                            <th>Descanso</th>
+                            <th>RIR</th>
+                            <th>Sensaciones</th>
+                            <th>Notas</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for d in rutina.detalles.all %}
+                        <tr>
+                            <td>{{ d.categoria }}</td>
+                            <td>{{ d.ejercicio.nombre }}</td>
+                            <td>{{ d.series }}</td>
+                            <td>{{ d.repeticiones }}</td>
+                            <td>{{ d.peso }}</td>
+                            <td>{{ d.descanso }}</td>
+                            <td>{{ d.rir }}</td>
+                            <td>{{ d.sensaciones }}</td>
+                            <td>{{ d.notas }}</td>
+                        </tr>
+                        {% empty %}
+                        <tr><td colspan="9" class="text-muted">Sin ejercicios</td></tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+                {% if rutina.comentario %}
+                <div class="mt-2">
+                    <strong>Comentario:</strong> {{ rutina.comentario.texto }}
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    {% empty %}
+        <p class="text-muted">Todavía no tenés rutinas cargadas.</p>
+    {% endfor %}
+</div>
+{% endblock %}

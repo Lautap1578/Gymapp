@@ -1,0 +1,300 @@
+{% extends "gymapp/base.html" %}
+{% load static %}
+{% block title %}Editar Rutina{% endblock %}
+
+{% block content %}
+<div class="container my-4 rutina-form" id="contenedor-calor">
+  <h2 class="mb-3">Editar Rutina</h2>
+
+  {# Estilos puntuales para asegurar legibilidad de encabezados en el tema oscuro #}
+  <style>
+    .table-calor thead{ background:#1f2937 !important; }
+    .table-calor thead th{
+      color:#f9fafb !important;
+      font-weight:800 !important;
+      text-transform:uppercase;
+      letter-spacing:.5px;
+    }
+    .table-calor tbody td { vertical-align: middle; }
+    .table-calor .form-control, .table-calor .form-select {
+      background:#fff !important; color:#111 !important;
+      border:1px solid #d1d5db !important; border-radius:8px !important;
+    }
+    .btn-add { border-radius:10px; font-weight:600; }
+  </style>
+
+  <form id="rutinaForm" method="post" action="">
+    {% csrf_token %}
+
+    <div class="mb-4">
+      <label class="form-label fw-bold">Cliente</label>
+      <input type="text" class="form-control" value="{{ rutina.member.nombre_apellido }}" disabled>
+    </div>
+
+    <!-- ================= CALENTAMIENTO (opcional) ================= -->
+    <div class="card mb-4 shadow-sm">
+      <div class="card-header fw-bold">Calentamiento</div>
+      <div class="card-body">
+        <div class="mb-2 d-flex gap-2 align-items-center">
+          <button type="button" class="btn btn-primary btn-sm btn-add"
+                  data-tabla="tablaCalentamiento" data-prefix="cal_">
+            + Agregar fila
+          </button>
+          <small class="text-muted">Total filas: <span id="total_filas_calentamiento">1</span></small>
+        </div>
+
+        <div class="table-responsive">
+          <table class="table table-striped align-middle table-calor" id="tablaCalentamiento">
+            <thead>
+              <tr>
+                <th>Categoría</th>
+                <th>Ejercicio</th>
+                <th>Repeticiones</th>
+                <th>Notas</th>
+                <th>Acción</th>
+              </tr>
+            </thead>
+            <tbody id="tbody-calor">
+              <tr>
+                <td>
+                  <select name="cal_categoria_0" class="form-select">
+                    <option value="">Seleccionar…</option>
+                    {% for c in categorias %}
+                      <option value="{{ c }}">{{ c }}</option>
+                    {% endfor %}
+                    <option value="Cardio">Cardio</option>
+                  </select>
+                </td>
+                <td>
+                  <select name="cal_ejercicio_0" class="form-select ejercicio-select">
+                    <option value="">Seleccionar ejercicio…</option>
+                    {% for e in ejercicios %}
+                      <option value="{{ e.id }}">{{ e.nombre }}</option>
+                    {% endfor %}
+                  </select>
+                </td>
+                <td><input type="text" class="form-control" name="cal_repeticiones_0" placeholder="Ej: 2x15 o tiempo"></td>
+                <td><input type="text" class="form-control" name="cal_notas_0" placeholder="Notas"></td>
+                <td class="text-center">
+                  <button type="button" class="btn btn-danger btn-sm" onclick="eliminarFila(this,'tablaCalentamiento')">
+                    <i class="bi bi-x-lg"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ================= RUTINA PRINCIPAL ================= -->
+    <div class="card mb-4 shadow-sm">
+      <div class="card-header fw-bold">Rutina principal</div>
+      <div class="card-body">
+        <div class="mb-2 d-flex gap-2 align-items-center">
+          <button type="button" class="btn btn-success btn-sm btn-add"
+                  data-tabla="tablaRutina" data-prefix="">
+            + Agregar fila
+          </button>
+          <small class="text-muted">Total filas: <span id="total_filas">1</span></small>
+        </div>
+
+        <div class="table-responsive">
+          <table class="table table-striped align-middle table-calor" id="tablaRutina">
+            <thead>
+              <tr>
+                <th>Categoría</th>
+                <th>Ejercicios</th>
+                <th>Notas</th>
+                <th>Series</th>
+                <th>Repeticiones</th>
+                <th>Kilos</th>
+                <th>RIR</th>
+                <th>Sensaciones</th>
+                <th>Acción</th>
+              </tr>
+            </thead>
+            <tbody id="tbody-rutina">
+              <tr>
+                <!-- Categoría -->
+                <td>
+                  <select name="categoria_0" class="form-select">
+                    <option value="">Seleccionar…</option>
+                    {% for c in categorias %}
+                      <option value="{{ c }}">{{ c }}</option>
+                    {% endfor %}
+                  </select>
+                </td>
+
+                <!-- Ejercicio con buscador -->
+                <td style="min-width:260px;">
+                  <select name="ejercicio_0" class="form-select ejercicio-select">
+                    <option value="">Seleccionar ejercicio…</option>
+                    {% for e in ejercicios %}
+                      <option value="{{ e.id }}">{{ e.nombre }}</option>
+                    {% endfor %}
+                  </select>
+                </td>
+
+                <!-- Notas -->
+                <td><input type="text" class="form-control" name="notas_0" placeholder="Notas"></td>
+
+                <!-- Series -->
+                <td style="max-width:110px;"><input type="text" class="form-control" name="series_0" placeholder="Ej: 4"></td>
+
+                <!-- Repeticiones -->
+                <td style="max-width:140px;"><input type="text" class="form-control" name="repeticiones_0" placeholder="Ej: 10-12"></td>
+
+                <!-- Kilos (peso en modelo) -->
+                <td style="max-width:120px;"><input type="text" class="form-control" name="peso_0" placeholder="Ej: 30"></td>
+
+                <!-- RIR -->
+                <td style="max-width:110px;">
+                  <select name="rir_0" class="form-select">
+                    <option value="">-</option>
+                    <option>0</option><option>1</option><option>2</option><option>3</option><option>4</option>
+                  </select>
+                </td>
+
+                <!-- Sensaciones -->
+                <td><input type="text" class="form-control" name="sensaciones_0" placeholder="Cómo lo sentiste"></td>
+
+                <!-- Acción -->
+                <td class="text-center">
+                  <button type="button" class="btn btn-danger btn-sm" onclick="eliminarFila(this,'tablaRutina')">
+                    <i class="bi bi-x-lg"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- totales ocultos para POST -->
+        <input type="hidden" name="total_filas" id="total_filas_input" value="1">
+        <input type="hidden" name="total_filas_calentamiento" id="total_filas_calentamiento_input" value="1">
+      </div>
+    </div>
+
+    <!-- ================= Comentario opcional ================= -->
+    <div class="card mb-3 shadow-sm">
+      <div class="card-header fw-bold">Comentario general (opcional)</div>
+      <div class="card-body">
+        <textarea class="form-control" name="comentario" rows="3" placeholder="Notas generales de la rutina…">{{ rutina.comentario.texto|default_if_none:'' }}</textarea>
+      </div>
+    </div>
+
+    <div class="d-flex gap-2">
+      <a href="{% url 'rutina_cliente' rutina.member.id %}" class="btn btn-outline-secondary">Volver</a>
+      <button type="submit" class="btn btn-primary">Guardar cambios</button>
+    </div>
+  </form>
+</div>
+
+<script>
+/* ============ Select2 con buscador visible ============ */
+function initSelect2(scope){
+  $(scope).find('select.ejercicio-select').each(function(){
+    if ($(this).hasClass("select2-hidden-accessible")) $(this).select2('destroy');
+    $(this).select2({
+      placeholder: "Seleccionar ejercicio…",
+      allowClear: true,
+      width: 'resolve',
+      minimumResultsForSearch: 0,     // <- SIEMPRE muestra el buscador
+      dropdownParent: $('#rutinaForm')
+    });
+  });
+}
+
+/* ============ Helpers conteo de filas ============ */
+function contarFilas(idTabla){
+  return document.querySelectorAll('#' + idTabla + ' tbody tr').length;
+}
+function actualizarTotal(idTabla, idSpan){
+  const total = contarFilas(idTabla);
+  document.getElementById(idSpan).textContent = total;
+  if (idTabla === 'tablaRutina') {
+    document.getElementById('total_filas_input').value = total;
+  }
+  if (idTabla === 'tablaCalentamiento') {
+    document.getElementById('total_filas_calentamiento_input').value = total;
+  }
+}
+
+/* ============ Agregar / Eliminar fila ============ */
+function agregarFila(idTabla, prefix){
+  const $tbody = $('#' + idTabla + ' tbody');
+  const index = $tbody.find('tr').length;
+  const $fila = $tbody.find('tr').first().clone();
+
+  // limpiar / renombrar
+  $fila.find('input, select').each(function(){
+    const el = this;
+
+    // Si era Select2 de la fila base, destruir antes de tocar name/value
+    if (el.tagName === 'SELECT' && $(el).hasClass('select2-hidden-accessible')) {
+      $(el).select2('destroy');
+    }
+
+    if (el.tagName === 'SELECT'){
+      if (el.name.includes('categoria')){
+        el.name = (prefix || '') + 'categoria_' + index;
+        el.selectedIndex = 0;
+      } else if (el.name.includes('ejercicio')){
+        el.name = (prefix || '') + 'ejercicio_' + index;
+        el.selectedIndex = 0;
+      } else if (el.name.includes('rir')){
+        el.name = (prefix || '') + 'rir_' + index;
+        el.selectedIndex = 0;
+      } else {
+        const base = el.name.split('_')[0];
+        el.name = (prefix || '') + base + '_' + index;
+        el.selectedIndex = 0;
+      }
+    } else { // inputs
+      const base = el.name.split('_')[0];
+      el.name = (prefix || '') + base + '_' + index;
+      el.value = '';
+    }
+  });
+
+  $tbody.append($fila);
+  initSelect2($fila);
+  actualizarTotal(idTabla, idTabla === 'tablaRutina' ? 'total_filas' : 'total_filas_calentamiento');
+}
+function eliminarFila(btn, idTabla){
+  const tbody = document.querySelector('#' + idTabla + ' tbody');
+  if (tbody.rows.length <= 1){
+    // dejar siempre al menos 1 fila
+    return;
+  }
+  btn.closest('tr').remove();
+  actualizarTotal(idTabla, idTabla === 'tablaRutina' ? 'total_filas' : 'total_filas_calentamiento');
+}
+
+/* ============ Inicialización ============ */
+document.addEventListener('click', function(e){
+  if (!e.target.matches('.btn-add')) return;
+  e.preventDefault();
+  const btn = e.target.closest('.btn-add');
+  agregarFila(btn.getAttribute('data-tabla'), btn.getAttribute('data-prefix') || '');
+});
+
+document.addEventListener('DOMContentLoaded', function(){
+  initSelect2(document);
+  actualizarTotal('tablaCalentamiento','total_filas_calentamiento');
+  actualizarTotal('tablaRutina','total_filas');
+
+  // re‑init si se muestran tabs/accordion/modal
+  $(document).on('shown.bs.tab shown.bs.collapse shown.bs.modal', function(){
+    initSelect2(document);
+  });
+
+  // reflow simple
+  window.addEventListener('resize', function(){
+    initSelect2(document);
+  });
+});
+</script>
+{% endblock %}

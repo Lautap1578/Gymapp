@@ -1,0 +1,21 @@
+{% extends 'gymapp/base.html' %}
+{% block title %}Eliminar Rutina{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <h2 class="mb-4 text-danger">¿Eliminar rutina?</h2>
+    <p>¿Estás seguro de que querés eliminar la rutina 
+       <strong>{{ rutina.get_estructura_display }}</strong> 
+       de {{ rutina.member.nombre_apellido }}?</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">
+            <i class="bi bi-trash"></i> Eliminar
+        </button>
+        <a href="{% url 'rutina_cliente' rutina.member.id %}" class="btn btn-secondary">
+            ⬅ Cancelar
+        </a>
+    </form>
+</div>
+{% endblock %}

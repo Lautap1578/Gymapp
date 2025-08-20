@@ -1,0 +1,12 @@
+{% extends 'gymapp/base.html' %}
+{% block title %}Eliminar Socio{% endblock %}
+{% block content %}
+<div class="card shadow rounded p-4 mx-auto" style="max-width:600px;">
+    <h3>¿Seguro que querés eliminar a <span class="text-danger">{{ member.nombre }} {{ member.apellido }}</span>?</h3>
+    <form method="post" class="mt-3">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Sí, eliminar</button>
+        <a href="{% url 'member_list' %}" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,66 @@
+/* Contenedor general de la lista */
+.container h2 {
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+/* Tabla */
+.table {
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+/* Encabezados */
+.table thead th {
+    background: linear-gradient(135deg, #2c3e50, #34495e);
+    color: #f8f9fa !important;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Filas */
+.table tbody tr {
+    transition: background-color 0.2s ease-in-out;
+}
+.table tbody tr:hover {
+    background-color: #f2f6fc;
+}
+
+/* Texto dentro de la tabla */
+.table td {
+    vertical-align: middle;
+    color: #2c3e50;
+}
+
+/* Badges */
+.badge {
+    font-size: 0.9rem;
+    padding: 6px 12px;
+    border-radius: 8px;
+}
+
+/* Botones de acción */
+.table a.btn {
+    margin: 0 3px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    transition: transform 0.1s ease-in-out;
+}
+.table a.btn:hover {
+    transform: scale(1.05);
+}
+
+/* Input búsqueda lista de socios */
+.container form input.form-control {
+    background-color: #2c3e50 !important;  /* fondo gris oscuro */
+    color: #fff !important;               /* texto blanco */
+    border: 1px solid #444 !important;
+}
+
+/* Placeholder */
+.container form input.form-control::placeholder {
+    color: #ccc !important;
+}

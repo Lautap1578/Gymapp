@@ -1,0 +1,74 @@
+{% extends "gymapp/base.html" %}
+{% load widget_tweaks %}
+{% block title %}Agregar Socio{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-center align-items-center" style="min-height: 90vh;">
+<div class="card shadow-lg rounded-4 p-4" style="width: 100%; max-width: 560px; border: none;">
+<h2 class="mb-4 text-center" style="letter-spacing:1px; font-weight:700;">Agregar nuevo socio</h2>
+<form autocomplete="off" method="post">
+            {% csrf_token %}
+            
+<div class="mb-3">
+<label class="form-label" for="id_dni">DNI</label>
+{{ form.dni|add_class:"form-control" }}
+</div>
+
+<div class="mb-3">
+<label class="form-label" for="id_nombre_apellido">Nombre y apellido</label>
+                {{ form.nombre_apellido|add_class:"form-control" }}
+            </div>
+<div class="mb-3">
+<label class="form-label" for="id_telefono">Teléfono</label>
+                {{ form.telefono|add_class:"form-control" }}
+            </div>
+<div class="mb-3">
+<label class="form-label" for="id_direccion">Dirección</label>
+                {{ form.direccion|add_class:"form-control" }}
+            </div>
+<div class="mb-3">
+<label class="form-label" for="id_gmail">Gmail</label>
+                {{ form.gmail|add_class:"form-control" }}
+            {% for error in form.gmail.errors %}<div class="text-danger small">{{ error }}</div>{% endfor %}</div>
+<div class="mb-3">
+<label class="form-label" for="id_edad">Edad</label>
+                {{ form.edad|add_class:"form-control" }}
+            </div>
+<hr/>
+<div class="mb-3">
+<label class="form-label" for="id_historial_deportivo">Historial deportivo</label>
+                {{ form.historial_deportivo|add_class:"form-control" }}
+                <div class="form-text">¿Hizo deportes antes? ¿Cuáles?</div>
+</div>
+<div class="mb-3">
+<label class="form-label" for="id_experiencias_gimnasios">Experiencias en gimnasios</label>
+                {{ form.experiencias_gimnasios|add_class:"form-control" }}
+                <div class="form-text">¿Ya entrenó en gimnasios?</div>
+</div>
+<div class="mb-3">
+<label class="form-label" for="id_historial_lesivo">Historial lesivo</label>
+                {{ form.historial_lesivo|add_class:"form-control" }}
+                <div class="form-text">Lesiones previas, operaciones, etc.</div>
+</div>
+<div class="mb-3">
+<label class="form-label" for="id_enfermedades">Enfermedades</label>
+                {{ form.enfermedades|add_class:"form-control" }}
+                <div class="form-text">¿Alguna enfermedad relevante?</div>
+</div>
+<div class="mb-3">
+<label class="form-label" for="id_objetivos">Objetivos</label>
+                {{ form.objetivos|add_class:"form-control" }}
+                <div class="form-text">¿Qué busca lograr en el gimnasio?</div>
+</div>
+<div class="mb-3">
+<label class="form-label" for="id_frecuencia_semana">Frecuencia por semana</label>
+                {{ form.frecuencia_semana|add_class:"form-control" }}
+                <div class="form-text">¿Cuántos días por semana piensa venir?</div>
+</div>
+<div class="d-flex justify-content-between mt-4">
+<button class="btn btn-success btn-lg px-4 rounded-4" type="submit">Agregar</button>
+<a class="btn btn-outline-secondary btn-lg px-4 rounded-4" href="{% url 'member_list' %}">Volver</a>
+</div>
+</form>
+</div>
+</div>
+{% endblock %}

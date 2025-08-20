@@ -1,0 +1,56 @@
+input, textarea, select {
+    color: #f8f9fa !important;
+    background-color: rgba(255, 255, 255, 0.07) !important;
+    border-color: #666;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #ccc !important;
+    opacity: 0.8;
+}
+
+
+.form-text {
+    color: #f8f9fa !important;  /* blanco claro */
+    opacity: 0.8;
+}
+
+
+/* Botones de acción redondos y de tamaño fijo */
+.circle-btn {
+  width: 2.2rem !important;
+  height: 2.2rem !important;
+  padding: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+
+/* Aplica Montserrat a todo el sitio */
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Seguimos con tus estilos originales */
+.card {
+    border-radius: 1.5rem;
+}
+.btn {
+    border-radius: 2rem;
+}
+.table {
+    border-radius: 1.5rem;
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+.navbar {
+    border-radius: 0 0 1.5rem 1.5rem;
+}
+
+
+/* Estilo especial para el input de búsqueda de socio */
+form input[name="q"] {
+    color: #000 !important;
+}

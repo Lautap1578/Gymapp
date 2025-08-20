@@ -1,0 +1,10355 @@
+[
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1,
+    "fields": {
+      "nombre": "1/2 SENT C/FB 1PP ISO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 2,
+    "fields": {
+      "nombre": "1/2 SENT C/FB 2PP ISO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 3,
+    "fields": {
+      "nombre": "1/2 VITALIZACION"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 4,
+    "fields": {
+      "nombre": "1/2 VITALIZACION + ABD PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 5,
+    "fields": {
+      "nombre": "1/2 VITALIZACION + TENS FRONT"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 6,
+    "fields": {
+      "nombre": "1/2 VITALIZACION + TENS LAT"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 7,
+    "fields": {
+      "nombre": "1/2 VITALIZACION + TENS POST"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 8,
+    "fields": {
+      "nombre": "1/2 VITALIZACION 1BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 9,
+    "fields": {
+      "nombre": "1/2 VITALIZACION 1BB S/1/2 ESF"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 10,
+    "fields": {
+      "nombre": "1/2 VITALIZACION 1BB- 1PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 11,
+    "fields": {
+      "nombre": "1/2 VITALIZACION 1BB- 2PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 12,
+    "fields": {
+      "nombre": "1/2 VITALIZACION 1PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 13,
+    "fields": {
+      "nombre": "1/2 VITALIZACION 1PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 14,
+    "fields": {
+      "nombre": "1/2 VITALIZACION 2PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 15,
+    "fields": {
+      "nombre": "1/2 VITALIZACION COMBINADA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 16,
+    "fields": {
+      "nombre": "1PP E-C C OBSTAC."
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 17,
+    "fields": {
+      "nombre": "1PP ESCALERA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 18,
+    "fields": {
+      "nombre": "1PPCUADRILATERO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 19,
+    "fields": {
+      "nombre": "2DO TPO FRANCES 1BB C/BARRA PTA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 20,
+    "fields": {
+      "nombre": "2DO TPO FRANCES C/BARRA DELANTE"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 21,
+    "fields": {
+      "nombre": "2DO TPO FRANCES C/BARRA DETRAS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 22,
+    "fields": {
+      "nombre": "2DO TPO FRANCES C/M 1BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 23,
+    "fields": {
+      "nombre": "2DO TPO FRANCES C/M 2BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 24,
+    "fields": {
+      "nombre": "2DO TPO POR DELANTE CHINO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 25,
+    "fields": {
+      "nombre": "2DO TPO POT 1BB C/BARRA PTA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 26,
+    "fields": {
+      "nombre": "2DO TPO POT 1BB C/M"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 27,
+    "fields": {
+      "nombre": "2DO TPO POT 1BB-1PP C/M"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 28,
+    "fields": {
+      "nombre": "2DO TPO POT 2BB C/M"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 29,
+    "fields": {
+      "nombre": "2DO TPO POT 2BB-1PP C/M"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 30,
+    "fields": {
+      "nombre": "2DO TPO POT C/BARRA DELANTE DETRAS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 31,
+    "fields": {
+      "nombre": "2DO TPO POT C/BARRA DETRAS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 32,
+    "fields": {
+      "nombre": "2DO TPO POT C/BARRA PTA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 33,
+    "fields": {
+      "nombre": "ABD C/BANDA ACOSTADA/O"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 34,
+    "fields": {
+      "nombre": "ABD C/BANDA DE PIE + ACTIVIDAD"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 35,
+    "fields": {
+      "nombre": "ABD C/BANDA PARADA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 36,
+    "fields": {
+      "nombre": "ABD C/DISCO ACOSTADA/O"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 37,
+    "fields": {
+      "nombre": "ABD C/DISCO INCLINADA/O"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 38,
+    "fields": {
+      "nombre": "ABD POLEA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 39,
+    "fields": {
+      "nombre": "ABD POLEA ACOSTADA/O"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 40,
+    "fields": {
+      "nombre": "ABD TOBILLERA BCO. ALTO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 41,
+    "fields": {
+      "nombre": "ABD-ADU DE BB BALISTICO PARADA/O"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 42,
+    "fields": {
+      "nombre": "ABDOMINALES – CON MOVIMIENTO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 43,
+    "fields": {
+      "nombre": "ABDUCCION PP C/BANDA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 44,
+    "fields": {
+      "nombre": "ABDUCIR DEDOS CON RESISTENCIA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 45,
+    "fields": {
+      "nombre": "ABS + ABDUCTORES"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 46,
+    "fields": {
+      "nombre": "ABS + ABDUCTORES + ISQUIO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 47,
+    "fields": {
+      "nombre": "ABS + ADUCTORES"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 48,
+    "fields": {
+      "nombre": "ABS + ADUCTORES + ISQUIO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 49,
+    "fields": {
+      "nombre": "ABS + ISQUIO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 50,
+    "fields": {
+      "nombre": "ABS 1BB RESIST. C/ELAST - 1BB RESIST. C/M"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 51,
+    "fields": {
+      "nombre": "ABS 200° DE PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 52,
+    "fields": {
+      "nombre": "ABS 200° DE PP A 45°"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 53,
+    "fields": {
+      "nombre": "ABS ACEL 1BB C/PESO + 1PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 54,
+    "fields": {
+      "nombre": "ABS ACEL 1BB C/PESO + 1PP ABD"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 55,
+    "fields": {
+      "nombre": "ABS ACEL 1BB C/PESO + 1PP ADUCC"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 56,
+    "fields": {
+      "nombre": "ABS ACEL 1BB C/PESO + 1PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 57,
+    "fields": {
+      "nombre": "ABS ACEL 1BB C/PESO + 2PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 58,
+    "fields": {
+      "nombre": "ABS ACEL 1BB C/PESO PP ASIM."
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 59,
+    "fields": {
+      "nombre": "ABS ACEL 1BB COMBINADOS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 60,
+    "fields": {
+      "nombre": "ABS ACEL C/PESO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 61,
+    "fields": {
+      "nombre": "ABS ACEL C/PESO + 1PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 62,
+    "fields": {
+      "nombre": "ABS ACEL C/PESO + 1PP ABD"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 63,
+    "fields": {
+      "nombre": "ABS ACEL C/PESO + 1PP ADUCC"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 64,
+    "fields": {
+      "nombre": "ABS ACEL C/PESO + 1PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 65,
+    "fields": {
+      "nombre": "ABS ACEL C/PESO + 2PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 66,
+    "fields": {
+      "nombre": "ABS ACEL C/PESO PP ASIM."
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 67,
+    "fields": {
+      "nombre": "ABS ACEL COMBINADOS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 68,
+    "fields": {
+      "nombre": "ABS ASIST-RESIST C/PESO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 69,
+    "fields": {
+      "nombre": "ABS ASIST-RESIST. 1BB C/PESO + 1PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 70,
+    "fields": {
+      "nombre": "ABS ASIST-RESIST. 1BB C/PESO + 1PP ABD"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 71,
+    "fields": {
+      "nombre": "ABS ASIST-RESIST. 1BB C/PESO + 1PP ADUCC"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 72,
+    "fields": {
+      "nombre": "ABS ASIST-RESIST. 1BB C/PESO + 1PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 73,
+    "fields": {
+      "nombre": "ABS ASIST-RESIST. 1BB C/PESO + 2PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 74,
+    "fields": {
+      "nombre": "ABS ASIST-RESIST. 1BB C/PESO COMB."
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 75,
+    "fields": {
+      "nombre": "ABS ASIST-RESIST. C/PESO + 1PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 76,
+    "fields": {
+      "nombre": "ABS ASIST-RESIST. C/PESO + 1PP ABD"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 77,
+    "fields": {
+      "nombre": "ABS ASIST-RESIST. C/PESO + 1PP ADUCC"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 78,
+    "fields": {
+      "nombre": "ABS ASIST-RESIST. C/PESO + 1PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 79,
+    "fields": {
+      "nombre": "ABS ASIST-RESIST. C/PESO + 2PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 80,
+    "fields": {
+      "nombre": "ABS ASIST-RESIST. C/PESO COMBINADOS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 81,
+    "fields": {
+      "nombre": "ABS BCO 45°"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 82,
+    "fields": {
+      "nombre": "ABS BCO 45° PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 83,
+    "fields": {
+      "nombre": "ABS C/PESO X DETRÁS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 84,
+    "fields": {
+      "nombre": "ABS COLGADO/A + FLEX-EXT PP C/ELAST"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 85,
+    "fields": {
+      "nombre": "ABS COLGADO/A ISO 1PP + 1PP CONTRACC."
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 86,
+    "fields": {
+      "nombre": "ABS COLGADO/A PP ESTIRADAS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 87,
+    "fields": {
+      "nombre": "ABS COLGADO/A PP ESTIRADAS + ABDUC"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 88,
+    "fields": {
+      "nombre": "ABS COLGADO/A PP ESTIRADAS + ADUCC"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 89,
+    "fields": {
+      "nombre": "ABS COLGADO/A RELOJ"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 90,
+    "fields": {
+      "nombre": "ABS COLGADO/A ROD PECHO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 91,
+    "fields": {
+      "nombre": "ABS COMBINADOS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 92,
+    "fields": {
+      "nombre": "ABS COMPLETOS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 93,
+    "fields": {
+      "nombre": "ABS COMPLETOS + 1PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 94,
+    "fields": {
+      "nombre": "ABS COMPLETOS + 1PP ABD"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 95,
+    "fields": {
+      "nombre": "ABS COMPLETOS + 1PP ADUCC"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 96,
+    "fields": {
+      "nombre": "ABS COMPLETOS + 1PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 97,
+    "fields": {
+      "nombre": "ABS COMPLETOS + 2PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 98,
+    "fields": {
+      "nombre": "ABS COMPLETOS COMBINADOS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 99,
+    "fields": {
+      "nombre": "ABS COMPLETOS PP ASIM"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 100,
+    "fields": {
+      "nombre": "ABS EN POLEA DE PIE POS. 90°"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 101,
+    "fields": {
+      "nombre": "ABS EN POLEA DE RODILLAS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 102,
+    "fields": {
+      "nombre": "ABS EN POLEA ROD. POS. 90°"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 103,
+    "fields": {
+      "nombre": "ABS MCGILL"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 104,
+    "fields": {
+      "nombre": "ABS MCGILL 1PP ABDUC"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 105,
+    "fields": {
+      "nombre": "ABS MCGILL 1PP ADUCC"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 106,
+    "fields": {
+      "nombre": "ABS MCGILL C/PESO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 107,
+    "fields": {
+      "nombre": "ABS RESIST. C/ELAST."
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 108,
+    "fields": {
+      "nombre": "ABS RESIST. C/ELAST. 1BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 109,
+    "fields": {
+      "nombre": "ABS RESIST. C/M 1BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 110,
+    "fields": {
+      "nombre": "ABS RESIST. C/M 1BB + 1PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 111,
+    "fields": {
+      "nombre": "ABS RESIST. C/M 1BB + 1PP ABD"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 112,
+    "fields": {
+      "nombre": "ABS RESIST. C/M 1BB + 1PP ADUCC"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 113,
+    "fields": {
+      "nombre": "ABS RESIST. C/M 1BB + 1PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 114,
+    "fields": {
+      "nombre": "ABS RESIST. C/M 1BB + 2PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 115,
+    "fields": {
+      "nombre": "ABS RESIST. C/M 1BB + PP ASIM."
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 116,
+    "fields": {
+      "nombre": "ABS RESIST. C/PESO + 1PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 117,
+    "fields": {
+      "nombre": "ABS RESIST. C/PESO + 1PP ABD"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 118,
+    "fields": {
+      "nombre": "ABS RESIST. C/PESO + 1PP ADUCC"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 119,
+    "fields": {
+      "nombre": "ABS RESIST. C/PESO + 1PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 120,
+    "fields": {
+      "nombre": "ABS RESIST. C/PESO + 2PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 121,
+    "fields": {
+      "nombre": "ABS RESIST. C/PESO COMBINADOS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 122,
+    "fields": {
+      "nombre": "ABS RESISTIDOS C/PESO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 123,
+    "fields": {
+      "nombre": "ACTIVACION"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 124,
+    "fields": {
+      "nombre": "ADUCC C/BANDA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 125,
+    "fields": {
+      "nombre": "ADUCC C/POLEA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 126,
+    "fields": {
+      "nombre": "ADUCC C/TOBILLERA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 127,
+    "fields": {
+      "nombre": "ADUCC ISOMETRICA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 128,
+    "fields": {
+      "nombre": "ADUCCION PP C/OBJ EN ISOM."
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 129,
+    "fields": {
+      "nombre": "ADUCIR DEDOS CON RESISTENCIA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 130,
+    "fields": {
+      "nombre": "AEROBICO GRAL"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 131,
+    "fields": {
+      "nombre": "AMPLITUD ARTICULAR DE HOMBROS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 132,
+    "fields": {
+      "nombre": "ANTI ROTACIONES"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 133,
+    "fields": {
+      "nombre": "ANTIROTACION HOMB C/POLEA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 134,
+    "fields": {
+      "nombre": "APER C/MANCUERNAS DECLINADAS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 135,
+    "fields": {
+      "nombre": "APER C/MANCUERNAS INCLINADAS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 136,
+    "fields": {
+      "nombre": "APER C/MANCUERNAS PLANAS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 137,
+    "fields": {
+      "nombre": "APER C/MANCUERNAS S/FB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 138,
+    "fields": {
+      "nombre": "APERTURAS MAQUINA INCLINADAS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 139,
+    "fields": {
+      "nombre": "ARRANQUE COORDINADO C/BARRA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 140,
+    "fields": {
+      "nombre": "ARRANQUE DE FZA C/BARRA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 141,
+    "fields": {
+      "nombre": "ARRANQUE FRANCES ALTERNO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 142,
+    "fields": {
+      "nombre": "ARRANQUE FRANCES C/BARRA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 143,
+    "fields": {
+      "nombre": "ARRANQUE FRANCES C/M"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 144,
+    "fields": {
+      "nombre": "ARRANQUE FZA 1BB C/M ESTRICTO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 145,
+    "fields": {
+      "nombre": "ARRANQUE FZA 1BB DE ROD"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 146,
+    "fields": {
+      "nombre": "ARRANQUE FZA 1BB DE ROD 1PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 147,
+    "fields": {
+      "nombre": "ARRANQUE FZA 1BB DE ROD 2PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 148,
+    "fields": {
+      "nombre": "ARRANQUE FZA 2BB C/M ESTRICTO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 149,
+    "fields": {
+      "nombre": "ARRANQUE FZA 2BB DE ROD"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 150,
+    "fields": {
+      "nombre": "ARRANQUE FZA 2BB DE ROD 1PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 151,
+    "fields": {
+      "nombre": "ARRANQUE FZA 2BB DE ROD 2PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 152,
+    "fields": {
+      "nombre": "ARRANQUE POT 1BB C/M"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 153,
+    "fields": {
+      "nombre": "ARRANQUE POT 1BB-1PP C/M"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 154,
+    "fields": {
+      "nombre": "ARRANQUE POT 2BB C/M"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 155,
+    "fields": {
+      "nombre": "ARRANQUE POT C/BARRA (INGLE)"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 156,
+    "fields": {
+      "nombre": "B DIAS C/B 1PP ASIMETRICO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 157,
+    "fields": {
+      "nombre": "B DIAS C/B 2PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 158,
+    "fields": {
+      "nombre": "B DIAS C/B EN SMITH"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 159,
+    "fields": {
+      "nombre": "B DIAS C/B MÁQ. LUMB."
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 160,
+    "fields": {
+      "nombre": "BARQUITO ALTO ISOM"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 161,
+    "fields": {
+      "nombre": "BARQUITO BAJO ISOM"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 162,
+    "fields": {
+      "nombre": "BI + PRESS ALTERNO DE RODILLAS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 163,
+    "fields": {
+      "nombre": "BI + PRESS ALTERNO DE RODILLAS S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 164,
+    "fields": {
+      "nombre": "BI + PRESS ARNOLD"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 165,
+    "fields": {
+      "nombre": "BI + PRESS ARNOLD ALTERNO STDO/A S/ FB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 166,
+    "fields": {
+      "nombre": "BI + PRESS ARNOLD S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 167,
+    "fields": {
+      "nombre": "BI + PRESS ARNOLD SENTADO S/ FB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 168,
+    "fields": {
+      "nombre": "BI + VUELO ALTERNO DE RODILLAS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 169,
+    "fields": {
+      "nombre": "BICEPS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 170,
+    "fields": {
+      "nombre": "BICHITO MUERTO  ALTERNADO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 171,
+    "fields": {
+      "nombre": "BICHITO MUERTO C/ELAST BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 172,
+    "fields": {
+      "nombre": "BICHITO MUERTO C/ELAST BB-PP ALTDO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 173,
+    "fields": {
+      "nombre": "BICHITO MUERTO C/ELAST BB-PP DOBLE"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 174,
+    "fields": {
+      "nombre": "BICHITO MUERTO C/ELAST PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 175,
+    "fields": {
+      "nombre": "BICHITO MUERTO C/M 1BB-1BB ISOM."
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 176,
+    "fields": {
+      "nombre": "BICHITO MUERTO C/M 1BB-1PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 177,
+    "fields": {
+      "nombre": "BICHITO MUERTO C/M ALTDO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 178,
+    "fields": {
+      "nombre": "BICHITO MUERTO C/PESO ISOM"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 179,
+    "fields": {
+      "nombre": "BICHITO MUERTO DOBLE C/DISCO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 180,
+    "fields": {
+      "nombre": "BICICLETA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 181,
+    "fields": {
+      "nombre": "BISAGRAS ACOST ALTERNADA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 182,
+    "fields": {
+      "nombre": "BISAGRAS ANTB – PP C/PAÑO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 183,
+    "fields": {
+      "nombre": "BISAGRAS BB EXT – PP C/PAÑO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 184,
+    "fields": {
+      "nombre": "BISAGRAS DOBLES ACOST"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 185,
+    "fields": {
+      "nombre": "BULGARA C/BARRA EXTENSIÓN PP ATRÁS S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 186,
+    "fields": {
+      "nombre": "BULGARA C/BARRA EXTENSIÓN S/20CM"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 187,
+    "fields": {
+      "nombre": "BULGARA C/BARRA EXTENSIÓN S/40CM"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 188,
+    "fields": {
+      "nombre": "BULGARA C/BARRA PP ATRÁS S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 189,
+    "fields": {
+      "nombre": "BULGARA C/BARRA S/20CM"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 190,
+    "fields": {
+      "nombre": "BULGARA C/BARRA S/40CM"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 191,
+    "fields": {
+      "nombre": "BULGARA C/M 1BB EXT. PP ATRÁS S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 192,
+    "fields": {
+      "nombre": "BULGARA C/M 1BB EXTENSIÓN S/20CM"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 193,
+    "fields": {
+      "nombre": "BULGARA C/M 1BB EXTENSIÓN S/40CM"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 194,
+    "fields": {
+      "nombre": "BULGARA C/M 1BB S/20CM"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 195,
+    "fields": {
+      "nombre": "BULGARA C/M 1BB S/40CM"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 196,
+    "fields": {
+      "nombre": "BULGARA C/M 2BB EXT. PP ATRÁS S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 197,
+    "fields": {
+      "nombre": "BULGARA C/M 2BB EXTENSIÓN S/20CM"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 198,
+    "fields": {
+      "nombre": "BULGARA C/M 2BB EXTENSIÓN S/40CM"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 199,
+    "fields": {
+      "nombre": "BULGARA C/M 2BB S/20CM"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 200,
+    "fields": {
+      "nombre": "BULGARA C/M 2BB S/40CM"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 201,
+    "fields": {
+      "nombre": "BULGARA C/M HOMBRO 1BB S/20CM"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 202,
+    "fields": {
+      "nombre": "BULGARA C/M HOMBRO 1BB S/40CM"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 203,
+    "fields": {
+      "nombre": "BULGARA C/M HOMBRO 2BB S/20CM"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 204,
+    "fields": {
+      "nombre": "BULGARA C/M HOMBRO 2BB S/40CM"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 205,
+    "fields": {
+      "nombre": "BULGARA C/M PP ATRÁS S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 206,
+    "fields": {
+      "nombre": "BULGARA EN SMITH S/20CM"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 207,
+    "fields": {
+      "nombre": "BULGARA EN SMITH S/40CM"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 208,
+    "fields": {
+      "nombre": "CAMINATA LAT + 1/2 SENT"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 209,
+    "fields": {
+      "nombre": "CARGADA + 2DO TPO FRANCES C/BARRA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 210,
+    "fields": {
+      "nombre": "CARGADA C/BARRA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 211,
+    "fields": {
+      "nombre": "CARGADA DE POT C/BARRA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 212,
+    "fields": {
+      "nombre": "CARGADA FRANCESA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 213,
+    "fields": {
+      "nombre": "CARGADA POT 1/2 MUSLO C/BARRA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 214,
+    "fields": {
+      "nombre": "CARGADA POT A 1PP C/BARRA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 215,
+    "fields": {
+      "nombre": "CARGADA POT A 1PP C/BARRA (C/ELAS-FRONTAL-LATERAL)"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 216,
+    "fields": {
+      "nombre": "CINTA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 217,
+    "fields": {
+      "nombre": "CIRCUNDUCCIONES BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 218,
+    "fields": {
+      "nombre": "CONEJITO S/FB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 219,
+    "fields": {
+      "nombre": "CONEJITO S/FB 1PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 220,
+    "fields": {
+      "nombre": "CONEJITO TRX"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 221,
+    "fields": {
+      "nombre": "CONEJITO TRX + EXT BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 222,
+    "fields": {
+      "nombre": "CONEJITO TRX 1PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 223,
+    "fields": {
+      "nombre": "CONEJITO TRX 3 POS+ EXT."
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 224,
+    "fields": {
+      "nombre": "COORDINATIVOS/SALTOS AL CAJÓN"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 225,
+    "fields": {
+      "nombre": "CORRALITOS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 226,
+    "fields": {
+      "nombre": "CORRALITOS H Q"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 227,
+    "fields": {
+      "nombre": "CRUCES EN POLEA ACOSTADO/A"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 228,
+    "fields": {
+      "nombre": "CRUCES EN POLEA INCLINADAS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 229,
+    "fields": {
+      "nombre": "CRUCES EN POLEA PLANAS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 230,
+    "fields": {
+      "nombre": "CRUNCH CRUZADO COLGADO/A"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 231,
+    "fields": {
+      "nombre": "CUAD LUMB EN COLCHONETA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 232,
+    "fields": {
+      "nombre": "CUADRICEPS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 233,
+    "fields": {
+      "nombre": "CUADRICEPS MAQ ISOM 1PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 234,
+    "fields": {
+      "nombre": "CUADRICEPS MAQ ISOM 2PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 235,
+    "fields": {
+      "nombre": "CUADRICEPS MAQ ISOM 3 POS 10+10+10"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 236,
+    "fields": {
+      "nombre": "CUADRICERA 1P"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 237,
+    "fields": {
+      "nombre": "CUADRICERA 2P"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 238,
+    "fields": {
+      "nombre": "CUADRILATERO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 239,
+    "fields": {
+      "nombre": "CUATRO PERFILES C/ELÁST. SENTADO/A"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 240,
+    "fields": {
+      "nombre": "CURL ARAÑA C/M"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 241,
+    "fields": {
+      "nombre": "CURL ARAÑA EN POLEA 1BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 242,
+    "fields": {
+      "nombre": "CURL ARAÑA EN POLEA 2BB C/B"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 243,
+    "fields": {
+      "nombre": "CURL DE BICEPS  B/EZ"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 244,
+    "fields": {
+      "nombre": "CURL DE BICEPS  B/ROMANA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 245,
+    "fields": {
+      "nombre": "CURL DE BICEPS BCO SCOTT POLEA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 246,
+    "fields": {
+      "nombre": "CURL DE BICEPS BCO SCOTT POLEA 1BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 247,
+    "fields": {
+      "nombre": "CURL DE BICEPS C/B EZ BCO SCOTT"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 248,
+    "fields": {
+      "nombre": "CURL DE BICEPS C/B RECTA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 249,
+    "fields": {
+      "nombre": "CURL DE BICEPS C/B RECTA BCO SCOTT"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 250,
+    "fields": {
+      "nombre": "CURL DE BICEPS C/M ALTERNADO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 251,
+    "fields": {
+      "nombre": "CURL DE BICEPS C/M BCO 45°"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 252,
+    "fields": {
+      "nombre": "CURL DE BICEPS C/M BCO SCOTT 1BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 253,
+    "fields": {
+      "nombre": "CURL DE BICEPS C/M BCO SCOTT 2BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 254,
+    "fields": {
+      "nombre": "CURL DE BICEPS C/M CONCENTRADO 1BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 255,
+    "fields": {
+      "nombre": "CURL DE BICEPS C/M DOBLE"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 256,
+    "fields": {
+      "nombre": "CURL DE BICEPS C/M MARTILLO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 257,
+    "fields": {
+      "nombre": "CURL DE BICEPS C/M MARTILLO + ACTV."
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 258,
+    "fields": {
+      "nombre": "CURL DE BICEPS C/M MARTILLO BCO 45°"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 259,
+    "fields": {
+      "nombre": "CURL DE BICEPS EN POLEA C/B EZ"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 260,
+    "fields": {
+      "nombre": "CURL DE BICEPS EN POLEA C/B RECTA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 261,
+    "fields": {
+      "nombre": "CURL DE BICEPS EN POLEA C/SOGA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 262,
+    "fields": {
+      "nombre": "CURL DE BICEPS POLEA 1BB POR DELANTE"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 263,
+    "fields": {
+      "nombre": "CURL DE BICEPS POLEA 1BB POR DETRAS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 264,
+    "fields": {
+      "nombre": "CURL DE BICEPS POLEA 2BB DOBLE"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 265,
+    "fields": {
+      "nombre": "CURL DE ISQUIOS ACOSTADO/A 1P"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 266,
+    "fields": {
+      "nombre": "CURL DE ISQUIOS ACOSTADO/A 2P"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 267,
+    "fields": {
+      "nombre": "CURL DE ISQUIOS PARADO/A 1P"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 268,
+    "fields": {
+      "nombre": "CURL NORDICO 1PP (IDA Y VUEL)"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 269,
+    "fields": {
+      "nombre": "CURL NORDICO 2PP (IDA Y VUEL)"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 270,
+    "fields": {
+      "nombre": "DELTOIDES"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 271,
+    "fields": {
+      "nombre": "DER. LEV. OLÍMPICO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 272,
+    "fields": {
+      "nombre": "DESC NORDICO 1PP EXCEN"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 273,
+    "fields": {
+      "nombre": "DESCENSO ATRÁS S/STEP C/MANC"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 274,
+    "fields": {
+      "nombre": "DESCENSO DE 1PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 275,
+    "fields": {
+      "nombre": "DESCENSO DE PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 276,
+    "fields": {
+      "nombre": "DESCENSO DE PP EN 1TPOS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 277,
+    "fields": {
+      "nombre": "DESCENSO DE PP EN 2TPOS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 278,
+    "fields": {
+      "nombre": "DESCENSO NORDICO 2PP EXCEN"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 279,
+    "fields": {
+      "nombre": "DETENTE INST ASISTIDO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 280,
+    "fields": {
+      "nombre": "DETENTE INST CPO BCO."
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 281,
+    "fields": {
+      "nombre": "DETENTE INST CPO SUELO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 282,
+    "fields": {
+      "nombre": "DETENTE INST CPO/FB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 283,
+    "fields": {
+      "nombre": "DETENTE INST PEGANDO EN FB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 284,
+    "fields": {
+      "nombre": "DLP/DLO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 285,
+    "fields": {
+      "nombre": "DOMINADAS ASIST C/ELAST NEUTRAS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 286,
+    "fields": {
+      "nombre": "DOMINADAS ASIST C/ELAST PRONAS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 287,
+    "fields": {
+      "nombre": "DOMINADAS ASIST C/ELAST SUPINAS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 288,
+    "fields": {
+      "nombre": "DOMINADAS ASISTIDAS EN MAQUINA NEUTRAS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 289,
+    "fields": {
+      "nombre": "DOMINADAS ASISTIDAS EN MAQUINA PRONAS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 290,
+    "fields": {
+      "nombre": "DOMINADAS ASISTIDAS EN MAQUINA SUPINAS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 291,
+    "fields": {
+      "nombre": "DOMINADAS C/LASTRE NEUTRAS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 292,
+    "fields": {
+      "nombre": "DOMINADAS C/LASTRE PRONAS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 293,
+    "fields": {
+      "nombre": "DOMINADAS C/LASTRE SUPINAS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 294,
+    "fields": {
+      "nombre": "DOMINADAS EXCENTRICAS NEUTRAS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 295,
+    "fields": {
+      "nombre": "DOMINADAS EXCENTRICAS PRONAS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 296,
+    "fields": {
+      "nombre": "DOMINADAS EXCENTRICAS SUPINAS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 297,
+    "fields": {
+      "nombre": "DOMINADAS NEUTRAS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 298,
+    "fields": {
+      "nombre": "DOMINADAS PRONAS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 299,
+    "fields": {
+      "nombre": "DOMINADAS PRONAS ASIST PP S/1STEP ROD EXT"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 300,
+    "fields": {
+      "nombre": "DOMINADAS PRONAS ASIST PP S/2STEP ROD EXT"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 301,
+    "fields": {
+      "nombre": "DOMINADAS PRONAS ASIST PP S/2STEP ROD FLEX"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 302,
+    "fields": {
+      "nombre": "DOMINADAS PRONAS ASIST S/2STEP ROD FLEX"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 303,
+    "fields": {
+      "nombre": "DOMINADAS RESIST C/ELAST NEUTRAS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 304,
+    "fields": {
+      "nombre": "DOMINADAS RESIST C/ELAST PRONAS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 305,
+    "fields": {
+      "nombre": "DOMINADAS RESIST C/ELAST SUP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 306,
+    "fields": {
+      "nombre": "DOMINADAS SUPINAS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 307,
+    "fields": {
+      "nombre": "DOMINADAS SUPINAS ASIST PP 1STEP ROD FLEX"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 308,
+    "fields": {
+      "nombre": "DOMINADAS SUPINAS ASIST PP S/1STEP ROD EXT"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 309,
+    "fields": {
+      "nombre": "DOMINADAS SUPINAS ASIST PP S/2STEP ROD EXT"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 310,
+    "fields": {
+      "nombre": "DOMINADAS SUPINAS ASIST PP S/2STEP ROD FLEX"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 311,
+    "fields": {
+      "nombre": "DOMINADAS SUPINAS ASIST SIN STEPS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 312,
+    "fields": {
+      "nombre": "DORSALES"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 313,
+    "fields": {
+      "nombre": "DRAGON FLY 1PP + 1PP COORD."
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 314,
+    "fields": {
+      "nombre": "DRAGON FLY 1PP + 1PP EXT ISO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 315,
+    "fields": {
+      "nombre": "DRAGON FLY 2PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 316,
+    "fields": {
+      "nombre": "DRAGON FLY ADAPTADO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 317,
+    "fields": {
+      "nombre": "ELEV CAD + ABD ISOM 1PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 318,
+    "fields": {
+      "nombre": "ELEV CAD + ABD ISOM 1PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 319,
+    "fields": {
+      "nombre": "ELEV CAD + ABD ISOM 2PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 320,
+    "fields": {
+      "nombre": "ELEV CAD + ABD ISOM 2PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 321,
+    "fields": {
+      "nombre": "ELEV CAD + ADU ISOM 1PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 322,
+    "fields": {
+      "nombre": "ELEV CAD + ADU ISOM 1PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 323,
+    "fields": {
+      "nombre": "ELEV CAD + ADU ISOM 2PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 324,
+    "fields": {
+      "nombre": "ELEV CAD + ADU ISOM 2PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 325,
+    "fields": {
+      "nombre": "ELEV CAD 1PP S/TRX"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 326,
+    "fields": {
+      "nombre": "ELEV CAD 2PP S/TRX"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 327,
+    "fields": {
+      "nombre": "ELEV CAD ALT 2PP-1PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 328,
+    "fields": {
+      "nombre": "ELEV CAD C/B + TENS INT ROD"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 329,
+    "fields": {
+      "nombre": "ELEV CAD C/B + TENS LAT ROD"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 330,
+    "fields": {
+      "nombre": "ELEV CAD C/B 1PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 331,
+    "fields": {
+      "nombre": "ELEV CAD C/B S-STEP (20)"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 332,
+    "fields": {
+      "nombre": "ELEV CAD C/B S/I 1PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 333,
+    "fields": {
+      "nombre": "ELEV CAD C/B S/I 2PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 334,
+    "fields": {
+      "nombre": "ELEV CAD C/BARRA 2PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 335,
+    "fields": {
+      "nombre": "ELEV CAD C/M + ABD 1PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 336,
+    "fields": {
+      "nombre": "ELEV CAD C/M + ABD 1PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 337,
+    "fields": {
+      "nombre": "ELEV CAD C/M + ABD 2PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 338,
+    "fields": {
+      "nombre": "ELEV CAD C/M + ABD 2PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 339,
+    "fields": {
+      "nombre": "ELEV CAD C/M + ADUC 2PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 340,
+    "fields": {
+      "nombre": "ELEV CAD C/M + ADUC 2PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 341,
+    "fields": {
+      "nombre": "ELEV CAD C/M 1PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 342,
+    "fields": {
+      "nombre": "ELEV CAD C/M 1PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 343,
+    "fields": {
+      "nombre": "ELEV CAD C/M 2PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 344,
+    "fields": {
+      "nombre": "ELEV CAD C/M 2PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 345,
+    "fields": {
+      "nombre": "ELEV CAD C/M S-STEP (20)"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 346,
+    "fields": {
+      "nombre": "ELEV CAD C/M S-STEP (40)"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 347,
+    "fields": {
+      "nombre": "ELEV CAD ISOM 1PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 348,
+    "fields": {
+      "nombre": "ELEV CAD ISOM 1PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 349,
+    "fields": {
+      "nombre": "ELEV CAD ISOM 2PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 350,
+    "fields": {
+      "nombre": "ELEV CAD ISOM 2PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 351,
+    "fields": {
+      "nombre": "ELEVACION DE CADERA EXC"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 352,
+    "fields": {
+      "nombre": "ELEVACION DE CADERA EXC C/BARRA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 353,
+    "fields": {
+      "nombre": "ELIPTICO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 354,
+    "fields": {
+      "nombre": "EMP CIELO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 355,
+    "fields": {
+      "nombre": "EMP CIELO + ACTIVIDAD"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 356,
+    "fields": {
+      "nombre": "EMP CIELO + ADBUCTOR"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 357,
+    "fields": {
+      "nombre": "EMP CIELO + ADUCTOR"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 358,
+    "fields": {
+      "nombre": "EMP CIELO C/B + CARGADA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 359,
+    "fields": {
+      "nombre": "EMP CIELO S/I + ABD + CARGADA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 360,
+    "fields": {
+      "nombre": "EMP CIELO S/I + ADUC + CARGADA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 361,
+    "fields": {
+      "nombre": "EMP CIELO S/I+ADBUCTOR"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 362,
+    "fields": {
+      "nombre": "EMP CIELO S/I+ADBUCTOR C/BANDA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 363,
+    "fields": {
+      "nombre": "EMP CIELO S/I+ADUCTOR"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 364,
+    "fields": {
+      "nombre": "EMP CIELO S/I+ADUCTOR C/BANDA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 365,
+    "fields": {
+      "nombre": "EMP FZA 1BB C/B PTA 1PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 366,
+    "fields": {
+      "nombre": "EMP FZA 1BB C/B PTA EN SPLITS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 367,
+    "fields": {
+      "nombre": "EMP FZA 1BB C/BARRA PTA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 368,
+    "fields": {
+      "nombre": "EMP FZA 1BB C/M"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 369,
+    "fields": {
+      "nombre": "EMP FZA 1BB C/M + TENS FRONT"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 370,
+    "fields": {
+      "nombre": "EMP FZA 1BB C/M + TENS LAT"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 371,
+    "fields": {
+      "nombre": "EMP FZA 1BB C/M + TENS POST"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 372,
+    "fields": {
+      "nombre": "EMP FZA 1BB C/M -1PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 373,
+    "fields": {
+      "nombre": "EMP FZA 1BB C/M EN SPLITS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 374,
+    "fields": {
+      "nombre": "EMP FZA 1BB C/M- 1PP + TENS FRONT"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 375,
+    "fields": {
+      "nombre": "EMP FZA 1BB C/M- 1PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 376,
+    "fields": {
+      "nombre": "EMP FZA 1BB C/M-1PP + TENS LAT"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 377,
+    "fields": {
+      "nombre": "EMP FZA 1BB C/M-1PP + TENS POST"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 378,
+    "fields": {
+      "nombre": "EMP FZA 2BB - 2PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 379,
+    "fields": {
+      "nombre": "EMP FZA 2BB C/M"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 380,
+    "fields": {
+      "nombre": "EMP FZA 2BB C/M  + TENS LAT"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 381,
+    "fields": {
+      "nombre": "EMP FZA 2BB C/M + TENS FRONT"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 382,
+    "fields": {
+      "nombre": "EMP FZA 2BB C/M + TENS POST"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 383,
+    "fields": {
+      "nombre": "EMP FZA 2BB C/M - 1PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 384,
+    "fields": {
+      "nombre": "EMP FZA 2BB C/M - 1PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 385,
+    "fields": {
+      "nombre": "EMP FZA 2BB C/M EN SPLITS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 386,
+    "fields": {
+      "nombre": "EMP FZA 2BB C/M EN SPLITS + TENS FRONT"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 387,
+    "fields": {
+      "nombre": "EMP FZA 2BB C/M EN SPLITS + TENS LAT"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 388,
+    "fields": {
+      "nombre": "EMP FZA 2BB C/M EN SPLITS + TENS POST"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 389,
+    "fields": {
+      "nombre": "EMP FZA C/BARRA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 390,
+    "fields": {
+      "nombre": "EMP FZA C/BARRA  PTA. 2BB- 1PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 391,
+    "fields": {
+      "nombre": "EMP FZA C/BARRA 1PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 392,
+    "fields": {
+      "nombre": "EMP FZA C/BARRA 2PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 393,
+    "fields": {
+      "nombre": "EMP HORIZ BB + ABDUCCION PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 394,
+    "fields": {
+      "nombre": "EMP HORIZ BB + ADUCCION PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 395,
+    "fields": {
+      "nombre": "EMP PARED"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 396,
+    "fields": {
+      "nombre": "EMP PARED + 2 PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 397,
+    "fields": {
+      "nombre": "EMP PARED + EMP DISCO HORIZ"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 398,
+    "fields": {
+      "nombre": "EMP PARED + EMP DISCO HORIZ 1PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 399,
+    "fields": {
+      "nombre": "EMP PARED + LEV 1PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 400,
+    "fields": {
+      "nombre": "EMP PARED + LEV PP ALTDO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 401,
+    "fields": {
+      "nombre": "EMP PARED S/I + ABDUCC PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 402,
+    "fields": {
+      "nombre": "EMP PARED S/I + ADUCC PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 403,
+    "fields": {
+      "nombre": "EMP SUELO + APRETAR SOGA ACOST"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 404,
+    "fields": {
+      "nombre": "EMP SUELO + EMP HORIZONTAL 1BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 405,
+    "fields": {
+      "nombre": "EMP SUELO + EMP HORIZONTAL 2BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 406,
+    "fields": {
+      "nombre": "EMP SUELO ISO POS. PUENTE 1PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 407,
+    "fields": {
+      "nombre": "EMP SUELO ISO POS. PUENTE 2PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 408,
+    "fields": {
+      "nombre": "EMP SUELO ISOM"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 409,
+    "fields": {
+      "nombre": "EMPUJE C/BARRA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 410,
+    "fields": {
+      "nombre": "EMPUJE C/MANCUERNAS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 411,
+    "fields": {
+      "nombre": "EMPUJE DE CAD POLEA PARADA/O"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 412,
+    "fields": {
+      "nombre": "EMPUJE DE CAD POLEA SENTADA/O"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 413,
+    "fields": {
+      "nombre": "EMPUJES TORSO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 414,
+    "fields": {
+      "nombre": "ENCOGIMIENTOS DE HOMBROS BCO 15°"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 415,
+    "fields": {
+      "nombre": "ENCOGIMIENTOS DE HOMBROS PARADO/A"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 416,
+    "fields": {
+      "nombre": "EQ 1PP + ACTIVIDAD"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 417,
+    "fields": {
+      "nombre": "EQ. + VUELO LAT"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 418,
+    "fields": {
+      "nombre": "EQ. 1PP S 1/2 ESF. + MOV. TOBILLO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 419,
+    "fields": {
+      "nombre": "EQ. 1PP SUELO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 420,
+    "fields": {
+      "nombre": "EQ. 2PP + ACTIV"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 421,
+    "fields": {
+      "nombre": "EQ. 2PP + RECHAZO C/ELAST"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 422,
+    "fields": {
+      "nombre": "EQ. INEST. 2PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 423,
+    "fields": {
+      "nombre": "EQUILIBRIO 1PP 1/2 ESF"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 424,
+    "fields": {
+      "nombre": "EQUILIBRIO 2PP 1/2 ESF"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 425,
+    "fields": {
+      "nombre": "ESCALERA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 426,
+    "fields": {
+      "nombre": "ESQUIADOR EN POLEA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 427,
+    "fields": {
+      "nombre": "ESTOCADA ADELANTE C/M 1BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 428,
+    "fields": {
+      "nombre": "ESTOCADA ADELANTE C/M 1BB + EMP VERT."
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 429,
+    "fields": {
+      "nombre": "ESTOCADA ADELANTE C/M 2BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 430,
+    "fields": {
+      "nombre": "ESTOCADA ADELANTE C/M 2BB + EMP VERT."
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 431,
+    "fields": {
+      "nombre": "ESTOCADA ADELANTE S/STEP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 432,
+    "fields": {
+      "nombre": "ESTOCADA ADELANTE S/STEP + EMP VERT."
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 433,
+    "fields": {
+      "nombre": "ESTOCADA ATRAS C/M 1BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 434,
+    "fields": {
+      "nombre": "ESTOCADA ATRAS C/M 1BB + EMP VERT"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 435,
+    "fields": {
+      "nombre": "ESTOCADA ATRAS C/M 2BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 436,
+    "fields": {
+      "nombre": "ESTOCADA ATRAS C/M 2BB + EMP VERT"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 437,
+    "fields": {
+      "nombre": "ESTOCADA ATRAS C/M S/STEP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 438,
+    "fields": {
+      "nombre": "ESTOCADA ATRAS C/M S/STEP + EMP VERT."
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 439,
+    "fields": {
+      "nombre": "ESTOCADA EN SMITH"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 440,
+    "fields": {
+      "nombre": "ESTOCADAS S/BOSU"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 441,
+    "fields": {
+      "nombre": "EVERSION DE PIE C/BANDA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 442,
+    "fields": {
+      "nombre": "EVERSIÓN DE PIE C/BANDA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 443,
+    "fields": {
+      "nombre": "EXT DETRAS C/BARRA T PRONA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 444,
+    "fields": {
+      "nombre": "EXT DETRAS C/BARRA T SUPINA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 445,
+    "fields": {
+      "nombre": "EXT DETRAS C/ELAST 1BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 446,
+    "fields": {
+      "nombre": "EXT DETRAS C/ELAST 2BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 447,
+    "fields": {
+      "nombre": "EXT DETRAS C/ELAST ISOM 1BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 448,
+    "fields": {
+      "nombre": "EXT DETRAS C/ELAST ISOM 2BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 449,
+    "fields": {
+      "nombre": "EXT DETRAS C/M ACOSTADO/A 1BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 450,
+    "fields": {
+      "nombre": "EXT DETRAS C/M ACOSTADO/A 2BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 451,
+    "fields": {
+      "nombre": "EXT DETRAS C/M DE PIE 1BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 452,
+    "fields": {
+      "nombre": "EXT DETRAS C/M DE PIE 2BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 453,
+    "fields": {
+      "nombre": "EXT DETRÁS EN SUELO/PARED"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 454,
+    "fields": {
+      "nombre": "EXTENSION + ROT ATRAS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 455,
+    "fields": {
+      "nombre": "EXTENSION + ROT ATRAS ISO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 456,
+    "fields": {
+      "nombre": "EXTENSION DE RODILLA C/BANDA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 457,
+    "fields": {
+      "nombre": "EXTENSION EN POLEA C/ SOGA 1BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 458,
+    "fields": {
+      "nombre": "EXTENSION EN POLEA C/B CURVA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 459,
+    "fields": {
+      "nombre": "EXTENSION EN POLEA C/BARRA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 460,
+    "fields": {
+      "nombre": "EXTENSION EN POLEA C/SOGA 2BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 461,
+    "fields": {
+      "nombre": "EXTENSION EN POLEA T.NUCA 1BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 462,
+    "fields": {
+      "nombre": "EXTENSION EN POLEA T.NUCA 2BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 463,
+    "fields": {
+      "nombre": "EXTENSIONES DE TRICEPS CON BANDAS ELASTICAS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 464,
+    "fields": {
+      "nombre": "EXTENSIONES EN POLEA C/SOGA LARGA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 465,
+    "fields": {
+      "nombre": "EXTENSIÓN DE MUSLO C/TOBILLERA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 466,
+    "fields": {
+      "nombre": "FACEPULL 1BB EN POLEA DE ROD"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 467,
+    "fields": {
+      "nombre": "FACEPULL 1BB EN POLEA PARADO/A"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 468,
+    "fields": {
+      "nombre": "FACEPULL 1BB EN POLEA STDO/A"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 469,
+    "fields": {
+      "nombre": "FACEPULL C/BANDAS RESISTENCIA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 470,
+    "fields": {
+      "nombre": "FACEPULL C/SOGA POLEA ALTA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 471,
+    "fields": {
+      "nombre": "FACEPULL C/SOGA POLEA BAJA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 472,
+    "fields": {
+      "nombre": "FACEPULL C/SOGA POLEA MEDIA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 473,
+    "fields": {
+      "nombre": "FACEPULL C/SOGA POSTERIOR"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 474,
+    "fields": {
+      "nombre": "FLEXION DE HOMBRO EN SUELO/PARED"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 475,
+    "fields": {
+      "nombre": "FLEXION DE MUSLO C/BANDA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 476,
+    "fields": {
+      "nombre": "FLEXION DE MUSLO EN POLEA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 477,
+    "fields": {
+      "nombre": "FLEXION ESCAPULAR"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 478,
+    "fields": {
+      "nombre": "FLEXIONES BB + CBIOS DE BB ESTABLE"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 479,
+    "fields": {
+      "nombre": "FLEXIONES BB + CBIOS DE BB ESTABLE - 1PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 480,
+    "fields": {
+      "nombre": "FLEXIONES BB + CBIOS DE BB ESTABLE - 1PP + COORD"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 481,
+    "fields": {
+      "nombre": "FLEXIONES BB + CBIOS DE BB S/1INEST"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 482,
+    "fields": {
+      "nombre": "FLEXIONES BB + CBIOS DE BB S/2INEST"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 483,
+    "fields": {
+      "nombre": "FLEXIONES BB + CBIOS DE BB S/INEST - 1PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 484,
+    "fields": {
+      "nombre": "FLEXIONES BB - 1BB S/MANC"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 485,
+    "fields": {
+      "nombre": "FLEXIONES BB - 1BB TRACCION"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 486,
+    "fields": {
+      "nombre": "FLEXIONES BB - 1BB TRACCION - 1PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 487,
+    "fields": {
+      "nombre": "FLEXIONES BB - 1BB TRACCIÓN - 1PP + COORD."
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 488,
+    "fields": {
+      "nombre": "FLEXIONES BB - 1PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 489,
+    "fields": {
+      "nombre": "FLEXIONES BB - 1PP + ABD"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 490,
+    "fields": {
+      "nombre": "FLEXIONES BB - 1PP + ABD C/BANDA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 491,
+    "fields": {
+      "nombre": "FLEXIONES BB - 1PP + COORD"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 492,
+    "fields": {
+      "nombre": "FLEXIONES BB - PP S/1 INEST"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 493,
+    "fields": {
+      "nombre": "FLEXIONES BB - PP S/2 INEST"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 494,
+    "fields": {
+      "nombre": "FLEXIONES BB - PP S/INEST + COORD."
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 495,
+    "fields": {
+      "nombre": "FLEXIONES BB 1BB C/PELOTA 1PP S/I - 1PP AIRE"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 496,
+    "fields": {
+      "nombre": "FLEXIONES BB 1BB C/PELOTA 1PP S/I - 1PP AIRE + COORD"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 497,
+    "fields": {
+      "nombre": "FLEXIONES BB 1BB C/PELOTA PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 498,
+    "fields": {
+      "nombre": "FLEXIONES BB 1BB S/PELOTA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 499,
+    "fields": {
+      "nombre": "FLEXIONES BB 1BB S/PELOTA + CBIOS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 500,
+    "fields": {
+      "nombre": "FLEXIONES BB 1BB S/PELOTA + PP COORD"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 501,
+    "fields": {
+      "nombre": "FLEXIONES BB C/PELOTA 1BB - FB PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 502,
+    "fields": {
+      "nombre": "FLEXIONES BB C/PELOTA 1BB - FB PP + COORD."
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 503,
+    "fields": {
+      "nombre": "FLEXIONES BB C/PELOTA BB Y PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 504,
+    "fields": {
+      "nombre": "FLEXIONES BB COMPLETAS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 505,
+    "fields": {
+      "nombre": "FLEXIONES BB RELOJ"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 506,
+    "fields": {
+      "nombre": "FLEXIONES BB S/1 MANC - 1BB C/MANC + EMP ADEL"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 507,
+    "fields": {
+      "nombre": "FLEXIONES BB S/1 MANC - 1BB C/MANC + EMP ADEL + 1PP AIRE"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 508,
+    "fields": {
+      "nombre": "FLEXIONES BB S/1 MANC - 1BB C/MANC + EMP ADEL + 1PP S/I + COORD"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 509,
+    "fields": {
+      "nombre": "FLEXIONES BB S/1 MANC - 1BB C/MANC + EMP ADEL + PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 510,
+    "fields": {
+      "nombre": "FLEXIONES BB S/1 MANC - 1BB C/MANC + EMP AFUERA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 511,
+    "fields": {
+      "nombre": "FLEXIONES BB S/1 MANC - 1BB C/MANC + EMP AFUERA + 1PP S/I + COORD"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 512,
+    "fields": {
+      "nombre": "FLEXIONES BB S/1 MANC - 1BB C/MANC + EMP AFUERA + PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 513,
+    "fields": {
+      "nombre": "FLEXIONES BB S/1 MANC - 1BB C/MANC + EMP AFUERA +1PP AIRE"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 514,
+    "fields": {
+      "nombre": "FLEXIONES BB S/1 MANC - 1BB S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 515,
+    "fields": {
+      "nombre": "FLEXIONES BB S/1 MANC - 1BB S/I + 1PP AIRE"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 516,
+    "fields": {
+      "nombre": "FLEXIONES BB S/1 MANC - 1BB S/I + 1PP AIRE + COORD"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 517,
+    "fields": {
+      "nombre": "FLEXIONES BB S/1 MANC - 1PP AIRE"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 518,
+    "fields": {
+      "nombre": "FLEXIONES BB S/1 MANC - 1PP AIRE + ABD"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 519,
+    "fields": {
+      "nombre": "FLEXIONES BB S/1 MANC - 1PP AIRE + COORD"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 520,
+    "fields": {
+      "nombre": "FLEXIONES BB S/1INEST"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 521,
+    "fields": {
+      "nombre": "FLEXIONES BB S/2 MANC - 1PP AIRE"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 522,
+    "fields": {
+      "nombre": "FLEXIONES BB S/2 MANC - 1PP AIRE + 1PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 523,
+    "fields": {
+      "nombre": "FLEXIONES BB S/2 MANC - 1PP AIRE + 1PP S/I + COORD."
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 524,
+    "fields": {
+      "nombre": "FLEXIONES BB S/2 MANC - 1PP AIRE + ABD"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 525,
+    "fields": {
+      "nombre": "FLEXIONES BB S/2 MANC - 2PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 526,
+    "fields": {
+      "nombre": "FLEXIONES BB S/2INEST"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 527,
+    "fields": {
+      "nombre": "FLEXIONES BB S/2MANC"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 528,
+    "fields": {
+      "nombre": "FLEXIONES BB S/3 INEST"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 529,
+    "fields": {
+      "nombre": "FLEXIONES BB S/INEST + COORD."
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 530,
+    "fields": {
+      "nombre": "FLEXIONES BB S2/MANC + EMP 1BB C/M ADEL"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 531,
+    "fields": {
+      "nombre": "FLEXIONES BB S2/MANC + EMP 1BB C/M ADEL + 1PP AIRE"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 532,
+    "fields": {
+      "nombre": "FLEXIONES BB S2/MANC + EMP 1BB C/M ADEL 1PP S/I + 1PP COORD"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 533,
+    "fields": {
+      "nombre": "FLEXIONES BB S2/MANC + EMP 1BB C/M ADEL PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 534,
+    "fields": {
+      "nombre": "FLEXIONES BB S2/MANC + EMP 1BB C/M AFUERA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 535,
+    "fields": {
+      "nombre": "FLEXIONES BB S2/MANC + EMP 1BB C/M AFUERA + 1PP AIRE"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 536,
+    "fields": {
+      "nombre": "FLEXIONES BB S2/MANC + EMP 1BB C/M AFUERA 1PP S/I +1PP COORD"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 537,
+    "fields": {
+      "nombre": "FLEXIONES BB S2/MANC + EMP 1BB C/M AFUERA PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 538,
+    "fields": {
+      "nombre": "FLEXIONES DE BB MODIFICANDO ALTURA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 539,
+    "fields": {
+      "nombre": "FLEXIONES DE RODILLAS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 540,
+    "fields": {
+      "nombre": "FLEXIONES DIAMANTE O CERRADAS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 541,
+    "fields": {
+      "nombre": "FLEXIONES DIAMANTE O CERRADAS DE ROD"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 542,
+    "fields": {
+      "nombre": "FLEXO-EXT DE BB BALISTICO PARADA/O"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 543,
+    "fields": {
+      "nombre": "FLEXO-EXT DE PP BALISTICO ACOSTADA/O"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 544,
+    "fields": {
+      "nombre": "FLEXO-EXT DE PP BALISTICO PARADA/O"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 545,
+    "fields": {
+      "nombre": "FONDOS ASISTIDO/A EN PARALELAS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 546,
+    "fields": {
+      "nombre": "FONDOS CON LASTRE"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 547,
+    "fields": {
+      "nombre": "FONDOS EN PARALELAS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 548,
+    "fields": {
+      "nombre": "FONDOS RESIST C/BANDAS ELASTICAS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 549,
+    "fields": {
+      "nombre": "FONDOS S/BCO (20CM) ROD EXT"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 550,
+    "fields": {
+      "nombre": "FONDOS S/BCO (20CM) ROD FLEX"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 551,
+    "fields": {
+      "nombre": "FONDOS S/BCO (40CM) ROD EXT"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 552,
+    "fields": {
+      "nombre": "FONDOS S/BCO (40CM) ROD FLEX"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 553,
+    "fields": {
+      "nombre": "FONDOS SIMPLES ROD EXTENDIDAS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 554,
+    "fields": {
+      "nombre": "FONDOS SIMPLES ROD FLEXIONADAS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 555,
+    "fields": {
+      "nombre": "FORTALECIMIENTO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 556,
+    "fields": {
+      "nombre": "GATO B – GATO M ACOST + COORD"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 557,
+    "fields": {
+      "nombre": "GATO B – GATO M ACOST."
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 558,
+    "fields": {
+      "nombre": "GATO BUENO – GATO MALO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 559,
+    "fields": {
+      "nombre": "GEMELOS EN SMITH 1PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 560,
+    "fields": {
+      "nombre": "GEMELOS EN SMITH 2PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 561,
+    "fields": {
+      "nombre": "GEMELOS EXCENTRICO CON PESO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 562,
+    "fields": {
+      "nombre": "GEMELOS EXCENTRICO SIN PESO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 563,
+    "fields": {
+      "nombre": "GEMELOS PARADO/A C/B 1PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 564,
+    "fields": {
+      "nombre": "GEMELOS PARADO/A C/B 2PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 565,
+    "fields": {
+      "nombre": "GEMELOS PARADO/A C/B ASIM"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 566,
+    "fields": {
+      "nombre": "GEMELOS PARADO/A C/M 1PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 567,
+    "fields": {
+      "nombre": "GEMELOS PARADO/A C/M 2PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 568,
+    "fields": {
+      "nombre": "GEMELOS PARADO/A C/M ASIM"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 569,
+    "fields": {
+      "nombre": "GEMELOS PARADO/A MÁQ 1PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 570,
+    "fields": {
+      "nombre": "GEMELOS PARADO/A MÁQ 2PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 571,
+    "fields": {
+      "nombre": "GEMELOS PRENSA 1PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 572,
+    "fields": {
+      "nombre": "GEMELOS PRENSA 2PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 573,
+    "fields": {
+      "nombre": "GEMELOS SIN CARGA 1PP ISO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 574,
+    "fields": {
+      "nombre": "GEMELOS SIN CARGA 2PP ISO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 575,
+    "fields": {
+      "nombre": "GEMELOS SOBRE PLANO INLCI EXC"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 576,
+    "fields": {
+      "nombre": "GENERALES Y VITALIZACIONES"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 577,
+    "fields": {
+      "nombre": "GLUTEO C/PEL TENIS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 578,
+    "fields": {
+      "nombre": "GLUTEO MEDIO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 579,
+    "fields": {
+      "nombre": "GLUTEOS CAD. POSTERIOR"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 580,
+    "fields": {
+      "nombre": "GLUTEOS EN MAQUINA INVERTIDA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 581,
+    "fields": {
+      "nombre": "HELL CEDIENTE EN 5\""
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 582,
+    "fields": {
+      "nombre": "HELL DE PP A 1PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 583,
+    "fields": {
+      "nombre": "HELL DE PP C/PESO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 584,
+    "fields": {
+      "nombre": "HELL DE PP CEDIENTE EN 3\""
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 585,
+    "fields": {
+      "nombre": "HELL DE PP CEDIENTE EN 5\""
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 586,
+    "fields": {
+      "nombre": "HELL DE TRONCO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 587,
+    "fields": {
+      "nombre": "HELL PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 588,
+    "fields": {
+      "nombre": "HIP THRUST C/B + TENSION POST C/ELAS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 589,
+    "fields": {
+      "nombre": "HIP THRUST C/B 1PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 590,
+    "fields": {
+      "nombre": "HIP THRUST C/B 1PP + TENS LAT EXT"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 591,
+    "fields": {
+      "nombre": "HIP THRUST C/B 1PP + TENS LAT INT"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 592,
+    "fields": {
+      "nombre": "HIP THRUST C/B 2PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 593,
+    "fields": {
+      "nombre": "HIP THRUST C/B 2PP + ABD"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 594,
+    "fields": {
+      "nombre": "HIP THRUST C/B 2PP + ADUCC"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 595,
+    "fields": {
+      "nombre": "HIP THRUST C/M 1PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 596,
+    "fields": {
+      "nombre": "HIP THRUST C/M 1PP + TENS LAT EXT"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 597,
+    "fields": {
+      "nombre": "HIP THRUST C/M 1PP + TENS LAT INT"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 598,
+    "fields": {
+      "nombre": "HIP THRUST C/M 1PP ISOM"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 599,
+    "fields": {
+      "nombre": "HIP THRUST C/M 2PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 600,
+    "fields": {
+      "nombre": "HIP THRUST C/M 2PP + ABD ISOM"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 601,
+    "fields": {
+      "nombre": "HIP THRUST C/M 2PP + ADUCC ISOM"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 602,
+    "fields": {
+      "nombre": "HIP THRUST C/M 2PP ISOM"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 603,
+    "fields": {
+      "nombre": "HIP THRUST MAQUINA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 604,
+    "fields": {
+      "nombre": "HIPEREXT C/B ASIMETRICO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 605,
+    "fields": {
+      "nombre": "HIPEREXT C/B SENTADA/A"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 606,
+    "fields": {
+      "nombre": "HIPEREXT C/BARRA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 607,
+    "fields": {
+      "nombre": "HIPEREXT MAQ ISOM"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 608,
+    "fields": {
+      "nombre": "HIPEREXT MAQUINA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 609,
+    "fields": {
+      "nombre": "HIPEREXT MAQUINA C/PESO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 610,
+    "fields": {
+      "nombre": "INCLIN LAT C/M PIE"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 611,
+    "fields": {
+      "nombre": "INCLIN LAT C/M ROD."
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 612,
+    "fields": {
+      "nombre": "INCLIN LAT C/M S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 613,
+    "fields": {
+      "nombre": "INCLIN LAT POLEA ALTA DE PIE"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 614,
+    "fields": {
+      "nombre": "INCLIN LAT POLEA ALTA ROD."
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 615,
+    "fields": {
+      "nombre": "INCLIN LAT POLEA BAJA 1PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 616,
+    "fields": {
+      "nombre": "INCLIN LAT POLEA BAJA DE PIE"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 617,
+    "fields": {
+      "nombre": "INCLINACIONES Y ROTACIONES"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 618,
+    "fields": {
+      "nombre": "INESTAB DE HOMB C/BARRA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 619,
+    "fields": {
+      "nombre": "INESTAB DE HOMB C/BARRA + OBJ COLGANDO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 620,
+    "fields": {
+      "nombre": "INESTAB DE HOMB C/M"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 621,
+    "fields": {
+      "nombre": "INFRAESPINOSO GLIDE C/BANDA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 622,
+    "fields": {
+      "nombre": "INFRAESPINOSO GLIDE C/M"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 623,
+    "fields": {
+      "nombre": "INFRAESPINOSO GLIDE C/M ISO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 624,
+    "fields": {
+      "nombre": "INFRAESPINOSO GLIDE S/FB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 625,
+    "fields": {
+      "nombre": "INVERSION DE PIE C/BANDA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 626,
+    "fields": {
+      "nombre": "INVERSIÓN DE PIE C/BANDA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 627,
+    "fields": {
+      "nombre": "ISQUIOTIBIALES"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 628,
+    "fields": {
+      "nombre": "LEV DE 1PP (PSOAS)"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 629,
+    "fields": {
+      "nombre": "LEV DE 2PP (PSOAS)"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 630,
+    "fields": {
+      "nombre": "LEVANTAR OBJ C/DEDOS (EXTENDER)"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 631,
+    "fields": {
+      "nombre": "LEVANTAR SOLO DEDOS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 632,
+    "fields": {
+      "nombre": "LEÑADOR DE RODILLAS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 633,
+    "fields": {
+      "nombre": "LEÑADOR PARADO/A"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 634,
+    "fields": {
+      "nombre": "LUMB ACOST DOBLE C/PESO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 635,
+    "fields": {
+      "nombre": "LUMB ACOSTADO/A"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 636,
+    "fields": {
+      "nombre": "LUMB ACOSTADO/A + BB ABD"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 637,
+    "fields": {
+      "nombre": "LUMB ACOSTADO/A + PP ABD"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 638,
+    "fields": {
+      "nombre": "LUMB ACOSTADO/A ALT."
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 639,
+    "fields": {
+      "nombre": "LUMB ACOSTADO/A DOBLE"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 640,
+    "fields": {
+      "nombre": "LUMB HIPEREXT ISO”"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 641,
+    "fields": {
+      "nombre": "LUMB HIPEREXT ISO” + BB ABD"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 642,
+    "fields": {
+      "nombre": "LUMB HIPEREXT ISO” + PP ABD"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 643,
+    "fields": {
+      "nombre": "LUMB NADOS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 644,
+    "fields": {
+      "nombre": "LUMB SUP 4 AP BB EXTENDIDOS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 645,
+    "fields": {
+      "nombre": "LUMB SUP 4 AP POS PLANCHA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 646,
+    "fields": {
+      "nombre": "LUMB SUP MISMO LADO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 647,
+    "fields": {
+      "nombre": "LUMB SUPERMAN"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 648,
+    "fields": {
+      "nombre": "LUMBARES"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 649,
+    "fields": {
+      "nombre": "METER LA PANZA + REMO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 650,
+    "fields": {
+      "nombre": "METER LA PANZA + VUELOS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 651,
+    "fields": {
+      "nombre": "METIDAS DE ARRANQUE C/BARRA COMB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 652,
+    "fields": {
+      "nombre": "METIDAS DE ARRANQUE C/BARRA X DELANTE"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 653,
+    "fields": {
+      "nombre": "METIDAS DE ARRANQUE C/BARRA X DETRAS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 654,
+    "fields": {
+      "nombre": "METIDAS DE ARRANQUE C/M 1BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 655,
+    "fields": {
+      "nombre": "METIDAS DE ARRANQUE C/M 2BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 656,
+    "fields": {
+      "nombre": "METIDAS DE ARRANQUE C/M COMB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 657,
+    "fields": {
+      "nombre": "MOV CAD 90° 90°"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 658,
+    "fields": {
+      "nombre": "MOV CAD ROT EXT SENTADO/A APRETANDO OBJ"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 659,
+    "fields": {
+      "nombre": "MOV CAD ROT EXT SENTADO/A BCO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 660,
+    "fields": {
+      "nombre": "MOV CAD ROT EXT SENTADO/A C/ ELAST."
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 661,
+    "fields": {
+      "nombre": "MOV CAD ROT EXTERNA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 662,
+    "fields": {
+      "nombre": "MOV CAD ROT INT-EXT SENTADO/A"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 663,
+    "fields": {
+      "nombre": "MOV CAD ROT INTERNA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 664,
+    "fields": {
+      "nombre": "MOV COLUMNA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 665,
+    "fields": {
+      "nombre": "MOV LUMBAR"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 666,
+    "fields": {
+      "nombre": "MOV LUMBAR 1PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 667,
+    "fields": {
+      "nombre": "MOV LUMBAR C/ELAST"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 668,
+    "fields": {
+      "nombre": "MOV LUMBAR C/FB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 669,
+    "fields": {
+      "nombre": "MOV NEURAL"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 670,
+    "fields": {
+      "nombre": "MOV TOB C/DISCO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 671,
+    "fields": {
+      "nombre": "MOV TOB DE RODILLAS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 672,
+    "fields": {
+      "nombre": "MOV TOB EN SPLITS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 673,
+    "fields": {
+      "nombre": "MOV TOB PARADO/A"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 674,
+    "fields": {
+      "nombre": "MOV TOB S/STEPS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 675,
+    "fields": {
+      "nombre": "MOVILIDAD DE BB CON BASTÓN"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 676,
+    "fields": {
+      "nombre": "MOVILIDAD ESCAPULAR C/TENSIÓN"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 677,
+    "fields": {
+      "nombre": "MOVILIDAD ESCAPULAR C/TENSIÓN POS. PLANCHA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 678,
+    "fields": {
+      "nombre": "MOVILIDAD Y ROTACIONES"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 679,
+    "fields": {
+      "nombre": "NORDICO CUAD 1PP EXCENTRICO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 680,
+    "fields": {
+      "nombre": "NORDICO CUAD 1PP IDA-VUELTA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 681,
+    "fields": {
+      "nombre": "NORDICO CUAD 2PP EXCENTRICO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 682,
+    "fields": {
+      "nombre": "NORDICO CUAD 2PP IDA-VUELTA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 683,
+    "fields": {
+      "nombre": "PANTORRILLAS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 684,
+    "fields": {
+      "nombre": "PARTE FINAL – AEROBICO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 685,
+    "fields": {
+      "nombre": "PASEO DEL GRANJERO + OBST."
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 686,
+    "fields": {
+      "nombre": "PASEO DEL GRANJERO 1BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 687,
+    "fields": {
+      "nombre": "PASEO DEL GRANJERO 2BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 688,
+    "fields": {
+      "nombre": "PATADA AL CIELO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 689,
+    "fields": {
+      "nombre": "PATADA AL CIELO S/FB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 690,
+    "fields": {
+      "nombre": "PATADA AL CIELO S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 691,
+    "fields": {
+      "nombre": "PATADA AL CIELO S/MANC"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 692,
+    "fields": {
+      "nombre": "PATADA AL CIELO S/PATINETA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 693,
+    "fields": {
+      "nombre": "PATADA AL CIELO S/TRX"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 694,
+    "fields": {
+      "nombre": "PATADA BURRO EN POLEA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 695,
+    "fields": {
+      "nombre": "PATADA CERRADA C/M"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 696,
+    "fields": {
+      "nombre": "PATADA CERRADA C/TOB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 697,
+    "fields": {
+      "nombre": "PATADA DE BURRO EN POLEA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 698,
+    "fields": {
+      "nombre": "PATADA DE BURRO EN POLEA C/BANDA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 699,
+    "fields": {
+      "nombre": "PATADA EN FLEX C/TOB 4-AP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 700,
+    "fields": {
+      "nombre": "PATADA EXT C/TOB 4-AP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 701,
+    "fields": {
+      "nombre": "PATADA GLUT POLEA S/BCO DE PIE"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 702,
+    "fields": {
+      "nombre": "PATADA GLUTEO PARADA/O POLEA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 703,
+    "fields": {
+      "nombre": "PECK DECK"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 704,
+    "fields": {
+      "nombre": "PECTORALES"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 705,
+    "fields": {
+      "nombre": "PERI-ESCAPULARES"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 706,
+    "fields": {
+      "nombre": "PESO MTO  ELAST. FRONT 1BB-1PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 707,
+    "fields": {
+      "nombre": "PESO MTO 2PP C/B - 1PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 708,
+    "fields": {
+      "nombre": "PESO MTO APRENDIZAJE"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 709,
+    "fields": {
+      "nombre": "PESO MTO C/B SMITH 1PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 710,
+    "fields": {
+      "nombre": "PESO MTO C/B SMITH 2PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 711,
+    "fields": {
+      "nombre": "PESO MTO C/B SMITH ASIMETRICO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 712,
+    "fields": {
+      "nombre": "PESO MTO C/BARRA 1BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 713,
+    "fields": {
+      "nombre": "PESO MTO C/BARRA 1PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 714,
+    "fields": {
+      "nombre": "PESO MTO C/BARRA 1PP INEST"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 715,
+    "fields": {
+      "nombre": "PESO MTO C/BARRA ASIMETRICO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 716,
+    "fields": {
+      "nombre": "PESO MTO C/BARRA PTA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 717,
+    "fields": {
+      "nombre": "PESO MTO C/M 2BB - 1PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 718,
+    "fields": {
+      "nombre": "PESO MTO C/M ASIMETRICO 1BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 719,
+    "fields": {
+      "nombre": "PESO MTO C/M ASIMETRICO 2BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 720,
+    "fields": {
+      "nombre": "PESO MTO ELAST. FRONT. 2BB-1PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 721,
+    "fields": {
+      "nombre": "PESO MTO ELAST. FRONT. 2BB-2PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 722,
+    "fields": {
+      "nombre": "PESO MTO ELAST. LAT 1BB-1PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 723,
+    "fields": {
+      "nombre": "PESO MTO ELAST. LAT. 2BB-1PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 724,
+    "fields": {
+      "nombre": "PESO MTO ELAST. LAT. 2BB-2PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 725,
+    "fields": {
+      "nombre": "PESO MTO ELAST. POST. 1BB-1PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 726,
+    "fields": {
+      "nombre": "PESO MTO ELAST. POST. 2BB-1PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 727,
+    "fields": {
+      "nombre": "PESO MTO ELAST. POST. 2BB-2PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 728,
+    "fields": {
+      "nombre": "PESO MTO RUMANO C/BARRA 1PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 729,
+    "fields": {
+      "nombre": "PESO MTO RUMANO C/BARRA 2PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 730,
+    "fields": {
+      "nombre": "PESO MTO RUMANO C/MANC"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 731,
+    "fields": {
+      "nombre": "PESO MTO TRACIONAL 2PP C/BARRA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 732,
+    "fields": {
+      "nombre": "PESO MTO. 2PP C/BARRA ROMANA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 733,
+    "fields": {
+      "nombre": "PESO MUERTO S/BCO C/MANC 1BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 734,
+    "fields": {
+      "nombre": "PESO MUERTO S/BCO C/MANC 2BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 735,
+    "fields": {
+      "nombre": "PFRONT 1BB EXT ADEL C/PESO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 736,
+    "fields": {
+      "nombre": "PFRONT 1BB EXT ATRÁS C/PESO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 737,
+    "fields": {
+      "nombre": "PFRONT 1BB EXT. HORIZ C/PESO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 738,
+    "fields": {
+      "nombre": "PFRONT 1BB – 1PP S/I + 1BB EXT. ADEL C/PESO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 739,
+    "fields": {
+      "nombre": "PFRONT 1BB – 1PP S/I + 1BB EXT. ATRAS C/PESO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 740,
+    "fields": {
+      "nombre": "PFRONT 1BB – 1PP S/I + 1BB EXT. HORIZ C/PESO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 741,
+    "fields": {
+      "nombre": "PFRONT 1BB – 2PP S/I + 1BB EXT. ADEL C/PESO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 742,
+    "fields": {
+      "nombre": "PFRONT 1BB – 2PP S/I + 1BB EXT. ATRAS C/PESO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 743,
+    "fields": {
+      "nombre": "PFRONT 1BB – 2PP S/I + 1BB EXT. HORIZ C/PESO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 744,
+    "fields": {
+      "nombre": "PFRONT 1BB-1PP S/I + 1BB EXT. ADEL"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 745,
+    "fields": {
+      "nombre": "PFRONT 1BB-1PP S/I + 1BB EXT. ADEL + BAN RES"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 746,
+    "fields": {
+      "nombre": "PFRONT 1BB-1PP S/I + 1BB EXT. ATRAS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 747,
+    "fields": {
+      "nombre": "PFRONT 1BB-1PP S/I + 1BB EXT. ATRAS + BAN RES"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 748,
+    "fields": {
+      "nombre": "PFRONT 1BB-1PP S/I + 1BB EXT. HORIZ"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 749,
+    "fields": {
+      "nombre": "PFRONT 1BB-1PP S/I + 1BB EXT. HORIZ + BAN RES"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 750,
+    "fields": {
+      "nombre": "PFRONT 1BB-1PP S/I + 1PP ABD – ADUCC"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 751,
+    "fields": {
+      "nombre": "PFRONT 1BB-1PP S/I + 1PP ARRIBA – ABAJO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 752,
+    "fields": {
+      "nombre": "PFRONT 1BB-2PP S/I + 1BB EXT. ADEL + BAN RES"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 753,
+    "fields": {
+      "nombre": "PFRONT 1BB-2PP S/I + 1BB EXT. ATRAS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 754,
+    "fields": {
+      "nombre": "PFRONT 1BB-2PP S/I + 1BB EXT. ATRAS + BAN RES"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 755,
+    "fields": {
+      "nombre": "PFRONT 1BB-2PP S/I + 1BB EXT. HORIZ"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 756,
+    "fields": {
+      "nombre": "PFRONT 1BB-2PP S/I + 1BB EXT. HORIZ + BAN RES"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 757,
+    "fields": {
+      "nombre": "PFRONT 1PP S/I – 1PP S/STEP + 1BB EXT. ADEL C/PESO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 758,
+    "fields": {
+      "nombre": "PFRONT 1PP S/I – 1PP S/STEP + 1BB EXT. ATRAS C/PESO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 759,
+    "fields": {
+      "nombre": "PFRONT 1PP S/I – 1PP S/STEP + 1BB EXT. HORIZ C/PESO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 760,
+    "fields": {
+      "nombre": "PFRONT 1PP S/STEP + 1PP S/I – 1BB EXT. HORIZ"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 761,
+    "fields": {
+      "nombre": "PFRONT 1PP S/STEP + 1PP S/I – 1BB S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 762,
+    "fields": {
+      "nombre": "PFRONT 1PP S/STEP + 1PP S/I – 1BB S/I + 1BB EXT. HORIZ"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 763,
+    "fields": {
+      "nombre": "PFRONT 1PP S/STEP + 1PP S/I – 2BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 764,
+    "fields": {
+      "nombre": "PFRONT 1PP S/STEP + 1PP S/I – 2BB S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 765,
+    "fields": {
+      "nombre": "PFRONT 1PP S/TRX"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 766,
+    "fields": {
+      "nombre": "PFRONT 1PP S/TRX – 1BB S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 767,
+    "fields": {
+      "nombre": "PFRONT 1PP S/TRX – 1BB SUELO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 768,
+    "fields": {
+      "nombre": "PFRONT 1PP S/TRX – BB S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 769,
+    "fields": {
+      "nombre": "PFRONT 2BB S/I + PP ABD-ADUCC"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 770,
+    "fields": {
+      "nombre": "PFRONT 2BB S/I + PP ARRIBA-ABAJO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 771,
+    "fields": {
+      "nombre": "PFRONT 2BB S/I PP ADEL – ATRAS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 772,
+    "fields": {
+      "nombre": "PFRONT 2PP S/I + 1BB EXT. ADEL"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 773,
+    "fields": {
+      "nombre": "PFRONT 2PP S/I + 1BB EXT. ADEL + BAN RES"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 774,
+    "fields": {
+      "nombre": "PFRONT 2PP S/I + 1BB EXT. ATRAS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 775,
+    "fields": {
+      "nombre": "PFRONT 2PP S/I + 1BB EXT. ATRAS + BAN RES"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 776,
+    "fields": {
+      "nombre": "PFRONT 2PP S/I + 1BB EXT. HORIZ"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 777,
+    "fields": {
+      "nombre": "PFRONT 2PP S/I + 1BB EXT. HORIZ + BAN RES"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 778,
+    "fields": {
+      "nombre": "PFRONT 2PP S/TRX – BB S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 779,
+    "fields": {
+      "nombre": "PFRONT ALTA + PASAJE C/M"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 780,
+    "fields": {
+      "nombre": "PFRONT ALTA + PASAJE DE DCO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 781,
+    "fields": {
+      "nombre": "PFRONT ALTA 1PP S/I + PASAJE C/M"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 782,
+    "fields": {
+      "nombre": "PFRONT ALTA 1PP S/I + PASAJE DE DCO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 783,
+    "fields": {
+      "nombre": "PFRONT ALTA 1PP S/I – 1BB S/STEP + PASAJE C/M"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 784,
+    "fields": {
+      "nombre": "PFRONT ALTA 1PP S/I – 1BB S/STEP + PASAJE DE DCO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 785,
+    "fields": {
+      "nombre": "PFRONT ALTA 2PP S/I + PASAJE C/M"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 786,
+    "fields": {
+      "nombre": "PFRONT ALTA 2PP S/I + PASAJE DE DCO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 787,
+    "fields": {
+      "nombre": "PFRONT ALTA SUBO Y BAJO (FLEX.)"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 788,
+    "fields": {
+      "nombre": "PFRONT ALTA SUBO Y BAJO (FLEX.) 1PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 789,
+    "fields": {
+      "nombre": "PFRONT ALTA SUBO Y BAJO (FLEX.) 1PP ABD ISO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 790,
+    "fields": {
+      "nombre": "PFRONT ALTA SUBO Y BAJO (FLEX.) 1PP ABD – ADUCC"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 791,
+    "fields": {
+      "nombre": "PFRONT ALTA SUBO Y BAJO (FLEX.) 1PP ADUCC ISO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 792,
+    "fields": {
+      "nombre": "PFRONT ALTA SUBO Y BAJO (FLEX.) 1PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 793,
+    "fields": {
+      "nombre": "PFRONT ALTA SUBO Y BAJO (FLEX.) 1PP S/I ABD ISO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 794,
+    "fields": {
+      "nombre": "PFRONT ALTA SUBO Y BAJO (FLEX.) 1PP S/I ABD – ADUCC"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 795,
+    "fields": {
+      "nombre": "PFRONT ALTA SUBO Y BAJO (FLEX.) 1PP S/I ADUCC ISO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 796,
+    "fields": {
+      "nombre": "PFRONT ALTA SUBO Y BAJO (FLEX.) 2PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 797,
+    "fields": {
+      "nombre": "PFRONT ALTA TOCO HOMB. + 1PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 798,
+    "fields": {
+      "nombre": "PFRONT ALTA TOCO HOMB. + 1PP S/I – 1PP S/STEP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 799,
+    "fields": {
+      "nombre": "PFRONT ALTA TOCO HOMB. + 2PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 800,
+    "fields": {
+      "nombre": "PFRONT ALTA TOCO HOMBROS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 801,
+    "fields": {
+      "nombre": "PFRONT ANTB ADEL-ATRAS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 802,
+    "fields": {
+      "nombre": "PFRONT ANTB ADEL-ATRAS 1PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 803,
+    "fields": {
+      "nombre": "PFRONT ANTB ADEL-ATRAS 2PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 804,
+    "fields": {
+      "nombre": "PFRONT ANTB ADEL-ATRAS 2PP – 1PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 805,
+    "fields": {
+      "nombre": "PFRONT ANTB DINAMICA C/PAÑO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 806,
+    "fields": {
+      "nombre": "PFRONT BASICA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 807,
+    "fields": {
+      "nombre": "PFRONT BB S/BCO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 808,
+    "fields": {
+      "nombre": "PFRONT BB S/BCO 1PP S/STEP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 809,
+    "fields": {
+      "nombre": "PFRONT BB S/BCO 1PP STEP + 1PP ABD ISO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 810,
+    "fields": {
+      "nombre": "PFRONT BB S/BCO 1PP STEP + 1PP ABD-ADUCC"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 811,
+    "fields": {
+      "nombre": "PFRONT BB S/BCO 1PP STEP + 1PP ADUCC ISO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 812,
+    "fields": {
+      "nombre": "PFRONT BB S/BCO 1PP STEP + 1PP ARR-AB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 813,
+    "fields": {
+      "nombre": "PFRONT BB S/BCO 1PP STEP + 1PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 814,
+    "fields": {
+      "nombre": "PFRONT BB S/BCO 1PP STEP + 1PP S/I ARR-AB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 815,
+    "fields": {
+      "nombre": "PFRONT BB S/BCO 1PP STEP + 1PP S/I COMBINADO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 816,
+    "fields": {
+      "nombre": "PFRONT BB S/BCO 2PP ABD ISO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 817,
+    "fields": {
+      "nombre": "PFRONT BB S/BCO 2PP ADUCC PP ISO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 818,
+    "fields": {
+      "nombre": "PFRONT BB S/BCO 2PP COMBINADO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 819,
+    "fields": {
+      "nombre": "PFRONT BB S/BCO 2PP S/I + ABD ISO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 820,
+    "fields": {
+      "nombre": "PFRONT BB S/BCO 2PP S/I + ADUCC ISO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 821,
+    "fields": {
+      "nombre": "PFRONT BB S/BCO 2PP S/I COMBINADO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 822,
+    "fields": {
+      "nombre": "PFRONT BB S/BCO 2PP S/I – 1PP ABD-ADUCC"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 823,
+    "fields": {
+      "nombre": "PFRONT BB S/BCO 2PP S/I – 1PP ARRIBA-ABAJO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 824,
+    "fields": {
+      "nombre": "PFRONT BB S/BCO 2PP-1PP ABD-ADUCC"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 825,
+    "fields": {
+      "nombre": "PFRONT BB S/BCO 2PP-1PP ARRIBA-ABAJO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 826,
+    "fields": {
+      "nombre": "PFRONT BB S/BCO 2PP-1PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 827,
+    "fields": {
+      "nombre": "PFRONT BB S/BCO 2PP-1PP S/I + 1PP ABD ISO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 828,
+    "fields": {
+      "nombre": "PFRONT BB S/BCO 2PP-1PP S/I + 1PP ABD-ADUCC"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 829,
+    "fields": {
+      "nombre": "PFRONT BB S/BCO 2PP-1PP S/I + 1PP ADUCC ISO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 830,
+    "fields": {
+      "nombre": "PFRONT BB S/BCO 2PP-1PP S/I + 1PP ARRIBA-ABAJO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 831,
+    "fields": {
+      "nombre": "PFRONT BB S/BCO 2PP-1PP S/I COMBINADO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 832,
+    "fields": {
+      "nombre": "PFRONT BB S/BCO PP S/STEP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 833,
+    "fields": {
+      "nombre": "PFRONT BB S/FB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 834,
+    "fields": {
+      "nombre": "PFRONT BB S/FB 1PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 835,
+    "fields": {
+      "nombre": "PFRONT BB S/FB 1PP + 1PP ABD – ADUCC"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 836,
+    "fields": {
+      "nombre": "PFRONT BB S/FB 1PP + 1PP ARR – AB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 837,
+    "fields": {
+      "nombre": "PFRONT BB S/FB 1PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 838,
+    "fields": {
+      "nombre": "PFRONT BB S/FB 1PP S/I + 1PP ABD ISOM"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 839,
+    "fields": {
+      "nombre": "PFRONT BB S/FB 1PP S/I + 1PP ABD – ADUCC"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 840,
+    "fields": {
+      "nombre": "PFRONT BB S/FB 1PP S/I + 1PP ADUCC ISOM"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 841,
+    "fields": {
+      "nombre": "PFRONT BB S/FB 1PP S/I + 1PP ARR – ABA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 842,
+    "fields": {
+      "nombre": "PFRONT BB S/FB 1PP S/I + 1PP ARRIBA ISOM"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 843,
+    "fields": {
+      "nombre": "PFRONT BB S/FB 2PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 844,
+    "fields": {
+      "nombre": "PFRONT BB S/FB C/GIROS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 845,
+    "fields": {
+      "nombre": "PFRONT BB S/FB C/GIROS 1PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 846,
+    "fields": {
+      "nombre": "PFRONT BB S/FB C/GIROS 1PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 847,
+    "fields": {
+      "nombre": "PFRONT BB S/FB C/GIROS 2PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 848,
+    "fields": {
+      "nombre": "PFRONT BB S/FB C/GIROS PP S 1/2 ESF"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 849,
+    "fields": {
+      "nombre": "PFRONT BB S/FB C/MOV ADEL - ATRAS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 850,
+    "fields": {
+      "nombre": "PFRONT BB S/FB C/MOV ADEL – ATRAS 1PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 851,
+    "fields": {
+      "nombre": "PFRONT BB S/FB C/MOV ADEL – ATRAS 1PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 852,
+    "fields": {
+      "nombre": "PFRONT BB S/FB C/MOV ADEL – ATRAS 2PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 853,
+    "fields": {
+      "nombre": "PFRONT BB S/TRX"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 854,
+    "fields": {
+      "nombre": "PFRONT BB S/TRX 1PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 855,
+    "fields": {
+      "nombre": "PFRONT BB S/TRX 2PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 856,
+    "fields": {
+      "nombre": "PFRONT BB S/TRX PP S 1/2 ESF"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 857,
+    "fields": {
+      "nombre": "PFRONT PP ADEL – ATRAS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 858,
+    "fields": {
+      "nombre": "PFRONT PP S/FB – BB S/BCO 20\""
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 859,
+    "fields": {
+      "nombre": "PFRONT PP S/S + 1PP S/I – 1BB S/I + 1BB EXT. ADEL + BAN RES"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 860,
+    "fields": {
+      "nombre": "PFRONT PP S/S + 1PP S/I – 1BB S/I + 1BB EXT. ATRS + BAN RES"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 861,
+    "fields": {
+      "nombre": "PFRONT PP S/S + 1PP S/I – 1BB S/I + 1BB EXT. HORI + BAN RES"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 862,
+    "fields": {
+      "nombre": "PFRONT PP S/STEP + 1PP S/I – 1BB EXT. ADEL"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 863,
+    "fields": {
+      "nombre": "PFRONT PP S/STEP + 1PP S/I – 1BB EXT. ADEL + BAN RES"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 864,
+    "fields": {
+      "nombre": "PFRONT PP S/STEP + 1PP S/I – 1BB EXT. ATRAS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 865,
+    "fields": {
+      "nombre": "PFRONT PP S/STEP + 1PP S/I – 1BB EXT. ATRAS + BAN RES"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 866,
+    "fields": {
+      "nombre": "PFRONT PP S/STEP + 1PP S/I – 1BB EXT. HORIZ + BAN RES"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 867,
+    "fields": {
+      "nombre": "PFRONT PP S/STEP + 1PP S/I – 1BB S/I + 1BB EXT. ADEL"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 868,
+    "fields": {
+      "nombre": "PFRONT PP S/STEP + 1PP S/I – 1BB S/I + 1BB EXT. ATRAS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 869,
+    "fields": {
+      "nombre": "PFRONT PP S/STEP – 1BB EXT. ADEL"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 870,
+    "fields": {
+      "nombre": "PFRONT PP S/STEP – 1BB EXT. ADEL + BAN RES"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 871,
+    "fields": {
+      "nombre": "PFRONT PP S/STEP – 1BB EXT. ATRAS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 872,
+    "fields": {
+      "nombre": "PFRONT PP S/STEP – 1BB EXT. ATRAS + BAN RES"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 873,
+    "fields": {
+      "nombre": "PFRONT PP S/STEP – 1BB EXT. HORIZ"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 874,
+    "fields": {
+      "nombre": "PFRONT PP S/STEP – 1BB EXT. HORIZ + BAN RES"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 875,
+    "fields": {
+      "nombre": "PFRONT PP S/STEP – 2BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 876,
+    "fields": {
+      "nombre": "PFRONT PP/ TRX"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 877,
+    "fields": {
+      "nombre": "PFRONT S/INESTABLES COMBINADOS C/PESO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 878,
+    "fields": {
+      "nombre": "PFRONT TIPO SUP PP S/FB BB BCO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 879,
+    "fields": {
+      "nombre": "PFRONT TIPO SUPERMAN"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 880,
+    "fields": {
+      "nombre": "PFRONT TIPO SUPERMAN BB S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 881,
+    "fields": {
+      "nombre": "PFRONT TIPO SUPERMAN PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 882,
+    "fields": {
+      "nombre": "PFRONT. COMBINADA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 883,
+    "fields": {
+      "nombre": "PIERNAS CADENA ANTERIOR"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 884,
+    "fields": {
+      "nombre": "PIERNAS CADENA POSTERIOR"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 885,
+    "fields": {
+      "nombre": "PIRAMIDAL C/BANDA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 886,
+    "fields": {
+      "nombre": "PIRAMIDAL C/ELAST INEST."
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 887,
+    "fields": {
+      "nombre": "PIRAMIDAL C/ELAST."
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 888,
+    "fields": {
+      "nombre": "PIRAMIDAL DE PIE"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 889,
+    "fields": {
+      "nombre": "PIRAMIDAL EXCENTRICO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 890,
+    "fields": {
+      "nombre": "PISTOLS 1PP C/APOYO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 891,
+    "fields": {
+      "nombre": "PISTOLS 1PP C/ELAST + APOYO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 892,
+    "fields": {
+      "nombre": "PISTOLS 1PP C/ELAST LIBRE"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 893,
+    "fields": {
+      "nombre": "PISTOLS 1PP C/M 1BB C/AP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 894,
+    "fields": {
+      "nombre": "PISTOLS 1PP C/M 1BB LIBRE"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 895,
+    "fields": {
+      "nombre": "PISTOLS 1PP C/M 2BB C/AP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 896,
+    "fields": {
+      "nombre": "PISTOLS 1PP C/M 2BB LIBRE"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 897,
+    "fields": {
+      "nombre": "PISTOLS 1PP LIBRE"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 898,
+    "fields": {
+      "nombre": "PISTOLS 2PP ASIM. C/M 1BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 899,
+    "fields": {
+      "nombre": "PISTOLS 2PP ASIM. C/M 2BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 900,
+    "fields": {
+      "nombre": "PISTOLS 2PP ASIMÉTRICA C/AP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 901,
+    "fields": {
+      "nombre": "PISTOLS 2PP ASIMÉTRICA LIBRE"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 902,
+    "fields": {
+      "nombre": "PISTOLS 2PP C/ELAST ASIMÉTRICA LIBRE"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 903,
+    "fields": {
+      "nombre": "PISTOLS C/AP 1BB + EMP FZA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 904,
+    "fields": {
+      "nombre": "PISTOLS C/AP 2BB + EMP FZA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 905,
+    "fields": {
+      "nombre": "PLANCHA INVERTIDA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 906,
+    "fields": {
+      "nombre": "PLANCHA LAT. COMBINADA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 907,
+    "fields": {
+      "nombre": "PLAT + ABD CAD -PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 908,
+    "fields": {
+      "nombre": "PLAT 1PP S/STEP – 1PP ABD-ADUC C/BANDA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 909,
+    "fields": {
+      "nombre": "PLAT 1PP S/STEP – 1PP ABDUC-ADUCC"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 910,
+    "fields": {
+      "nombre": "PLAT 1PP S/STEP – 1PP FLEX-EXT PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 911,
+    "fields": {
+      "nombre": "PLAT 1PP S/STEP – 1PP FLEX-EXT PP C/BANDA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 912,
+    "fields": {
+      "nombre": "PLAT 1PP S/STEP – 1PP FLEX. MUS C/BANDA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 913,
+    "fields": {
+      "nombre": "PLAT 1PP S/STEP – 1PP FLEX. MUSLO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 914,
+    "fields": {
+      "nombre": "PLAT BB ABD HORIZ."
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 915,
+    "fields": {
+      "nombre": "PLAT BB ABD HORIZ. C/M"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 916,
+    "fields": {
+      "nombre": "PLAT BB ADEN-AFUE"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 917,
+    "fields": {
+      "nombre": "PLAT BB ADEN-AFUE C/M"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 918,
+    "fields": {
+      "nombre": "PLAT BB ADUCCION HORIZ C/ELAST"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 919,
+    "fields": {
+      "nombre": "PLAT BB EMPUJE + ELEV CAD."
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 920,
+    "fields": {
+      "nombre": "PLAT BB EMPUJE + ELEV CAD. C/M"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 921,
+    "fields": {
+      "nombre": "PLAT BB EXT DELANTE"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 922,
+    "fields": {
+      "nombre": "PLAT BB EXT DELANTE C/M"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 923,
+    "fields": {
+      "nombre": "PLAT BB EXT DELANTE C/M ISO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 924,
+    "fields": {
+      "nombre": "PLAT BB EXT DETRAS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 925,
+    "fields": {
+      "nombre": "PLAT BB EXT DETRAS C/ELAST"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 926,
+    "fields": {
+      "nombre": "PLAT BB EXT DETRAS C/M"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 927,
+    "fields": {
+      "nombre": "PLAT BB REMO C/ELAST"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 928,
+    "fields": {
+      "nombre": "PLAT BB S/I + BB ABD HORIZ"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 929,
+    "fields": {
+      "nombre": "PLAT BB S/I + BB ABD HORIZ. C/M"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 930,
+    "fields": {
+      "nombre": "PLAT BB S/I + BB ADEN-AFUE"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 931,
+    "fields": {
+      "nombre": "PLAT BB S/I + BB ADEN-AFUE C/M"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 932,
+    "fields": {
+      "nombre": "PLAT BB S/I + BB ADUCCION HORIZ C/ELAST"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 933,
+    "fields": {
+      "nombre": "PLAT BB S/I + BB EMPUJE + ELEV CAD"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 934,
+    "fields": {
+      "nombre": "PLAT BB S/I + BB EMPUJE + ELEV CAD. C/M"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 935,
+    "fields": {
+      "nombre": "PLAT BB S/I + BB EXT DELANTE"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 936,
+    "fields": {
+      "nombre": "PLAT BB S/I + BB EXT DELANTE C/M"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 937,
+    "fields": {
+      "nombre": "PLAT BB S/I + BB EXT DELANTE C/M ISO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 938,
+    "fields": {
+      "nombre": "PLAT BB S/I + BB EXT DETRAS C/ELAST"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 939,
+    "fields": {
+      "nombre": "PLAT BB S/I + BB EXT. DETRAS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 940,
+    "fields": {
+      "nombre": "PLAT BB S/I + BB EXT. DETRAS C/M"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 941,
+    "fields": {
+      "nombre": "PLAT BB S/I + BB REMO C/ELAST"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 942,
+    "fields": {
+      "nombre": "PLAT BB S/I + BB TRACCION C/ELAST"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 943,
+    "fields": {
+      "nombre": "PLAT BB TRACCION C/ELAST"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 944,
+    "fields": {
+      "nombre": "PLAT PP ABD-ADUC C/BANDA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 945,
+    "fields": {
+      "nombre": "PLAT PP ABDUC-ADUCC"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 946,
+    "fields": {
+      "nombre": "PLAT PP FLEX. MUSLO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 947,
+    "fields": {
+      "nombre": "PLAT PP FLEX. MUSLO C/BANDA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 948,
+    "fields": {
+      "nombre": "PLAT PP FLEXO-EXT PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 949,
+    "fields": {
+      "nombre": "PLAT PP FLEXO-EXT PP C/BANDA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 950,
+    "fields": {
+      "nombre": "PLAT PP S/I + 1BB S/I + 1BB ABD HORIZ"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 951,
+    "fields": {
+      "nombre": "PLAT PP S/I + PP ABD CAD – PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 952,
+    "fields": {
+      "nombre": "PLAT PP S/I + PP ABD CAD – PP + BB S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 953,
+    "fields": {
+      "nombre": "PLAT PP S/I + PP ABD-ADU + BB S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 954,
+    "fields": {
+      "nombre": "PLAT PP S/I + PP ABD-ADU C/BANDA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 955,
+    "fields": {
+      "nombre": "PLAT PP S/I + PP ABD-ADU C/BANDA + BB S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 956,
+    "fields": {
+      "nombre": "PLAT PP S/I + PP ABD-ADUCC"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 957,
+    "fields": {
+      "nombre": "PLAT PP S/I + PP FLEX-EXT PP + BB S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 958,
+    "fields": {
+      "nombre": "PLAT PP S/I + PP FLEX. MUS + BB S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 959,
+    "fields": {
+      "nombre": "PLAT PP S/I + PP FLEX. MUS C/B + BB S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 960,
+    "fields": {
+      "nombre": "PLAT PP S/I + PP FLEX. MUSLO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 961,
+    "fields": {
+      "nombre": "PLAT PP S/I + PP FLEX. MUSLO C/BANDA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 962,
+    "fields": {
+      "nombre": "PLAT PP S/I + PP FLEXO-EXT PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 963,
+    "fields": {
+      "nombre": "PLAT PP S/I 1BB S/I + 1BB ABD HORIZ C/M"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 964,
+    "fields": {
+      "nombre": "PLAT PP S/I 1BB S/I + 1BB ADE-AFU"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 965,
+    "fields": {
+      "nombre": "PLAT PP S/I 1BB S/I + 1BB ADE-AFU C/M"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 966,
+    "fields": {
+      "nombre": "PLAT PP S/I 1BB S/I + 1BB ADU HORIZ C/ELAST"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 967,
+    "fields": {
+      "nombre": "PLAT PP S/I 1BB S/I + 1BB EMP + SUBO-BAJO CAD"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 968,
+    "fields": {
+      "nombre": "PLAT PP S/I 1BB S/I + 1BB EMP + SUBO-BAJO CAD C/M"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 969,
+    "fields": {
+      "nombre": "PLAT PP S/I 1BB S/I + 1BB EXT DEL"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 970,
+    "fields": {
+      "nombre": "PLAT PP S/I 1BB S/I + 1BB EXT DEL C/M"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 971,
+    "fields": {
+      "nombre": "PLAT PP S/I 1BB S/I + 1BB EXT DEL C/M ISO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 972,
+    "fields": {
+      "nombre": "PLAT PP S/I 1BB S/I + 1BB EXT DET C/ELAST"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 973,
+    "fields": {
+      "nombre": "PLAT PP S/I 1BB S/I + 1BB EXT DETRAS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 974,
+    "fields": {
+      "nombre": "PLAT PP S/I 1BB S/I + 1BB EXT DETRAS C/M"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 975,
+    "fields": {
+      "nombre": "PLAT PP S/I 1BB S/I + 1BB REMO C/ELAST"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 976,
+    "fields": {
+      "nombre": "PLAT PP S/I 1BB S/I + 1BB TRAC C/ELAST"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 977,
+    "fields": {
+      "nombre": "PLAT PP S/I – BB S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 978,
+    "fields": {
+      "nombre": "PLAT PP S/STEP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 979,
+    "fields": {
+      "nombre": "PLAT PP S/STEP + 1BB S/I + 1BB ABD HORI."
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 980,
+    "fields": {
+      "nombre": "PLAT PP S/STEP + BB ABD HORIZ"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 981,
+    "fields": {
+      "nombre": "PLAT PP S/STEP + BB ABD HORIZ C/M"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 982,
+    "fields": {
+      "nombre": "PLAT PP S/STEP + BB ADEN-AFUE"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 983,
+    "fields": {
+      "nombre": "PLAT PP S/STEP + BB ADEN-AFUE C/M"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 984,
+    "fields": {
+      "nombre": "PLAT PP S/STEP + BB ADUCCION HORIZ C/ELAST"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 985,
+    "fields": {
+      "nombre": "PLAT PP S/STEP + BB EMPUJE + ELEV CAD"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 986,
+    "fields": {
+      "nombre": "PLAT PP S/STEP + BB EMPUJE + ELEV CAD. C/M"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 987,
+    "fields": {
+      "nombre": "PLAT PP S/STEP + BB EXT DELANTE"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 988,
+    "fields": {
+      "nombre": "PLAT PP S/STEP + BB EXT DELANTE C/M"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 989,
+    "fields": {
+      "nombre": "PLAT PP S/STEP + BB EXT DELANTE C/M ISO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 990,
+    "fields": {
+      "nombre": "PLAT PP S/STEP + BB EXT DET C/ELAST"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 991,
+    "fields": {
+      "nombre": "PLAT PP S/STEP + BB EXT. DETRAS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 992,
+    "fields": {
+      "nombre": "PLAT PP S/STEP + BB EXT. DETRAS C/M"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 993,
+    "fields": {
+      "nombre": "PLAT PP S/STEP + BB REMO C/ELAST"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 994,
+    "fields": {
+      "nombre": "PLAT PP S/STEP + BB TRACC C/ELAST"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 995,
+    "fields": {
+      "nombre": "PLAT PP S/STEP 1BB S/I + 1BB ABD HORI. C/M"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 996,
+    "fields": {
+      "nombre": "PLAT PP S/STEP 1BB S/I + 1BB ADE-AFU"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 997,
+    "fields": {
+      "nombre": "PLAT PP S/STEP 1BB S/I + 1BB ADE-AFU C/M"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 998,
+    "fields": {
+      "nombre": "PLAT PP S/STEP 1BB S/I + 1BB ADU HORIZ C/ELAS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 999,
+    "fields": {
+      "nombre": "PLAT PP S/STEP 1BB S/I + 1BB EMP + SUBO-BAJO CAD"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1000,
+    "fields": {
+      "nombre": "PLAT PP S/STEP 1BB S/I + 1BB EXT DEL"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1001,
+    "fields": {
+      "nombre": "PLAT PP S/STEP 1BB S/I + 1BB EXT DEL C/M"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1002,
+    "fields": {
+      "nombre": "PLAT PP S/STEP 1BB S/I + 1BB EXT DEL C/M ISO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1003,
+    "fields": {
+      "nombre": "PLAT PP S/STEP 1BB S/I + 1BB EXT DET"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1004,
+    "fields": {
+      "nombre": "PLAT PP S/STEP 1BB S/I + 1BB EXT DET C/ELAS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1005,
+    "fields": {
+      "nombre": "PLAT PP S/STEP 1BB S/I + 1BB EXT DETRAS C/M"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1006,
+    "fields": {
+      "nombre": "PLAT PP S/STEP 1BB S/I + 1BB REMO C/ELAS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1007,
+    "fields": {
+      "nombre": "PLAT PP S/STEP 1BB S/I + 1BB TRAC C/ELAS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1008,
+    "fields": {
+      "nombre": "PLAT PP S/STEP BB S/I + BB EMP + SUBO-BAJO CAD C/M"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1009,
+    "fields": {
+      "nombre": "PLAT PP S/STEP – BB S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1010,
+    "fields": {
+      "nombre": "PLATERAL"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1011,
+    "fields": {
+      "nombre": "PLIOMETRÍA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1012,
+    "fields": {
+      "nombre": "POSTERIOR EN POLEA B/AMPLIA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1013,
+    "fields": {
+      "nombre": "PP 90° UN LADO Y OTRO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1014,
+    "fields": {
+      "nombre": "PP EXT. UN LADO Y OTRO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1015,
+    "fields": {
+      "nombre": "PRENSA A 1 PIERNA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1016,
+    "fields": {
+      "nombre": "PRENSA A 2 PIERNAS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1017,
+    "fields": {
+      "nombre": "PRENSA INVERTIDA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1018,
+    "fields": {
+      "nombre": "PRESS ARNOLD DE PIE"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1019,
+    "fields": {
+      "nombre": "PRESS ARNOLD DE ROD 1BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1020,
+    "fields": {
+      "nombre": "PRESS ARNOLD DE ROD 2BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1021,
+    "fields": {
+      "nombre": "PRESS C/BANDA TENSION"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1022,
+    "fields": {
+      "nombre": "PRESS C/DISCO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1023,
+    "fields": {
+      "nombre": "PRESS C/MANC 1BB S/FB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1024,
+    "fields": {
+      "nombre": "PRESS C/MANC 2BB ALTDO S/FB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1025,
+    "fields": {
+      "nombre": "PRESS C/MANC 2BB S/FB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1026,
+    "fields": {
+      "nombre": "PRESS DE HOMB ARNOLD SENTADO/A"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1027,
+    "fields": {
+      "nombre": "PRESS DE HOMB C/M BCO INCLINADO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1028,
+    "fields": {
+      "nombre": "PRESS DE HOMB C/M NEUTRO S/BCO INCLINADO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1029,
+    "fields": {
+      "nombre": "PRESS DE HOMB C/M SENTADO/A"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1030,
+    "fields": {
+      "nombre": "PRESS DE HOMB CON BANDA ELASTICA 1BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1031,
+    "fields": {
+      "nombre": "PRESS DE HOMB CON BANDA ELASTICA 2BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1032,
+    "fields": {
+      "nombre": "PRESS DE HOMB CON MAQUINA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1033,
+    "fields": {
+      "nombre": "PRESS DECLINADO C/BARRA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1034,
+    "fields": {
+      "nombre": "PRESS DECLINADO C/M 1BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1035,
+    "fields": {
+      "nombre": "PRESS DECLINADO C/M 2BB ALTDO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1036,
+    "fields": {
+      "nombre": "PRESS DECLINADO C/MANCUERNAS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1037,
+    "fields": {
+      "nombre": "PRESS FLOOR C/BARRA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1038,
+    "fields": {
+      "nombre": "PRESS FLOOR C/M 1BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1039,
+    "fields": {
+      "nombre": "PRESS FLOOR C/M 1BB PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1040,
+    "fields": {
+      "nombre": "PRESS FLOOR C/M 2BB ALTDO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1041,
+    "fields": {
+      "nombre": "PRESS FLOOR C/M 2BB ALTDO PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1042,
+    "fields": {
+      "nombre": "PRESS FLOOR C/MANCUERNAS 2BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1043,
+    "fields": {
+      "nombre": "PRESS FLOOR C/MANCUERNAS 2BB PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1044,
+    "fields": {
+      "nombre": "PRESS FRANCES 1BB ACOSTADO/A"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1045,
+    "fields": {
+      "nombre": "PRESS FRANCES 1BB PARADO/A"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1046,
+    "fields": {
+      "nombre": "PRESS FRANCES 1BB SENTADO/A"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1047,
+    "fields": {
+      "nombre": "PRESS FRANCES 2BB ACOSTADO/A"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1048,
+    "fields": {
+      "nombre": "PRESS FRANCES 2BB PARADO/A"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1049,
+    "fields": {
+      "nombre": "PRESS FRANCES 2BB SENTADO/A"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1050,
+    "fields": {
+      "nombre": "PRESS FRANCES C/BARRA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1051,
+    "fields": {
+      "nombre": "PRESS FRANCES EN POLEA 1BB ACOSTADO/A"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1052,
+    "fields": {
+      "nombre": "PRESS FRANCES EN POLEA 1BB BCO 15°"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1053,
+    "fields": {
+      "nombre": "PRESS FRANCES EN POLEA 2BB ACOSTADO/A"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1054,
+    "fields": {
+      "nombre": "PRESS FRANCES EN POLEA 2BB BCO 15°"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1055,
+    "fields": {
+      "nombre": "PRESS HOMB 1BB C/M DE ROD S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1056,
+    "fields": {
+      "nombre": "PRESS HOMB 1BB C/M DE ROD S/I + 1BB COORD"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1057,
+    "fields": {
+      "nombre": "PRESS HOMB 1BB DE ROD"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1058,
+    "fields": {
+      "nombre": "PRESS HOMB 1BB STDO/A S/FB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1059,
+    "fields": {
+      "nombre": "PRESS HOMB 2BB C/M DE ROD"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1060,
+    "fields": {
+      "nombre": "PRESS HOMB 2BB C/M DE ROD S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1061,
+    "fields": {
+      "nombre": "PRESS HOMB 2BB STDO/A S/FB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1062,
+    "fields": {
+      "nombre": "PRESS HOMB C/B PTA 1BB ROD S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1063,
+    "fields": {
+      "nombre": "PRESS HOMB C/B PTA 2BB ROD S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1064,
+    "fields": {
+      "nombre": "PRESS HOMB C/B PTA DE ROD + ACTIV"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1065,
+    "fields": {
+      "nombre": "PRESS HOMB C/B PTA DE ROD 1BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1066,
+    "fields": {
+      "nombre": "PRESS HOMB C/B PTA DE ROD 2BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1067,
+    "fields": {
+      "nombre": "PRESS HOMB C/B PTA EN SPLITS 1BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1068,
+    "fields": {
+      "nombre": "PRESS HOMB C/B PTA EN SPLITS 2BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1069,
+    "fields": {
+      "nombre": "PRESS HOMB C/B PTA PARADO/A 1BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1070,
+    "fields": {
+      "nombre": "PRESS HOMB C/B PTA PARADO/A 2BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1071,
+    "fields": {
+      "nombre": "PRESS HOMB C/BARRA- F.ESTRICTA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1072,
+    "fields": {
+      "nombre": "PRESS HOMB CON MAQUINA SMITH"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1073,
+    "fields": {
+      "nombre": "PRESS HOMB MILITAR DE PIE"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1074,
+    "fields": {
+      "nombre": "PRESS HOMB UNILATERAL EN POLEA PARADO/A"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1075,
+    "fields": {
+      "nombre": "PRESS HOMB UNILATERAL EN POLEA STDO/A"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1076,
+    "fields": {
+      "nombre": "PRESS INCLINADO C/BARRA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1077,
+    "fields": {
+      "nombre": "PRESS INCLINADO C/M 1BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1078,
+    "fields": {
+      "nombre": "PRESS INCLINADO C/M 2BB ALTDO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1079,
+    "fields": {
+      "nombre": "PRESS INCLINADO C/MANCUERNAS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1080,
+    "fields": {
+      "nombre": "PRESS INCLINADO EN SMITH"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1081,
+    "fields": {
+      "nombre": "PRESS MAQUINA ACOSTADO/A"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1082,
+    "fields": {
+      "nombre": "PRESS MAQUINA SENTADO/A"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1083,
+    "fields": {
+      "nombre": "PRESS PLANO C/B C/DISCOS COLGANDO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1084,
+    "fields": {
+      "nombre": "PRESS PLANO C/B TOMA SUPINA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1085,
+    "fields": {
+      "nombre": "PRESS PLANO C/BARRA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1086,
+    "fields": {
+      "nombre": "PRESS PLANO C/M 1BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1087,
+    "fields": {
+      "nombre": "PRESS PLANO C/M 2BB ALTDO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1088,
+    "fields": {
+      "nombre": "PRESS PLANO C/MANCUERNAS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1089,
+    "fields": {
+      "nombre": "PRESS PLANO EN SMITH"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1090,
+    "fields": {
+      "nombre": "PRESSPALLOF ARR – AB S ½ ESF."
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1091,
+    "fields": {
+      "nombre": "PRESSPALLOF ARRI – ABAJO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1092,
+    "fields": {
+      "nombre": "PRESSPALLOF C ELAST + RET ISO C/PESO PIE"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1093,
+    "fields": {
+      "nombre": "PRESSPALLOF C ELAST + RET ISO C/PESO ROD"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1094,
+    "fields": {
+      "nombre": "PRESSPALLOF C ELAST + RET ISO C/PESO SPLITS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1095,
+    "fields": {
+      "nombre": "PRESSPALLOF DE PIE"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1096,
+    "fields": {
+      "nombre": "PRESSPALLOF DE PIE S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1097,
+    "fields": {
+      "nombre": "PRESSPALLOF DE ROD."
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1098,
+    "fields": {
+      "nombre": "PRESSPALLOF DE ROD. S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1099,
+    "fields": {
+      "nombre": "PRESSPALLOF ISOM ACOST."
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1100,
+    "fields": {
+      "nombre": "PRESSPALLOF ISOM PIE"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1101,
+    "fields": {
+      "nombre": "PRESSPALLOF ISOM PIE S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1102,
+    "fields": {
+      "nombre": "PRESSPALLOF ISOM ROD"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1103,
+    "fields": {
+      "nombre": "PRESSPALLOF ISOM ROD S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1104,
+    "fields": {
+      "nombre": "PRESSPALLOF ISOM SPLITS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1105,
+    "fields": {
+      "nombre": "PRESSPALLOF ISOM SPLITS S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1106,
+    "fields": {
+      "nombre": "PRESSPALLOF SPLITS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1107,
+    "fields": {
+      "nombre": "PRESSPALLOF SPLITS S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1108,
+    "fields": {
+      "nombre": "PRISIONEROS COMP."
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1109,
+    "fields": {
+      "nombre": "PRISIONEROS SIMP."
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1110,
+    "fields": {
+      "nombre": "PROPIO DE PIE Y TOB 1 PIE"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1111,
+    "fields": {
+      "nombre": "PROPIO DE PIE Y TOB 2 PIE"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1112,
+    "fields": {
+      "nombre": "PROPIO DE PIE Y TOB S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1113,
+    "fields": {
+      "nombre": "PROPIO DE PIE/TOB + INESTAB."
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1114,
+    "fields": {
+      "nombre": "PROPIO DE RODILLA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1115,
+    "fields": {
+      "nombre": "PTDA GLUT INVERTIDA POLEA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1116,
+    "fields": {
+      "nombre": "PTDA GLUT POLEA TRONCO 90° LIBRE"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1117,
+    "fields": {
+      "nombre": "PTDA GLUT POLEA TRONCO 90° ROD EXT LIBRE"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1118,
+    "fields": {
+      "nombre": "PTDA GLUT POLEA TRONCO 90° ROD EXT S/BCO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1119,
+    "fields": {
+      "nombre": "PTDA GLUT POLEA TRONCO A 90° S/BCO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1120,
+    "fields": {
+      "nombre": "PTDA GLUT POLEA TRONCO SEMIFLEX PP S/1STEP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1121,
+    "fields": {
+      "nombre": "PTDA GLUT POLEA TRONCO SEMIFLEXIÓN"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1122,
+    "fields": {
+      "nombre": "PUENTE"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1123,
+    "fields": {
+      "nombre": "PUENTE ISQ 1PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1124,
+    "fields": {
+      "nombre": "PUENTE ISQ 1PP + ABD"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1125,
+    "fields": {
+      "nombre": "PUENTE ISQ 1PP + ADUCC"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1126,
+    "fields": {
+      "nombre": "PUENTE ISQ 1PP C/M"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1127,
+    "fields": {
+      "nombre": "PUENTE ISQ 2PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1128,
+    "fields": {
+      "nombre": "PUENTE ISQ 2PP C/BANDA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1129,
+    "fields": {
+      "nombre": "PUENTE ISQ C/BARRA 1PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1130,
+    "fields": {
+      "nombre": "PUENTE ISQ C/BARRA 2PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1131,
+    "fields": {
+      "nombre": "PUENTE ISQ C/PAÑO 1PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1132,
+    "fields": {
+      "nombre": "PUENTE ISQ C/PAÑO 2PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1133,
+    "fields": {
+      "nombre": "PUENTE ISQ C/ROD O PELOTA 1PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1134,
+    "fields": {
+      "nombre": "PUENTE ISQ C/ROD O PELOTA 2PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1135,
+    "fields": {
+      "nombre": "PUENTE ISQ EXCENTRICO 1PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1136,
+    "fields": {
+      "nombre": "PUENTE ISQ EXCENTRICO 2PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1137,
+    "fields": {
+      "nombre": "PUENTE ISQ ISOM 1PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1138,
+    "fields": {
+      "nombre": "PUENTE ISQ ISOM 2PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1139,
+    "fields": {
+      "nombre": "PULLOVER C/MANCUERNAS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1140,
+    "fields": {
+      "nombre": "PUNTA TALÓN 1PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1141,
+    "fields": {
+      "nombre": "PUNTA TALÓN 1PP S/STEP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1142,
+    "fields": {
+      "nombre": "PUNTA TALÓN 2PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1143,
+    "fields": {
+      "nombre": "PUNTA TALÓN 2PP S/STEP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1144,
+    "fields": {
+      "nombre": "REMO 1BB C/M POS PLANCHA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1145,
+    "fields": {
+      "nombre": "REMO 1BB C/M POS. PLANCHA 2 APOYOS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1146,
+    "fields": {
+      "nombre": "REMO 1BB EN POLEA + ACTIV"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1147,
+    "fields": {
+      "nombre": "REMO 1BB S/BCO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1148,
+    "fields": {
+      "nombre": "REMO 2BB ACOSTADO/A C/BARRA NEUTRO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1149,
+    "fields": {
+      "nombre": "REMO 2BB ACOSTADO/A C/BARRA PRONO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1150,
+    "fields": {
+      "nombre": "REMO 2BB ACOSTADO/A C/BARRA SUPINO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1151,
+    "fields": {
+      "nombre": "REMO 2BB C/APOYO EN JAULA C/BARRA NEUTRO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1152,
+    "fields": {
+      "nombre": "REMO 2BB C/APOYO EN JAULA C/BARRA PRONO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1153,
+    "fields": {
+      "nombre": "REMO 2BB C/APOYO EN JAULA C/BARRA SUPINO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1154,
+    "fields": {
+      "nombre": "REMO 2BB C/MANCUERNAS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1155,
+    "fields": {
+      "nombre": "REMO ACOSTADO C/BARRA DECLINADO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1156,
+    "fields": {
+      "nombre": "REMO ACOSTADO C/BARRA INCLINADO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1157,
+    "fields": {
+      "nombre": "REMO ACOSTADO C/MANCUERNA 1BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1158,
+    "fields": {
+      "nombre": "REMO ACOSTADO C/MANCUERNA 2BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1159,
+    "fields": {
+      "nombre": "REMO AL MENTON 1BB C/M"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1160,
+    "fields": {
+      "nombre": "REMO AL MENTON 1BB EN POLEA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1161,
+    "fields": {
+      "nombre": "REMO AL MENTON 2BB C/M"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1162,
+    "fields": {
+      "nombre": "REMO AL MENTON C/BARRA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1163,
+    "fields": {
+      "nombre": "REMO AL MENTON C/BARRA EN POLEA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1164,
+    "fields": {
+      "nombre": "REMO AL MENTON C/BARRA TOMA AMPLIA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1165,
+    "fields": {
+      "nombre": "REMO EN JAULA EN ISOMETRICO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1166,
+    "fields": {
+      "nombre": "REMO EN JAULA EXCENTRICO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1167,
+    "fields": {
+      "nombre": "REMO EN JAULA PRONO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1168,
+    "fields": {
+      "nombre": "REMO EN JAULA PRONO 1PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1169,
+    "fields": {
+      "nombre": "REMO EN JAULA PRONO C/PESO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1170,
+    "fields": {
+      "nombre": "REMO EN JAULA PRONO S/1STEP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1171,
+    "fields": {
+      "nombre": "REMO EN JAULA PRONO S/2STEPS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1172,
+    "fields": {
+      "nombre": "REMO EN JAULA PRONO S/2STEPS 1PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1173,
+    "fields": {
+      "nombre": "REMO EN JAULA SUPINO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1174,
+    "fields": {
+      "nombre": "REMO EN JAULA SUPINO 1PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1175,
+    "fields": {
+      "nombre": "REMO EN JAULA SUPINO C/PESO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1176,
+    "fields": {
+      "nombre": "REMO EN JAULA SUPINO S/1STEP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1177,
+    "fields": {
+      "nombre": "REMO EN JAULA SUPINO S/2STEPS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1178,
+    "fields": {
+      "nombre": "REMO EN JAULA SUPINO S/2STEPS 1PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1179,
+    "fields": {
+      "nombre": "REMO EN SPLITS 1BB POLEA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1180,
+    "fields": {
+      "nombre": "REMO MAQUINA HAMMER NEUTRO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1181,
+    "fields": {
+      "nombre": "REMO MAQUINA HAMMER PRONO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1182,
+    "fields": {
+      "nombre": "REMO MAQUINA HAMMER SUPINO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1183,
+    "fields": {
+      "nombre": "REMO POLEA 1BB NEUTRO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1184,
+    "fields": {
+      "nombre": "REMO POLEA 1BB SENTADO/A"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1185,
+    "fields": {
+      "nombre": "REMO POLEA 2BB B/CURVA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1186,
+    "fields": {
+      "nombre": "REMO POLEA 2BB B/Z PRONO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1187,
+    "fields": {
+      "nombre": "REMO POLEA 2BB B/Z SUPINO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1188,
+    "fields": {
+      "nombre": "REMO POLEA 2BB BARRA AMPLIA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1189,
+    "fields": {
+      "nombre": "REMO POLEA 2BB BCO 90° NEUTRO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1190,
+    "fields": {
+      "nombre": "REMO POLEA 2BB BCO 90° PRONO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1191,
+    "fields": {
+      "nombre": "REMO POLEA 2BB BCO 90° SUPINO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1192,
+    "fields": {
+      "nombre": "REMO POLEA 2BB NEUTRO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1193,
+    "fields": {
+      "nombre": "REMO POLEA 45° TOMA NEUTRA 1BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1194,
+    "fields": {
+      "nombre": "REMO POLEA 45° TOMA NEUTRA 2BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1195,
+    "fields": {
+      "nombre": "REMO POLEA 45° TOMA PRONA 1BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1196,
+    "fields": {
+      "nombre": "REMO POLEA 45° TOMA PRONA 2BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1197,
+    "fields": {
+      "nombre": "REMO POS SENTADILLA EN POLEA 1BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1198,
+    "fields": {
+      "nombre": "REMO POS SENTADILLA EN POLEA 2BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1199,
+    "fields": {
+      "nombre": "REMO SENTADO/A EN FB 1BB C/ELAST"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1200,
+    "fields": {
+      "nombre": "REMO SENTADO/A EN FB 1BB EN POLEA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1201,
+    "fields": {
+      "nombre": "REMO SENTADO/A EN FB 2BB C/ELAST"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1202,
+    "fields": {
+      "nombre": "REMO SENTADO/A EN FB 2BB EN POLEA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1203,
+    "fields": {
+      "nombre": "REMO T"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1204,
+    "fields": {
+      "nombre": "REMO TRX"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1205,
+    "fields": {
+      "nombre": "REMO TRX 1BB + 1BB C/ELAST+ PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1206,
+    "fields": {
+      "nombre": "REMO TRX 1BB ACOSTADO + 1BB C/ELAST."
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1207,
+    "fields": {
+      "nombre": "REMO TRX 1PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1208,
+    "fields": {
+      "nombre": "REMO TRX PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1209,
+    "fields": {
+      "nombre": "REMO TRX VARIANDO POSICIONES"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1210,
+    "fields": {
+      "nombre": "RETRACCION ESCAP C/PESO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1211,
+    "fields": {
+      "nombre": "RETRACCION ESCAP COLGADO/A"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1212,
+    "fields": {
+      "nombre": "RETRACCION ESCAP PESO CORP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1213,
+    "fields": {
+      "nombre": "ROT EXT C/POLEA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1214,
+    "fields": {
+      "nombre": "ROT EXT HOMBROS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1215,
+    "fields": {
+      "nombre": "ROT INT HOMBROS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1216,
+    "fields": {
+      "nombre": "ROTACION EXT C/BANDA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1217,
+    "fields": {
+      "nombre": "ROTACION EXT C/M 1BB LATERAL"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1218,
+    "fields": {
+      "nombre": "ROTACION EXT C/PELOTA ISO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1219,
+    "fields": {
+      "nombre": "ROTACION EXT C/POLEA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1220,
+    "fields": {
+      "nombre": "ROTACION INT C/BANDA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1221,
+    "fields": {
+      "nombre": "ROTACION INT C/M 1BB ACOSTADO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1222,
+    "fields": {
+      "nombre": "ROTACION INT C/PELOTA ISO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1223,
+    "fields": {
+      "nombre": "ROTACIONES DE TRONCO C/BARRA PTA. DE RODILLAS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1224,
+    "fields": {
+      "nombre": "ROTACIONES DE TRONCO C/BARRA PTA. PARADO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1225,
+    "fields": {
+      "nombre": "ROTACIONES DE TRONCO C/BARRA PTA. S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1226,
+    "fields": {
+      "nombre": "ROTACIONES PP BALISTICO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1227,
+    "fields": {
+      "nombre": "ROTACIONPALLOF + RET ISOM. SPLITS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1228,
+    "fields": {
+      "nombre": "ROTACIONPALLOF + RET. ISOM. DE PIE"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1229,
+    "fields": {
+      "nombre": "ROTACIONPALLOF + RET. ISOM. ROD"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1230,
+    "fields": {
+      "nombre": "ROTACIONPALLOF 2 DIR."
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1231,
+    "fields": {
+      "nombre": "ROTACIONPALLOF 2 DIR. S ½ ESF."
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1232,
+    "fields": {
+      "nombre": "ROTACIONPALLOF ACOST"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1233,
+    "fields": {
+      "nombre": "ROTACIONPALLOF ACOST."
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1234,
+    "fields": {
+      "nombre": "ROTACIONPALLOF C ELAST + RET ISO C/P ROD"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1235,
+    "fields": {
+      "nombre": "ROTACIONPALLOF C ELAST + RET ISO C/POL PIE"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1236,
+    "fields": {
+      "nombre": "ROTACIONPALLOF C ELAST + RET ISO C/POL SPLITS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1237,
+    "fields": {
+      "nombre": "ROTACIONPALLOF DE PIE"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1238,
+    "fields": {
+      "nombre": "ROTACIONPALLOF DE PIE S ½ ESF."
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1239,
+    "fields": {
+      "nombre": "ROTACIONPALLOF DE PIE S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1240,
+    "fields": {
+      "nombre": "ROTACIONPALLOF PIE ISOM"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1241,
+    "fields": {
+      "nombre": "ROTACIONPALLOF PIE ISOM S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1242,
+    "fields": {
+      "nombre": "ROTACIONPALLOF ROD ISOM"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1243,
+    "fields": {
+      "nombre": "ROTACIONPALLOF ROD ISOM S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1244,
+    "fields": {
+      "nombre": "ROTACIONPALLOF ROD."
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1245,
+    "fields": {
+      "nombre": "ROTACIONPALLOF ROD. S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1246,
+    "fields": {
+      "nombre": "ROTACIONPALLOF S/I + RET ISOM."
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1247,
+    "fields": {
+      "nombre": "ROTACIONPALLOF SPLITS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1248,
+    "fields": {
+      "nombre": "ROTACIONPALLOF SPLITS ISOM"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1249,
+    "fields": {
+      "nombre": "ROTACIONPALLOF SPLITS ISOM S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1250,
+    "fields": {
+      "nombre": "ROTACIONPALLOF SPLITS S ½ ESF."
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1251,
+    "fields": {
+      "nombre": "ROTACIONPALLOF SPLITS S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1252,
+    "fields": {
+      "nombre": "RUEDITA ABD DE PIE"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1253,
+    "fields": {
+      "nombre": "RUEDITA ABD ROD 1PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1254,
+    "fields": {
+      "nombre": "RUEDITA ABD ROD 2PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1255,
+    "fields": {
+      "nombre": "SALTOS PLIO FRONT. 1PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1256,
+    "fields": {
+      "nombre": "SALTOS PLIO. FRONT. 2PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1257,
+    "fields": {
+      "nombre": "SALTOS PLIO. LAT. 1PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1258,
+    "fields": {
+      "nombre": "SALTOS PLIO. LAT. 2PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1259,
+    "fields": {
+      "nombre": "SALTOS S/STEP + SALTO ALTO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1260,
+    "fields": {
+      "nombre": "SALTOS SOGA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1261,
+    "fields": {
+      "nombre": "SENT A 1PP ASIMETRICA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1262,
+    "fields": {
+      "nombre": "SENTADILLA  S/BOSU"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1263,
+    "fields": {
+      "nombre": "SENTADILLA 1/2 ESFERA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1264,
+    "fields": {
+      "nombre": "SENTADILLA 1/2 ESFERA + ABD"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1265,
+    "fields": {
+      "nombre": "SENTADILLA 1/2 ESFERA + ADUCC"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1266,
+    "fields": {
+      "nombre": "SENTADILLA ARR 1BB C/M"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1267,
+    "fields": {
+      "nombre": "SENTADILLA ARR 1BB C/M + TENS FRONT"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1268,
+    "fields": {
+      "nombre": "SENTADILLA ARR 1BB C/M + TENS LAT"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1269,
+    "fields": {
+      "nombre": "SENTADILLA ARR 1BB C/M + TENS POST"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1270,
+    "fields": {
+      "nombre": "SENTADILLA ARR C/BARRA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1271,
+    "fields": {
+      "nombre": "SENTADILLA ARR C/BARRA + TENS FRONT"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1272,
+    "fields": {
+      "nombre": "SENTADILLA ARR C/BARRA + TENS LAT"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1273,
+    "fields": {
+      "nombre": "SENTADILLA ARR C/BARRA + TENS POST"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1274,
+    "fields": {
+      "nombre": "SENTADILLA ARR C/BARRA PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1275,
+    "fields": {
+      "nombre": "SENTADILLA ARR C/BARRA PP S/I + TENSIÓN"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1276,
+    "fields": {
+      "nombre": "SENTADILLA ARR C/BASTON"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1277,
+    "fields": {
+      "nombre": "SENTADILLA ARR C/ELAST + 1PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1278,
+    "fields": {
+      "nombre": "SENTADILLA ARR C/ELAST + 2PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1279,
+    "fields": {
+      "nombre": "SENTADILLA ARR C/ELAST O TENS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1280,
+    "fields": {
+      "nombre": "SENTADILLA ARR C/M 1BB + TRACCIÓN 1BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1281,
+    "fields": {
+      "nombre": "SENTADILLA ARR C/M 2BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1282,
+    "fields": {
+      "nombre": "SENTADILLA ARR C/M 2BB + TENS FRONT"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1283,
+    "fields": {
+      "nombre": "SENTADILLA ARR C/M 2BB + TENS LAT"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1284,
+    "fields": {
+      "nombre": "SENTADILLA ARR C/M 2BB + TENS POST"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1285,
+    "fields": {
+      "nombre": "SENTADILLA ARR C/PESO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1286,
+    "fields": {
+      "nombre": "SENTADILLA ARR COMB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1287,
+    "fields": {
+      "nombre": "SENTADILLA ARRANQUE C/PESO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1288,
+    "fields": {
+      "nombre": "SENTADILLA BAZOOKA EN SMITH"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1289,
+    "fields": {
+      "nombre": "SENTADILLA BULG ELONG C/BARRA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1290,
+    "fields": {
+      "nombre": "SENTADILLA BULG ELONG C/BARRA + ROT"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1291,
+    "fields": {
+      "nombre": "SENTADILLA BULG ELONG C/BARRA + TENS LAT"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1292,
+    "fields": {
+      "nombre": "SENTADILLA BULG ELONG C/D"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1293,
+    "fields": {
+      "nombre": "SENTADILLA BULG ELONG C/M 1BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1294,
+    "fields": {
+      "nombre": "SENTADILLA BULG ELONG C/M 1BB + TENS FRONT"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1295,
+    "fields": {
+      "nombre": "SENTADILLA BULG ELONG C/M 1BB + TENS LAT"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1296,
+    "fields": {
+      "nombre": "SENTADILLA BULG ELONG C/M 1BB + TENS POST"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1297,
+    "fields": {
+      "nombre": "SENTADILLA BULG ELONG C/M 2BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1298,
+    "fields": {
+      "nombre": "SENTADILLA BULG ELONG C/M 2BB + PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1299,
+    "fields": {
+      "nombre": "SENTADILLA BULG ELONG C/M 2BB + TENS FRONT"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1300,
+    "fields": {
+      "nombre": "SENTADILLA BULG ELONG C/M 2BB + TENS LAT"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1301,
+    "fields": {
+      "nombre": "SENTADILLA BULG ELONG C/M 2BB + TENS POST"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1302,
+    "fields": {
+      "nombre": "SENTADILLA COPA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1303,
+    "fields": {
+      "nombre": "SENTADILLA EN MÁQUINAS ESPALDA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1304,
+    "fields": {
+      "nombre": "SENTADILLA EN MÁQUINAS FRONTAL"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1305,
+    "fields": {
+      "nombre": "SENTADILLA HACK"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1306,
+    "fields": {
+      "nombre": "SENTADILLA INESTABLE"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1307,
+    "fields": {
+      "nombre": "SENTADILLA ISO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1308,
+    "fields": {
+      "nombre": "SENTADILLA ISO + ABD"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1309,
+    "fields": {
+      "nombre": "SENTADILLA ISO + ADUCC"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1310,
+    "fields": {
+      "nombre": "SENTADILLA ISOM"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1311,
+    "fields": {
+      "nombre": "SENTADILLA ISOM + ABD"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1312,
+    "fields": {
+      "nombre": "SENTADILLA ISOM + ADUCC"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1313,
+    "fields": {
+      "nombre": "SENTADILLA ISOMETRICA 1PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1314,
+    "fields": {
+      "nombre": "SENTADILLA ISOMETRICA 2PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1315,
+    "fields": {
+      "nombre": "SENTADILLA LIBRE C/B DELANTE"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1316,
+    "fields": {
+      "nombre": "SENTADILLA LIBRE C/B DELANTE 1PP S/I."
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1317,
+    "fields": {
+      "nombre": "SENTADILLA LIBRE C/B DELANTE BB EXT."
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1318,
+    "fields": {
+      "nombre": "SENTADILLA LIBRE C/BARRA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1319,
+    "fields": {
+      "nombre": "SENTADILLA LIBRE C/BARRA 1PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1320,
+    "fields": {
+      "nombre": "SENTADILLA PENDULO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1321,
+    "fields": {
+      "nombre": "SENTADILLA S/BOSU"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1322,
+    "fields": {
+      "nombre": "SENTADILLA SI-SI"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1323,
+    "fields": {
+      "nombre": "SENTADILLA SMITH"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1324,
+    "fields": {
+      "nombre": "SENTADILLA SUMO C/B"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1325,
+    "fields": {
+      "nombre": "SENTADILLA SUMO C/B PTA."
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1326,
+    "fields": {
+      "nombre": "SENTADILLA SUMO C/B PTA. 2PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1327,
+    "fields": {
+      "nombre": "SENTADILLA SUMO C/B PTA. S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1328,
+    "fields": {
+      "nombre": "SENTADILLA SUMO C/M"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1329,
+    "fields": {
+      "nombre": "SENTADILLA SUMO C/M 1PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1330,
+    "fields": {
+      "nombre": "SENTADILLA SUMO C/M 2PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1331,
+    "fields": {
+      "nombre": "SENTADILLA SUMO C/M S/STEP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1332,
+    "fields": {
+      "nombre": "SEPARAR Y JUNTAR DEDOS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1333,
+    "fields": {
+      "nombre": "SKIPPING"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1334,
+    "fields": {
+      "nombre": "SLUMP EN ABDUCCION"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1335,
+    "fields": {
+      "nombre": "SLUMP EN FLEXION"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1336,
+    "fields": {
+      "nombre": "SOLEO DE RODILLAS P.C"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1337,
+    "fields": {
+      "nombre": "SOLEO EN MAQ"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1338,
+    "fields": {
+      "nombre": "SOLEO ISOMETRICO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1339,
+    "fields": {
+      "nombre": "SOLEÓ EN MAQ 1PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1340,
+    "fields": {
+      "nombre": "SPLITS C/BARRA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1341,
+    "fields": {
+      "nombre": "SPLITS C/BARRA C/PP ATRAS S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1342,
+    "fields": {
+      "nombre": "SPLITS C/M"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1343,
+    "fields": {
+      "nombre": "SPLITS C/M 1BB EXTENSION"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1344,
+    "fields": {
+      "nombre": "SPLITS C/M 2BB EXTENSION"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1345,
+    "fields": {
+      "nombre": "SPLITS C/M HOMBROS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1346,
+    "fields": {
+      "nombre": "SPLITS C/MANC PP ATRAS S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1347,
+    "fields": {
+      "nombre": "SPLITS EN ELONG C/D"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1348,
+    "fields": {
+      "nombre": "SPLITS S/STEP C/M"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1349,
+    "fields": {
+      "nombre": "SPLITS S/STEP C/M + EMP VERT."
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1350,
+    "fields": {
+      "nombre": "SUBIDAS AL BCO C/BARRA 20CM"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1351,
+    "fields": {
+      "nombre": "SUBIDAS AL BCO C/BARRA 40CM"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1352,
+    "fields": {
+      "nombre": "SUBIDAS AL BCO C/DISCO 20CM"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1353,
+    "fields": {
+      "nombre": "SUBIDAS AL BCO C/DISCO 40CM"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1354,
+    "fields": {
+      "nombre": "SUBIDAS AL BCO C/M 1BB 20CM"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1355,
+    "fields": {
+      "nombre": "SUBIDAS AL BCO C/M 1BB 40CM"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1356,
+    "fields": {
+      "nombre": "SUBIDAS AL BCO C/M 2BB 20CM"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1357,
+    "fields": {
+      "nombre": "SUBIDAS AL BCO C/M 2BB 40CM"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1358,
+    "fields": {
+      "nombre": "SUBIDAS C/M DESDE EL SUELO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1359,
+    "fields": {
+      "nombre": "SUPERMAN + FLEXO-EXT BB – PP EN POSTURA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1360,
+    "fields": {
+      "nombre": "SUPERMAN 1BB C/M"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1361,
+    "fields": {
+      "nombre": "SUPERMAN 1BB C/M ISOM."
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1362,
+    "fields": {
+      "nombre": "SUPERMAN ALTDO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1363,
+    "fields": {
+      "nombre": "SUPERMAN C/ELAST PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1364,
+    "fields": {
+      "nombre": "SUPRAESPINOS PEND + ROT"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1365,
+    "fields": {
+      "nombre": "SUPRAESPINOSO C/BANDA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1366,
+    "fields": {
+      "nombre": "SUPRAESPINOSO C/FB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1367,
+    "fields": {
+      "nombre": "SUPRAESPIONOSO C/POLEA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1368,
+    "fields": {
+      "nombre": "TENSIONAR ELAST C/DEDOS (FLEXIONAR)"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1369,
+    "fields": {
+      "nombre": "TIBIAL ANT. MAQ. DECLINADA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1370,
+    "fields": {
+      "nombre": "TIBIAL ANT. MAQ. LINEAL"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1371,
+    "fields": {
+      "nombre": "TIBIAL C/BARRA DINÁMICO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1372,
+    "fields": {
+      "nombre": "TIBIAL C/ELÁSTICO DE PIE"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1373,
+    "fields": {
+      "nombre": "TIRON DE ARRANQUE"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1374,
+    "fields": {
+      "nombre": "TRACCION C/BANDA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1375,
+    "fields": {
+      "nombre": "TRACCION POLEA 1BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1376,
+    "fields": {
+      "nombre": "TRACCION POLEA 1BB NEUTRO DE ROD"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1377,
+    "fields": {
+      "nombre": "TRACCION POLEA 1BB NEUTRO STDO/A"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1378,
+    "fields": {
+      "nombre": "TRACCION POLEA 1BB PRONO DE ROD"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1379,
+    "fields": {
+      "nombre": "TRACCION POLEA 1BB SUPINO DE ROD"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1380,
+    "fields": {
+      "nombre": "TRACCION POLEA 1BB SUPINO STDO/A"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1381,
+    "fields": {
+      "nombre": "TRACCION POLEA 2BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1382,
+    "fields": {
+      "nombre": "TRACCION POLEA ABIERTA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1383,
+    "fields": {
+      "nombre": "TRACCION POLEA B/CURVA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1384,
+    "fields": {
+      "nombre": "TRACCION POLEA NEUTRA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1385,
+    "fields": {
+      "nombre": "TRACCION POLEA SUPINO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1386,
+    "fields": {
+      "nombre": "TRACCIONAR OBJ C/DEDOS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1387,
+    "fields": {
+      "nombre": "TRACCIONES TORSO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1388,
+    "fields": {
+      "nombre": "TRAPECIOS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1389,
+    "fields": {
+      "nombre": "TRAPITO DE PIE"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1390,
+    "fields": {
+      "nombre": "TRAPITO SENTADO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1391,
+    "fields": {
+      "nombre": "TRICEPS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1392,
+    "fields": {
+      "nombre": "TRICEPS EN TRX"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1393,
+    "fields": {
+      "nombre": "TWIST EN FB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1394,
+    "fields": {
+      "nombre": "TWIST PP C/PESO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1395,
+    "fields": {
+      "nombre": "TWIST PP RIGIDAS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1396,
+    "fields": {
+      "nombre": "TWIST SOVIÉTICO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1397,
+    "fields": {
+      "nombre": "VARIANTES C/POLEAS CRUZADAS"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1398,
+    "fields": {
+      "nombre": "VITALIZACION (VARIANTE)"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1399,
+    "fields": {
+      "nombre": "VITALIZACION 1BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1400,
+    "fields": {
+      "nombre": "VITALIZACION 1BB - 1PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1401,
+    "fields": {
+      "nombre": "VITALIZACION 1BB - 2PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1402,
+    "fields": {
+      "nombre": "VITALIZACION 1PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1403,
+    "fields": {
+      "nombre": "VITALIZACION 1PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1404,
+    "fields": {
+      "nombre": "VITALIZACION 2PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1405,
+    "fields": {
+      "nombre": "VITALIZACION COMB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1406,
+    "fields": {
+      "nombre": "VITALIZACION COMPL + ABD PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1407,
+    "fields": {
+      "nombre": "VITALIZACION COMPLETA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1408,
+    "fields": {
+      "nombre": "VITALIZACION DIAGONAL"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1409,
+    "fields": {
+      "nombre": "VITALIZACION DIAGONAL 1PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1410,
+    "fields": {
+      "nombre": "VITALIZACION DIAGONAL 2PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1411,
+    "fields": {
+      "nombre": "VITALIZACION HORIZ"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1412,
+    "fields": {
+      "nombre": "VITALIZACION HORIZ PP S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1413,
+    "fields": {
+      "nombre": "VITALIZACION INVERTIDA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1414,
+    "fields": {
+      "nombre": "VITALIZACION TPO PESO MTO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1415,
+    "fields": {
+      "nombre": "VITALIZACION TPO PESO MTO 1PP"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1416,
+    "fields": {
+      "nombre": "VUELOS FRONT 1BB C/M DE PIE + 1BB ACTIV"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1417,
+    "fields": {
+      "nombre": "VUELOS FRONT C/ POLEA BAJA"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1418,
+    "fields": {
+      "nombre": "VUELOS FRONT C/BARRA DE PIE"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1419,
+    "fields": {
+      "nombre": "VUELOS FRONT C/M 1 PIE PARADO/A"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1420,
+    "fields": {
+      "nombre": "VUELOS FRONT C/M BCO 45° 1BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1421,
+    "fields": {
+      "nombre": "VUELOS FRONT C/M BCO 45° 2BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1422,
+    "fields": {
+      "nombre": "VUELOS FRONT C/M BCO 45° ALTDO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1423,
+    "fields": {
+      "nombre": "VUELOS FRONT C/M DE PIE 1BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1424,
+    "fields": {
+      "nombre": "VUELOS FRONT C/M DE PIE 2BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1425,
+    "fields": {
+      "nombre": "VUELOS FRONT C/M DE ROD + 1BB ACTIV"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1426,
+    "fields": {
+      "nombre": "VUELOS FRONT C/M DE ROD 1BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1427,
+    "fields": {
+      "nombre": "VUELOS FRONT C/M DE ROD 2BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1428,
+    "fields": {
+      "nombre": "VUELOS FRONT C/M RODILLAS S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1429,
+    "fields": {
+      "nombre": "VUELOS FRONT C/M STDO/A 1BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1430,
+    "fields": {
+      "nombre": "VUELOS FRONT C/M STDO/A 2BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1431,
+    "fields": {
+      "nombre": "VUELOS FRONT C/M STDO/A ALTDO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1432,
+    "fields": {
+      "nombre": "VUELOS FRONT C/M STDO/A ALTDO + ACTIV"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1433,
+    "fields": {
+      "nombre": "VUELOS FRONT C/M STDO/A S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1434,
+    "fields": {
+      "nombre": "VUELOS LAT C/M 1 PIE PARADO/A"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1435,
+    "fields": {
+      "nombre": "VUELOS LAT C/M DE PIE 1BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1436,
+    "fields": {
+      "nombre": "VUELOS LAT C/M DE PIE 2BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1437,
+    "fields": {
+      "nombre": "VUELOS LAT C/M DE PIE ALTDO. + ACTIV"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1438,
+    "fields": {
+      "nombre": "VUELOS LAT C/M DE ROD 1BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1439,
+    "fields": {
+      "nombre": "VUELOS LAT C/M DE ROD 2BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1440,
+    "fields": {
+      "nombre": "VUELOS LAT C/M DE ROD ALTDO + ACTIV"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1441,
+    "fields": {
+      "nombre": "VUELOS LAT C/M DE ROD S/I"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1442,
+    "fields": {
+      "nombre": "VUELOS LAT C/M SENTADO/A 90° 1BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1443,
+    "fields": {
+      "nombre": "VUELOS LAT C/M SENTADO/A 90° 2BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1444,
+    "fields": {
+      "nombre": "VUELOS LAT C/M SENTADO/A 90° ALTDO. + ACTIV"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1445,
+    "fields": {
+      "nombre": "VUELOS LAT C/M STDO/A BCO INCLINADO 1BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1446,
+    "fields": {
+      "nombre": "VUELOS LAT C/M STDO/A BCO INCLINADO 2BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1447,
+    "fields": {
+      "nombre": "VUELOS LAT C/M STDO/A BCO INCLINADO ALTDO + ACTV"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1448,
+    "fields": {
+      "nombre": "VUELOS LAT C/POLEA 1BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1449,
+    "fields": {
+      "nombre": "VUELOS LAT C/POLEA 2BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1450,
+    "fields": {
+      "nombre": "VUELOS POST ACOST BCO 15° 1BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1451,
+    "fields": {
+      "nombre": "VUELOS POST ACOST BCO 15° 2BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1452,
+    "fields": {
+      "nombre": "VUELOS POST ACOST BCO 90° 1BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1453,
+    "fields": {
+      "nombre": "VUELOS POST ACOST BCO 90° 2BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1454,
+    "fields": {
+      "nombre": "VUELOS POST C/BARRA ACOST EN BCO"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1455,
+    "fields": {
+      "nombre": "VUELOS POST C/BARRA TRONCO A 90°"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1456,
+    "fields": {
+      "nombre": "VUELOS POST C/ELAST 1BB + 1BB ISO DE PIE"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1457,
+    "fields": {
+      "nombre": "VUELOS POST C/ELAST 1BB + 1BB ISOM TRONCO 90°"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1458,
+    "fields": {
+      "nombre": "VUELOS POST C/ELAST 1BB DE PIE"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1459,
+    "fields": {
+      "nombre": "VUELOS POST C/ELAST 1BB DE PIE + ACTIV"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1460,
+    "fields": {
+      "nombre": "VUELOS POST C/ELAST 1BB ISO DE PIE + 1BB ACTIV"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1461,
+    "fields": {
+      "nombre": "VUELOS POST C/ELAST 1BB TRONCO 90°"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1462,
+    "fields": {
+      "nombre": "VUELOS POST C/ELAST 2BB ISO DE PIE"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1463,
+    "fields": {
+      "nombre": "VUELOS POST EN MAQ HAMMER"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1464,
+    "fields": {
+      "nombre": "VUELOS POST EN PLANCHA 1BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1465,
+    "fields": {
+      "nombre": "VUELOS POST EN REMO T"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1466,
+    "fields": {
+      "nombre": "VUELOS POST EN TRX"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1467,
+    "fields": {
+      "nombre": "VUELOS POST PALANCA CORTA STDO/A 1BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1468,
+    "fields": {
+      "nombre": "VUELOS POST PALANCA CORTA STDO/A 2BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1469,
+    "fields": {
+      "nombre": "VUELOS POST POLEA 1BB BCO 15°"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1470,
+    "fields": {
+      "nombre": "VUELOS POST POLEA 2BB BCO 15°"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1471,
+    "fields": {
+      "nombre": "VUELOS POST POLEA PARADO/A 1BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1472,
+    "fields": {
+      "nombre": "VUELOS POST POLEA PARADO/A 2BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1473,
+    "fields": {
+      "nombre": "VUELOS POST POLEA TRONCO A 90° 1BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1474,
+    "fields": {
+      "nombre": "VUELOS POST POLEA TRONCO A 90° 2BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1475,
+    "fields": {
+      "nombre": "VUELOS POST SENTADO/A 1BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1476,
+    "fields": {
+      "nombre": "VUELOS POST SENTADO/A 2BB"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1477,
+    "fields": {
+      "nombre": "VUELOS POST TRONCO 90° 1BB C/M"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1478,
+    "fields": {
+      "nombre": "VUELOS POST TRONCO 90° 2BB C/M"
+    }
+  },
+  {
+    "model": "gymapp.ejercicio",
+    "pk": 1479,
+    "fields": {
+      "nombre": "ZONA ½"
+    }
+  }
+]
