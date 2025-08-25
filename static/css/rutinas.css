@@ -39,7 +39,7 @@
   border-color: var(--border) !important;
   border-radius: var(--radius);
   box-shadow: var(--shadow);
-  overflow: hidden;
+  overflow: visible;
 }
 
 /* -------- Encabezados -------- */
