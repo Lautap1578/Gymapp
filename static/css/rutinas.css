@@ -62,8 +62,9 @@
   border: 1px solid var(--border);
   border-color: var(--border) !important;
   border-radius: var(--radius);
-  overflow-x: auto;
-  overflow-y: visible;
+  border-collapse: separate;
+  border-spacing: 0;
+  overflow: hidden;
 }
 .editar-rutinas .table th,
 .editar-rutinas .table td {
@@ -72,13 +73,16 @@
   border-color: var(--border) !important;
 }
 
+.editar-rutinas .table thead {
+  border-top: 2px solid var(--accent);
+  border-bottom: 2px solid var(--accent);
+}
 .editar-rutinas .table thead th {
   background: var(--head-bg);
   color: var(--head-text);
   font-weight: 700;
   font-size: .95rem;
   padding: 12px;
-  border-bottom: 1px solid var(--border);
   position: sticky;
   top: 0;
   z-index: 2;
@@ -88,8 +92,11 @@
   border-bottom: 1px solid var(--border);
   vertical-align: middle;
 }
+.editar-rutinas .table tbody tr:nth-child(even) {
+  background-color: var(--row-hover);
+}
 .editar-rutinas .table tbody tr:hover {
-  background: var(--row-hover);
+  background-color: #eef2f7;
 }
 
 /* Columna fija a la izquierda */
