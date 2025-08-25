@@ -222,6 +222,7 @@ def rutina_cliente(request, member_id):
                     rir=d.rir,
                     sensaciones=d.sensaciones,
                     notas=d.notas,
+                    es_calentamiento=d.es_calentamiento,
                 )
             if hasattr(ultima, "comentario"):
                 ComentarioRutina.objects.create(rutina=nueva, texto=ultima.comentario.texto)
