@@ -302,7 +302,8 @@ def editar_rutina(request, rutina_id):
                 ejercicio_id=request.POST.get(f"ejercicio_{i}") or None,
                 series=request.POST.get(f"series_{i}", ""),
                 repeticiones=request.POST.get(f"repeticiones_{i}", ""),
-                # Estos dos no están en la UI ahora, pero la vista los acepta vacíos:
+                # La vista admite campos opcionales vacíos que aún no están en la UI:
+                # peso, descanso, rir, sensaciones y notas
                 peso=request.POST.get(f"peso_{i}", ""),
                 descanso=request.POST.get(f"descanso_{i}", ""),
                 rir=request.POST.get(f"rir_{i}", ""),
