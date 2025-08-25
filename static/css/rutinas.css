@@ -92,6 +92,15 @@
   background: var(--row-hover);
 }
 
+/* Columna fija a la izquierda */
+.editar-rutinas .sticky-col {
+  position: sticky;
+  left: 0;
+  background: var(--bg);
+  z-index: 3;
+  box-shadow: 2px 0 4px rgba(0,0,0,.05);
+}
+
 /* -------- Inputs y selects -------- */
 .editar-rutinas input[type="text"],
 .editar-rutinas input[type="number"],
