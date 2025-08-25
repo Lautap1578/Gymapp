@@ -33,6 +33,7 @@
 
 /* -------- Card look -------- */
 .editar-rutinas .card {
+  background: var(--bg);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
@@ -60,6 +61,11 @@
   overflow-x: auto;
   overflow-y: visible;
 }
+.editar-rutinas .table th,
+.editar-rutinas .table td {
+  background: var(--bg);
+}
+
 .editar-rutinas .table thead th {
   background: var(--head-bg);
   color: var(--head-text);
