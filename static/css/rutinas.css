@@ -15,11 +15,12 @@
   --accent: #2563eb;
   --accent-focus: rgba(37,99,235,.15);
   --danger: #dc2626;
-  --radius: 12px;
+  --radius: 1.5rem;
   --shadow: 0 6px 20px rgba(0,0,0,.08);
   --input-h: 40px;
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
   color: var(--text);
+  font-size: 1rem;
 }
 
 /* -------- Card look -------- */
@@ -62,7 +63,7 @@
   z-index: 2;
 }
 .editar-rutinas .table tbody td {
-  padding: 10px 12px;
+  padding: 0.75rem 1rem;
   border-bottom: 1px solid var(--border);
   vertical-align: middle;
 }
@@ -113,7 +114,7 @@
 
 /* -------- Botones -------- */
 .editar-rutinas .btn {
-  border-radius: 8px;
+  border-radius: 2rem;
   font-size: .9rem;
   padding: 6px 14px;
   transition: background .2s, transform .05s;
@@ -164,5 +165,10 @@
   background-color: #ffffff !important;  /* se diferencia en blanco */
   border-color: var(--accent) !important;
   box-shadow: 0 0 0 3px var(--accent-focus) !important;
+}
+
+/* -------- Spacing helpers -------- */
+.editar-rutinas .card-body {
+  padding: 1.5rem;
 }
 
