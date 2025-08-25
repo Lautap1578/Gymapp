@@ -1,22 +1,24 @@
-input, textarea, select {
+body:not(.editar-rutinas) input,
+body:not(.editar-rutinas) textarea,
+body:not(.editar-rutinas) select {
     color: #f8f9fa;
     background-color: rgba(255, 255, 255, 0.07);
     border-color: #666;
 }
 
-.form-control {
+body:not(.editar-rutinas) .form-control {
     background-color: rgba(255, 255, 255, 0.07);
     color: #f8f9fa;
 }
 
-input::placeholder,
-textarea::placeholder {
+body:not(.editar-rutinas) input::placeholder,
+body:not(.editar-rutinas) textarea::placeholder {
     color: #ccc;
     opacity: 0.8;
 }
 
 
-.form-text {
+body:not(.editar-rutinas) .form-text {
     color: #f8f9fa;  /* blanco claro */
     opacity: 0.8;
 }
@@ -45,7 +47,7 @@ body {
 .btn {
     border-radius: 2rem;
 }
-.table {
+body:not(.editar-rutinas) .table {
     border-radius: 1.5rem;
     overflow: hidden;
     margin-bottom: 2rem;
@@ -56,23 +58,23 @@ body {
     font-size: 0.95rem;
 }
 
-.table-striped tbody tr:nth-of-type(odd) {
+body:not(.editar-rutinas) .table-striped tbody tr:nth-of-type(odd) {
     background-color: #2a2a3c;
 }
 
-.table td,
-.table th {
+body:not(.editar-rutinas) .table td,
+body:not(.editar-rutinas) .table th {
     color: #ffffff;
     font-weight: 600;
     background-color: transparent;
     border-color: #444;
 }
 
-.table thead {
+body:not(.editar-rutinas) .table thead {
     background-color: #2d2d45;
 }
 
-.table thead th {
+body:not(.editar-rutinas) .table thead th {
     color: #f9f9f9;
     font-weight: 700;
     border-bottom: 2px solid #555;
@@ -83,6 +85,6 @@ body {
 
 
 /* Estilo especial para el input de búsqueda de socio */
-form input[name="q"] {
+body:not(.editar-rutinas) form input[name="q"] {
     color: #000;
 }
