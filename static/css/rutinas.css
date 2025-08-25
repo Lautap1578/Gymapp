@@ -57,19 +57,19 @@
 
 /* -------- Tabla -------- */
 .editar-rutinas .table {
-  background-color: var(--bg) !important;
-  color: var(--text) !important;
+  background-color: var(--bg);
+  color: var(--text);
   border: 1px solid var(--border);
-  border-color: var(--border) !important;
+  border-color: var(--border);
   border-radius: var(--radius);
   overflow-x: auto;
   overflow-y: visible;
 }
 .editar-rutinas .table th,
 .editar-rutinas .table td {
-  background-color: var(--bg) !important;
-  color: var(--text) !important;
-  border-color: var(--border) !important;
+  background-color: var(--bg);
+  color: var(--text);
+  border-color: var(--border);
 }
 
 .editar-rutinas .table thead th {
@@ -102,11 +102,11 @@
   width: 100%;
   height: var(--input-h);
   border: 1px solid var(--border);
-  border-color: var(--border) !important;
+  border-color: var(--border);
   border-radius: 8px;
   padding: 0 10px;
-  background-color: var(--bg) !important;
-  color: var(--text) !important;
+  background-color: var(--bg);
+  color: var(--text);
   font-size: .95rem;
   transition: border-color .15s, box-shadow .15s;
 }
