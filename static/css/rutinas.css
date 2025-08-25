@@ -166,3 +166,12 @@
   box-shadow: 0 0 0 3px var(--accent-focus) !important;
 }
 
+/* Historial de rutinas */
+.historial-rutinas {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 600px;
+  margin: auto;
+}
+

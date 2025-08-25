@@ -18,23 +18,25 @@
 
     <!-- Historial de rutinas -->
     <h4 class="mb-3">Historial de Rutinas</h4>
-    <ul class="list-group">
+    <div class="historial-rutinas">
         {% for rutina in rutinas %}
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-                <span><strong>{{ rutina.get_estructura_display }}</strong> - {{ rutina.fecha_creacion|date:"d/m/Y H:i" }}</span>
-                <div>
-                    <a href="{% url 'editar_rutina' rutina.id %}" class="btn btn-sm btn-outline-secondary me-1">
-                        <i class="bi bi-pencil"></i> Editar
-                    </a>
-                    <a href="{% url 'eliminar_rutina' rutina.id %}" class="btn btn-sm btn-outline-danger" onclick="return confirm('¿Seguro que querés eliminar esta rutina?');">
-                        <i class="bi bi-trash"></i> Eliminar
-                    </a>
+            <div class="card shadow-sm mb-3">
+                <div class="p-3 d-flex justify-content-between align-items-center">
+                    <span><strong>{{ rutina.get_estructura_display }}</strong> - {{ rutina.fecha_creacion|date:"d/m/Y H:i" }}</span>
+                    <div>
+                        <a href="{% url 'editar_rutina' rutina.id %}" class="btn btn-sm btn-outline-secondary me-1">
+                            <i class="bi bi-pencil"></i> Editar
+                        </a>
+                        <a href="{% url 'eliminar_rutina' rutina.id %}" class="btn btn-sm btn-outline-danger" onclick="return confirm('¿Seguro que querés eliminar esta rutina?');">
+                            <i class="bi bi-trash"></i> Eliminar
+                        </a>
+                    </div>
                 </div>
-            </li>
+            </div>
         {% empty %}
-            <li class="list-group-item text-center text-muted">No hay rutinas registradas.</li>
+            <div class="card shadow-sm mb-3 p-3 text-center text-muted">No hay rutinas registradas.</div>
         {% endfor %}
-    </ul>
+    </div>
 </div>
 {% endblock %}
 
