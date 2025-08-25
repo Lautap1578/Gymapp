@@ -59,7 +59,7 @@
                 <td><input type="text" class="form-control" name="cal_repeticiones_0" placeholder="Ej: 2x15 o tiempo"></td>
                 <td><input type="text" class="form-control" name="cal_notas_0" placeholder="Notas"></td>
                 <td class="text-center">
-                  <button type="button" class="btn btn-danger btn-sm" onclick="eliminarFila(this,'tablaCalentamiento')">
+                  <button type="button" class="btn btn-danger btn-sm btn-delete" data-tabla="tablaCalentamiento">
                     <i class="bi bi-x-lg"></i>
                   </button>
                 </td>
@@ -152,7 +152,7 @@
 
                   <!-- Botón eliminar -->
                   <td class="text-center">
-                    <button type="button" class="btn btn-danger btn-sm" onclick="eliminarFila(this,'tablaRutina')">
+                    <button type="button" class="btn btn-danger btn-sm btn-delete" data-tabla="tablaRutina">
                       <i class="bi bi-x-lg"></i>
                     </button>
                   </td>

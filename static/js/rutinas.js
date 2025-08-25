@@ -86,10 +86,17 @@ function eliminarFila(btn, idTabla){
 
 // --- EVENTOS INIT ---
 document.addEventListener('click', function(e){
-  if (!e.target.matches('.btn-add')) return;
-  e.preventDefault();
-  const btn = e.target.closest('.btn-add');
-  agregarFila(btn.getAttribute('data-tabla'), btn.getAttribute('data-prefix') || '');
+  const addBtn = e.target.closest('.btn-add');
+  if (addBtn) {
+    e.preventDefault();
+    agregarFila(addBtn.getAttribute('data-tabla'), addBtn.getAttribute('data-prefix') || '');
+    return;
+  }
+  const delBtn = e.target.closest('.btn-delete');
+  if (delBtn) {
+    e.preventDefault();
+    eliminarFila(delBtn, delBtn.getAttribute('data-tabla'));
+  }
 });
 
 document.addEventListener('DOMContentLoaded', function(){
@@ -101,7 +108,17 @@ document.addEventListener('DOMContentLoaded', function(){
   const wrap = document.getElementById("rutina-wrap");
   const comfy = document.getElementById("density-comfy");
   const compact = document.getElementById("density-compact");
-  if (comfy) comfy.onclick = ()=> { wrap.classList.add("table-density-comfy"); wrap.classList.remove("table-density-compact"); };
-  if (compact) compact.onclick = ()=> { wrap.classList.add("table-density-compact"); wrap.classList.remove("table-density-comfy"); };
+  if (comfy) {
+    comfy.onclick = () => {
+      wrap.classList.add("table-density-comfy");
+      wrap.classList.remove("table-density-compact");
+    };
+  }
+  if (compact) {
+    compact.onclick = () => {
+      wrap.classList.add("table-density-compact");
+      wrap.classList.remove("table-density-comfy");
+    };
+  }
 });
 
