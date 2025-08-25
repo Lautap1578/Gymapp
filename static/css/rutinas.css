@@ -55,48 +55,49 @@
   color: var(--head-text);
 }
 
-/* -------- Tabla -------- */
-.editar-rutinas .table {
-  background-color: var(--bg) !important;
-  color: var(--text) !important;
-  border: 1px solid var(--border);
-  border-color: var(--border) !important;
-  border-radius: var(--radius);
-  border-collapse: separate;
-  border-spacing: 0;
-  overflow: hidden;
-}
-.editar-rutinas .table th,
-.editar-rutinas .table td {
-  background-color: var(--bg) !important;
-  color: var(--text) !important;
-  border-color: var(--border) !important;
+/* -------- Disposición de grids para la rutina -------- */
+.editar-rutinas .rutina-grid-responsive {
+  overflow-x: auto;
 }
 
-.editar-rutinas .table thead {
-  border-top: 2px solid var(--accent);
-  border-bottom: 2px solid var(--accent);
+.editar-rutinas .grid-table {
+  width: 100%;
 }
-.editar-rutinas .table thead th {
+
+.editar-rutinas .grid-table .grid-header,
+.editar-rutinas .grid-table .grid-row {
+  display: grid;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Calentamiento: 5 columnas */
+.editar-rutinas .grid-calentamiento .grid-header,
+.editar-rutinas .grid-calentamiento .grid-row {
+  grid-template-columns: 1.2fr 2fr 1fr 1fr 40px;
+}
+
+/* Rutina principal: 9 columnas */
+.editar-rutinas .grid-rutina .grid-header,
+.editar-rutinas .grid-rutina .grid-row {
+  grid-template-columns: 1.2fr 2fr 1.2fr 0.8fr 1fr 0.8fr 0.8fr 1.2fr 40px;
+}
+
+.editar-rutinas .grid-header {
   background: var(--head-bg);
   color: var(--head-text);
   font-weight: 700;
-  font-size: .95rem;
   padding: 12px;
-  position: sticky;
-  top: 0;
-  z-index: 2;
+  border-top: 2px solid var(--accent);
+  border-bottom: 2px solid var(--accent);
 }
-.editar-rutinas .table tbody td {
+
+.editar-rutinas .grid-row {
   padding: 0.75rem 1rem;
   border-bottom: 1px solid var(--border);
-  vertical-align: middle;
 }
-.editar-rutinas .table tbody tr:nth-child(even) {
+.editar-rutinas .grid-row:nth-child(even) {
   background-color: var(--row-hover);
-}
-.editar-rutinas .table tbody tr:hover {
-  background-color: #eef2f7;
 }
 
 /* Columna fija a la izquierda */
@@ -106,6 +107,16 @@
   background: var(--bg);
   z-index: 3;
   box-shadow: 2px 0 4px rgba(0,0,0,.05);
+}
+
+/* Responsividad: permitir reflujo en pantallas pequeñas */
+@media (max-width: 768px) {
+  .editar-rutinas .grid-rutina .grid-header,
+  .editar-rutinas .grid-rutina .grid-row,
+  .editar-rutinas .grid-calentamiento .grid-header,
+  .editar-rutinas .grid-calentamiento .grid-row {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
 }
 
 /* -------- Inputs y selects -------- */
