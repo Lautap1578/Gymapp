@@ -11,15 +11,15 @@
   font-size: 0.95rem;
 }
 
-/* Paleta base (claro elegante) */
+/* Paleta base (tema oscuro) */
 .editar-rutinas {
-  --bg: #ffffff;
-  --border: #e5e7eb;
-  --head-bg: #f3f4f6;
-  --head-text: #111827;
-  --text: #1f2937;
-  --muted: #6b7280;
-  --row-hover: #f9fafb;
+  --bg: #1e1e2a;
+  --border: #444;
+  --head-bg: #2d2d45;
+  --head-text: #f8f9fa;
+  --text: #f8f9fa;
+  --muted: #9ca3af;
+  --row-hover: #2a2a3c;
   --accent: #2563eb;
   --accent-focus: rgba(37,99,235,.15);
   --danger: #dc2626;
@@ -96,7 +96,7 @@
   background-color: var(--row-hover);
 }
 .editar-rutinas .table tbody tr:hover {
-  background-color: #eef2f7;
+  background-color: #32324a;
 }
 
 /* Columna fija a la izquierda */
@@ -189,9 +189,9 @@
 /* Forzar estilo a los selects de Categoría */
 .editar-rutinas select[name^="categoria"],
 .editar-rutinas select[name^="cal_categoria"] {
-  background-color: #e5e7eb !important;  /* gris más fuerte */
-  border: 1px solid #9ca3af !important;  /* borde gris */
-  color: #111827 !important;             /* texto oscuro */
+  background-color: #2d2d45 !important;  /* gris oscuro */
+  border: 1px solid #444 !important;     /* borde oscuro */
+  color: #f8f9fa !important;             /* texto claro */
   font-weight: 600;
   border-radius: 8px;
   padding-left: 8px;
@@ -200,7 +200,7 @@
 /* Cuando el usuario hace foco */
 .editar-rutinas select[name^="categoria"]:focus,
 .editar-rutinas select[name^="cal_categoria"]:focus {
-  background-color: #ffffff !important;  /* se diferencia en blanco */
+  background-color: var(--bg) !important;  /* vuelve al fondo base */
   border-color: var(--accent) !important;
   box-shadow: 0 0 0 3px var(--accent-focus) !important;
 }
