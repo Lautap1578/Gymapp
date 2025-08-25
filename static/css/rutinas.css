@@ -219,3 +219,79 @@
   margin: auto;
 }
 
+/* -------- Tabla de mis rutinas -------- */
+.rutinas-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: rgba(255, 255, 255, 0.04);
+  color: #f8f9fa;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+.rutinas-table th,
+.rutinas-table td {
+  padding: 0.75rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+.rutinas-table thead th {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  font-weight: 600;
+}
+.rutinas-table tbody tr:nth-child(odd) {
+  background: rgba(255, 255, 255, 0.02);
+}
+.rutinas-table tbody tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.06);
+}
+.rutinas-table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+.rutinas-table tbody tr:focus-within {
+  background: rgba(37, 99, 235, 0.15);
+}
+.rutinas-table tbody td:focus {
+  outline: 2px solid #2563eb;
+  outline-offset: -2px;
+}
+
+/* Cabecera de tarjetas para rutinas */
+.rutinas-card-header {
+  background: rgba(0, 0, 0, 0.6);
+  color: #f8f9fa;
+  font-weight: 600;
+}
+
+/* -------- Tablas genéricas del sitio -------- */
+body:not(.editar-rutinas) .table:not(.rutinas-table) {
+  background-color: #1e1e2a !important;
+  border-collapse: separate;
+  border-spacing: 0;
+  color: #ffffff !important;
+  font-size: 0.95rem;
+}
+
+body:not(.editar-rutinas) .table-striped:not(.rutinas-table) tbody tr:nth-of-type(odd) {
+  background-color: #2a2a3c !important;
+}
+
+body:not(.editar-rutinas) .table:not(.rutinas-table) td,
+body:not(.editar-rutinas) .table:not(.rutinas-table) th {
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  background-color: transparent !important;
+  border-color: #444 !important;
+}
+
+body:not(.editar-rutinas) .table:not(.rutinas-table) thead {
+  background-color: #2d2d45 !important;
+}
+
+body:not(.editar-rutinas) .table:not(.rutinas-table) thead th {
+  color: #f9f9f9 !important;
+  font-weight: 700 !important;
+  border-bottom: 2px solid #555 !important;
+}
+
