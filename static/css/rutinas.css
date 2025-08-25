@@ -13,13 +13,13 @@
 
 /* Paleta base (tema oscuro) */
 .editar-rutinas {
-  --bg: #1e1e2a;
-  --border: #444;
-  --head-bg: #2d2d45;
+  --bg: rgba(255, 255, 255, 0.04);
+  --border: rgba(255, 255, 255, 0.15);
+  --head-bg: rgba(255, 255, 255, 0.08);
   --head-text: #f8f9fa;
   --text: #f8f9fa;
   --muted: #9ca3af;
-  --row-hover: #2a2a3c;
+  --row-hover: rgba(255, 255, 255, 0.06);
   --accent: #2563eb;
   --accent-focus: rgba(37,99,235,.15);
   --danger: #dc2626;
@@ -68,7 +68,6 @@
 }
 .editar-rutinas .table th,
 .editar-rutinas .table td {
-  background-color: var(--bg) !important;
   color: var(--text) !important;
   border-color: var(--border) !important;
 }
@@ -96,7 +95,7 @@
   background-color: var(--row-hover);
 }
 .editar-rutinas .table tbody tr:hover {
-  background-color: #32324a;
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 /* Columna fija a la izquierda */
@@ -121,7 +120,7 @@
   border-color: var(--border) !important;
   border-radius: 8px;
   padding: 0 10px;
-  background-color: var(--bg);
+  background-color: rgba(255, 255, 255, 0.07);
   color: var(--text);
   font-size: .95rem;
   transition: border-color .15s, box-shadow .15s;
@@ -189,9 +188,9 @@
 /* Forzar estilo a los selects de Categoría */
 .editar-rutinas select[name^="categoria"],
 .editar-rutinas select[name^="cal_categoria"] {
-  background-color: #2d2d45 !important;  /* gris oscuro */
-  border: 1px solid #444 !important;     /* borde oscuro */
-  color: #f8f9fa !important;             /* texto claro */
+  background-color: var(--head-bg) !important;
+  border: 1px solid var(--border) !important;
+  color: var(--text) !important;
   font-weight: 600;
   border-radius: 8px;
   padding-left: 8px;
@@ -266,7 +265,7 @@
 
 /* -------- Tablas genéricas del sitio -------- */
 body:not(.editar-rutinas) .table:not(.rutinas-table) {
-  background-color: #1e1e2a !important;
+  background-color: rgba(255, 255, 255, 0.04) !important;
   border-collapse: separate;
   border-spacing: 0;
   color: #ffffff !important;
@@ -274,7 +273,7 @@ body:not(.editar-rutinas) .table:not(.rutinas-table) {
 }
 
 body:not(.editar-rutinas) .table-striped:not(.rutinas-table) tbody tr:nth-of-type(odd) {
-  background-color: #2a2a3c !important;
+  background-color: rgba(255, 255, 255, 0.06) !important;
 }
 
 body:not(.editar-rutinas) .table:not(.rutinas-table) td,
@@ -282,16 +281,16 @@ body:not(.editar-rutinas) .table:not(.rutinas-table) th {
   color: #ffffff !important;
   font-weight: 600 !important;
   background-color: transparent !important;
-  border-color: #444 !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
 }
 
 body:not(.editar-rutinas) .table:not(.rutinas-table) thead {
-  background-color: #2d2d45 !important;
+  background-color: rgba(255, 255, 255, 0.08) !important;
 }
 
 body:not(.editar-rutinas) .table:not(.rutinas-table) thead th {
   color: #f9f9f9 !important;
   font-weight: 700 !important;
-  border-bottom: 2px solid #555 !important;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.15) !important;
 }
 
