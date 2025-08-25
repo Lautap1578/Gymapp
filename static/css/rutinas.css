@@ -11,6 +11,10 @@
   font-size: 0.95rem;
 }
 
+.rutina-form.editar-rutinas {
+  max-width: 1000px;
+}
+
 /* Paleta base (claro elegante) */
 .editar-rutinas {
   --bg: #ffffff;
@@ -294,4 +298,11 @@ body:not(.editar-rutinas) .table:not(.rutinas-table) thead th {
   font-weight: 700 !important;
   border-bottom: 2px solid #555 !important;
 }
+
+/* Column widths for editar_rutina */
+.editar-rutinas .td-ejercicio { min-width: 260px; }
+.editar-rutinas .td-series { max-width: 110px; }
+.editar-rutinas .td-repeticiones { max-width: 140px; }
+.editar-rutinas .td-kilos { max-width: 120px; }
+.editar-rutinas .td-rir { max-width: 110px; }
 
