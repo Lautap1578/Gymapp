@@ -3,25 +3,8 @@
 {% block title %}Editar Rutina{% endblock %}
 
 {% block content %}
-<div class="container my-4 rutina-form" id="contenedor-calor">
+<div class="container my-4 rutina-form editar-rutinas" id="contenedor-calor">
   <h2 class="mb-3">Editar Rutina</h2>
-
-  {# Estilos puntuales para asegurar legibilidad de encabezados en el tema oscuro #}
-  <style>
-    .table-calor thead{ background:#1f2937 !important; }
-    .table-calor thead th{
-      color:#f9fafb !important;
-      font-weight:800 !important;
-      text-transform:uppercase;
-      letter-spacing:.5px;
-    }
-    .table-calor tbody td { vertical-align: middle; }
-    .table-calor .form-control, .table-calor .form-select {
-      background:#fff !important; color:#111 !important;
-      border:1px solid #d1d5db !important; border-radius:8px !important;
-    }
-    .btn-add { border-radius:10px; font-weight:600; }
-  </style>
 
   <form id="rutinaForm" method="post" action="">
     {% csrf_token %}
@@ -51,7 +34,7 @@
                 <th>Ejercicio</th>
                 <th>Repeticiones</th>
                 <th>Notas</th>
-                <th>Acción</th>
+                <th></th>
               </tr>
             </thead>
             <tbody id="tbody-calor">
@@ -90,7 +73,13 @@
 
     <!-- ================= RUTINA PRINCIPAL ================= -->
     <div class="card mb-4 shadow-sm">
-      <div class="card-header fw-bold">Rutina principal</div>
+      <div class="card-header fw-bold d-flex align-items-center justify-content-between">
+        Rutina principal
+        <div class="d-flex gap-2">
+          <button type="button" class="btn btn-outline-primary btn-sm" id="density-comfy">Cómodo</button>
+          <button type="button" class="btn btn-outline-primary btn-sm" id="density-compact">Compacto</button>
+        </div>
+      </div>
       <div class="card-body">
         <div class="mb-2 d-flex gap-2 align-items-center">
           <button type="button" class="btn btn-success btn-sm btn-add"
@@ -100,78 +89,80 @@
           <small class="text-muted">Total filas: <span id="total_filas">1</span></small>
         </div>
 
-        <div class="table-responsive">
-          <table class="table table-striped align-middle table-calor" id="tablaRutina">
-            <thead>
-              <tr>
-                <th>Categoría</th>
-                <th>Ejercicios</th>
-                <th>Notas</th>
-                <th>Series</th>
-                <th>Repeticiones</th>
-                <th>Kilos</th>
-                <th>RIR</th>
-                <th>Sensaciones</th>
-                <th>Acción</th>
-              </tr>
-            </thead>
-            <tbody id="tbody-rutina">
-              <tr>
-                <!-- Categoría -->
-                <td>
-                  <select name="categoria_0" class="form-select">
-                    <option value="">Seleccionar…</option>
-                    {% for c in categorias %}
-                      <option value="{{ c }}">{{ c }}</option>
-                    {% endfor %}
-                  </select>
-                </td>
+        <div id="rutina-wrap" class="table-density-comfy">
+          <div class="table-responsive">
+            <table class="table table-striped align-middle table-calor" id="tablaRutina">
+              <thead>
+                <tr>
+                  <th class="sticky-col">Categoría</th>
+                  <th>Ejercicios</th>
+                  <th>Notas</th>
+                  <th>Series</th>
+                  <th>Repeticiones</th>
+                  <th>Kilos</th>
+                  <th>RIR</th>
+                  <th>Sensaciones</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="tbody-rutina">
+                <tr>
+                  <!-- Categoría -->
+                  <td class="sticky-col">
+                    <select name="categoria_0" class="form-select">
+                      <option value="">Seleccionar…</option>
+                      {% for c in categorias %}
+                        <option value="{{ c }}">{{ c }}</option>
+                      {% endfor %}
+                    </select>
+                  </td>
 
-                <!-- Ejercicio con buscador -->
-                <td style="min-width:260px;">
-                  <select name="ejercicio_0" class="form-select ejercicio-select">
-                    <option value="">Seleccionar ejercicio…</option>
-                    {% for e in ejercicios %}
-                      <option value="{{ e.id }}">{{ e.nombre }}</option>
-                    {% endfor %}
-                  </select>
-                </td>
+                  <!-- Ejercicio con buscador -->
+                  <td style="min-width:260px;">
+                    <select name="ejercicio_0" class="form-select ejercicio-select">
+                      <option value="">Seleccionar ejercicio…</option>
+                      {% for e in ejercicios %}
+                        <option value="{{ e.id }}">{{ e.nombre }}</option>
+                      {% endfor %}
+                    </select>
+                  </td>
 
-                <!-- Notas -->
-                <td><input type="text" class="form-control" name="notas_0" placeholder="Notas"></td>
+                  <!-- Notas -->
+                  <td><input type="text" class="form-control" name="notas_0" placeholder="Notas"></td>
 
-                <!-- Series -->
-                <td style="max-width:110px;"><input type="text" class="form-control" name="series_0" placeholder="Ej: 4"></td>
+                  <!-- Series -->
+                  <td style="max-width:110px;"><input type="text" class="form-control" name="series_0" placeholder="Ej: 4"></td>
 
-                <!-- Repeticiones -->
-                <td style="max-width:140px;"><input type="text" class="form-control" name="repeticiones_0" placeholder="Ej: 10-12"></td>
+                  <!-- Repeticiones -->
+                  <td style="max-width:140px;"><input type="text" class="form-control" name="repeticiones_0" placeholder="Ej: 10-12"></td>
 
-                <!-- Kilos (peso en modelo) -->
-                <td style="max-width:120px;"><input type="text" class="form-control" name="peso_0" placeholder="Ej: 30"></td>
+                  <!-- Kilos -->
+                  <td style="max-width:120px;"><input type="text" class="form-control" name="peso_0" placeholder="Ej: 30"></td>
 
-                <!-- RIR -->
-                <td style="max-width:110px;">
-                  <select name="rir_0" class="form-select">
-                    <option value="">-</option>
-                    <option>0</option><option>1</option><option>2</option><option>3</option><option>4</option>
-                  </select>
-                </td>
+                  <!-- RIR -->
+                  <td style="max-width:110px;">
+                    <select name="rir_0" class="form-select">
+                      <option value="">-</option>
+                      <option>0</option><option>1</option><option>2</option><option>3</option><option>4</option>
+                    </select>
+                  </td>
 
-                <!-- Sensaciones -->
-                <td><input type="text" class="form-control" name="sensaciones_0" placeholder="Cómo lo sentiste"></td>
+                  <!-- Sensaciones -->
+                  <td><input type="text" class="form-control" name="sensaciones_0" placeholder="Cómo lo sentiste"></td>
 
-                <!-- Acción -->
-                <td class="text-center">
-                  <button type="button" class="btn btn-danger btn-sm" onclick="eliminarFila(this,'tablaRutina')">
-                    <i class="bi bi-x-lg"></i>
-                  </button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+                  <!-- Botón eliminar -->
+                  <td class="text-center">
+                    <button type="button" class="btn btn-danger btn-sm" onclick="eliminarFila(this,'tablaRutina')">
+                      <i class="bi bi-x-lg"></i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
 
-        <!-- totales ocultos para POST -->
+        <!-- totales ocultos -->
         <input type="hidden" name="total_filas" id="total_filas_input" value="1">
         <input type="hidden" name="total_filas_calentamiento" id="total_filas_calentamiento_input" value="1">
       </div>
@@ -193,87 +184,93 @@
 </div>
 
 <script>
-/* ============ Select2 con buscador visible ============ */
+// --- INIT SELECT2 ROBUSTO ---
 function initSelect2(scope){
   $(scope).find('select.ejercicio-select').each(function(){
-    if ($(this).hasClass("select2-hidden-accessible")) $(this).select2('destroy');
-    $(this).select2({
+    const $sel = $(this);
+
+    // Limpieza FULL por si viene clonada
+    $sel.off();
+    if ($sel.hasClass('select2-hidden-accessible')) {
+      try { $sel.select2('destroy'); } catch(e){}
+      $sel.removeClass('select2-hidden-accessible');
+      $sel.removeAttr('data-select2-id');
+      const $next = $sel.next('.select2');
+      if ($next.length) $next.remove();
+    }
+
+    // Inicialización fresca
+    $sel.select2({
       placeholder: "Seleccionar ejercicio…",
       allowClear: true,
-      width: 'resolve',
-      minimumResultsForSearch: 0,     // <- SIEMPRE muestra el buscador
-      dropdownParent: $('#rutinaForm')
+      minimumResultsForSearch: 0,
+      width: '100%',
+      dropdownParent: $sel.closest('.card, form, body')
     });
   });
 }
 
-/* ============ Helpers conteo de filas ============ */
-function contarFilas(idTabla){
-  return document.querySelectorAll('#' + idTabla + ' tbody tr').length;
-}
+// Helpers conteo de filas
+function contarFilas(idTabla){ return document.querySelectorAll('#' + idTabla + ' tbody tr').length; }
 function actualizarTotal(idTabla, idSpan){
   const total = contarFilas(idTabla);
   document.getElementById(idSpan).textContent = total;
-  if (idTabla === 'tablaRutina') {
-    document.getElementById('total_filas_input').value = total;
-  }
-  if (idTabla === 'tablaCalentamiento') {
-    document.getElementById('total_filas_calentamiento_input').value = total;
-  }
+  if (idTabla === 'tablaRutina') document.getElementById('total_filas_input').value = total;
+  if (idTabla === 'tablaCalentamiento') document.getElementById('total_filas_calentamiento_input').value = total;
 }
 
-/* ============ Agregar / Eliminar fila ============ */
+// --- AGREGAR FILA SIN ROMPER NOMBRES NI SELECT2 ---
 function agregarFila(idTabla, prefix){
   const $tbody = $('#' + idTabla + ' tbody');
   const index = $tbody.find('tr').length;
-  const $fila = $tbody.find('tr').first().clone();
+  const $fila = $tbody.find('tr').first().clone(false); // sin copiar eventos
 
-  // limpiar / renombrar
   $fila.find('input, select').each(function(){
     const el = this;
 
-    // Si era Select2 de la fila base, destruir antes de tocar name/value
-    if (el.tagName === 'SELECT' && $(el).hasClass('select2-hidden-accessible')) {
-      $(el).select2('destroy');
+    // Si es SELECT clonado desde uno con select2, limpiamos
+    if (el.tagName === 'SELECT') {
+      const $el = $(el);
+      if ($el.hasClass('select2-hidden-accessible')) {
+        try { $el.select2('destroy'); } catch(e){}
+        $el.removeClass('select2-hidden-accessible').removeAttr('data-select2-id');
+        const $next = $el.next('.select2');
+        if ($next.length) $next.remove();
+      }
     }
 
+    // Renombrado correcto
+    const partes = el.name.split('_');
+    let baseReal;
+    if (partes[0] === 'cal' && partes.length >= 3) {
+      baseReal = partes[1]; // después de "cal"
+    } else {
+      baseReal = partes[0];
+    }
+    el.name = (prefix || '') + baseReal + '_' + index;
+
+    // Reset de valores
     if (el.tagName === 'SELECT'){
-      if (el.name.includes('categoria')){
-        el.name = (prefix || '') + 'categoria_' + index;
-        el.selectedIndex = 0;
-      } else if (el.name.includes('ejercicio')){
-        el.name = (prefix || '') + 'ejercicio_' + index;
-        el.selectedIndex = 0;
-      } else if (el.name.includes('rir')){
-        el.name = (prefix || '') + 'rir_' + index;
-        el.selectedIndex = 0;
-      } else {
-        const base = el.name.split('_')[0];
-        el.name = (prefix || '') + base + '_' + index;
-        el.selectedIndex = 0;
-      }
-    } else { // inputs
-      const base = el.name.split('_')[0];
-      el.name = (prefix || '') + base + '_' + index;
+      el.selectedIndex = 0;
+    } else {
       el.value = '';
     }
   });
 
   $tbody.append($fila);
-  initSelect2($fila);
+  initSelect2($fila); // solo la nueva fila
   actualizarTotal(idTabla, idTabla === 'tablaRutina' ? 'total_filas' : 'total_filas_calentamiento');
 }
+
+// --- ELIMINAR FILA ---
 function eliminarFila(btn, idTabla){
   const tbody = document.querySelector('#' + idTabla + ' tbody');
-  if (tbody.rows.length <= 1){
-    // dejar siempre al menos 1 fila
-    return;
-  }
+  if (tbody.rows.length <= 1) return;
   btn.closest('tr').remove();
   actualizarTotal(idTabla, idTabla === 'tablaRutina' ? 'total_filas' : 'total_filas_calentamiento');
 }
 
-/* ============ Inicialización ============ */
+// --- EVENTOS INIT ---
 document.addEventListener('click', function(e){
   if (!e.target.matches('.btn-add')) return;
   e.preventDefault();
@@ -286,15 +283,12 @@ document.addEventListener('DOMContentLoaded', function(){
   actualizarTotal('tablaCalentamiento','total_filas_calentamiento');
   actualizarTotal('tablaRutina','total_filas');
 
-  // re‑init si se muestran tabs/accordion/modal
-  $(document).on('shown.bs.tab shown.bs.collapse shown.bs.modal', function(){
-    initSelect2(document);
-  });
-
-  // reflow simple
-  window.addEventListener('resize', function(){
-    initSelect2(document);
-  });
+  // Toggle densidad
+  const wrap = document.getElementById("rutina-wrap");
+  const comfy = document.getElementById("density-comfy");
+  const compact = document.getElementById("density-compact");
+  if (comfy) comfy.onclick = ()=> { wrap.classList.add("table-density-comfy"); wrap.classList.remove("table-density-compact"); };
+  if (compact) compact.onclick = ()=> { wrap.classList.add("table-density-compact"); wrap.classList.remove("table-density-comfy"); };
 });
 </script>
 {% endblock %}

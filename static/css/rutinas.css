@@ -1,221 +1,168 @@
-/* ================================
-   RUTINAS — Estilos limpios y legibles
-   ================================ */
+/* ======================================================
+   Estilos para Editar Rutinas
+   Scope: .editar-rutinas
+   ====================================================== */
 
-/* ----- Controles base dentro de la vista de Rutinas ----- */
-.rutina-form input,
-.rutina-form textarea {
-  background-color: #ffffff !important;
-  color: #0b1220 !important;
-  border: 1px solid #cfd6e4 !important;
-  border-radius: 8px !important;
-  padding: 8px !important;
-  width: 100% !important;
-}
-
-.rutina-form select:not(.select2-hidden-accessible) {
-  background-color: #ffffff !important;
-  color: #0b1220 !important;
-  border: 1px solid #cfd6e4 !important;
-  border-radius: 8px !important;
-  padding: 8px !important;
-  width: 100% !important;
-}
-
-.rutina-form input:focus,
-.rutina-form select:focus,
-.rutina-form textarea:focus {
-  border-color: #2563eb !important;
-  outline: none !important;
-  box-shadow: 0 0 6px rgba(37, 99, 235, 0.35) !important;
+/* Paleta base (claro elegante) */
+.editar-rutinas {
+  --bg: #ffffff;
+  --border: #e5e7eb;
+  --head-bg: #f3f4f6;
+  --head-text: #111827;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --row-hover: #f9fafb;
+  --accent: #2563eb;
+  --accent-focus: rgba(37,99,235,.15);
+  --danger: #dc2626;
+  --radius: 12px;
+  --shadow: 0 6px 20px rgba(0,0,0,.08);
+  --input-h: 40px;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color: var(--text);
 }
 
-/* ----- Cards contenedoras ----- */
-.rutina-form .card {
-  background: rgba(255,255,255,0.06) !important;
-  border: 1px solid rgba(255,255,255,0.10) !important;
-  border-radius: 14px !important;
-  backdrop-filter: blur(2px);
+/* -------- Card look -------- */
+.editar-rutinas .card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
 }
 
-/* ================================
-   TABLAS
-   ================================ */
-.table-responsive { overflow: visible !important; } /* para que no corte Select2 */
-
-.rutina-form table {
-  border-collapse: separate !important;
-  border-spacing: 0 !important;
-  width: 100% !important;
-  background: transparent !important; /* el fondo real va en celdas */
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08) !important;
+/* -------- Encabezados -------- */
+.editar-rutinas h2,
+.editar-rutinas h3 {
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: var(--head-text);
 }
-
-/* Layout estable para no “romper” al usar Select2 */
-.table-calor {
-  table-layout: fixed;
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
-}
-
-.table-calor th,
-.table-calor td {
-  vertical-align: middle !important;
-  text-align: center !important;
-  padding: 12px 14px !important;
-  white-space: nowrap; /* en mobile lo relajamos */
-}
-
-/* Encabezado oscuro + texto claro */
-.table-calor thead {
-  background: #0f172a !important; /* azul noche */
-}
-.table-calor thead th {
-  color: #f8fafc !important;      /* casi blanco */
-  font-weight: 800 !important;
-  text-transform: uppercase;
-  letter-spacing: .5px;
-  border-bottom: 2px solid #1f2937 !important;
-}
-
-/* Celdas claras + texto oscuro (legibles SIEMPRE) */
-.table-calor tbody td,
-.table-calor tbody th {
-  background: #ffffff !important;
-  color: #0b1220 !important;
-}
-
-/* Zebra suave + hover profesional */
-.table-calor tbody tr:nth-child(even) {
-  background: #f7f9fc !important;
-}
-.table-calor tbody tr:hover {
-  background: #eef6ff !important;
-  transition: background-color .2s ease;
-}
-
-/* Inputs/Selects adentro de celdas */
-.table-calor .form-control,
-.table-calor .form-select {
-  width: 100%;
-  min-width: 0;
-  box-sizing: border-box;
-  background: #ffffff !important;
-  color: #0b1220 !important;
-  border: 1px solid #cfd6e4 !important;
-  border-radius: 8px !important;
-}
-
-/* Botón eliminar redondo y compacto */
-.table-calor .btn.btn-danger.btn-sm {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px; height: 32px;
-  border-radius: 50%;
-  padding: 0;
-}
-
-/* ================================
-   SELECT2 — buscador visible y dropdown por encima
-   ================================ */
-.select2-container {
-  width: 100% !important;
-  z-index: 1055 !important; /* sobre tablas/navbar */
-}
-
-.select2-container--default .select2-selection--single {
-  background-color: #ffffff !important;
-  color: #0b1220 !important;
-  border: 1px solid #cfd6e4 !important;
-  border-radius: 8px !important;
-  height: 40px !important;
-  display: flex !important;
-  align-items: center !important;
-  padding: 0 10px !important;
-  font-size: 0.95rem !important;
-}
-
-.select2-container--default .select2-selection--single .select2-selection__rendered {
-  color: #0b1220 !important;
-  line-height: 40px !important;
-  padding-left: .25rem !important;
-}
-
-.select2-container--default .select2-selection--single .select2-selection__arrow {
-  height: 40px !important;
-  right: 8px !important;
-}
-
-.select2-dropdown {
-  border-radius: 8px !important;
-  border: 1px solid #cfd6e4 !important;
-  background-color: #ffffff !important;
-  color: #0b1220 !important;
-  z-index: 2055 !important; /* que nunca se esconda */
-  position: absolute !important;
-}
-
-.select2-search { padding: 6px !important; }
-.select2-search__field {
-  background: #ffffff !important;
-  color: #0b1220 !important;
-  border: 1px solid #cfd6e4 !important;
-  font-size: 14px !important;
-  padding: 6px 8px !important;
-}
-
-.select2-results__option {
-  color: #0b1220 !important;
-  background: #ffffff !important;
-}
-.select2-results__option--highlighted {
-  background: #2563eb !important;
-  color: #ffffff !important;
-}
-
-/* ================================
-   COLUMNAS — proporciones para evitar scroll horizontal
-   (ajustadas a la tabla principal: Categoría, Ejercicios, Notas, Series, Repeticiones, Kilos, RIR, Sensaciones, Acción)
-   ================================ */
-#tablaRutina thead th:nth-child(1){ width: 14%; } /* Categoría */
-#tablaRutina thead th:nth-child(2){ width: 26%; } /* Ejercicios */
-#tablaRutina thead th:nth-child(3){ width: 14%; } /* Notas */
-#tablaRutina thead th:nth-child(4){ width: 8%;  } /* Series */
-#tablaRutina thead th:nth-child(5){ width: 12%; } /* Repeticiones */
-#tablaRutina thead th:nth-child(6){ width: 8%;  } /* Kilos */
-#tablaRutina thead th:nth-child(7){ width: 8%;  } /* RIR */
-#tablaRutina thead th:nth-child(8){ width: 8%;  } /* Sensaciones */
-#tablaRutina thead th:nth-child(9),
-#tablaCalentamiento thead th:nth-child(5) { /* en calentamiento es la 5ta: Acción */
-  width: 8% !important;
-}
-#tablaRutina td:last-child,
-#tablaCalentamiento td:last-child {
-  min-width: 72px !important;   /* espacio real para el botón */
-  text-align: center !important;
-  padding-right: 12px !important;
-}
-
-/* Selects de categoría con leve destaque visual */
-#tablaRutina select[name^="categoria"],
-#tablaCalentamiento select[name^="cal_categoria"] {
+.editar-rutinas .card-header {
+  background: var(--head-bg);
   font-weight: 600;
-  background-color: #f8f9fa !important;
+  color: var(--head-text);
 }
 
-/* Focus claro en selects de las tablas */
-#tablaRutina select:focus,
-#tablaCalentamiento select:focus {
-  border-color: #2563eb !important;
-  box-shadow: 0 0 4px rgba(37, 99, 235, .35) !important;
+/* -------- Tabla -------- */
+.editar-rutinas .table {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.editar-rutinas .table thead th {
+  background: var(--head-bg);
+  color: var(--head-text);
+  font-weight: 700;
+  font-size: .95rem;
+  padding: 12px;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+.editar-rutinas .table tbody td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+.editar-rutinas .table tbody tr:hover {
+  background: var(--row-hover);
+}
+
+/* -------- Inputs y selects -------- */
+.editar-rutinas input[type="text"],
+.editar-rutinas input[type="number"],
+.editar-rutinas textarea,
+.editar-rutinas select,
+.editar-rutinas .form-control,
+.editar-rutinas .form-select {
+  width: 100%;
+  height: var(--input-h);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0 10px;
+  background: #fff;
+  color: var(--text);
+  font-size: .95rem;
+  transition: border-color .15s, box-shadow .15s;
+}
+.editar-rutinas input:focus,
+.editar-rutinas select:focus,
+.editar-rutinas textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-focus);
   outline: none;
 }
+.editar-rutinas ::placeholder { color: var(--muted); }
 
-/* ================================
-   RESPONSIVE
-   ================================ */
-@media (max-width: 576px){
-  .table-calor th, .table-calor td { white-space: normal; } /* permitir salto de línea en móvil */
+/* -------- Select2 -------- */
+.editar-rutinas .select2-container { width: 100% !important; }
+.editar-rutinas .select2-selection {
+  border: 1px solid var(--border) !important;
+  border-radius: 8px !important;
+  height: var(--input-h) !important;
+  display: flex !important;
+  align-items: center;
 }
+.editar-rutinas .select2-selection__rendered {
+  line-height: var(--input-h) !important;
+  padding-left: 10px !important;
+}
+.editar-rutinas .select2-selection__arrow { height: var(--input-h) !important; }
+
+/* -------- Botones -------- */
+.editar-rutinas .btn {
+  border-radius: 8px;
+  font-size: .9rem;
+  padding: 6px 14px;
+  transition: background .2s, transform .05s;
+}
+.editar-rutinas .btn:active { transform: scale(.97); }
+.editar-rutinas .btn-success { background: #22c55e; border: none; }
+.editar-rutinas .btn-success:hover { background: #16a34a; }
+.editar-rutinas .btn-danger { background: #ef4444; border: none; }
+.editar-rutinas .btn-danger:hover { background: #dc2626; }
+.editar-rutinas .btn-outline-primary {
+  border: 1px solid var(--accent);
+  color: var(--accent);
+}
+.editar-rutinas .btn-outline-primary:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* Botones de acción pequeños */
+.editar-rutinas .btn-sm {
+  padding: 4px 10px;
+  font-size: .8rem;
+}
+.editar-rutinas .btn i { font-size: .85rem; }
+
+/* -------- Densidad (compacta o cómoda) -------- */
+.editar-rutinas .table-density-compact td,
+.editar-rutinas .table-density-compact th {
+  padding: 6px 8px;
+  font-size: .85rem;
+}
+
+
+/* Forzar estilo a los selects de Categoría */
+.editar-rutinas select[name^="categoria"],
+.editar-rutinas select[name^="cal_categoria"] {
+  background-color: #e5e7eb !important;  /* gris más fuerte */
+  border: 1px solid #9ca3af !important;  /* borde gris */
+  color: #111827 !important;             /* texto oscuro */
+  font-weight: 600;
+  border-radius: 8px;
+  padding-left: 8px;
+}
+
+/* Cuando el usuario hace foco */
+.editar-rutinas select[name^="categoria"]:focus,
+.editar-rutinas select[name^="cal_categoria"]:focus {
+  background-color: #ffffff !important;  /* se diferencia en blanco */
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 0 3px var(--accent-focus) !important;
+}
+
