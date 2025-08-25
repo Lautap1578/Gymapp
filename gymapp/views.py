@@ -7,11 +7,8 @@ from django.contrib import messages
 
 from .forms import MemberForm, MemberInfoForm
 from .models import Member, Payment, Ejercicio, Rutina, DetalleRutina, ComentarioRutina
-from .models import Rutina, Member
 
 from django.utils import timezone
-
-from django.contrib import messages
 
 
 
