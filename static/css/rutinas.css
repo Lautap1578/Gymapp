@@ -3,6 +3,14 @@
    Scope: .editar-rutinas
    ====================================================== */
 
+/* Estilos generales para las vistas de rutinas */
+.rutina-form {
+  max-width: 900px;
+  margin: auto;
+  padding: 1rem;
+  font-size: 0.95rem;
+}
+
 /* Paleta base (claro elegante) */
 .editar-rutinas {
   --bg: #ffffff;
