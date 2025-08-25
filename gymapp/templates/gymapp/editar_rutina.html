@@ -26,20 +26,18 @@
           <small class="text-muted">Total filas: <span id="total_filas_calentamiento">1</span></small>
         </div>
 
-        <div class="table-responsive">
-          <table class="table table-striped align-middle table-calor" id="tablaCalentamiento">
-            <thead>
-              <tr>
-                <th>Categoría</th>
-                <th>Ejercicio</th>
-                <th>Repeticiones</th>
-                <th>Notas</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody id="tbody-calor">
-              <tr>
-                <td>
+        <div class="rutina-grid-responsive">
+          <div class="grid-table grid-calentamiento" id="tablaCalentamiento">
+            <div class="grid-header">
+              <div>Categoría</div>
+              <div>Ejercicio</div>
+              <div>Repeticiones</div>
+              <div>Notas</div>
+              <div></div>
+            </div>
+            <div class="grid-body" id="tbody-calor">
+              <div class="grid-row">
+                <div class="categoria">
                   <select name="cal_categoria_0" class="form-select">
                     <option value="">Seleccionar…</option>
                     {% for c in categorias %}
@@ -47,25 +45,25 @@
                     {% endfor %}
                     <option value="Cardio">Cardio</option>
                   </select>
-                </td>
-                <td>
+                </div>
+                <div class="ejercicio">
                   <select name="cal_ejercicio_0" class="form-select ejercicio-select">
                     <option value="">Seleccionar ejercicio…</option>
                     {% for e in ejercicios %}
                       <option value="{{ e.id }}">{{ e.nombre }}</option>
                     {% endfor %}
                   </select>
-                </td>
-                <td><input type="text" class="form-control" name="cal_repeticiones_0" placeholder="Ej: 2x15 o tiempo"></td>
-                <td><input type="text" class="form-control" name="cal_notas_0" placeholder="Notas"></td>
-                <td class="text-center">
+                </div>
+                <div class="repeticiones"><input type="text" class="form-control" name="cal_repeticiones_0" placeholder="Ej: 2x15 o tiempo"></div>
+                <div class="notas"><input type="text" class="form-control" name="cal_notas_0" placeholder="Notas"></div>
+                <div class="acciones text-center">
                   <button type="button" class="btn btn-danger btn-sm" onclick="eliminarFila(this,'tablaCalentamiento')">
                     <i class="bi bi-x-lg"></i>
                   </button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
       </div>
@@ -90,75 +88,56 @@
         </div>
 
         <div id="rutina-wrap" class="table-density-comfy">
-          <div class="table-responsive">
-            <table class="table table-striped align-middle table-calor" id="tablaRutina">
-              <thead>
-                <tr>
-                  <th class="sticky-col">Categoría</th>
-                  <th>Ejercicios</th>
-                  <th>Notas</th>
-                  <th>Series</th>
-                  <th>Repeticiones</th>
-                  <th>Kilos</th>
-                  <th>RIR</th>
-                  <th>Sensaciones</th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody id="tbody-rutina">
-                <tr>
-                  <!-- Categoría -->
-                  <td class="sticky-col">
+          <div class="rutina-grid-responsive">
+            <div class="grid-table grid-rutina" id="tablaRutina">
+              <div class="grid-header">
+                <div class="sticky-col">Categoría</div>
+                <div>Ejercicios</div>
+                <div>Notas</div>
+                <div>Series</div>
+                <div>Repeticiones</div>
+                <div>Kilos</div>
+                <div>RIR</div>
+                <div>Sensaciones</div>
+                <div></div>
+              </div>
+              <div class="grid-body" id="tbody-rutina">
+                <div class="grid-row">
+                  <div class="sticky-col categoria">
                     <select name="categoria_0" class="form-select">
                       <option value="">Seleccionar…</option>
                       {% for c in categorias %}
                         <option value="{{ c }}">{{ c }}</option>
                       {% endfor %}
                     </select>
-                  </td>
-
-                  <!-- Ejercicio con buscador -->
-                  <td style="min-width:260px;">
+                  </div>
+                  <div class="ejercicio">
                     <select name="ejercicio_0" class="form-select ejercicio-select">
                       <option value="">Seleccionar ejercicio…</option>
                       {% for e in ejercicios %}
                         <option value="{{ e.id }}">{{ e.nombre }}</option>
                       {% endfor %}
                     </select>
-                  </td>
-
-                  <!-- Notas -->
-                  <td><input type="text" class="form-control" name="notas_0" placeholder="Notas"></td>
-
-                  <!-- Series -->
-                  <td style="max-width:110px;"><input type="text" class="form-control" name="series_0" placeholder="Ej: 4"></td>
-
-                  <!-- Repeticiones -->
-                  <td style="max-width:140px;"><input type="text" class="form-control" name="repeticiones_0" placeholder="Ej: 10-12"></td>
-
-                  <!-- Kilos -->
-                  <td style="max-width:120px;"><input type="text" class="form-control" name="peso_0" placeholder="Ej: 30"></td>
-
-                  <!-- RIR -->
-                  <td style="max-width:110px;">
+                  </div>
+                  <div class="notas"><input type="text" class="form-control" name="notas_0" placeholder="Notas"></div>
+                  <div class="series"><input type="text" class="form-control" name="series_0" placeholder="Ej: 4"></div>
+                  <div class="repeticiones"><input type="text" class="form-control" name="repeticiones_0" placeholder="Ej: 10-12"></div>
+                  <div class="kilos"><input type="text" class="form-control" name="peso_0" placeholder="Ej: 30"></div>
+                  <div class="rir">
                     <select name="rir_0" class="form-select">
                       <option value="">-</option>
                       <option>0</option><option>1</option><option>2</option><option>3</option><option>4</option>
                     </select>
-                  </td>
-
-                  <!-- Sensaciones -->
-                  <td><input type="text" class="form-control" name="sensaciones_0" placeholder="Cómo lo sentiste"></td>
-
-                  <!-- Botón eliminar -->
-                  <td class="text-center">
+                  </div>
+                  <div class="sensaciones"><input type="text" class="form-control" name="sensaciones_0" placeholder="Cómo lo sentiste"></div>
+                  <div class="acciones text-center">
                     <button type="button" class="btn btn-danger btn-sm" onclick="eliminarFila(this,'tablaRutina')">
                       <i class="bi bi-x-lg"></i>
                     </button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -211,7 +190,7 @@ function initSelect2(scope){
 }
 
 // Helpers conteo de filas
-function contarFilas(idTabla){ return document.querySelectorAll('#' + idTabla + ' tbody tr').length; }
+function contarFilas(idTabla){ return document.querySelectorAll('#' + idTabla + ' .grid-row').length; }
 function actualizarTotal(idTabla, idSpan){
   const total = contarFilas(idTabla);
   document.getElementById(idSpan).textContent = total;
@@ -221,9 +200,9 @@ function actualizarTotal(idTabla, idSpan){
 
 // --- AGREGAR FILA SIN ROMPER NOMBRES NI SELECT2 ---
 function agregarFila(idTabla, prefix){
-  const $tbody = $('#' + idTabla + ' tbody');
-  const index = $tbody.find('tr').length;
-  const $fila = $tbody.find('tr').first().clone(false); // sin copiar eventos
+  const $tbody = $('#' + idTabla + ' .grid-body');
+  const index = $tbody.find('.grid-row').length;
+  const $fila = $tbody.find('.grid-row').first().clone(false); // sin copiar eventos
 
   $fila.find('input, select').each(function(){
     const el = this;
@@ -264,9 +243,9 @@ function agregarFila(idTabla, prefix){
 
 // --- ELIMINAR FILA ---
 function eliminarFila(btn, idTabla){
-  const tbody = document.querySelector('#' + idTabla + ' tbody');
-  if (tbody.rows.length <= 1) return;
-  btn.closest('tr').remove();
+  const tbody = document.querySelector('#' + idTabla + ' .grid-body');
+  if (tbody.querySelectorAll('.grid-row').length <= 1) return;
+  btn.closest('.grid-row').remove();
   actualizarTotal(idTabla, idTabla === 'tablaRutina' ? 'total_filas' : 'total_filas_calentamiento');
 }
 
