@@ -105,8 +105,8 @@
   border-color: var(--border) !important;
   border-radius: 8px;
   padding: 0 10px;
-  background-color: var(--bg) !important;
-  color: var(--text) !important;
+  background-color: var(--bg);
+  color: var(--text);
   font-size: .95rem;
   transition: border-color .15s, box-shadow .15s;
 }
