@@ -128,11 +128,12 @@
   height: var(--input-h);
   border: 1px solid var(--border);
   border-color: var(--border) !important;
-  border-radius: 8px;
+  border-radius: 4px;
   padding: 0 10px;
-  background-color: var(--bg);
+  background-color: #fafafa;
   color: var(--text);
   font-size: .95rem;
+  font-weight: 500;
   transition: border-color .15s, box-shadow .15s;
 }
 .editar-rutinas input:focus,
@@ -148,10 +149,12 @@
 .editar-rutinas .select2-container { width: 100% !important; }
 .editar-rutinas .select2-selection {
   border: 1px solid var(--border) !important;
-  border-radius: 8px !important;
+  border-radius: 4px !important;
   height: var(--input-h) !important;
   display: flex !important;
   align-items: center;
+  background-color: #fafafa !important;
+  font-weight: 500 !important;
 }
 .editar-rutinas .select2-selection__rendered {
   line-height: var(--input-h) !important;
@@ -161,16 +164,16 @@
 
 /* -------- Botones -------- */
 .editar-rutinas .btn {
-  border-radius: 2rem;
+  border-radius: 4px;
   font-size: .9rem;
+  font-weight: 500;
   padding: 6px 14px;
-  transition: background .2s, transform .05s;
+  transition: background .2s;
 }
-.editar-rutinas .btn:active { transform: scale(.97); }
-.editar-rutinas .btn-success { background: #22c55e; border: none; }
-.editar-rutinas .btn-success:hover { background: #16a34a; }
-.editar-rutinas .btn-danger { background: #ef4444; border: none; }
-.editar-rutinas .btn-danger:hover { background: #dc2626; }
+.editar-rutinas .btn-success { background: #2EA44F; border: none; }
+.editar-rutinas .btn-success:hover { background: #2C974B; }
+.editar-rutinas .btn-danger { background: #E5534B; border: none; }
+.editar-rutinas .btn-danger:hover { background: #D0453C; }
 .editar-rutinas .btn-outline-primary {
   border: 1px solid var(--accent);
   color: var(--accent);
