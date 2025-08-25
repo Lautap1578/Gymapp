@@ -88,16 +88,13 @@
   color: var(--head-text);
   font-weight: 700;
   padding: 12px;
-  border-top: 2px solid var(--accent);
-  border-bottom: 2px solid var(--accent);
+  border-bottom: 1px solid var(--border);
 }
 
 .editar-rutinas .grid-row {
   padding: 0.75rem 1rem;
-  border-bottom: 1px solid var(--border);
-}
-.editar-rutinas .grid-row:nth-child(even) {
-  background-color: var(--row-hover);
+  background: transparent;
+  border-bottom: 1px solid #ececec;
 }
 
 /* Columna fija a la izquierda */
@@ -106,7 +103,8 @@
   left: 0;
   background: var(--bg);
   z-index: 3;
-  box-shadow: 2px 0 4px rgba(0,0,0,.05);
+  box-shadow: none;
+  border-right: 1px solid #ececec;
 }
 
 /* Responsividad: permitir reflujo en pantallas pequeñas */
