@@ -33,8 +33,10 @@
 
 /* -------- Card look -------- */
 .editar-rutinas .card {
-  background: var(--bg);
+  background-color: var(--bg) !important;
+  color: var(--text) !important;
   border: 1px solid var(--border);
+  border-color: var(--border) !important;
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   overflow: hidden;
@@ -55,15 +57,19 @@
 
 /* -------- Tabla -------- */
 .editar-rutinas .table {
-  background: var(--bg);
+  background-color: var(--bg) !important;
+  color: var(--text) !important;
   border: 1px solid var(--border);
+  border-color: var(--border) !important;
   border-radius: var(--radius);
   overflow-x: auto;
   overflow-y: visible;
 }
 .editar-rutinas .table th,
 .editar-rutinas .table td {
-  background: var(--bg);
+  background-color: var(--bg) !important;
+  color: var(--text) !important;
+  border-color: var(--border) !important;
 }
 
 .editar-rutinas .table thead th {
@@ -96,10 +102,11 @@
   width: 100%;
   height: var(--input-h);
   border: 1px solid var(--border);
+  border-color: var(--border) !important;
   border-radius: 8px;
   padding: 0 10px;
-  background: #fff;
-  color: var(--text);
+  background-color: var(--bg) !important;
+  color: var(--text) !important;
   font-size: .95rem;
   transition: border-color .15s, box-shadow .15s;
 }
