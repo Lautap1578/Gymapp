@@ -258,6 +258,36 @@
 .rutinas-table tbody tr:nth-child(even) {
   background: rgba(255, 255, 255, 0.06);
 }
+
+/* -------- Tabulator custom style -------- */
+#rutinasTable {
+  font-family: 'Montserrat', sans-serif;
+  color: #f8f9fa;
+}
+
+.tabulator { background: transparent; }
+
+.tabulator .tabulator-header {
+  background: rgba(0, 0, 0, 0.4);
+  color: #f8f9fa;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.tabulator .tabulator-row {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.tabulator .tabulator-row:nth-child(even) {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.tabulator .tabulator-row:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.tabulator .tabulator-cell {
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
 .rutinas-table tbody tr:hover {
   background: rgba(255, 255, 255, 0.1);
 }

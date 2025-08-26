@@ -1,6 +1,7 @@
 from datetime import date
+import json
 import openpyxl
-from django.db.models import Q
+from django.db.models import Q, F
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib import messages
@@ -345,8 +346,29 @@ def eliminar_rutina(request, rutina_id):
 
 def mis_rutinas(request, member_id):
     member = get_object_or_404(Member, pk=member_id)
-    rutinas = member.rutinas.order_by("-fecha_creacion")
+    rutinas = list(member.rutinas.order_by("-fecha_creacion")[:1])
+
+    rutina_data = []
+    if rutinas:
+        rutina = rutinas[0]
+        rutina_data = list(
+            rutina.detalles.all().values(
+                "categoria",
+                "series",
+                "repeticiones",
+                "peso",
+                "descanso",
+                "rir",
+                "sensaciones",
+                "notas",
+                ejercicio=F("ejercicio__nombre"),
+            )
+        )
+
+        rutina_data = json.dumps(rutina_data)
+
     return render(request, "gymapp/mis_rutinas.html", {
         "member": member,
-        "rutinas": rutinas
+        "rutinas": rutinas,
+        "rutina_data": rutina_data,
     })
