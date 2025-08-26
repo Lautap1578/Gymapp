@@ -2,9 +2,9 @@
 {% load widget_tweaks %}
 {% block title %}Agregar Socio{% endblock %}
 {% block content %}
-<div class="d-flex justify-content-center align-items-center" style="min-height: 90vh;">
-<div class="card shadow-lg rounded-4 p-4" style="width: 100%; max-width: 560px; border: none;">
-<h2 class="mb-4 text-center" style="letter-spacing:1px; font-weight:700;">Agregar nuevo socio</h2>
+<div class="d-flex justify-content-center align-items-center vh-90">
+<div class="card shadow-lg rounded-4 p-4 card-560 full-width card-no-border">
+<h2 class="mb-4 text-center title-spaced">Agregar nuevo socio</h2>
 <form autocomplete="off" method="post">
             {% csrf_token %}
             
