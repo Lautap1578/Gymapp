@@ -17,7 +17,7 @@
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <div id="rutinasTable" class="tabulator--bootstrap5"></div>
+                    <div id="rutinasTable{{ rutina.id }}" class="tabulator--bootstrap5"></div>
                 </div>
 
                 {% if rutina.comentario %}
@@ -33,24 +33,27 @@
 </div>
 
 <script>
-  const table = new Tabulator("#rutinasTable", {
-    data: {{ rutina_data|safe }},
-    layout: "fitColumns",
-    responsiveLayout: "collapse",
-    groupBy: "categoria",
-    pagination: "local",
-    paginationSize: 10,
-    columns: [
-      {title: "Categoría", field: "categoria", headerSort: true, headerFilter: "input"},
-      {title: "Ejercicio", field: "ejercicio", headerSort: true, headerFilter: "input"},
-      {title: "Series", field: "series", hozAlign: "center", headerSort: true, headerFilter: "number"},
-      {title: "Reps", field: "repeticiones", hozAlign: "center", headerSort: true, headerFilter: "number"},
-      {title: "Peso", field: "peso", hozAlign: "center", headerSort: true, headerFilter: "number"},
-      {title: "Descanso", field: "descanso", headerSort: true, headerFilter: "input"},
-      {title: "RIR", field: "rir", hozAlign: "center", headerSort: true, headerFilter: "number"},
-      {title: "Sensaciones", field: "sensaciones", headerSort: true, headerFilter: "input"},
-      {title: "Notas", field: "notas", headerSort: true, headerFilter: "input"}
-    ]
+  const routinesData = {{ rutina_data|safe }};
+  Object.entries(routinesData).forEach(([id, data]) => {
+    new Tabulator(`#rutinasTable${id}`, {
+      data: data,
+      layout: "fitColumns",
+      responsiveLayout: "collapse",
+      groupBy: "categoria",
+      pagination: "local",
+      paginationSize: 10,
+      columns: [
+        {title: "Categoría", field: "categoria", headerSort: true, headerFilter: "input"},
+        {title: "Ejercicio", field: "ejercicio", headerSort: true, headerFilter: "input"},
+        {title: "Series", field: "series", hozAlign: "center", headerSort: true, headerFilter: "number"},
+        {title: "Reps", field: "repeticiones", hozAlign: "center", headerSort: true, headerFilter: "number"},
+        {title: "Peso", field: "peso", hozAlign: "center", headerSort: true, headerFilter: "number"},
+        {title: "Descanso", field: "descanso", headerSort: true, headerFilter: "input"},
+        {title: "RIR", field: "rir", hozAlign: "center", headerSort: true, headerFilter: "number"},
+        {title: "Sensaciones", field: "sensaciones", headerSort: true, headerFilter: "input"},
+        {title: "Notas", field: "notas", headerSort: true, headerFilter: "input"}
+      ]
+    });
   });
 </script>
 {% endblock %}
