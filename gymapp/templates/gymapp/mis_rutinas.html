@@ -17,7 +17,7 @@
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <div id="rutinasTable" class="tabulator--bootstrap5"></div>
+                    <div id="rutinasTable-{{ rutina.id }}" class="tabulator--bootstrap5 rutinasTable"></div>
                 </div>
 
                 {% if rutina.comentario %}
@@ -33,8 +33,10 @@
 </div>
 
 <script>
-  const table = new Tabulator("#rutinasTable", {
-    data: {{ rutina_data|safe }},
+  const rutinasData = {{ rutinas_data|safe }};
+  {% for rutina in rutinas %}
+  new Tabulator("#rutinasTable-{{ rutina.id }}", {
+    data: rutinasData["{{ rutina.id }}"],
     layout: "fitDataFill",
     columns: [
       {title: "Categoría", field: "categoria"},
@@ -48,5 +50,6 @@
       {title: "Notas", field: "notas"}
     ]
   });
+  {% endfor %}
 </script>
 {% endblock %}

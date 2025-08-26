@@ -346,12 +346,11 @@ def eliminar_rutina(request, rutina_id):
 
 def mis_rutinas(request, member_id):
     member = get_object_or_404(Member, pk=member_id)
-    rutinas = list(member.rutinas.order_by("-fecha_creacion")[:1])
+    rutinas = list(member.rutinas.order_by("-fecha_creacion"))
 
-    rutina_data = []
-    if rutinas:
-        rutina = rutinas[0]
-        rutina_data = list(
+    rutinas_data = {}
+    for rutina in rutinas:
+        rutinas_data[rutina.id] = list(
             rutina.detalles.all().values(
                 "categoria",
                 "series",
@@ -365,10 +364,10 @@ def mis_rutinas(request, member_id):
             )
         )
 
-        rutina_data = json.dumps(rutina_data)
+    rutinas_data = json.dumps(rutinas_data)
 
     return render(request, "gymapp/mis_rutinas.html", {
         "member": member,
         "rutinas": rutinas,
-        "rutina_data": rutina_data,
+        "rutinas_data": rutinas_data,
     })

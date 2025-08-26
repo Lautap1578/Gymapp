@@ -260,7 +260,7 @@
 }
 
 /* -------- Tabulator custom style -------- */
-#rutinasTable {
+.rutinasTable {
   font-family: 'Montserrat', sans-serif;
   color: #f8f9fa;
 }
