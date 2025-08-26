@@ -1,31 +1,60 @@
+/* Global color variables */
+:root {
+    --bg-dark: #2e2e3e;
+    --bg-dark-alt: #34495e;
+    --bg-light: #ffffff;
+    --text-light: #f8f9fa;
+    --text-dark: #2c3e50;
+    --accent: #ffc107;
+    --border-dark: #444;
+    --border-muted: #999;
+    --hover-light: #f2f6fc;
+    --placeholder: #ccc;
+    --body-bg-dark: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../img/buried_dark.png');
+    --body-bg-light: var(--bg-light);
+    --body-bg: var(--body-bg-dark);
+    --success: #2EA44F;
+    --success-hover: #2C974B;
+    --danger: #E5534B;
+    --danger-hover: #D0453C;
+    --focus-outline: #2563eb;
+}
+
 body {
-    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../img/buried_dark.png');
+    background: var(--body-bg);
     background-size: cover;
     background-attachment: fixed;
-    color: #f8f9fa;
+    color: var(--text-light);
     font-family: 'Montserrat', sans-serif;
 }
 
+/* Light mode override */
+body.light-mode {
+    --body-bg: var(--body-bg-light);
+    color: var(--text-dark);
+}
+
+/* Navbar */
 .navbar {
-    background-color: #2e2e3e !important;
+    background-color: var(--bg-dark) !important;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .navbar-brand span {
-    color: #ffc107 !important;
+    color: var(--accent) !important;
 }
 
 .card,
 .form-control {
     background-color: rgba(255, 255, 255, 0.07);
-    color: #f8f9fa;
+    color: var(--text-light);
 }
 
 .btn-outline-success,
 .btn-outline-primary {
     background-color: rgba(255, 255, 255, 0.05);
-    border-color: #999;
-    color: #f8f9fa;
+    border-color: var(--border-muted);
+    color: var(--text-light);
 }
 
 .btn-outline-success:hover,

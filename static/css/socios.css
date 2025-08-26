@@ -1,7 +1,7 @@
 /* Contenedor general de la lista */
 .container h2 {
     font-weight: 700;
-    color: #2c3e50;
+    color: var(--text-dark);
     margin-bottom: 20px;
 }
 
@@ -9,13 +9,13 @@
 .table {
     border-radius: 12px;
     overflow: hidden;
-    background-color: #fff;
+    background-color: var(--bg-light);
 }
 
 /* Encabezados */
 .table thead th {
-    background: linear-gradient(135deg, #2c3e50, #34495e);
-    color: #f8f9fa !important;
+    background: linear-gradient(135deg, var(--bg-dark), var(--bg-dark-alt));
+    color: var(--text-light) !important;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -26,13 +26,13 @@
     transition: background-color 0.2s ease-in-out;
 }
 .table tbody tr:hover {
-    background-color: #f2f6fc;
+    background-color: var(--hover-light);
 }
 
 /* Texto dentro de la tabla */
 .table td {
     vertical-align: middle;
-    color: #2c3e50;
+    color: var(--text-dark);
 }
 
 /* Badges */
@@ -55,12 +55,12 @@
 
 /* Input búsqueda lista de socios */
 .container form input.form-control {
-    background-color: #2c3e50 !important;  /* fondo gris oscuro */
-    color: #fff !important;               /* texto blanco */
-    border: 1px solid #444 !important;
+    background-color: var(--bg-dark) !important;  /* fondo gris oscuro */
+    color: var(--text-light) !important;               /* texto blanco */
+    border: 1px solid var(--border-dark) !important;
 }
 
 /* Placeholder */
 .container form input.form-control::placeholder {
-    color: #ccc !important;
+    color: var(--placeholder) !important;
 }

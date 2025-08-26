@@ -13,16 +13,15 @@
 
 /* Paleta base (claro elegante) */
 .editar-rutinas {
-  --bg: #ffffff;
+  --bg: var(--bg-light);
   --border: #ececec;
-  --head-bg: #f3f4f6;
-  --head-text: #111827;
-  --text: #1f2937;
+  --head-bg: var(--hover-light);
+  --head-text: var(--text-dark);
+  --text: var(--text-dark);
   --muted: #6b7280;
-  --row-hover: #f9fafb;
-  --accent: #3B82F6;
-  --accent-focus: rgba(59,130,246,.15);
-  --danger: #dc2626;
+  --row-hover: var(--hover-light);
+  --accent: var(--accent);
+  --accent-focus: rgba(255,193,7,.15);
   --radius: 0.75rem;
   --shadow: 0 2px 8px rgba(0,0,0,.05);
   --input-h: 40px;
@@ -94,7 +93,7 @@
 .editar-rutinas .grid-row {
   padding: 0.75rem 1rem;
   background: transparent;
-  border-bottom: 1px solid #ececec;
+  border-bottom: 1px solid var(--border);
 }
 
 /* Columna fija a la izquierda */
@@ -104,7 +103,7 @@
   background: var(--bg);
   z-index: 3;
   box-shadow: none;
-  border-right: 1px solid #ececec;
+  border-right: 1px solid var(--border);
 }
 
 /* Responsividad: permitir reflujo en pantallas pequeñas */
@@ -130,7 +129,7 @@
   border-color: var(--border) !important;
   border-radius: 4px;
   padding: 0 10px;
-  background-color: #fafafa;
+  background-color: var(--bg-light);
   color: var(--text);
   font-size: .95rem;
   font-weight: 500;
@@ -153,7 +152,7 @@
   height: var(--input-h) !important;
   display: flex !important;
   align-items: center;
-  background-color: #fafafa !important;
+  background-color: var(--bg-light) !important;
   font-weight: 500 !important;
 }
 .editar-rutinas .select2-selection__rendered {
@@ -170,17 +169,17 @@
   padding: 6px 14px;
   transition: background .2s;
 }
-.editar-rutinas .btn-success { background: #2EA44F; border: none; }
-.editar-rutinas .btn-success:hover { background: #2C974B; }
-.editar-rutinas .btn-danger { background: #E5534B; border: none; }
-.editar-rutinas .btn-danger:hover { background: #D0453C; }
+.editar-rutinas .btn-success { background: var(--success); border: none; }
+.editar-rutinas .btn-success:hover { background: var(--success-hover); }
+.editar-rutinas .btn-danger { background: var(--danger); border: none; }
+.editar-rutinas .btn-danger:hover { background: var(--danger-hover); }
 .editar-rutinas .btn-outline-primary {
   border: 1px solid var(--accent);
   color: var(--accent);
 }
 .editar-rutinas .btn-outline-primary:hover {
   background: var(--accent);
-  color: #fff;
+  color: var(--text-light);
 }
 
 /* Botones de acción pequeños */
@@ -201,9 +200,9 @@
 /* Forzar estilo a los selects de Categoría */
 .editar-rutinas select[name^="categoria"],
 .editar-rutinas select[name^="cal_categoria"] {
-  background-color: #e5e7eb !important;  /* gris más fuerte */
-  border: 1px solid #9ca3af !important;  /* borde gris */
-  color: #111827 !important;             /* texto oscuro */
+  background-color: var(--hover-light) !important;  /* gris más fuerte */
+  border: 1px solid var(--border-muted) !important;  /* borde gris */
+  color: var(--text-dark) !important;             /* texto oscuro */
   font-weight: 600;
   border-radius: 8px;
   padding-left: 8px;
@@ -212,7 +211,7 @@
 /* Cuando el usuario hace foco */
 .editar-rutinas select[name^="categoria"]:focus,
 .editar-rutinas select[name^="cal_categoria"]:focus {
-  background-color: #ffffff !important;  /* se diferencia en blanco */
+  background-color: var(--bg-light) !important;  /* se diferencia en blanco */
   border-color: var(--accent) !important;
   box-shadow: 0 0 0 3px var(--accent-focus) !important;
 }
@@ -237,7 +236,7 @@
   border-collapse: separate;
   border-spacing: 0;
   background: rgba(255, 255, 255, 0.04);
-  color: #f8f9fa;
+  color: var(--text-light);
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 0.75rem;
   overflow: hidden;
@@ -249,7 +248,7 @@
 }
 .rutinas-table thead th {
   background: rgba(255, 255, 255, 0.08);
-  color: #fff;
+  color: var(--text-light);
   font-weight: 600;
 }
 .rutinas-table tbody tr:nth-child(odd) {
@@ -262,14 +261,14 @@
 /* -------- Tabulator custom style -------- */
 #rutinasTable {
   font-family: 'Montserrat', sans-serif;
-  color: #f8f9fa;
+  color: var(--text-light);
 }
 
 .tabulator { background: transparent; }
 
 .tabulator .tabulator-header {
   background: rgba(0, 0, 0, 0.4);
-  color: #f8f9fa;
+  color: var(--text-light);
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
@@ -295,45 +294,45 @@
   background: rgba(37, 99, 235, 0.15);
 }
 .rutinas-table tbody td:focus {
-  outline: 2px solid #2563eb;
+  outline: 2px solid var(--focus-outline);
   outline-offset: -2px;
 }
 
 /* Cabecera de tarjetas para rutinas */
 .rutinas-card-header {
   background: rgba(0, 0, 0, 0.6);
-  color: #f8f9fa;
+  color: var(--text-light);
   font-weight: 600;
 }
 
 /* -------- Tablas genéricas del sitio -------- */
 body:not(.editar-rutinas) .table:not(.rutinas-table) {
-  background-color: #1e1e2a !important;
+  background-color: var(--bg-dark) !important;
   border-collapse: separate;
   border-spacing: 0;
-  color: #ffffff !important;
+  color: var(--text-light) !important;
   font-size: 0.95rem;
 }
 
 body:not(.editar-rutinas) .table-striped:not(.rutinas-table) tbody tr:nth-of-type(odd) {
-  background-color: #2a2a3c !important;
+  background-color: var(--bg-dark-alt) !important;
 }
 
 body:not(.editar-rutinas) .table:not(.rutinas-table) td,
 body:not(.editar-rutinas) .table:not(.rutinas-table) th {
-  color: #ffffff !important;
+  color: var(--text-light) !important;
   font-weight: 600 !important;
   background-color: transparent !important;
-  border-color: #444 !important;
+  border-color: var(--border-dark) !important;
 }
 
 body:not(.editar-rutinas) .table:not(.rutinas-table) thead {
-  background-color: #2d2d45 !important;
+  background-color: var(--bg-dark-alt) !important;
 }
 
 body:not(.editar-rutinas) .table:not(.rutinas-table) thead th {
-  color: #f9f9f9 !important;
+  color: var(--text-light) !important;
   font-weight: 700 !important;
-  border-bottom: 2px solid #555 !important;
+  border-bottom: 2px solid var(--border-dark) !important;
 }
 
