@@ -1,5 +1,10 @@
 {% extends "gymapp/base.html" %}
 
+{% block extra_head %}
+<link href="https://unpkg.com/tabulator-tables@5.6.2/dist/css/tabulator.min.css" rel="stylesheet">
+<script src="https://unpkg.com/tabulator-tables@5.6.2/dist/js/tabulator.min.js"></script>
+{% endblock %}
+
 {% block content %}
 <div class="container mt-4 rutina-form">
     <h3 class="text-center">Rutinas de {{ member.nombre_apellido }}</h3>
@@ -12,38 +17,7 @@
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="rutinas-table text-center align-middle">
-                        <thead>
-                            <tr>
-                                <th>Categoría</th>
-                                <th>Ejercicio</th>
-                                <th>Series</th>
-                                <th>Reps</th>
-                                <th>Peso</th>
-                                <th>Descanso</th>
-                                <th>RIR</th>
-                                <th>Sensaciones</th>
-                                <th>Notas</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for d in rutina.detalles.all %}
-                            <tr>
-                                <td>{{ d.categoria }}</td>
-                                <td>{{ d.ejercicio.nombre }}</td>
-                                <td>{{ d.series }}</td>
-                                <td>{{ d.repeticiones }}</td>
-                                <td>{{ d.peso }}</td>
-                                <td>{{ d.descanso }}</td>
-                                <td>{{ d.rir }}</td>
-                                <td>{{ d.sensaciones }}</td>
-                                <td>{{ d.notas }}</td>
-                            </tr>
-                            {% empty %}
-                            <tr><td colspan="9" class="text-muted">Sin ejercicios</td></tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
+                    <div id="rutinasTable" class="tabulator--bootstrap5"></div>
                 </div>
 
                 {% if rutina.comentario %}
@@ -57,4 +31,22 @@
         <p class="text-muted">Todavía no tenés rutinas cargadas.</p>
     {% endfor %}
 </div>
+
+<script>
+  const table = new Tabulator("#rutinasTable", {
+    data: {{ rutina_data|safe }},
+    layout: "fitDataFill",
+    columns: [
+      {title: "Categoría", field: "categoria"},
+      {title: "Ejercicio", field: "ejercicio"},
+      {title: "Series", field: "series", hozAlign: "center"},
+      {title: "Reps", field: "repeticiones", hozAlign: "center"},
+      {title: "Peso", field: "peso", hozAlign: "center"},
+      {title: "Descanso", field: "descanso"},
+      {title: "RIR", field: "rir", hozAlign: "center"},
+      {title: "Sensaciones", field: "sensaciones"},
+      {title: "Notas", field: "notas"}
+    ]
+  });
+</script>
 {% endblock %}

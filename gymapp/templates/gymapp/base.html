@@ -19,6 +19,8 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 
+    {% block extra_head %}{% endblock %}
+
     <style>
         body {
             background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('{% static "img/buried_dark.png" %}');
