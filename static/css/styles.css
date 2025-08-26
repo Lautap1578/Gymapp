@@ -50,8 +50,9 @@ body {
 }
 
 
-/* Estilo especial para el input de búsqueda de socio */
-form input[name="q"] {
+/* Estilo especial para el campo de búsqueda de socio */
+.search-member {
     color: #000;
     background-color: #fff;
+    border: 1px solid #ccc;
 }

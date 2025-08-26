@@ -52,15 +52,3 @@
 .table a.btn:hover {
     transform: scale(1.05);
 }
-
-/* Input búsqueda lista de socios */
-.container form input.form-control {
-    background-color: #2c3e50 !important;  /* fondo gris oscuro */
-    color: #fff !important;               /* texto blanco */
-    border: 1px solid #444 !important;
-}
-
-/* Placeholder */
-.container form input.form-control::placeholder {
-    color: #ccc !important;
-}
