@@ -3,7 +3,7 @@
    Scope: .editar-rutinas
    ====================================================== */
 
-/* Variables de color para rutinas */
+/* Variables de color para tablas de rutinas */
 :root {
   --rutinas-text-light: #f8f9fa;
   --rutinas-white: #ffffff;
@@ -258,7 +258,6 @@
 }
 
 /* -------- Tabla de mis rutinas -------- */
-
 .rutinas-table {
   width: 100%;
   border-collapse: separate;
@@ -277,7 +276,7 @@
 }
 .rutinas-table thead th {
   background: var(--rutinas-row-alt);
-  color: var(--rutinas-white);
+  color: var(--rutinas-text-light);
   font-weight: 600;
 }
 .rutinas-table tbody tr:nth-child(odd) {
