@@ -53,4 +53,5 @@ body {
 /* Estilo especial para el input de búsqueda de socio */
 form input[name="q"] {
     color: #000;
+    background-color: #fff;
 }
