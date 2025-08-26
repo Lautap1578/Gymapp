@@ -35,17 +35,21 @@
 <script>
   const table = new Tabulator("#rutinasTable", {
     data: {{ rutina_data|safe }},
-    layout: "fitDataFill",
+    layout: "fitColumns",
+    responsiveLayout: "collapse",
+    groupBy: "categoria",
+    pagination: "local",
+    paginationSize: 10,
     columns: [
-      {title: "Categoría", field: "categoria"},
-      {title: "Ejercicio", field: "ejercicio"},
-      {title: "Series", field: "series", hozAlign: "center"},
-      {title: "Reps", field: "repeticiones", hozAlign: "center"},
-      {title: "Peso", field: "peso", hozAlign: "center"},
-      {title: "Descanso", field: "descanso"},
-      {title: "RIR", field: "rir", hozAlign: "center"},
-      {title: "Sensaciones", field: "sensaciones"},
-      {title: "Notas", field: "notas"}
+      {title: "Categoría", field: "categoria", headerSort: true, headerFilter: "input"},
+      {title: "Ejercicio", field: "ejercicio", headerSort: true, headerFilter: "input"},
+      {title: "Series", field: "series", hozAlign: "center", headerSort: true, headerFilter: "number"},
+      {title: "Reps", field: "repeticiones", hozAlign: "center", headerSort: true, headerFilter: "number"},
+      {title: "Peso", field: "peso", hozAlign: "center", headerSort: true, headerFilter: "number"},
+      {title: "Descanso", field: "descanso", headerSort: true, headerFilter: "input"},
+      {title: "RIR", field: "rir", hozAlign: "center", headerSort: true, headerFilter: "number"},
+      {title: "Sensaciones", field: "sensaciones", headerSort: true, headerFilter: "input"},
+      {title: "Notas", field: "notas", headerSort: true, headerFilter: "input"}
     ]
   });
 </script>
