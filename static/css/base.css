@@ -1,9 +1,13 @@
+:root {
+    --font-primary: 'Montserrat', sans-serif;
+}
+
 body {
     background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../img/buried_dark.png');
     background-size: cover;
     background-attachment: fixed;
     color: #f8f9fa;
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--font-primary);
 }
 
 .navbar {

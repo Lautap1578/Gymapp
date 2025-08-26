@@ -30,7 +30,7 @@ textarea::placeholder {
 
 /* Aplica Montserrat a todo el sitio */
 body {
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--font-primary);
 }
 
 /* Seguimos con tus estilos originales */
