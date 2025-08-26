@@ -1,0 +1,35 @@
+/* Helper classes for form layouts and cards */
+
+.vh-90 {
+    min-height: 90vh;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.card-no-border {
+    border: none;
+}
+
+.card-420 {
+    max-width: 420px;
+}
+
+.card-560 {
+    max-width: 560px;
+}
+
+.card-600 {
+    max-width: 600px;
+}
+
+.card-1000 {
+    max-width: 1000px;
+}
+
+.title-spaced {
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+
