@@ -1,7 +1,7 @@
 {% extends "gymapp/base.html" %}
 
 {% block extra_head %}
-<link href="https://unpkg.com/tabulator-tables@5.6.2/dist/css/tabulator.min.css" rel="stylesheet">
+<link href="https://unpkg.com/tabulator-tables@5.6.2/dist/css/tabulator_bootstrap5.min.css" rel="stylesheet">
 <script src="https://unpkg.com/tabulator-tables@5.6.2/dist/js/tabulator.min.js"></script>
 {% endblock %}
 
@@ -17,7 +17,7 @@
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <div id="rutinasTable" class="tabulator--bootstrap5"></div>
+                    <div class="rutinas-table"></div>
                 </div>
 
                 {% if rutina.comentario %}
@@ -33,7 +33,7 @@
 </div>
 
 <script>
-  const table = new Tabulator("#rutinasTable", {
+  const table = new Tabulator(".rutinas-table", {
     data: {{ rutina_data|safe }},
     layout: "fitDataFill",
     columns: [

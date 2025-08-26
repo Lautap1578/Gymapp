@@ -3,6 +3,32 @@
    Scope: .editar-rutinas
    ====================================================== */
 
+/* Variables de color para rutinas */
+:root {
+  --rutinas-text-light: #f8f9fa;
+  --rutinas-white: #ffffff;
+  --rutinas-row-odd: rgba(255, 255, 255, 0.02);
+  --rutinas-row-even: rgba(255, 255, 255, 0.06);
+  --rutinas-row-alt: rgba(255, 255, 255, 0.08);
+  --rutinas-row-base: rgba(255, 255, 255, 0.05);
+  --rutinas-row-hover: rgba(255, 255, 255, 0.15);
+  --rutinas-row-hover-light: rgba(255, 255, 255, 0.1);
+  --rutinas-border-light: rgba(255, 255, 255, 0.2);
+  --rutinas-border-subtle: rgba(255, 255, 255, 0.15);
+  --rutinas-cell-border: rgba(255, 255, 255, 0.1);
+  --rutinas-header-bg: rgba(0, 0, 0, 0.4);
+  --rutinas-card-header-bg: rgba(0, 0, 0, 0.6);
+  --rutinas-focus-bg: rgba(37, 99, 235, 0.15);
+  --rutinas-outline-color: #2563eb;
+  --rutinas-bg-dark: #1e1e2a;
+  --rutinas-striped-odd: #2a2a3c;
+  --rutinas-striped-even: #2d2d45;
+  --rutinas-striped-text: #f9f9f9;
+  --rutinas-bg-overlay: rgba(255, 255, 255, 0.04);
+  --rutinas-border-dark: #444;
+  --rutinas-border-darker: #555;
+}
+
 /* Estilos generales para las vistas de rutinas */
 .rutina-form {
   max-width: 900px;
@@ -232,108 +258,106 @@
 }
 
 /* -------- Tabla de mis rutinas -------- */
+
 .rutinas-table {
   width: 100%;
   border-collapse: separate;
   border-spacing: 0;
-  background: rgba(255, 255, 255, 0.04);
-  color: #f8f9fa;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: var(--rutinas-bg-overlay);
+  color: var(--rutinas-text-light);
+  font-family: 'Montserrat', sans-serif;
+  border: 1px solid var(--rutinas-border-subtle);
   border-radius: 0.75rem;
   overflow: hidden;
 }
 .rutinas-table th,
 .rutinas-table td {
   padding: 0.75rem 1rem;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid var(--rutinas-border-subtle);
 }
 .rutinas-table thead th {
-  background: rgba(255, 255, 255, 0.08);
-  color: #fff;
+  background: var(--rutinas-row-alt);
+  color: var(--rutinas-white);
   font-weight: 600;
 }
 .rutinas-table tbody tr:nth-child(odd) {
-  background: rgba(255, 255, 255, 0.02);
+  background: var(--rutinas-row-odd);
 }
 .rutinas-table tbody tr:nth-child(even) {
-  background: rgba(255, 255, 255, 0.06);
+  background: var(--rutinas-row-even);
 }
 
 /* -------- Tabulator custom style -------- */
-#rutinasTable {
-  font-family: 'Montserrat', sans-serif;
-  color: #f8f9fa;
-}
 
 .tabulator { background: transparent; }
 
 .tabulator .tabulator-header {
-  background: rgba(0, 0, 0, 0.4);
-  color: #f8f9fa;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  background: var(--rutinas-header-bg);
+  color: var(--rutinas-text-light);
+  border-bottom: 1px solid var(--rutinas-border-light);
 }
 
 .tabulator .tabulator-row {
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--rutinas-row-base);
 }
 
 .tabulator .tabulator-row:nth-child(even) {
-  background: rgba(255, 255, 255, 0.08);
+  background: var(--rutinas-row-alt);
 }
 
 .tabulator .tabulator-row:hover {
-  background: rgba(255, 255, 255, 0.15);
+  background: var(--rutinas-row-hover);
 }
 
 .tabulator .tabulator-cell {
-  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  border-right: 1px solid var(--rutinas-cell-border);
 }
 .rutinas-table tbody tr:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--rutinas-row-hover-light);
 }
 .rutinas-table tbody tr:focus-within {
-  background: rgba(37, 99, 235, 0.15);
+  background: var(--rutinas-focus-bg);
 }
 .rutinas-table tbody td:focus {
-  outline: 2px solid #2563eb;
+  outline: 2px solid var(--rutinas-outline-color);
   outline-offset: -2px;
 }
 
 /* Cabecera de tarjetas para rutinas */
 .rutinas-card-header {
-  background: rgba(0, 0, 0, 0.6);
-  color: #f8f9fa;
+  background: var(--rutinas-card-header-bg);
+  color: var(--rutinas-text-light);
   font-weight: 600;
 }
 
 /* -------- Tablas genéricas del sitio -------- */
 body:not(.editar-rutinas) .table:not(.rutinas-table) {
-  background-color: #1e1e2a !important;
+  background-color: var(--rutinas-bg-dark) !important;
   border-collapse: separate;
   border-spacing: 0;
-  color: #ffffff !important;
+  color: var(--rutinas-white) !important;
   font-size: 0.95rem;
 }
 
 body:not(.editar-rutinas) .table-striped:not(.rutinas-table) tbody tr:nth-of-type(odd) {
-  background-color: #2a2a3c !important;
+  background-color: var(--rutinas-striped-odd) !important;
 }
 
 body:not(.editar-rutinas) .table:not(.rutinas-table) td,
 body:not(.editar-rutinas) .table:not(.rutinas-table) th {
-  color: #ffffff !important;
+  color: var(--rutinas-white) !important;
   font-weight: 600 !important;
   background-color: transparent !important;
-  border-color: #444 !important;
+  border-color: var(--rutinas-border-dark) !important;
 }
 
 body:not(.editar-rutinas) .table:not(.rutinas-table) thead {
-  background-color: #2d2d45 !important;
+  background-color: var(--rutinas-striped-even) !important;
 }
 
 body:not(.editar-rutinas) .table:not(.rutinas-table) thead th {
-  color: #f9f9f9 !important;
+  color: var(--rutinas-striped-text) !important;
   font-weight: 700 !important;
-  border-bottom: 2px solid #555 !important;
+  border-bottom: 2px solid var(--rutinas-border-darker) !important;
 }
 
