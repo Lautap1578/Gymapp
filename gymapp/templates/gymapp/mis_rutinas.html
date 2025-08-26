@@ -17,7 +17,7 @@
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <div id="rutinasTable" class="tabulator--bootstrap5"></div>
+                    <div id="rutinasTable{{ forloop.counter }}" class="tabulator--bootstrap5"></div>
                 </div>
 
                 {% if rutina.comentario %}
@@ -33,20 +33,23 @@
 </div>
 
 <script>
-  const table = new Tabulator("#rutinasTable", {
-    data: {{ rutina_data|safe }},
-    layout: "fitDataFill",
-    columns: [
-      {title: "Categoría", field: "categoria"},
-      {title: "Ejercicio", field: "ejercicio"},
-      {title: "Series", field: "series", hozAlign: "center"},
-      {title: "Reps", field: "repeticiones", hozAlign: "center"},
-      {title: "Peso", field: "peso", hozAlign: "center"},
-      {title: "Descanso", field: "descanso"},
-      {title: "RIR", field: "rir", hozAlign: "center"},
-      {title: "Sensaciones", field: "sensaciones"},
-      {title: "Notas", field: "notas"}
-    ]
+  const rutinasData = {{ rutina_data|safe }};
+  Object.keys(rutinasData).forEach((id, index) => {
+    new Tabulator(`#rutinasTable${index + 1}`, {
+      data: rutinasData[id],
+      layout: "fitDataFill",
+      columns: [
+        {title: "Categoría", field: "categoria"},
+        {title: "Ejercicio", field: "ejercicio"},
+        {title: "Series", field: "series", hozAlign: "center"},
+        {title: "Reps", field: "repeticiones", hozAlign: "center"},
+        {title: "Peso", field: "peso", hozAlign: "center"},
+        {title: "Descanso", field: "descanso"},
+        {title: "RIR", field: "rir", hozAlign: "center"},
+        {title: "Sensaciones", field: "sensaciones"},
+        {title: "Notas", field: "notas"}
+      ]
+    });
   });
 </script>
 {% endblock %}
