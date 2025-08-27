@@ -10,6 +10,7 @@ from .forms import MemberForm, MemberInfoForm
 from .models import Member, Payment, Ejercicio, Rutina, DetalleRutina, ComentarioRutina
 
 from django.utils import timezone
+from django.views.decorators.http import require_POST
 
 
 
@@ -69,6 +70,7 @@ def delete_member(request, pk):
 
 # === Pagos ===
 
+@require_POST
 def toggle_payment(request, member_id):
     member = get_object_or_404(Member, pk=member_id)
     mes_actual = date.today().strftime("%m-%Y")
@@ -106,6 +108,7 @@ def historial_pagos(request, member_id):
     })
 
 
+@require_POST
 def toggle_payment_mes(request, member_id, mes):
     member = get_object_or_404(Member, pk=member_id)
     pago = Payment.objects.filter(member=member, mes=mes).first()

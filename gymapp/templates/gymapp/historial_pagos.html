@@ -17,10 +17,12 @@
                 <span class="badge bg-danger">Debe</span>
               {% endif %}
             </div>
-            <a href="{% url 'toggle_payment_mes' member.id item.mes %}"
-               class="btn {% if item.pagado %}btn-outline-warning{% else %}btn-outline-success{% endif %} w-100">
-              {% if item.pagado %}Anular pago{% else %}Marcar pagado{% endif %}
-            </a>
+            <form method="post" action="{% url 'toggle_payment_mes' member.id item.mes %}">
+              {% csrf_token %}
+              <button type="submit" class="btn {% if item.pagado %}btn-outline-warning{% else %}btn-outline-success{% endif %} w-100">
+                {% if item.pagado %}Anular pago{% else %}Marcar pagado{% endif %}
+              </button>
+            </form>
           </div>
         </div>
       </div>

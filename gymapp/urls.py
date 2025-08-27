@@ -9,9 +9,9 @@ urlpatterns = [
     path('eliminar/<int:pk>/', views.delete_member, name='delete_member'),
 
     # Pagos
-    path('pagar/<int:member_id>/', views.toggle_payment, name='toggle_payment'),
+    path('pagar/<int:member_id>/', views.toggle_payment, name='toggle_payment'),  # POST
     path('historial/<int:member_id>/', views.historial_pagos, name='historial_pagos'),
-    path('toggle_pago/<int:member_id>/<str:mes>/', views.toggle_payment_mes, name='toggle_payment_mes'),
+    path('toggle_pago/<int:member_id>/<str:mes>/', views.toggle_payment_mes, name='toggle_payment_mes'),  # POST
     path('exportar_excel/', views.export_members_excel, name='export_members_excel'),
 
     # Cliente login
