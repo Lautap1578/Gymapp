@@ -9,7 +9,7 @@
 
     <!-- Barra de búsqueda -->
     <form method="get" class="mb-3">
-        <input type="text" name="q" value="{{ request.GET.q }}" class="form-control search-member" placeholder="Buscar socio...">
+        <input type="text" name="q" value="{{ request.GET.q }}" class="form-control search-member" placeholder="Buscar socio..." autocomplete="off">
     </form>
 
     <div class="table-responsive">
@@ -31,13 +31,13 @@
                         <td>{{ member.telefono }}</td>
                         <td>{{ member.gmail }}</td>
                         <td>
-                            <a href="{% url 'edit_member' member.id %}" class="btn btn-sm btn-primary">
+                            <a href="{% url 'edit_member' member.id %}" class="btn btn-sm btn-primary" aria-label="Editar">
                                 <i class="bi bi-pencil"></i>
                             </a>
-                            <a href="{% url 'delete_member' member.id %}" class="btn btn-sm btn-danger">
+                            <a href="{% url 'delete_member' member.id %}" class="btn btn-sm btn-danger" aria-label="Eliminar">
                                 <i class="bi bi-trash"></i>
                             </a>
-                            <a href="{% url 'historial_pagos' member.id %}" class="btn btn-sm btn-warning">
+                            <a href="{% url 'historial_pagos' member.id %}" class="btn btn-sm btn-warning" aria-label="Historial de pagos">
                                 <i class="bi bi-cash-coin"></i>
                             </a>
                             <a href="{% url 'rutina_cliente' member.id %}" class="btn btn-sm btn-success">

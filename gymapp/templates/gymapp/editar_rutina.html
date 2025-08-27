@@ -54,10 +54,10 @@
                     {% endfor %}
                   </select>
                 </div>
-                <div class="repeticiones"><input type="text" class="form-control" name="cal_repeticiones_0" placeholder="Ej: 2x15 o tiempo"></div>
-                <div class="notas"><input type="text" class="form-control" name="cal_notas_0" placeholder="Notas"></div>
+                <div class="repeticiones"><input type="text" class="form-control" name="cal_repeticiones_0" placeholder="Ej: 2x15 o tiempo" autocomplete="off"></div>
+                <div class="notas"><input type="text" class="form-control" name="cal_notas_0" placeholder="Notas" autocomplete="off"></div>
                 <div class="acciones text-center">
-                  <button type="button" class="btn btn-danger btn-sm" onclick="eliminarFila(this,'tablaCalentamiento')">
+                  <button type="button" class="btn btn-danger btn-sm" onclick="eliminarFila(this,'tablaCalentamiento')" aria-label="Eliminar fila">
                     <i class="bi bi-x-lg"></i>
                   </button>
                 </div>
@@ -119,19 +119,19 @@
                       {% endfor %}
                     </select>
                   </div>
-                  <div class="notas"><input type="text" class="form-control" name="notas_0" placeholder="Notas"></div>
-                  <div class="series"><input type="text" class="form-control" name="series_0" placeholder="Ej: 4"></div>
-                  <div class="repeticiones"><input type="text" class="form-control" name="repeticiones_0" placeholder="Ej: 10-12"></div>
-                  <div class="kilos"><input type="text" class="form-control" name="peso_0" placeholder="Ej: 30"></div>
+                  <div class="notas"><input type="text" class="form-control" name="notas_0" placeholder="Notas" autocomplete="off"></div>
+                  <div class="series"><input type="text" class="form-control" name="series_0" placeholder="Ej: 4" autocomplete="off"></div>
+                  <div class="repeticiones"><input type="text" class="form-control" name="repeticiones_0" placeholder="Ej: 10-12" autocomplete="off"></div>
+                  <div class="kilos"><input type="text" class="form-control" name="peso_0" placeholder="Ej: 30" autocomplete="off"></div>
                   <div class="rir">
                     <select name="rir_0" class="form-select">
                       <option value="">-</option>
                       <option>0</option><option>1</option><option>2</option><option>3</option><option>4</option>
                     </select>
                   </div>
-                  <div class="sensaciones"><input type="text" class="form-control" name="sensaciones_0" placeholder="Cómo lo sentiste"></div>
+                  <div class="sensaciones"><input type="text" class="form-control" name="sensaciones_0" placeholder="Cómo lo sentiste" autocomplete="off"></div>
                   <div class="acciones text-center">
-                    <button type="button" class="btn btn-danger btn-sm" onclick="eliminarFila(this,'tablaRutina')">
+                    <button type="button" class="btn btn-danger btn-sm" onclick="eliminarFila(this,'tablaRutina')" aria-label="Eliminar fila">
                       <i class="bi bi-x-lg"></i>
                     </button>
                   </div>

@@ -19,6 +19,9 @@ class MemberForm(forms.ModelForm):
             'objetivos': forms.Textarea(attrs={'rows': 3}),
         }
 
+
+
+
     def clean_gmail(self):
         gmail = self.cleaned_data.get('gmail')
         if gmail and not gmail.endswith("@gmail.com"):
