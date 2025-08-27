@@ -1,4 +1,4 @@
-from datetime import date
+from datetime import date, datetime
 import json
 import openpyxl
 from django.db.models import Q, F
@@ -24,7 +24,7 @@ def member_list(request):
         Q(dni__icontains=q)
     ).order_by("nombre_apellido")
 
-    current_month = date.today().strftime("%m-%Y")
+    current_month = date.today().replace(day=1)
     pagos_ids = set(
         p.member_id for p in Payment.objects.filter(anulado=False, mes=current_month)
     )
@@ -71,7 +71,7 @@ def delete_member(request, pk):
 
 def toggle_payment(request, member_id):
     member = get_object_or_404(Member, pk=member_id)
-    mes_actual = date.today().strftime("%m-%Y")
+    mes_actual = date.today().replace(day=1)
 
     pago = Payment.objects.filter(member=member, mes=mes_actual).first()
     if pago:
@@ -88,12 +88,12 @@ def historial_pagos(request, member_id):
     pagos = Payment.objects.filter(member=member, anulado=False)
 
     historial = []
-    hoy = _date.today()
+    hoy = _date.today().replace(day=1)
     fecha = member.fecha_alta.replace(day=1)
 
     while fecha <= hoy:
         mes_str = fecha.strftime("%m-%Y")
-        pagado = pagos.filter(mes=mes_str).exists()
+        pagado = pagos.filter(mes=fecha).exists()
         historial.append({'mes': mes_str, 'pagado': pagado})
         if fecha.month == 12:
             fecha = fecha.replace(year=fecha.year + 1, month=1)
@@ -108,12 +108,13 @@ def historial_pagos(request, member_id):
 
 def toggle_payment_mes(request, member_id, mes):
     member = get_object_or_404(Member, pk=member_id)
-    pago = Payment.objects.filter(member=member, mes=mes).first()
+    mes_date = datetime.strptime(mes, "%m-%Y").date().replace(day=1)
+    pago = Payment.objects.filter(member=member, mes=mes_date).first()
     if pago:
         pago.anulado = not pago.anulado
         pago.save()
     else:
-        Payment.objects.create(member=member, mes=mes, pagado=True)
+        Payment.objects.create(member=member, mes=mes_date, pagado=True)
     return redirect('historial_pagos', member_id=member_id)
 
 
@@ -177,7 +178,7 @@ def member_rows_partial(request):
         Q(dni__icontains=q)
     ).order_by("nombre_apellido")
 
-    current_month = date.today().strftime("%m-%Y")
+    current_month = date.today().replace(day=1)
     pagos_ids = set(
         p.member_id for p in Payment.objects.filter(anulado=False, mes=current_month)
     )
