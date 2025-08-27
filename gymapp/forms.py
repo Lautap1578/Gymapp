@@ -21,8 +21,11 @@ class MemberForm(forms.ModelForm):
 
     def clean_gmail(self):
         gmail = self.cleaned_data.get('gmail')
-        if gmail and not gmail.endswith("@gmail.com"):
-            raise forms.ValidationError("El correo debe terminar en @gmail.com")
+        if gmail:
+            gmail = gmail.lower()
+            if not gmail.endswith("@gmail.com"):
+                raise forms.ValidationError("El correo debe terminar en @gmail.com")
+            self.cleaned_data['gmail'] = gmail
         return gmail
 
 
