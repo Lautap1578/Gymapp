@@ -1,7 +1,7 @@
 from datetime import date
 import json
 import openpyxl
-from django.db.models import Q, F
+from django.db.models import Q, F, Exists, OuterRef
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib import messages
@@ -17,23 +17,35 @@ from django.utils import timezone
 
 def member_list(request):
     q = request.GET.get("q") or ""
-    members = Member.objects.filter(
-        Q(nombre_apellido__icontains=q) |
-        Q(gmail__icontains=q) |
-        Q(telefono__icontains=q) |
-        Q(dni__icontains=q)
-    ).order_by("nombre_apellido")
-
     current_month = date.today().strftime("%m-%Y")
-    pagos_ids = set(
-        p.member_id for p in Payment.objects.filter(anulado=False, mes=current_month)
+    members = (
+        Member.objects.prefetch_related("pagos")
+        .annotate(
+            pago_mes=Exists(
+                Payment.objects.filter(
+                    member=OuterRef("pk"),
+                    anulado=False,
+                    mes=current_month,
+                )
+            )
+        )
+        .filter(
+            Q(nombre_apellido__icontains=q)
+            | Q(gmail__icontains=q)
+            | Q(telefono__icontains=q)
+            | Q(dni__icontains=q)
+        )
+        .order_by("nombre_apellido")
     )
 
-    return render(request, "gymapp/member_list.html", {
-        "members": members,
-        "pagos_ids": pagos_ids,
-        "current_month": current_month,
-    })
+    return render(
+        request,
+        "gymapp/member_list.html",
+        {
+            "members": members,
+            "current_month": current_month,
+        },
+    )
 
 
 def add_member(request):
@@ -170,23 +182,35 @@ def login_cliente(request):
 
 def member_rows_partial(request):
     q = request.GET.get("q") or ""
-    members = Member.objects.filter(
-        Q(nombre_apellido__icontains=q) |
-        Q(gmail__icontains=q) |
-        Q(telefono__icontains=q) |
-        Q(dni__icontains=q)
-    ).order_by("nombre_apellido")
-
     current_month = date.today().strftime("%m-%Y")
-    pagos_ids = set(
-        p.member_id for p in Payment.objects.filter(anulado=False, mes=current_month)
+    members = (
+        Member.objects.prefetch_related("pagos")
+        .annotate(
+            pago_mes=Exists(
+                Payment.objects.filter(
+                    member=OuterRef("pk"),
+                    anulado=False,
+                    mes=current_month,
+                )
+            )
+        )
+        .filter(
+            Q(nombre_apellido__icontains=q)
+            | Q(gmail__icontains=q)
+            | Q(telefono__icontains=q)
+            | Q(dni__icontains=q)
+        )
+        .order_by("nombre_apellido")
     )
 
-    return render(request, "gymapp/partials/_member_rows.html", {
-        "members": members,
-        "pagos_ids": pagos_ids,
-        "current_month": current_month,
-    })
+    return render(
+        request,
+        "gymapp/partials/_member_rows.html",
+        {
+            "members": members,
+            "current_month": current_month,
+        },
+    )
 
 
 def update_member_info(request, member_id):
@@ -346,7 +370,7 @@ def eliminar_rutina(request, rutina_id):
 
 def mis_rutinas(request, member_id):
     member = get_object_or_404(Member, pk=member_id)
-    rutinas = member.rutinas.order_by("-fecha_creacion")
+    rutinas = member.rutinas.prefetch_related("detalles__ejercicio").order_by("-fecha_creacion")
 
     rutina_data = {}
     for rutina in rutinas:
