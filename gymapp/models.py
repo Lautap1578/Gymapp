@@ -23,7 +23,7 @@ class Member(models.Model):
 # === Pagos ===
 class Payment(models.Model):
     member = models.ForeignKey(Member, on_delete=models.CASCADE, related_name='pagos')
-    mes = models.CharField(max_length=20)  # Ejemplo: "07-2024"
+    mes = models.DateField()  # Se guarda el primer día del mes
     pagado = models.BooleanField(default=True)
     anulado = models.BooleanField(default=False)  # Campo para marcar pagos anulados
     fecha_pago = models.DateField(auto_now_add=True)
@@ -32,7 +32,7 @@ class Payment(models.Model):
         unique_together = ('member', 'mes')
 
     def __str__(self):
-        return f"{self.member} - {self.mes}"
+        return f"{self.member} - {self.mes.strftime('%m-%Y')}"
 
 
 # === Rutinas ===
