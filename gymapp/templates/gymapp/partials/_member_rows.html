@@ -9,9 +9,15 @@
   <td>
     {% if member.id in pagos_ids %}
       <span class="badge bg-success">Pagado</span>
-      <a href="{% url 'toggle_payment' member.id %}" class="btn btn-outline-warning btn-sm ms-2">Anular</a>
+      <form method="post" action="{% url 'toggle_payment' member.id %}" style="display:inline;">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-outline-warning btn-sm ms-2">Anular</button>
+      </form>
     {% else %}
-      <a href="{% url 'toggle_payment' member.id %}" class="btn btn-danger btn-sm">Debe</a>
+      <form method="post" action="{% url 'toggle_payment' member.id %}" style="display:inline;">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger btn-sm">Debe</button>
+      </form>
     {% endif %}
   </td>
 
