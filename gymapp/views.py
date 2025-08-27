@@ -210,21 +210,22 @@ def rutina_cliente(request, member_id):
         ultima = rutinas.first()
         if ultima:
             nueva = Rutina.objects.create(member=member, estructura=ultima.estructura)
-            # duplicar detalles
-            for d in ultima.detalles.all():
-                DetalleRutina.objects.create(
-                    rutina=nueva,
-                    categoria=d.categoria,
-                    ejercicio=d.ejercicio,
-                    series=d.series,
-                    repeticiones=d.repeticiones,
-                    peso=d.peso,
-                    descanso=d.descanso,
-                    rir=d.rir,
-                    sensaciones=d.sensaciones,
-                    notas=d.notas,
-                    es_calentamiento=d.es_calentamiento,
-                )
+            # duplicar detalles en bloque
+            detalles = ultima.detalles.select_related("ejercicio").values(
+                "categoria",
+                "ejercicio_id",
+                "series",
+                "repeticiones",
+                "peso",
+                "descanso",
+                "rir",
+                "sensaciones",
+                "notas",
+                "es_calentamiento",
+            )
+            DetalleRutina.objects.bulk_create(
+                [DetalleRutina(rutina=nueva, **d) for d in detalles]
+            )
             if hasattr(ultima, "comentario"):
                 ComentarioRutina.objects.create(rutina=nueva, texto=ultima.comentario.texto)
         else:
