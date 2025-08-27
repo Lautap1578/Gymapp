@@ -5,8 +5,9 @@ from django.db.models import Q, F
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib import messages
+from django.db import transaction
 
-from .forms import MemberForm, MemberInfoForm
+from .forms import MemberForm, MemberInfoForm, DetalleRutinaFormSet
 from .models import Member, Payment, Ejercicio, Rutina, DetalleRutina, ComentarioRutina
 
 from django.utils import timezone
@@ -278,49 +279,66 @@ def editar_rutina(request, rutina_id):
 ]
 
     if request.method == "POST":
-        # Borrar los detalles anteriores
-        rutina.detalles.all().delete()
+        detalles_data = []
 
-        # ================== ENTRADA EN CALOR ==================
         filas_c = int(request.POST.get("total_filas_calentamiento", 0))
         for i in range(filas_c):
-            DetalleRutina.objects.create(
-                rutina=rutina,
-                categoria=request.POST.get(f"cal_categoria_{i}", ""),
-                ejercicio_id=request.POST.get(f"cal_ejercicio_{i}") or None,
-                repeticiones=request.POST.get(f"cal_repeticiones_{i}", ""),
-                descanso=request.POST.get(f"cal_descanso_{i}", ""),
-                notas=request.POST.get(f"cal_notas_{i}", ""),
-                es_calentamiento=True
-            )
+            detalles_data.append({
+                "categoria": request.POST.get(f"cal_categoria_{i}", ""),
+                "ejercicio": request.POST.get(f"cal_ejercicio_{i}") or None,
+                "repeticiones": request.POST.get(f"cal_repeticiones_{i}", ""),
+                "descanso": request.POST.get(f"cal_descanso_{i}", ""),
+                "notas": request.POST.get(f"cal_notas_{i}", ""),
+                "es_calentamiento": True,
+            })
 
-        # ================== RUTINA PRINCIPAL ==================
         filas = int(request.POST.get("total_filas", 0))
         for i in range(filas):
-            DetalleRutina.objects.create(
-                rutina=rutina,
-                categoria=request.POST.get(f"categoria_{i}", ""),
-                ejercicio_id=request.POST.get(f"ejercicio_{i}") or None,
-                series=request.POST.get(f"series_{i}", ""),
-                repeticiones=request.POST.get(f"repeticiones_{i}", ""),
-                # Estos dos no están en la UI ahora, pero la vista los acepta vacíos:
-                peso=request.POST.get(f"peso_{i}", ""),
-                descanso=request.POST.get(f"descanso_{i}", ""),
-                rir=request.POST.get(f"rir_{i}", ""),
-                sensaciones=request.POST.get(f"sensaciones_{i}", ""),
-                notas=request.POST.get(f"notas_{i}", ""),
-                es_calentamiento=False
-            )
+            detalles_data.append({
+                "categoria": request.POST.get(f"categoria_{i}", ""),
+                "ejercicio": request.POST.get(f"ejercicio_{i}") or None,
+                "series": request.POST.get(f"series_{i}", ""),
+                "repeticiones": request.POST.get(f"repeticiones_{i}", ""),
+                "peso": request.POST.get(f"peso_{i}", ""),
+                "descanso": request.POST.get(f"descanso_{i}", ""),
+                "rir": request.POST.get(f"rir_{i}", ""),
+                "sensaciones": request.POST.get(f"sensaciones_{i}", ""),
+                "notas": request.POST.get(f"notas_{i}", ""),
+                "es_calentamiento": False,
+            })
 
-        # ================== COMENTARIO (si usás) ==================
-        texto = request.POST.get("comentario", "")
-        if hasattr(rutina, "comentario"):
-            rutina.comentario.texto = texto
-            rutina.comentario.save()
-        else:
-            ComentarioRutina.objects.create(rutina=rutina, texto=texto)
+        formset_data = {
+            "detalles-TOTAL_FORMS": str(len(detalles_data)),
+            "detalles-INITIAL_FORMS": "0",
+            "detalles-MIN_NUM_FORMS": "0",
+            "detalles-MAX_NUM_FORMS": "1000",
+        }
 
-        return redirect("rutina_cliente", rutina.member.id)
+        for i, detalle in enumerate(detalles_data):
+            for campo, valor in detalle.items():
+                formset_data[f"detalles-{i}-{campo}"] = valor
+
+        formset = DetalleRutinaFormSet(formset_data, instance=rutina, prefix="detalles")
+
+        if formset.is_valid():
+            with transaction.atomic():
+                rutina.detalles.all().delete()
+
+                nuevos_detalles = [
+                    DetalleRutina(rutina=rutina, **form.cleaned_data)
+                    for form in formset.forms
+                    if form.cleaned_data
+                ]
+                DetalleRutina.objects.bulk_create(nuevos_detalles)
+
+                texto = request.POST.get("comentario", "")
+                if hasattr(rutina, "comentario"):
+                    rutina.comentario.texto = texto
+                    rutina.comentario.save()
+                else:
+                    ComentarioRutina.objects.create(rutina=rutina, texto=texto)
+
+            return redirect("rutina_cliente", rutina.member.id)
 
     return render(request, "gymapp/editar_rutina.html", {
         "rutina": rutina,

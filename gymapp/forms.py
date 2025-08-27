@@ -1,5 +1,6 @@
 from django import forms
-from .models import Member
+from django.forms import inlineformset_factory
+from .models import Member, Rutina, DetalleRutina
 
 
 
@@ -44,3 +45,23 @@ class MemberInfoForm(forms.ModelForm):
             'enfermedades': forms.Textarea(attrs={'rows': 3}),
             'objetivos': forms.Textarea(attrs={'rows': 3}),
         }
+
+
+DetalleRutinaFormSet = inlineformset_factory(
+    Rutina,
+    DetalleRutina,
+    fields=[
+        "categoria",
+        "ejercicio",
+        "series",
+        "repeticiones",
+        "peso",
+        "descanso",
+        "rir",
+        "sensaciones",
+        "notas",
+        "es_calentamiento",
+    ],
+    extra=0,
+    can_delete=False,
+)
