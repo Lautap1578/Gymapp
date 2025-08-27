@@ -29,7 +29,9 @@ class Payment(models.Model):
     fecha_pago = models.DateField(auto_now_add=True)
 
     class Meta:
-        unique_together = ('member', 'mes')
+        constraints = [
+            models.UniqueConstraint(fields=['member', 'mes'], name='unique_payment_mes')
+        ]
 
     def __str__(self):
         return f"{self.member} - {self.mes}"
