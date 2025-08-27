@@ -351,7 +351,7 @@ def mis_rutinas(request, member_id):
     rutina_data = {}
     for rutina in rutinas:
         data = list(
-            rutina.detalles.all().values(
+            rutina.detalles.select_related("ejercicio").values(
                 "categoria",
                 "series",
                 "repeticiones",
