@@ -9,6 +9,25 @@ DEBUG = os.getenv("DJANGO_DEBUG", "False").lower() == "true"
 
 ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
 
+# When set to ``False`` the application will load vendor libraries from the
+# local ``static/`` directory instead of using the CDN copies.  This is useful
+# for environments without Internet access.
+USE_CDN = True
+
+# Subresource integrity hashes for the CDN hosted assets.  They are kept in a
+# separate mapping so they can easily be updated without touching the
+# templates.
+CDN_INTEGRITY = {
+    "bootstrap_css": "",
+    "bootstrap_js": "",
+    "bootstrap_icons_css": "",
+    "select2_css": "",
+    "select2_js": "",
+    "jquery": "",
+    "tabulator_css": "",
+    "tabulator_js": "",
+}
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -44,6 +63,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'gym.context_processors.cdn',
             ],
         },
     },
