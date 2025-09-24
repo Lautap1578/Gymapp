@@ -420,6 +420,68 @@ def editar_rutina(request, rutina_id):
         "vista_por_semanas": vista_por_semanas,
     }
 
+    # --- Soporte para estructura "Fuerza base" ---
+    # Si la rutina es de tipo fuerza_base, armamos un contexto adicional con
+    # 2 secciones: "Parte Inicial" (calentamiento) y "Parte Principal" (4
+    # grupos musculares predefinidos).  Cada detalle de la rutina se
+    # clasifica como calentamiento (es_calentamiento=True) o principal.
+    if rutina.estructura == "fuerza_base":
+        # Construir filas para el calentamiento: un dict por fila con las
+        # mismas claves que el nuevo front.  Si no hay registros, se
+        # devuelve una lista vacía para que el front genere 3 filas por
+        # defecto.
+        filas_cal = []
+        for d in rutina.detalles.filter(es_calentamiento=True).select_related("ejercicio"):
+            filas_cal.append({
+                "id": d.id,
+                "ejercicio_id": d.ejercicio_id or "",
+                "series": d.series or "",
+                "reps": d.repeticiones or "",
+                "kilos": d.peso or "",
+                "rir": d.rir or "",
+                "notas": d.notas or "",
+            })
+
+        # Definir las categorías predeterminadas para la parte principal.
+        categorias_fb = [
+            "Cadena anterior",
+            "Tracciones",
+            "Cadena posterior",
+            "Empujes",
+        ]
+        filas_principal = []
+        # Creamos un mapa para acceder rápidamente al primer detalle por
+        # categoría.  Esto asegura que si existen múltiples ejercicios bajo
+        # la misma categoría (caso excepcional), solo se considere el
+        # primero.
+        detalles_por_cat = {}
+        for d in rutina.detalles.filter(es_calentamiento=False).select_related("ejercicio"):
+            cat = d.categoria or ""
+            # Normalizar categoría: se compara de forma insensible a mayúsculas
+            # para evitar duplicados causados por diferencias de capitalización.
+            cat_key = cat.strip().lower()
+            if cat_key and cat_key not in detalles_por_cat:
+                detalles_por_cat[cat_key] = d
+
+        for cat in categorias_fb:
+            key = cat.strip().lower()
+            det = detalles_por_cat.get(key)
+            filas_principal.append({
+                "categoria": cat,
+                "ejercicio_id": det.ejercicio_id or "" if det else "",
+                "series": det.series or "" if det else "",
+                "reps": det.repeticiones or "" if det else "",
+                "kilos": det.peso or "" if det else "",
+                "rir": det.rir or "" if det else "",
+                "notas": det.notas or "" if det else "",
+            })
+
+        contexto.update({
+            "filas_calentamiento": filas_cal,
+            "filas_principal": filas_principal,
+        })
+        return render(request, "gymapp/editar_rutina_fuerza_base.html", contexto)
+
     return render(request, "gymapp/editar_rutina.html", contexto)
 
 
@@ -467,21 +529,28 @@ def guardar_rutina(request, rutina_id):
 
         nuevos = []
         for f in filas:
-            ej_id = f.get("ejercicio_id")
+            ej_id = f.get("ejercicio_id") or f.get("ejercicio")
             ej = Ejercicio.objects.filter(id=ej_id).first() if ej_id else None
+            categoria = f.get("categoria", "") or ""
+            # Convertir es_calentamiento a booleano.  Puede venir como
+            # cadena "true"/"false", entero 0/1 o valor booleano.
+            es_cal = f.get("es_calentamiento", False)
+            if isinstance(es_cal, str):
+                es_cal = es_cal.lower() in ("1", "true", "t", "yes")
+            else:
+                es_cal = bool(es_cal)
             nuevos.append(DetalleRutina(
                 rutina=nueva,
-                categoria="",                          # el front básico no manda categoría
+                categoria=categoria,
                 ejercicio=ej,
                 series=f.get("series", "") or "",
                 repeticiones=f.get("reps", "") or "",
                 peso=f.get("kilos", "") or "",
-                descanso="",                           # opcional
-                # Almacenar el valor de RIR proveniente del front si existe
+                descanso="",  # opcional
                 rir=f.get("rir", "") or "",
-                sensaciones="",                        # opcional
+                sensaciones="",  # opcional
                 notas=f.get("notas", "") or "",
-                es_calentamiento=False,
+                es_calentamiento=es_cal,
             ))
 
         if nuevos:
