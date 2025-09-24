@@ -1,18 +1,20 @@
 from datetime import date, datetime
 import json
 import openpyxl
-from django.db.models import Q, F
+from django.db.models import Q, F, Sum, Count
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib import messages
 from django.db import transaction
 
-from .forms import MemberForm, MemberInfoForm, DetalleRutinaFormSet
+from .forms import MemberForm, MemberInfoForm, DetalleRutinaFormSet, PaymentForm
 from .models import Member, Payment, Ejercicio, Rutina, DetalleRutina, ComentarioRutina
 
 from django.utils import timezone
 from django.views.decorators.http import require_POST
 
+from django.urls import reverse
+from django.utils.http import urlencode
 
 
 # === Socios ===
@@ -27,8 +29,13 @@ def member_list(request):
     ).order_by("nombre_apellido")
 
     current_month = date.today().replace(day=1)
+    # Solo consideramos pagados (no anulados) para marcar como pagados en la lista
     pagos_ids = set(
-        p.member_id for p in Payment.objects.filter(anulado=False, mes=current_month)
+        p.member_id for p in Payment.objects.filter(
+            anulado=False,
+            pagado=True,
+            mes=current_month,
+        )
     )
 
     return render(request, "gymapp/member_list.html", {
@@ -69,26 +76,39 @@ def delete_member(request, pk):
     return render(request, 'gymapp/confirm_delete.html', {'member': member})
 
 
-# === Pagos ===
-
+# === Pagos (botón rápido “Debe/Pagado”) ===
 @require_POST
 def toggle_payment(request, member_id):
+    """
+    Cambia el estado de pago rápido (Debe/Pagado) para el socio en el mes actual.
+
+    Si no existe un registro de pago para el mes actual, se crea uno con
+    `pagado=True`. Si ya existe, se invierte el estado de `pagado`.  Este
+    método no toca el campo `anulado` que está reservado para anular pagos
+    con plan.  Si se desmarca el pago (pagado=False) no se elimina el
+    registro sino que simplemente refleja que ese mes está pendiente.
+    """
     member = get_object_or_404(Member, pk=member_id)
     mes_actual = date.today().replace(day=1)
-
-    pago = Payment.objects.filter(member=member, mes=mes_actual).first()
-    if pago:
-        pago.anulado = not pago.anulado
-        pago.save()
-    else:
-        Payment.objects.create(member=member, mes=mes_actual)
+    # Buscar o crear el pago correspondiente al mes
+    pago, created = Payment.objects.get_or_create(
+        member=member,
+        mes=mes_actual,
+        defaults={"pagado": True},
+    )
+    if not created:
+        # Alternar el estado de pagado (Debe/Pagado)
+        pago.pagado = not pago.pagado
+        pago.save(update_fields=["pagado"])
     return redirect('member_list')
 
 
 def historial_pagos(request, member_id):
     from datetime import date as _date
     member = get_object_or_404(Member, pk=member_id)
-    pagos = Payment.objects.filter(member=member, anulado=False)
+    # Cargar pagos de este socio.  Para el historial, consideramos que un mes
+    # está pagado solo si existe un Payment con pagado=True y anulado=False.
+    pagos = Payment.objects.filter(member=member)
 
     historial = []
     hoy = _date.today().replace(day=1)
@@ -96,7 +116,8 @@ def historial_pagos(request, member_id):
 
     while fecha <= hoy:
         mes_str = fecha.strftime("%m-%Y")
-        pagado = pagos.filter(mes=fecha).exists()
+        # Determinar si el mes se marca como pagado (no anulado y pagado=True)
+        pagado = pagos.filter(mes=fecha, pagado=True, anulado=False).exists()
         historial.append({'mes': mes_str, 'pagado': pagado})
         if fecha.month == 12:
             fecha = fecha.replace(year=fecha.year + 1, month=1)
@@ -110,15 +131,45 @@ def historial_pagos(request, member_id):
 
 
 @require_POST
+def eliminar_pago(request, pago_id):
+    """
+    Anula un pago (no lo borra). Luego redirige al resumen del mismo mes.
+    """
+    pago = get_object_or_404(Payment, id=pago_id)
+    pago.anulado = True
+    pago.save()
+
+    # Volver al mismo mes del resumen
+    mes_param = pago.mes.strftime("%Y-%m")
+    url = reverse("resumen_mensual")
+    return redirect(f"{url}?{urlencode({'mes': mes_param})}")
+
+
+@require_POST
 def toggle_payment_mes(request, member_id, mes):
+    """
+    Alterna el estado "Pagado/Debe" para un mes específico en el historial.
+
+    Si no existe un pago para ese mes, se crea con pagado=True.  Si ya
+    existe, se invierte el estado de `pagado`.  No se toca el campo
+    `anulado`, que corresponde a anular un pago con plan.  Este endpoint
+    permite que los usuarios marquen y desmarquen rápidamente los pagos
+    mensuales en el historial.
+    """
     member = get_object_or_404(Member, pk=member_id)
-    mes_date = datetime.strptime(mes, "%m-%Y").date().replace(day=1)
-    pago = Payment.objects.filter(member=member, mes=mes_date).first()
-    if pago:
-        pago.anulado = not pago.anulado
-        pago.save()
-    else:
-        Payment.objects.create(member=member, mes=mes_date, pagado=True)
+    try:
+        mes_date = datetime.strptime(mes, "%m-%Y").date().replace(day=1)
+    except Exception:
+        mes_date = date.today().replace(day=1)
+
+    pago, created = Payment.objects.get_or_create(
+        member=member,
+        mes=mes_date,
+        defaults={"pagado": True},
+    )
+    if not created:
+        pago.pagado = not pago.pagado
+        pago.save(update_fields=["pagado"])
     return redirect('historial_pagos', member_id=member_id)
 
 
@@ -206,27 +257,16 @@ def update_member_info(request, member_id):
 # === Rutinas ===
 
 def rutina_cliente(request, member_id):
-    """Lista rutinas de un socio y opción para crear nueva"""
     member = get_object_or_404(Member, pk=member_id)
     rutinas = member.rutinas.order_by("-fecha_creacion")
 
     if request.method == "POST":
-        # Crear nueva rutina duplicando la última existente
         ultima = rutinas.first()
         if ultima:
             nueva = Rutina.objects.create(member=member, estructura=ultima.estructura)
-            # duplicar detalles en bloque
             detalles = ultima.detalles.select_related("ejercicio").values(
-                "categoria",
-                "ejercicio_id",
-                "series",
-                "repeticiones",
-                "peso",
-                "descanso",
-                "rir",
-                "sensaciones",
-                "notas",
-                "es_calentamiento",
+                "categoria", "ejercicio_id", "series", "repeticiones", "peso",
+                "descanso", "rir", "sensaciones", "notas", "es_calentamiento",
             )
             DetalleRutina.objects.bulk_create(
                 [DetalleRutina(rutina=nueva, **d) for d in detalles]
@@ -234,10 +274,8 @@ def rutina_cliente(request, member_id):
             if hasattr(ultima, "comentario"):
                 ComentarioRutina.objects.create(rutina=nueva, texto=ultima.comentario.texto)
         else:
-            # si no hay rutinas, crear vacía por defecto
             estructura = request.POST.get("estructura", "hipertrofia")
             nueva = Rutina.objects.create(member=member, estructura=estructura)
-
         return redirect("editar_rutina", nueva.id)
 
     return render(request, "gymapp/rutina_cliente.html", {
@@ -247,10 +285,7 @@ def rutina_cliente(request, member_id):
 
 
 def crear_rutina(request, member_id, tipo):
-    """Crea una rutina nueva desde un tipo elegido"""
     member = get_object_or_404(Member, id=member_id)
-
-    # mapeo de nombres legibles → clave de choices
     mapping = {
         "Hipertrofia": "hipertrofia",
         "Acondicionamiento físico": "acondicionamiento",
@@ -259,33 +294,27 @@ def crear_rutina(request, member_id, tipo):
         "Fuerza base": "fuerza_base",
         "Original": "original",
     }
-
     clave = mapping.get(tipo, "hipertrofia")
-
-    Rutina.objects.create(
-        member=member,
-        estructura=clave,
-    )
-
+    Rutina.objects.create(member=member, estructura=clave)
     return redirect("rutina_cliente", member_id=member.id)
 
 
 def editar_rutina(request, rutina_id):
+    """
+    Render de edición. Mantiene compatibilidad con POST por formset (flujo viejo)
+    y en GET arma 'filas' para el nuevo template con tabla editable.
+    """
     rutina = get_object_or_404(Rutina, pk=rutina_id)
-
-    # Ejercicios para los selects (se guarda ejercicio_id)
     ejercicios = Ejercicio.objects.all().order_by("nombre")
-
-
     categorias = [
-    "Pectorales", "Espalda", "Deltoides", "Bíceps", "Tríceps",
-    "Cuádriceps", "Isquiotibiales", "Pantorrilla", "Abdomen",
-    "Trapecios", "Antebrazos"
-]
+        "Pectorales", "Espalda", "Deltoides", "Bíceps", "Tríceps",
+        "Cuádriceps", "Isquiotibiales", "Pantorrilla", "Abdomen",
+        "Trapecios", "Antebrazos"
+    ]
 
+    # === Flujo viejo (formset) ===
     if request.method == "POST":
         detalles_data = []
-
         filas_c = int(request.POST.get("total_filas_calentamiento", 0))
         for i in range(filas_c):
             detalles_data.append({
@@ -318,7 +347,6 @@ def editar_rutina(request, rutina_id):
             "detalles-MIN_NUM_FORMS": "0",
             "detalles-MAX_NUM_FORMS": "1000",
         }
-
         for i, detalle in enumerate(detalles_data):
             for campo, valor in detalle.items():
                 formset_data[f"detalles-{i}-{campo}"] = valor
@@ -327,34 +355,144 @@ def editar_rutina(request, rutina_id):
 
         if formset.is_valid():
             with transaction.atomic():
-                rutina.detalles.all().delete()
-
-                nuevos_detalles = [
-                    DetalleRutina(rutina=rutina, **form.cleaned_data)
-                    for form in formset.forms
-                    if form.cleaned_data
-                ]
-                DetalleRutina.objects.bulk_create(nuevos_detalles)
+                # Al crear una nueva versión, preservamos la semana de la rutina
+                # original para que la información de semana no se pierda al
+                # versionar mediante el flujo antiguo (formset).
+                nueva = Rutina.objects.create(
+                    member=rutina.member,
+                    estructura=rutina.estructura,
+                    semana=getattr(rutina, "semana", 1),
+                )
+                nuevos = []
+                for form in formset.forms:
+                    if form.cleaned_data:
+                        data = form.cleaned_data.copy()
+                        data.pop("rutina", None)
+                        nuevos.append(DetalleRutina(rutina=nueva, **data))
+                if nuevos:
+                    DetalleRutina.objects.bulk_create(nuevos)
 
                 texto = request.POST.get("comentario", "")
-                if hasattr(rutina, "comentario"):
-                    rutina.comentario.texto = texto
-                    rutina.comentario.save()
-                else:
-                    ComentarioRutina.objects.create(rutina=rutina, texto=texto)
+                if not texto and hasattr(rutina, "comentario"):
+                    texto = rutina.comentario.texto
+                if texto:
+                    ComentarioRutina.objects.create(rutina=nueva, texto=texto)
 
+                messages.success(request, "Se creó una nueva versión de la rutina.")
             return redirect("rutina_cliente", rutina.member.id)
+        else:
+            messages.error(request, "Revisá los datos: hay campos inválidos o incompletos.")
 
-    return render(request, "gymapp/editar_rutina.html", {
+    # === GET: armar contexto para el template nuevo ===
+    filas_ctx = []
+    for d in rutina.detalles.filter(es_calentamiento=False).select_related("ejercicio"):
+        filas_ctx.append({
+            "id": d.id,
+            "ejercicio_id": d.ejercicio_id or "",
+            "series": d.series or "",
+            "reps": d.repeticiones or "",
+            "kilos": d.peso or "",
+            # Incluir campo RIR (Rate of Perceived Exertion inverso) en el contexto
+            "rir": d.rir or "",
+            "notas": d.notas or "",
+        })
+
+    # Construcción de la lista de semanas (por defecto 1..8).  El valor
+    # seleccionado por defecto se obtiene de la propia rutina si posee la
+    # propiedad ``semana`` definida; de lo contrario se usa 1.  Esto mejora la
+    # experiencia al mantener la semana elegida al crear nuevas versiones.
+    semanas = [{"id": i, "numero": i} for i in range(1, 9)]  # 1..8
+    semana_activa_id = getattr(rutina, "semana", 1) or 1
+    vista_por_semanas = False
+
+    contexto = {
         "rutina": rutina,
         "ejercicios": ejercicios,
         "categorias": categorias,
+        # compat con template viejo
         "detalles": rutina.detalles.filter(es_calentamiento=False),
         "calentamiento": rutina.detalles.filter(es_calentamiento=True),
-        "comentario": getattr(rutina, "comentario", None)
-    })
+        "comentario": getattr(rutina, "comentario", None),
+        # usado por el template nuevo
+        "filas": filas_ctx,
+        "semanas": semanas,
+        "semana_activa_id": semana_activa_id,
+        "vista_por_semanas": vista_por_semanas,
+    }
+
+    return render(request, "gymapp/editar_rutina.html", contexto)
 
 
+@require_POST
+def guardar_rutina(request, rutina_id):
+    """
+    Recibe 'payload' JSON desde el nuevo front (tabla editable) y crea
+    una NUEVA versión de la rutina (mismo criterio que en editar_rutina).
+    Estructura esperada:
+    {
+      "semana_id": "1",
+      "filas": [
+        {"ejercicio_id": "3", "series": "3", "reps": "8-10", "kilos": "40", "notas": "RIR 1-2"},
+        ...
+      ]
+    }
+    """
+    rutina = get_object_or_404(Rutina, pk=rutina_id)
+
+    payload = request.POST.get("payload", "")
+    try:
+        data = json.loads(payload) if payload else {"filas": []}
+    except json.JSONDecodeError:
+        messages.error(request, "No se pudo leer el formato enviado. Reintentá.")
+        return redirect("editar_rutina", rutina_id)
+
+    filas = data.get("filas", []) or []
+
+    with transaction.atomic():
+        # versionado: nueva rutina.  Se preserva o actualiza el número de semana
+        # que viene desde el front (payload) para que la información sea
+        # persistente en la base de datos.  Si no se envía, se toma la
+        # semana de la rutina original o 1 por defecto.
+        semana_str = data.get("semana_id") or request.POST.get("semana_id")
+        try:
+            semana_id = int(semana_str)
+        except (TypeError, ValueError):
+            semana_id = getattr(rutina, "semana", 1)
+
+        nueva = Rutina.objects.create(
+            member=rutina.member,
+            estructura=rutina.estructura,
+            semana=semana_id or 1,
+        )
+
+        nuevos = []
+        for f in filas:
+            ej_id = f.get("ejercicio_id")
+            ej = Ejercicio.objects.filter(id=ej_id).first() if ej_id else None
+            nuevos.append(DetalleRutina(
+                rutina=nueva,
+                categoria="",                          # el front básico no manda categoría
+                ejercicio=ej,
+                series=f.get("series", "") or "",
+                repeticiones=f.get("reps", "") or "",
+                peso=f.get("kilos", "") or "",
+                descanso="",                           # opcional
+                # Almacenar el valor de RIR proveniente del front si existe
+                rir=f.get("rir", "") or "",
+                sensaciones="",                        # opcional
+                notas=f.get("notas", "") or "",
+                es_calentamiento=False,
+            ))
+
+        if nuevos:
+            DetalleRutina.objects.bulk_create(nuevos)
+
+        # copiar comentario previo si existía
+        if hasattr(rutina, "comentario") and rutina.comentario and rutina.comentario.texto:
+            ComentarioRutina.objects.create(rutina=nueva, texto=rutina.comentario.texto)
+
+    messages.success(request, "Se creó una nueva versión de la rutina.")
+    return redirect("rutina_cliente", rutina.member.id)
 
 
 def eliminar_rutina(request, rutina_id):
@@ -366,7 +504,6 @@ def eliminar_rutina(request, rutina_id):
     return redirect('rutina_cliente', member_id=member_id)
 
 
-
 def mis_rutinas(request, member_id):
     member = get_object_or_404(Member, pk=member_id)
     rutinas = member.rutinas.order_by("-fecha_creacion")
@@ -375,15 +512,8 @@ def mis_rutinas(request, member_id):
     for rutina in rutinas:
         data = list(
             rutina.detalles.all().values(
-                "categoria",
-                "series",
-                "repeticiones",
-                "peso",
-                "descanso",
-                "rir",
-                "sensaciones",
-                "notas",
-                ejercicio=F("ejercicio__nombre"),
+                "categoria", "series", "repeticiones", "peso", "descanso",
+                "rir", "sensaciones", "notas", ejercicio=F("ejercicio__nombre"),
             )
         )
         rutina_data[str(rutina.id)] = data
@@ -395,3 +525,5 @@ def mis_rutinas(request, member_id):
         "rutinas": rutinas,
         "rutina_data": rutina_data,
     })
+
+

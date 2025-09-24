@@ -1,339 +1,190 @@
-/* ======================================================
-   Estilos para Editar Rutinas
-   Scope: .editar-rutinas
-   ====================================================== */
-
-/* Estilos generales para las vistas de rutinas */
-.rutina-form {
-  max-width: 900px;
-  margin: auto;
-  padding: 1rem;
-  font-size: 0.95rem;
+/* rutinas.css — dark, limpio, high-contrast + FIX Select2 */
+:root{
+  --bg:#0d1117;
+  --panel:#151b23;
+  --panel-2:#0f141a;
+  --text:#f0f3f6;
+  --muted:#96a0ad;
+  --primary:#3b82f6;
+  --success:#22c55e;
+  --danger:#ef4444;
+  --ghost:#2a3340;
+  --border:#263140;
+  --ring:#2563eb55;
+  --radius:14px;
 }
 
-/* Paleta base (claro elegante) */
-.editar-rutinas {
-  --bg: #ffffff;
-  --border: #ececec;
-  --head-bg: #f3f4f6;
-  --head-text: #111827;
-  --text: #1f2937;
-  --muted: #6b7280;
-  --row-hover: #f9fafb;
-  --accent: #3B82F6;
-  --accent-focus: rgba(59,130,246,.15);
-  --danger: #dc2626;
-  --radius: 0.75rem;
-  --shadow: 0 2px 8px rgba(0,0,0,.05);
-  --input-h: 40px;
-  font-family: var(--font-primary);
-  color: var(--text);
-  font-size: 1rem;
+.hidden{ display:none!important; }
+
+.rutinas-wrapper{
+  display:flex; flex-direction:column; gap:20px;
+  color:var(--text); background:var(--bg);
+  padding:24px; border-radius:var(--radius);
 }
 
-/* -------- Card look -------- */
-.editar-rutinas .card {
-  background-color: var(--bg) !important;
-  color: var(--text) !important;
-  border: 1px solid var(--border);
-  border-color: var(--border) !important;
-  border-radius: var(--radius);
-  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
-  overflow: visible;
+.rutinas-header{
+  display:flex; align-items:center; justify-content:space-between;
+  background:linear-gradient(180deg, var(--panel), var(--panel-2));
+  padding:16px 20px; border-radius:var(--radius);
+  border:1px solid var(--border);
+  box-shadow:0 10px 30px #00000040;
 }
 
-/* -------- Encabezados -------- */
-.editar-rutinas h2,
-.editar-rutinas h3 {
-  font-weight: 700;
-  margin-bottom: 12px;
-  color: var(--head-text);
+.brand{ display:flex; align-items:center; gap:14px; }
+.logo{
+  width:48px; height:48px; border-radius:12px;
+  background-image:url('../img/logo.png'); /* Ajustá si tu path cambia */
+  background-size:cover; background-position:center; background-color:#0e1621;
+  border:1px solid var(--border);
 }
-.editar-rutinas .card-header {
-  background: var(--head-bg);
-  font-weight: 600;
-  color: var(--head-text);
+.titles .page-title{ font-size:20px; margin:0; }
+.titles .subtitle{ margin:2px 0 0; color:var(--muted); font-size:14px; }
+
+.header-actions{ display:flex; gap:10px; align-items:center; }
+
+.btn{
+  border:1px solid var(--border);
+  background:var(--ghost);
+  color:var(--text);
+  padding:10px 14px; border-radius:12px; cursor:pointer;
+  font-weight:600; transition:transform .05s ease, box-shadow .2s ease, background .2s ease;
+}
+.btn:hover{ transform:translateY(-1px); box-shadow:0 6px 18px #00000055; }
+.btn.primary{ background:var(--primary); border-color:transparent; }
+.btn.success{ background:var(--success); border-color:transparent; }
+.btn.danger{ background:var(--danger); border-color:transparent; }
+.btn.ghost{ background:transparent; }
+
+.meta{
+  display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:12px;
+}
+.meta .meta-item{
+  background:var(--panel); border:1px solid var(--border); border-radius:12px;
+  padding:12px 14px;
+}
+.meta label{ display:block; color:var(--muted); font-size:12px; margin-bottom:6px; }
+.meta .meta-value{ font-size:14px; }
+
+.input{
+  width:100%; background:#0b1016; color:var(--text);
+  border:1px solid var(--border); border-radius:10px;
+  padding:10px 12px; outline: none;
+}
+.input:focus{ border-color:var(--primary); box-shadow:0 0 0 4px var(--ring); }
+
+/* Los textarea para notas utilizan la misma estética que los inputs y permiten crecer verticalmente */
+textarea.input{
+  resize:vertical;
+  min-height:48px;
+  line-height:1.4;
 }
 
-/* -------- Disposición de grids para la rutina -------- */
-.editar-rutinas .rutina-grid-responsive {
-  overflow-x: auto;
+/* Ajustes específicos para la clase notas-textarea: espacio confortable para textos largos */
+.notas-textarea{
+  max-height:150px;
+  overflow:auto;
 }
 
-.editar-rutinas .grid-table {
-  width: 100%;
+.select{
+  appearance:none;
+  background-image: linear-gradient(45deg, transparent 50%, #8aa1c4 50%), linear-gradient(135deg, #8aa1c4 50%, transparent 50%), linear-gradient(to right, transparent, transparent);
+  background-position: calc(100% - 20px) calc(1em + 2px), calc(100% - 15px) calc(1em + 2px), 100% 0;
+  background-size: 5px 5px, 5px 5px, 2.5em 2.5em;
+  background-repeat: no-repeat;
 }
 
-.editar-rutinas .grid-table .grid-header,
-.editar-rutinas .grid-table .grid-row {
-  display: grid;
-  align-items: center;
-  gap: 0.5rem;
+.tabla-rutina-card{
+  background:var(--panel); border:1px solid var(--border); border-radius:16px; overflow:hidden;
+  box-shadow: 0 10px 22px #00000040;
+}
+.tabla-header, .tabla-footer{
+  display:flex; align-items:center; justify-content:space-between; gap:12px;
+  padding:14px 16px; background:var(--panel-2); border-bottom:1px solid var(--border);
+}
+.tabla-footer{ border-top:1px solid var(--border); border-bottom:none; }
+.tabla-header h2{ margin:0; font-size:16px; }
+.muted{ color:var(--muted); font-size:12px; margin:4px 0 0; }
+
+.tabla-scroll{ overflow:auto; max-height:62vh; }
+.tabla{ width:100%; border-collapse:separate; border-spacing:0; }
+.tabla thead th{
+  position:sticky; top:0; z-index:2;
+  background:#0e1621; color:#c2cfdd; text-align:left; font-weight:700;
+  padding:12px; border-bottom:1px solid var(--border);
+}
+.tabla tbody td{ padding:10px; border-bottom:1px solid var(--border); }
+.tabla tbody tr:hover{ background:#0b1118; }
+
+.acciones{ display:flex; gap:8px; justify-content:flex-end; }
+.icon-btn{
+  width:34px; height:34px; border-radius:10px; border:1px solid var(--border);
+  background:#0b1016; color:#c6d3e2; cursor:pointer;
+}
+.icon-btn.duplicate:hover{ box-shadow:0 0 0 3px #22c55e40 inset; }
+.icon-btn.remove:hover{ box-shadow:0 0 0 3px #ef444440 inset; }
+
+.check{ display:flex; align-items:center; gap:8px; color:#c2cfdd; }
+
+/* -------- FIX contraste Select2 (texto y dropdown legibles) -------- */
+.select2-container .select2-selection--single{
+  background:#0b1016; border:1px solid var(--border); border-radius:10px; height:42px;
+}
+.select2-container--default .select2-selection--single .select2-selection__rendered{
+  color:var(--text); line-height:42px; padding-left:12px;
+}
+.select2-container--default .select2-selection--single .select2-selection__placeholder{
+  color:#9fb0c3;
+}
+.select2-dropdown{ background:#0f141a; border-color:var(--border); color:var(--text); }
+.select2-results__option{ color:var(--text); }
+.select2-results__option--highlighted{ background:#1b2938; color:#ffffff; }
+.select2-search__field{ background:#0b1016!important; color:var(--text)!important; }
+
+/* -----------------------------------------------------------------------------
+   Buscador de ejercicios sin Select2
+   Estas reglas estilizan el reemplazo del <select> nativo por un componente
+   personalizado compuesto por un input y un menú desplegable de resultados.
+   El input hereda la apariencia de los campos `.input` y el listado de
+   sugerencias se muestra con un contraste similar al de los dropdowns Select2.
+*/
+.search-select{ position:relative; width:100%; }
+.search-select .search-input{
+  width:100%;
+  background:#0b1016;
+  color:var(--text);
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:10px 12px;
+  outline:none;
+}
+.search-select .search-input:focus{
+  border-color:var(--primary);
+  box-shadow:0 0 0 4px var(--ring);
+}
+/* El menú de resultados se renderiza como overlay en el body para evitar que
+   se recorte dentro de contenedores con overflow oculto (como la tabla). */
+.search-results-overlay{
+  position:absolute;
+  max-height:200px;
+  overflow:auto;
+  background:#0f141a;
+  border:1px solid var(--border);
+  border-radius:10px;
+  z-index:1000;
+  display:none;
+}
+.search-results-overlay.active{ display:block; }
+.search-results-overlay div{
+  padding:8px 12px;
+  cursor:pointer;
+  color:var(--text);
+}
+.search-results-overlay div:hover{
+  background:#1b2938;
 }
 
-/* Calentamiento: 5 columnas */
-.editar-rutinas .grid-calentamiento .grid-header,
-.editar-rutinas .grid-calentamiento .grid-row {
-  grid-template-columns: 1.2fr 2fr 1fr 1fr 40px;
+/* Responsive */
+@media (max-width: 900px){
+  .meta{ grid-template-columns:1fr; }
+  .header-actions{ flex-wrap:wrap; }
 }
-
-/* Rutina principal: 9 columnas */
-.editar-rutinas .grid-rutina .grid-header,
-.editar-rutinas .grid-rutina .grid-row {
-  grid-template-columns: 1.2fr 2fr 1.2fr 0.8fr 1fr 0.8fr 0.8fr 1.2fr 40px;
-}
-
-.editar-rutinas .grid-header {
-  background: var(--head-bg);
-  color: var(--head-text);
-  font-weight: 700;
-  padding: 12px;
-  border-bottom: 1px solid var(--border);
-}
-
-.editar-rutinas .grid-row {
-  padding: 0.75rem 1rem;
-  background: transparent;
-  border-bottom: 1px solid #ececec;
-}
-
-/* Columna fija a la izquierda */
-.editar-rutinas .sticky-col {
-  position: sticky;
-  left: 0;
-  background: var(--bg);
-  z-index: 3;
-  box-shadow: none;
-  border-right: 1px solid #ececec;
-}
-
-/* Responsividad: permitir reflujo en pantallas pequeñas */
-@media (max-width: 768px) {
-  .editar-rutinas .grid-rutina .grid-header,
-  .editar-rutinas .grid-rutina .grid-row,
-  .editar-rutinas .grid-calentamiento .grid-header,
-  .editar-rutinas .grid-calentamiento .grid-row {
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  }
-}
-
-/* -------- Inputs y selects -------- */
-.editar-rutinas input[type="text"],
-.editar-rutinas input[type="number"],
-.editar-rutinas textarea,
-.editar-rutinas select,
-.editar-rutinas .form-control,
-.editar-rutinas .form-select {
-  width: 100%;
-  height: var(--input-h);
-  border: 1px solid var(--border);
-  border-color: var(--border) !important;
-  border-radius: 4px;
-  padding: 0 10px;
-  background-color: #fafafa;
-  color: var(--text);
-  font-size: .95rem;
-  font-weight: 500;
-  transition: border-color .15s, box-shadow .15s;
-}
-.editar-rutinas input:focus,
-.editar-rutinas select:focus,
-.editar-rutinas textarea:focus {
-  border-color: var(--accent);
-  box-shadow: 0 0 0 3px var(--accent-focus);
-  outline: none;
-}
-.editar-rutinas ::placeholder { color: var(--muted); }
-
-/* -------- Select2 -------- */
-.editar-rutinas .select2-container { width: 100% !important; }
-.editar-rutinas .select2-selection {
-  border: 1px solid var(--border) !important;
-  border-radius: 4px !important;
-  height: var(--input-h) !important;
-  display: flex !important;
-  align-items: center;
-  background-color: #fafafa !important;
-  font-weight: 500 !important;
-}
-.editar-rutinas .select2-selection__rendered {
-  line-height: var(--input-h) !important;
-  padding-left: 10px !important;
-}
-.editar-rutinas .select2-selection__arrow { height: var(--input-h) !important; }
-
-/* -------- Botones -------- */
-.editar-rutinas .btn {
-  border-radius: 4px;
-  font-size: .9rem;
-  font-weight: 500;
-  padding: 6px 14px;
-  transition: background .2s;
-}
-.editar-rutinas .btn-success { background: #2EA44F; border: none; }
-.editar-rutinas .btn-success:hover { background: #2C974B; }
-.editar-rutinas .btn-danger { background: #E5534B; border: none; }
-.editar-rutinas .btn-danger:hover { background: #D0453C; }
-.editar-rutinas .btn-outline-primary {
-  border: 1px solid var(--accent);
-  color: var(--accent);
-}
-.editar-rutinas .btn-outline-primary:hover {
-  background: var(--accent);
-  color: #fff;
-}
-
-/* Botones de acción pequeños */
-.editar-rutinas .btn-sm {
-  padding: 4px 10px;
-  font-size: .8rem;
-}
-.editar-rutinas .btn i { font-size: .85rem; }
-
-/* -------- Densidad (compacta o cómoda) -------- */
-.editar-rutinas .table-density-compact td,
-.editar-rutinas .table-density-compact th {
-  padding: 6px 8px;
-  font-size: .85rem;
-}
-
-
-/* Forzar estilo a los selects de Categoría */
-.editar-rutinas select[name^="categoria"],
-.editar-rutinas select[name^="cal_categoria"] {
-  background-color: #e5e7eb !important;  /* gris más fuerte */
-  border: 1px solid #9ca3af !important;  /* borde gris */
-  color: #111827 !important;             /* texto oscuro */
-  font-weight: 600;
-  border-radius: 8px;
-  padding-left: 8px;
-}
-
-/* Cuando el usuario hace foco */
-.editar-rutinas select[name^="categoria"]:focus,
-.editar-rutinas select[name^="cal_categoria"]:focus {
-  background-color: #ffffff !important;  /* se diferencia en blanco */
-  border-color: var(--accent) !important;
-  box-shadow: 0 0 0 3px var(--accent-focus) !important;
-}
-
-/* Card body padding */
-.editar-rutinas .card-body {
-  padding: 1.5rem;
-}
-
-/* Historial de rutinas */
-.historial-rutinas {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  max-width: 600px;
-  margin: auto;
-}
-
-/* -------- Tabla de mis rutinas -------- */
-.rutinas-table {
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
-  background: rgba(255, 255, 255, 0.04);
-  color: #f8f9fa;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 0.75rem;
-  overflow: hidden;
-}
-.rutinas-table th,
-.rutinas-table td {
-  padding: 0.75rem 1rem;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-}
-.rutinas-table thead th {
-  background: rgba(255, 255, 255, 0.08);
-  color: #fff;
-  font-weight: 600;
-}
-.rutinas-table tbody tr:nth-child(odd) {
-  background: rgba(255, 255, 255, 0.02);
-}
-.rutinas-table tbody tr:nth-child(even) {
-  background: rgba(255, 255, 255, 0.06);
-}
-
-/* -------- Tabulator custom style -------- */
-#rutinasTable {
-  font-family: var(--font-primary);
-  color: #f8f9fa;
-}
-
-.tabulator { background: transparent; }
-
-.tabulator .tabulator-header {
-  background: rgba(0, 0, 0, 0.4);
-  color: #f8f9fa;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.tabulator .tabulator-row {
-  background: rgba(255, 255, 255, 0.05);
-}
-
-.tabulator .tabulator-row:nth-child(even) {
-  background: rgba(255, 255, 255, 0.08);
-}
-
-.tabulator .tabulator-row:hover {
-  background: rgba(255, 255, 255, 0.15);
-}
-
-.tabulator .tabulator-cell {
-  border-right: 1px solid rgba(255, 255, 255, 0.1);
-}
-.rutinas-table tbody tr:hover {
-  background: rgba(255, 255, 255, 0.1);
-}
-.rutinas-table tbody tr:focus-within {
-  background: rgba(37, 99, 235, 0.15);
-}
-.rutinas-table tbody td:focus {
-  outline: 2px solid #2563eb;
-  outline-offset: -2px;
-}
-
-/* Cabecera de tarjetas para rutinas */
-.rutinas-card-header {
-  background: rgba(0, 0, 0, 0.6);
-  color: #f8f9fa;
-  font-weight: 600;
-}
-
-/* -------- Tablas genéricas del sitio -------- */
-body:not(.editar-rutinas) .table:not(.rutinas-table) {
-  background-color: #1e1e2a !important;
-  border-collapse: separate;
-  border-spacing: 0;
-  color: #ffffff !important;
-  font-size: 0.95rem;
-}
-
-body:not(.editar-rutinas) .table-striped:not(.rutinas-table) tbody tr:nth-of-type(odd) {
-  background-color: #2a2a3c !important;
-}
-
-body:not(.editar-rutinas) .table:not(.rutinas-table) td,
-body:not(.editar-rutinas) .table:not(.rutinas-table) th {
-  color: #ffffff !important;
-  font-weight: 600 !important;
-  background-color: transparent !important;
-  border-color: #444 !important;
-}
-
-body:not(.editar-rutinas) .table:not(.rutinas-table) thead {
-  background-color: #2d2d45 !important;
-}
-
-body:not(.editar-rutinas) .table:not(.rutinas-table) thead th {
-  color: #f9f9f9 !important;
-  font-weight: 700 !important;
-  border-bottom: 2px solid #555 !important;
-}
-

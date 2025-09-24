@@ -1,7 +1,7 @@
 from django import forms
 from django.forms import inlineformset_factory
-from .models import Member, Rutina, DetalleRutina
-
+from .models import Member, Rutina, DetalleRutina, Payment
+from datetime import date
 
 
 class MemberForm(forms.ModelForm):
@@ -48,6 +48,32 @@ class MemberInfoForm(forms.ModelForm):
             'enfermedades': forms.Textarea(attrs={'rows': 3}),
             'objetivos': forms.Textarea(attrs={'rows': 3}),
         }
+
+
+# === Form de pago por plan ===
+class PaymentForm(forms.ModelForm):
+    class Meta:
+        model = Payment
+        fields = ["member", "mes", "plan"]
+        widgets = {
+            # usamos type="month" en vez de date
+            "mes": forms.DateInput(
+                attrs={"type": "month"},
+                format="%Y-%m"
+            ),
+        }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        # Aceptar formato año-mes
+        self.fields["mes"].input_formats = ["%Y-%m", "%Y-%m-%d"]
+
+    def clean_mes(self):
+        """
+        Normalizo la fecha al primer día del mes.
+        """
+        mes = self.cleaned_data["mes"]
+        return mes.replace(day=1)
 
 
 DetalleRutinaFormSet = inlineformset_factory(

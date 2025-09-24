@@ -12,13 +12,20 @@
 
 {% block content %}
 <div class="container mt-4 rutina-form">
+    <!-- Botón de volver -->
+    <div class="d-flex justify-content-start mb-3">
+        <a href="{% url 'member_list' %}" class="btn-volver">
+            ← Volver
+        </a>
+    </div>
+
     <h3 class="text-center">Rutinas de {{ member.nombre_apellido }}</h3>
     <hr>
 
     {% for rutina in rutinas %}
         <div class="card mb-4 shadow-sm">
             <div class="card-header rutinas-card-header">
-                {{ rutina.get_estructura_display }} - {{ rutina.fecha_creacion|date:"d/m/Y H:i" }}
+                {{ rutina.get_estructura_display }}{% if rutina.semana %} - Semana {{ rutina.semana }}{% endif %} - {{ rutina.fecha_creacion|date:"d/m/Y H:i" }}
             </div>
             <div class="card-body">
                 <div class="table-responsive">

@@ -1,18 +1,19 @@
 import os
 from pathlib import Path
+BASE_DIR = Path(__file__).resolve().parent.parent  # C:\gym
 
-BASE_DIR = Path(__file__).resolve().parent.parent
-
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [BASE_DIR / 'static'] 
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", "django-insecure-1234567890-esto-es-un-ejemplo")
 
-DEBUG = os.getenv("DJANGO_DEBUG", "False").lower() == "true"
+DEBUG = True
 
 ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
 
 # When set to ``False`` the application will load vendor libraries from the
 # local ``static/`` directory instead of using the CDN copies.  This is useful
 # for environments without Internet access.
-USE_CDN = True
+USE_CDN = False
 
 # Subresource integrity hashes for the CDN hosted assets.  They are kept in a
 # separate mapping so they can easily be updated without touching the
@@ -85,6 +86,3 @@ TIME_ZONE = 'America/Argentina/Buenos_Aires'
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
-
-STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]

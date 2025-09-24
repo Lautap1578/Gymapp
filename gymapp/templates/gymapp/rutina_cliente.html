@@ -3,7 +3,13 @@
 
 {% block content %}
 <div class="container mt-4">
-    <h2 class="text-center mb-4">Rutinas de {{ member.nombre_apellido }}</h2>
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="m-0">Rutinas de {{ member.nombre_apellido }}</h2>
+        <!-- Botón Volver -->
+        <a href="{% url 'member_list' %}" class="btn btn-outline-secondary">
+            <i class="bi bi-arrow-left"></i> Volver a la lista de socios
+        </a>
+    </div>
 
     <!-- Tipos de rutinas -->
     <h4 class="mb-3 text-center">Elegí un tipo de rutina</h4>
@@ -22,7 +28,11 @@
         {% for rutina in rutinas %}
             <div class="card shadow-sm mb-3">
                 <div class="p-3 d-flex justify-content-between align-items-center">
-                    <span><strong>{{ rutina.get_estructura_display }}</strong> - {{ rutina.fecha_creacion|date:"d/m/Y H:i" }}</span>
+        <span>
+            <strong>{{ rutina.get_estructura_display }}</strong>
+            {% if rutina.semana %}- Semana {{ rutina.semana }}{% endif %}
+            - {{ rutina.fecha_creacion|date:"d/m/Y H:i" }}
+        </span>
                     <div>
                         <a href="{% url 'editar_rutina' rutina.id %}" class="btn btn-sm btn-outline-secondary me-1">
                             <i class="bi bi-pencil"></i> Editar

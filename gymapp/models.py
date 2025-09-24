@@ -1,4 +1,5 @@
 from django.db import models
+from decimal import Decimal
 
 # === Socios ===
 class Member(models.Model):
@@ -22,19 +23,48 @@ class Member(models.Model):
 
 # === Pagos ===
 class Payment(models.Model):
+    PLAN_CHOICES = [
+        ("2", "2 días - $24.000"),
+        ("3", "3 días - $27.000"),
+        ("all", "Todos - $30.000"),
+    ]
+    PRECIOS = {
+        "2": Decimal("24000"),
+        "3": Decimal("27000"),
+        "all": Decimal("30000"),
+    }
+
     member = models.ForeignKey(Member, on_delete=models.CASCADE, related_name='pagos')
-    mes = models.DateField()  # Se guarda el primer día del mes
+    mes = models.DateField()                      # guardamos el 1° de cada mes
     pagado = models.BooleanField(default=True)
-    anulado = models.BooleanField(default=False)  # Campo para marcar pagos anulados
+    anulado = models.BooleanField(default=False)  # para “revertir” sin borrar
     fecha_pago = models.DateField(auto_now_add=True)
+
+    # plan y monto. Opcionales para convivir con el botón rápido.
+    plan = models.CharField(max_length=8, choices=PLAN_CHOICES, blank=True, null=True)
+    monto = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
 
     class Meta:
         constraints = [
             models.UniqueConstraint(fields=['member', 'mes'], name='unique_payment_mes')
         ]
 
+    def save(self, *args, **kwargs):
+        # Normalizar SIEMPRE al día 1 (clave para que el resumen lo encuentre)
+        if self.mes:
+            self.mes = self.mes.replace(day=1)
+
+        # Si hay plan y no hay monto manual, setear automático por plan
+        if self.plan and not self.monto:
+            self.monto = self.PRECIOS.get(self.plan)
+        super().save(*args, **kwargs)
+
     def __str__(self):
-        return f"{self.member} - {self.mes.strftime('%m-%Y')}"
+        if self.mes:
+            return f"{self.member} - {self.mes.strftime('%m-%Y')}"
+        return f"{self.member} - (sin mes)"
+
+
 
 
 # === Rutinas ===
@@ -58,6 +88,12 @@ class Rutina(models.Model):
     member = models.ForeignKey(Member, on_delete=models.CASCADE, related_name="rutinas")
     estructura = models.CharField(max_length=50, choices=ESTRUCTURAS)
     fecha_creacion = models.DateTimeField(auto_now_add=True)
+
+    # Número de semana asociado a la rutina (1-8).  Esto permite
+    # conservar la semana seleccionada en el editor de rutinas y mostrarla
+    # posteriormente en el historial de rutinas.  Por defecto se asigna la
+    # primera semana.
+    semana = models.PositiveSmallIntegerField(default=1)
 
     def __str__(self):
         return f"Rutina {self.get_estructura_display()} - {self.member.nombre_apellido} ({self.fecha_creacion.date()})"
@@ -86,5 +122,3 @@ class ComentarioRutina(models.Model):
 
     def __str__(self):
         return f"Comentario de {self.rutina}"
-
-

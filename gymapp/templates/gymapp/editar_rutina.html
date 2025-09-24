@@ -1,273 +1,371 @@
 {% extends "gymapp/base.html" %}
 {% load static %}
+
 {% block title %}Editar Rutina{% endblock %}
 
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/rutinas.css' %}">
+
+<!-- Retiramos la importación de Select2, ya que el buscador se implementa de forma nativa -->
+<!-- Eliminamos las dependencias externas de jQuery y Select2 para evitar
+     retrasos o fallos en la carga. Toda la funcionalidad de búsqueda se
+     implementa en este archivo mediante JavaScript nativo. -->
+{% endblock %}
+
 {% block content %}
-<div class="container my-4 mx-auto rutina-form editar-rutinas card-1000" id="contenedor-calor">
-  <h2 class="mb-3 text-center">Editar Rutina</h2>
-
-  <form id="rutinaForm" method="post" action="">
-    {% csrf_token %}
-
-    <div class="mb-4">
-      <label class="form-label fw-bold">Cliente</label>
-      <input type="text" class="form-control" value="{{ rutina.member.nombre_apellido }}" disabled>
+<div class="rutinas-wrapper">
+  <header class="rutinas-header">
+    <div class="brand">
+      <div class="logo"></div>
+      <div class="titles">
+        <h1 class="page-title">Editar rutina</h1>
+        <p class="subtitle">Configurá ejercicios, series, repeticiones, kilos y notas</p>
+      </div>
     </div>
+    <div class="header-actions">
+      <a href="{% url 'member_list' %}" class="btn ghost">← Volver a la lista</a>
+      <button id="btn-guardar" class="btn primary">Guardar cambios</button>
+    </div>
+  </header>
 
-    <!-- ================= CALENTAMIENTO (opcional) ================= -->
-    <div class="card mb-4 shadow-sm">
-      <div class="card-header fw-bold">Calentamiento</div>
-      <div class="card-body">
-        <div class="mb-2 d-flex gap-2 align-items-center">
-          <button type="button" class="btn btn-primary btn-sm btn-add"
-                  data-tabla="tablaCalentamiento" data-prefix="cal_">
-            + Agregar fila
-          </button>
-          <small class="text-muted">Total filas: <span id="total_filas_calentamiento">1</span></small>
-        </div>
+  <section class="meta">
+    <div class="meta-item">
+      <label>Socio</label>
+      <div class="meta-value">{{ rutina.member.nombre_apellido }} (DNI: {{ rutina.member.dni }})</div>
+    </div>
+    <div class="meta-item">
+      <label>Tipo de rutina</label>
+      <div class="meta-value">{{ rutina.get_estructura_display }}</div>
+    </div>
+    <div class="meta-item">
+      <label>Semana</label>
+      <select id="semana-select" class="input">
+        {% if semanas %}
+          {% for w in semanas %}
+            <option value="{{ w.id }}" {% if w.id == semana_activa_id %}selected{% endif %}>Semana {{ w.numero }}</option>
+          {% endfor %}
+        {% else %}
+          {% for i in "12345678" %}
+            <option value="{{ forloop.counter }}" {% if forloop.counter == 1 %}selected{% endif %}>Semana {{ forloop.counter }}</option>
+          {% endfor %}
+        {% endif %}
+      </select>
+    </div>
+  </section>
 
-        <div class="rutina-grid-responsive">
-          <div class="grid-table grid-calentamiento" id="tablaCalentamiento">
-            <div class="grid-header">
-              <div>Categoría</div>
-              <div>Ejercicio</div>
-              <div>Repeticiones</div>
-              <div>Notas</div>
-              <div></div>
-            </div>
-            <div class="grid-body" id="tbody-calor">
-              <div class="grid-row">
-                <div class="categoria">
-                  <select name="cal_categoria_0" class="form-select">
-                    <option value="">Seleccionar…</option>
-                    {% for c in categorias %}
-                      <option value="{{ c }}">{{ c }}</option>
-                    {% endfor %}
-                    <option value="Cardio">Cardio</option>
-                  </select>
-                </div>
-                <div class="ejercicio">
-                  <select name="cal_ejercicio_0" class="form-select ejercicio-select">
-                    <option value="">Seleccionar ejercicio…</option>
-                    {% for e in ejercicios %}
-                      <option value="{{ e.id }}">{{ e.nombre }}</option>
-                    {% endfor %}
-                  </select>
-                </div>
-                <div class="repeticiones"><input type="text" class="form-control" name="cal_repeticiones_0" placeholder="Ej: 2x15 o tiempo"></div>
-                <div class="notas"><input type="text" class="form-control" name="cal_notas_0" placeholder="Notas"></div>
-                <div class="acciones text-center">
-                  <button type="button" class="btn btn-danger btn-sm" onclick="eliminarFila(this,'tablaCalentamiento')">
-                    <i class="bi bi-x-lg"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
+  <section class="tabla-rutina-card">
+    <div class="tabla-header">
+      <div class="left">
+        <h2>Ejercicios</h2>
+        <p class="muted">Tip: TAB para moverte, Ctrl+D duplica fila, Supr elimina.</p>
+      </div>
+      <div class="right">
+        <button id="btn-agregar" class="btn success">+ Agregar fila</button>
+        <button id="btn-limpiar" class="btn danger">Vaciar</button>
       </div>
     </div>
 
-    <!-- ================= RUTINA PRINCIPAL ================= -->
-    <div class="card mb-4 shadow-sm">
-      <div class="card-header fw-bold d-flex align-items-center justify-content-between">
-        Rutina principal
-        <div class="d-flex gap-2">
-          <button type="button" class="btn btn-outline-primary btn-sm" id="density-comfy">Cómodo</button>
-          <button type="button" class="btn btn-outline-primary btn-sm" id="density-compact">Compacto</button>
-        </div>
-      </div>
-      <div class="card-body">
-        <div class="mb-2 d-flex gap-2 align-items-center">
-          <button type="button" class="btn btn-success btn-sm btn-add"
-                  data-tabla="tablaRutina" data-prefix="">
-            + Agregar fila
-          </button>
-          <small class="text-muted">Total filas: <span id="total_filas">1</span></small>
-        </div>
-
-        <div id="rutina-wrap" class="table-density-comfy">
-          <div class="rutina-grid-responsive">
-            <div class="grid-table grid-rutina" id="tablaRutina">
-              <div class="grid-header">
-                <div class="sticky-col">Categoría</div>
-                <div>Ejercicios</div>
-                <div>Notas</div>
-                <div>Series</div>
-                <div>Repeticiones</div>
-                <div>Kilos</div>
-                <div>RIR</div>
-                <div>Sensaciones</div>
-                <div></div>
-              </div>
-              <div class="grid-body" id="tbody-rutina">
-                <div class="grid-row">
-                  <div class="sticky-col categoria">
-                    <select name="categoria_0" class="form-select">
-                      <option value="">Seleccionar…</option>
-                      {% for c in categorias %}
-                        <option value="{{ c }}">{{ c }}</option>
-                      {% endfor %}
-                    </select>
-                  </div>
-                  <div class="ejercicio">
-                    <select name="ejercicio_0" class="form-select ejercicio-select">
-                      <option value="">Seleccionar ejercicio…</option>
-                      {% for e in ejercicios %}
-                        <option value="{{ e.id }}">{{ e.nombre }}</option>
-                      {% endfor %}
-                    </select>
-                  </div>
-                  <div class="notas"><input type="text" class="form-control" name="notas_0" placeholder="Notas"></div>
-                  <div class="series"><input type="text" class="form-control" name="series_0" placeholder="Ej: 4"></div>
-                  <div class="repeticiones"><input type="text" class="form-control" name="repeticiones_0" placeholder="Ej: 10-12"></div>
-                  <div class="kilos"><input type="text" class="form-control" name="peso_0" placeholder="Ej: 30"></div>
-                  <div class="rir">
-                    <select name="rir_0" class="form-select">
-                      <option value="">-</option>
-                      <option>0</option><option>1</option><option>2</option><option>3</option><option>4</option>
-                    </select>
-                  </div>
-                  <div class="sensaciones"><input type="text" class="form-control" name="sensaciones_0" placeholder="Cómo lo sentiste"></div>
-                  <div class="acciones text-center">
-                    <button type="button" class="btn btn-danger btn-sm" onclick="eliminarFila(this,'tablaRutina')">
-                      <i class="bi bi-x-lg"></i>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- totales ocultos -->
-        <input type="hidden" name="total_filas" id="total_filas_input" value="1">
-        <input type="hidden" name="total_filas_calentamiento" id="total_filas_calentamiento_input" value="1">
-      </div>
+    <div class="tabla-scroll">
+      <table id="tabla-rutina" class="tabla">
+        <thead>
+          <tr>
+            <!-- Ajustamos los anchos para incluir la columna "Rir" -->
+            <th style="width:28%">Ejercicio</th>
+            <th style="width:10%">Series</th>
+            <th style="width:10%">Reps</th>
+            <th style="width:10%">Kilos</th>
+            <th style="width:10%">Rir</th>
+            <th style="width:26%">Notas</th>
+            <th style="width:6%"></th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for fila in filas %}
+          <tr data-row-id="{{ fila.id|default:forloop.counter }}">
+            <td>
+              <!-- Dejamos <option> por si Select2 tarda; igual los forzamos con data -->
+              <select name="ejercicio" class="input select" data-selected="{{ fila.ejercicio_id|default:'' }}">
+                {% for ej in ejercicios %}
+                  <option value="{{ ej.id }}" {% if ej.id == fila.ejercicio_id %}selected{% endif %}>{{ ej.nombre }}</option>
+                {% endfor %}
+              </select>
+            </td>
+            <td><input type="number" min="1" name="series" class="input" value="{{ fila.series|default:'' }}"></td>
+            <td><input type="text" name="reps" class="input" value="{{ fila.reps|default:'' }}" placeholder="8-10 / 5x5"></td>
+            <td><input type="number" min="0" name="kilos" class="input" value="{{ fila.kilos|default:'' }}"></td>
+            <!-- Nueva columna RIR del mismo tamaño que series/reps/kilos -->
+            <td><input type="text" name="rir" class="input" value="{{ fila.rir|default:'' }}" placeholder="1-2"></td>
+            <!-- Convertimos Notas en un textarea para mejorar la lectura de textos largos -->
+            <td><textarea name="notas" class="input notas-textarea" placeholder="RIR 1-2, tempo 3-1-3">{{ fila.notas|default:'' }}</textarea></td>
+            <td class="acciones">
+              <button class="icon-btn duplicate" title="Duplicar fila" aria-label="Duplicar">⎘</button>
+              <button class="icon-btn remove" title="Eliminar fila" aria-label="Eliminar">✕</button>
+            </td>
+          </tr>
+          {% empty %}
+          <tr>
+            <td>
+              <select name="ejercicio" class="input select">
+                {% for ej in ejercicios %}
+                  <option value="{{ ej.id }}">{{ ej.nombre }}</option>
+                {% endfor %}
+              </select>
+            </td>
+            <td><input type="number" min="1" name="series" class="input" placeholder="3"></td>
+            <td><input type="text" name="reps" class="input" placeholder="8-10"></td>
+            <td><input type="number" min="0" name="kilos" class="input" placeholder="0"></td>
+            <!-- Nueva columna RIR para filas vacías -->
+            <td><input type="text" name="rir" class="input" placeholder="1-2"></td>
+            <!-- Notas pasa a ser textarea para permitir textos largos -->
+            <td><textarea name="notas" class="input notas-textarea" placeholder="Notas"></textarea></td>
+            <td class="acciones">
+              <button class="icon-btn duplicate" title="Duplicar fila" aria-label="Duplicar">⎘</button>
+              <button class="icon-btn remove" title="Eliminar fila" aria-label="Eliminar">✕</button>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
     </div>
 
-    <!-- ================= Comentario opcional ================= -->
-    <div class="card mb-3 shadow-sm">
-      <div class="card-header fw-bold">Comentario general (opcional)</div>
-      <div class="card-body">
-        <textarea class="form-control" name="comentario" rows="3" placeholder="Notas generales de la rutina…">{{ rutina.comentario.texto|default_if_none:'' }}</textarea>
+    <footer class="tabla-footer">
+      <div class="left">
+        <label class="check">
+          <input type="checkbox" id="mostrar-por-semanas" {% if vista_por_semanas %}checked{% endif %}>
+          <span>Vista por semanas</span>
+        </label>
       </div>
-    </div>
+      <div class="right">
+        <button id="btn-guardar-bottom" class="btn primary">Guardar</button>
+      </div>
+    </footer>
+  </section>
 
-    <div class="d-flex gap-2">
-      <a href="{% url 'rutina_cliente' rutina.member.id %}" class="btn btn-outline-secondary">Volver</a>
-      <button type="submit" class="btn btn-primary">Guardar cambios</button>
-    </div>
-  </form>
+  <section class="ayuda">
+    <details>
+      <summary>Atajos y flujo de trabajo</summary>
+      <ul>
+        <li><kbd>TAB</kbd> avanza al siguiente campo.</li>
+        <li><kbd>Enter</kbd> agrega una nueva fila si estás en la última celda.</li>
+        <li><kbd>Ctrl</kbd> + <kbd>D</kbd> duplica la fila actual.</li>
+        <li><kbd>Supr</kbd> elimina la fila actual.</li>
+      </ul>
+    </details>
+  </section>
 </div>
 
+<form id="form-guardar" method="post" action="{% url 'guardar_rutina' rutina.id %}" class="hidden">
+  {% csrf_token %}
+  <input type="hidden" name="semana_id" id="semana_id_input" value="{{ semana_activa_id }}">
+  <input type="hidden" name="payload" id="payload_input">
+</form>
+
+<script src="{% static 'js/editar_rutinas.js' %}"></script>
+
 <script>
-// --- INIT SELECT2 ROBUSTO ---
-function initSelect2(scope){
-  $(scope).find('select.ejercicio-select').each(function(){
-    const $sel = $(this);
+  /* 1) Dataset desde el backend (si llega vacío, lo normalizo/armo igual) */
+  window.__EJERCICIOS__ = [
+    {% for ej in ejercicios %}
+      {"id":"{{ ej.id }}","text":"{{ ej.nombre|escapejs }}"},
+    {% endfor %}
+  ];
 
-    // Limpieza FULL por si viene clonada
-    $sel.off();
-    if ($sel.hasClass('select2-hidden-accessible')) {
-      try { $sel.select2('destroy'); } catch(e){}
-      $sel.removeClass('select2-hidden-accessible');
-      $sel.removeAttr('data-select2-id');
-      const $next = $sel.next('.select2');
-      if ($next.length) $next.remove();
+  // Normalizar por si vino con otras claves o nulos
+  (function normalize(){
+    const arr = Array.isArray(window.__EJERCICIOS__) ? window.__EJERCICIOS__ : [];
+    window.__EJERCICIOS__ = arr.map(e => ({
+      id: String(e?.id ?? ''),
+      text: (e?.text ?? e?.nombre ?? '').trim()
+    })).filter(e => e.id && e.text);
+  })();
+
+  // Fallback: si igual quedó vacío, lo reconstruyo desde el primer <select>
+  function buildFromDomIfEmpty(){
+    if (window.__EJERCICIOS__.length) return;
+    const first = document.querySelector('select[name="ejercicio"]');
+    if (first && first.options.length){
+      window.__EJERCICIOS__ = [...first.options].map(o => ({ id: o.value, text: o.textContent.trim() }))
+                                                .filter(e => e.id && e.text);
     }
+  }
 
-    // Inicialización fresca
-    $sel.select2({
-      placeholder: "Seleccionar ejercicio…",
-      allowClear: true,
-      minimumResultsForSearch: 0,
-      width: '100%',
-      dropdownParent: $(document.body)
+  // Repobla un <select> con <option> a partir de __EJERCICIOS__
+  function repopulateOptions(selectEl){
+    if (!selectEl) return;
+    const current = selectEl.getAttribute('data-selected') || selectEl.value || '';
+    // Limpiar y cargar
+    selectEl.innerHTML = '';
+    const frag = document.createDocumentFragment();
+    for (const e of window.__EJERCICIOS__){
+      const opt = new Option(e.text, e.id, false, false);
+      frag.appendChild(opt);
+    }
+    selectEl.appendChild(frag);
+    // Restaurar selección si existía
+    if (current) selectEl.value = current;
+  }
+
+  // ---------------------------------------------------------------------------
+  // Reemplazo de Select2 por un buscador nativo
+  // Convertimos el <select> en un componente con un input y una lista de
+  // resultados.  El valor seleccionado se sincroniza con el <select> oculto.
+  function makeSearchable(selectEl){
+    if (!selectEl || selectEl.dataset.searchified) return;
+    selectEl.dataset.searchified = '1';
+    // Asegurar que las opciones existen en el select para fallback
+    if (Array.isArray(window.__EJERCICIOS__) && window.__EJERCICIOS__.length){
+      repopulateOptions(selectEl);
+    }
+    // Crear contenedor
+    const wrapper = document.createElement('div');
+    wrapper.className = 'search-select';
+    const input = document.createElement('input');
+    input.type = 'text';
+    input.className = 'search-input';
+    input.setAttribute('autocomplete','off');
+    input.setAttribute('placeholder','Buscar ejercicio');
+    // Establecer el texto inicial según el valor seleccionado
+    // Determinar ID seleccionado original.  Para nuevas filas el atributo
+    // data-selected estará vacío y selectEl.value devolverá el primer option, por
+    // lo que preferimos data-selected para no prellenar con el primer ejercicio.
+    const currentId = selectEl.getAttribute('data-selected') || '';
+    if (currentId) {
+      const match = window.__EJERCICIOS__.find(e => String(e.id) === String(currentId));
+      if (match) input.value = match.text;
+    }
+    // El contenedor de resultados se añade al body para posicionarlo como overlay
+    const results = document.createElement('div');
+    results.className = 'search-results-overlay';
+    document.body.appendChild(results);
+    wrapper.appendChild(input);
+    // Insertar wrapper después del select
+    selectEl.style.display = 'none';
+    selectEl.parentNode.insertBefore(wrapper, selectEl.nextSibling);
+    function positionResults(){
+      const rect = input.getBoundingClientRect();
+      results.style.width = rect.width + 'px';
+      results.style.left = rect.left + window.pageXOffset + 'px';
+      results.style.top = rect.bottom + window.pageYOffset + 'px';
+    }
+    function renderResults(term){
+      const needle = term.trim().toLowerCase();
+      const list = window.__EJERCICIOS__.filter(e => e.text.toLowerCase().includes(needle));
+      results.innerHTML = '';
+      list.forEach(e => {
+        const item = document.createElement('div');
+        item.textContent = e.text;
+        item.dataset.id = e.id;
+        results.appendChild(item);
+      });
+      positionResults();
+      results.classList.add('active');
+    }
+    function hideResults(){
+      results.classList.remove('active');
+    }
+    function choose(id, text){
+      // Asignar el ID al select y persistirlo en data-selected para futuras
+      // inicializaciones.  También actualizamos el texto mostrado en el input.
+      selectEl.value = id;
+      selectEl.setAttribute('data-selected', id);
+      input.value = text;
+      hideResults();
+    }
+    // Eventos del input
+    input.addEventListener('focus', () => {
+      renderResults(input.value);
     });
-  });
-}
+    input.addEventListener('input', () => {
+      renderResults(input.value);
+    });
+    input.addEventListener('click', () => {
+      renderResults(input.value);
+    });
+    input.addEventListener('blur', () => {
+      // Retrasar ocultar para permitir click en resultado
+      setTimeout(() => { hideResults(); }, 200);
+    });
+    // Reposicionar resultados en scroll o resize
+    window.addEventListener('scroll', positionResults, true);
+    window.addEventListener('resize', positionResults);
+    // Selección de resultados
+    results.addEventListener('mousedown', (evt) => {
+      const target = evt.target.closest('div[data-id]');
+      if (!target) return;
+      const id = target.dataset.id;
+      const text = target.textContent;
+      choose(id, text);
+    });
+  }
 
-// Helpers conteo de filas
-function contarFilas(idTabla){ return document.querySelectorAll('#' + idTabla + ' .grid-row').length; }
-function actualizarTotal(idTabla, idSpan){
-  const total = contarFilas(idTabla);
-  document.getElementById(idSpan).textContent = total;
-  if (idTabla === 'tablaRutina') document.getElementById('total_filas_input').value = total;
-  if (idTabla === 'tablaCalentamiento') document.getElementById('total_filas_calentamiento_input').value = total;
-}
-
-// --- AGREGAR FILA SIN ROMPER NOMBRES NI SELECT2 ---
-function agregarFila(idTabla, prefix){
-  const $tbody = $('#' + idTabla + ' .grid-body');
-  const index = $tbody.find('.grid-row').length;
-  const $fila = $tbody.find('.grid-row').first().clone(false); // sin copiar eventos
-
-  $fila.find('input, select').each(function(){
-    const el = this;
-
-    // Si es SELECT clonado desde uno con select2, limpiamos
-    if (el.tagName === 'SELECT') {
-      const $el = $(el);
-      if ($el.hasClass('select2-hidden-accessible')) {
-        try { $el.select2('destroy'); } catch(e){}
-        $el.removeClass('select2-hidden-accessible').removeAttr('data-select2-id');
-        const $next = $el.next('.select2');
-        if ($next.length) $next.remove();
+  // Inicializa los selects de ejercicios repoblando sus opciones.  Se evita
+  // utilizar Select2 para asegurar que al menos las opciones estén
+  // disponibles en todas las filas, ya que en algunos entornos el plugin
+  // puede no estar cargado o puede fallar con el primer registro.
+  function initSelect2(scope){
+    const container = scope || document;
+    const selects = container.querySelectorAll('select[name="ejercicio"]');
+    selects.forEach((selectEl) => {
+      try {
+        // Repoblar opciones con el dataset global para garantizar que existan en el DOM
+        if (Array.isArray(window.__EJERCICIOS__) && window.__EJERCICIOS__.length) {
+          repopulateOptions(selectEl);
+        }
+        // Reemplazar el <select> por nuestro componente de búsqueda si aún no se hizo
+        makeSearchable(selectEl);
+      } catch (e) {
+        // Silenciar errores
       }
-    }
+    });
+  }
 
-    // Renombrado correcto
-    const partes = el.name.split('_');
-    let baseReal;
-    if (partes[0] === 'cal' && partes.length >= 3) {
-      baseReal = partes[1]; // después de "cal"
-    } else {
-      baseReal = partes[0];
-    }
-    el.name = (prefix || '') + baseReal + '_' + index;
-
-    // Reset de valores
-    if (el.tagName === 'SELECT'){
-      el.selectedIndex = 0;
-    } else {
-      el.value = '';
+  // Inicializar Select2 y la primera fila cuando jQuery esté listo.
+  // En algunos entornos la librería Select2 se carga de forma asíncrona desde
+  // CDN.  Para evitar que la inicialización ocurra antes de que el plugin
+  // esté disponible (lo que provoca que no aparezca el buscador), esperamos
+  // hasta que $.fn.select2 exista y luego aplicamos initSelect2.  Si aún no
+  // está disponible, reintentamos después de un breve retardo.  Esto asegura
+  // que la primera fila y cualquier otra fila inicial queden correctamente
+  // inicializadas con el componente de búsqueda.
+  // Ejecutar inicialización cuando el DOM esté listo (sin depender de jQuery)
+  document.addEventListener('DOMContentLoaded', function(){
+    // Inicializar los componentes de búsqueda para todas las filas actuales
+    initSelect2(document);
+    // Aplicar __afterRowAdded a la primera fila por si es necesario ejecutar
+    // lógica adicional desde editar_rutinas.js
+    try {
+      const firstRow = document.querySelector('#tabla-rutina tbody tr');
+      if (firstRow && typeof window.__afterRowAdded === 'function') {
+        window.__afterRowAdded(firstRow);
+      }
+    } catch (e) {
+      /* Silenciar posibles errores */
     }
   });
 
-  $tbody.append($fila);
-  initSelect2($fila); // solo la nueva fila
-  actualizarTotal(idTabla, idTabla === 'tablaRutina' ? 'total_filas' : 'total_filas_calentamiento');
-}
+  // Hook para filas nuevas (lo llama editar_rutinas.js): repoblar las
+  // opciones de ejercicios en la nueva fila.
+  window.__afterRowAdded = function(tr){
+    initSelect2(tr);
+  };
 
-// --- ELIMINAR FILA ---
-function eliminarFila(btn, idTabla){
-  const tbody = document.querySelector('#' + idTabla + ' .grid-body');
-  if (tbody.querySelectorAll('.grid-row').length <= 1) return;
-  btn.closest('.grid-row').remove();
-  actualizarTotal(idTabla, idTabla === 'tablaRutina' ? 'total_filas' : 'total_filas_calentamiento');
-}
-
-// --- EVENTOS INIT ---
-document.addEventListener('click', function(e){
-  if (!e.target.matches('.btn-add')) return;
-  e.preventDefault();
-  const btn = e.target.closest('.btn-add');
-  agregarFila(btn.getAttribute('data-tabla'), btn.getAttribute('data-prefix') || '');
-});
-
-document.addEventListener('DOMContentLoaded', function(){
-  initSelect2(document);
-  actualizarTotal('tablaCalentamiento','total_filas_calentamiento');
-  actualizarTotal('tablaRutina','total_filas');
-
-  // Toggle densidad
-  const wrap = document.getElementById("rutina-wrap");
-  const comfy = document.getElementById("density-comfy");
-  const compact = document.getElementById("density-compact");
-  if (comfy) comfy.onclick = ()=> { wrap.classList.add("table-density-comfy"); wrap.classList.remove("table-density-compact"); };
-  if (compact) compact.onclick = ()=> { wrap.classList.add("table-density-compact"); wrap.classList.remove("table-density-comfy"); };
-});
+  // Plan B: si aparecen selects tarde (por ejemplo al duplicar filas),
+  // repoblar sus opciones.
+  const tbody = document.querySelector('#tabla-rutina tbody');
+  if (tbody) {
+    const mo = new MutationObserver(muts => {
+      for (const m of muts){
+        m.addedNodes.forEach(n=>{
+          if (n.nodeType !== 1) return;
+          if (n.matches?.('tr')) initSelect2(n);
+          const selects = n.querySelectorAll?.('select[name="ejercicio"]');
+          if (selects?.length) initSelect2(n);
+        });
+      }
+    });
+    mo.observe(tbody, {childList:true, subtree:true});
+  }
 </script>
+
+
 {% endblock %}
