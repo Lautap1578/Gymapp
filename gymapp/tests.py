@@ -1,3 +1,4 @@
+import json
 from datetime import date
 
 from django.db import IntegrityError
@@ -12,6 +13,7 @@ from .models import (
     Payment,
     ComentarioRutina,
 )
+from .forms import DetalleRutinaPayloadForm
 
 
 class RutinaClienteDuplicationTest(TestCase):
@@ -161,4 +163,81 @@ class RutinaModelTest(TestCase):
         esperado = f"Rutina Hipertrofia - {member.nombre_apellido} ({rutina.fecha_creacion.date()})"
         self.assertEqual(str(rutina), esperado)
         self.assertEqual(rutina.detalles.count(), 0)
+
+
+class GuardarRutinaPayloadTest(TestCase):
+    def setUp(self):
+        self.member = Member.objects.create(dni="99", nombre_apellido="Payload Tester")
+        self.rutina = Rutina.objects.create(member=self.member, estructura="hipertrofia", semana=1)
+        self.ejercicio = Ejercicio.objects.create(nombre="Press Banca")
+
+    def test_descarta_filas_vacias_y_crea_detalles(self):
+        url = reverse("guardar_rutina", args=[self.rutina.id])
+        payload = {
+            "semana_id": "2",
+            "filas": [
+                {"categoria": "", "series": "", "reps": "", "kilos": ""},
+                {
+                    "categoria": "Pectorales",
+                    "ejercicio_id": self.ejercicio.id,
+                    "series": "3",
+                    "reps": "8-10",
+                    "kilos": "40",
+                    "notas": "RIR 2",
+                },
+            ],
+        }
+
+        response = self.client.post(url, {"payload": json.dumps(payload)})
+        self.assertRedirects(response, reverse("rutina_cliente", args=[self.member.id]))
+
+        self.assertEqual(self.member.rutinas.count(), 2)
+        nueva = self.member.rutinas.order_by("-fecha_creacion").first()
+        self.assertEqual(nueva.detalles.count(), 1)
+        detalle = nueva.detalles.first()
+        self.assertEqual(detalle.categoria, "Pectorales")
+        self.assertEqual(detalle.series, "3")
+        self.assertEqual(detalle.repeticiones, "8-10")
+        self.assertEqual(detalle.peso, "40")
+        self.assertEqual(detalle.notas, "RIR 2")
+        self.assertEqual(nueva.semana, 2)
+
+    def test_muestra_error_si_hay_fila_invalida(self):
+        url = reverse("guardar_rutina", args=[self.rutina.id])
+        payload = {
+            "semana_id": "1",
+            "filas": [
+                {
+                    "categoria": "X" * 101,  # excede max_length 100
+                    "ejercicio_id": 9999,
+                    "series": "3",
+                }
+            ],
+        }
+
+        response = self.client.post(url, {"payload": json.dumps(payload)}, follow=True)
+        self.assertRedirects(response, reverse("editar_rutina", args=[self.rutina.id]))
+        mensajes = list(response.context["messages"])
+        self.assertTrue(mensajes)
+        self.assertIn("Fila 1", mensajes[0].message)
+        self.assertEqual(self.member.rutinas.count(), 1)
+        self.assertEqual(self.rutina.detalles.count(), 0)
+
+    def test_limita_cantidad_de_filas(self):
+        url = reverse("guardar_rutina", args=[self.rutina.id])
+        filas = [
+            {
+                "categoria": "Cat",
+                "ejercicio_id": self.ejercicio.id,
+                "series": "1",
+            }
+            for _ in range(DetalleRutinaPayloadForm.MAX_FILAS + 1)
+        ]
+        payload = {"semana_id": "1", "filas": filas}
+
+        response = self.client.post(url, {"payload": json.dumps(payload)}, follow=True)
+        self.assertRedirects(response, reverse("editar_rutina", args=[self.rutina.id]))
+        mensajes = [m.message for m in response.context["messages"]]
+        self.assertTrue(any("máximo" in mensaje.lower() for mensaje in mensajes))
+        self.assertEqual(self.member.rutinas.count(), 1)
 
