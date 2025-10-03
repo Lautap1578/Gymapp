@@ -58,6 +58,24 @@ class MemberListViewTest(TestCase):
         self.assertContains(response, member.nombre_apellido)
 
 
+class MemberRowsPartialViewTest(TestCase):
+    def test_unpaid_payment_shows_debe_badge(self):
+        member = Member.objects.create(dni="2", nombre_apellido="Tester 2")
+        Payment.objects.create(
+            member=member,
+            mes=date.today(),
+            pagado=False,
+        )
+
+        response = self.client.get(reverse("member_rows_partial"))
+
+        self.assertEqual(response.status_code, 200)
+        self.assertInHTML(
+            '<span class="badge bg-danger">Debe</span>',
+            response.content.decode(),
+        )
+
+
 class TogglePaymentViewTest(TestCase):
     def test_toggle_payment_creates_and_toggles(self):
         member = Member.objects.create(dni="1", nombre_apellido="Tester")
