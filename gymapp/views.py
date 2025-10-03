@@ -247,7 +247,11 @@ def member_rows_partial(request):
 
     current_month = date.today().replace(day=1)
     pagos_ids = set(
-        p.member_id for p in Payment.objects.filter(anulado=False, mes=current_month)
+        p.member_id for p in Payment.objects.filter(
+            anulado=False,
+            pagado=True,
+            mes=current_month,
+        )
     )
 
     return render(request, "gymapp/partials/_member_rows.html", {
