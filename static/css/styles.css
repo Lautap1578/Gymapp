@@ -91,14 +91,3 @@ h1, h2, .page-title {
 html {
     filter: saturate(1.3); /* probá con 1.3 o 1.5 */
 }
-
-/* Legibilidad del contador en los KPIs del resumen mensual */
-.resumen-kpis .kpi .text-muted {
-  color: #e9ecef !important;   /* gris claro casi blanco */
-  opacity: 0.95 !important;    /* subimos opacidad */
-}
-
-/* (Opcional) reforzar el valor grande también */
-.resumen-kpis .kpi__value {
-  color: #ffffff;               /* blanco pleno para el número grande */
-}
