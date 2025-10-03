@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import inlineformset_factory
-from .models import Member, Rutina, DetalleRutina, Payment
+from .models import Member, Rutina, DetalleRutina, Payment, Ejercicio
 from datetime import date
 
 
@@ -94,3 +94,89 @@ DetalleRutinaFormSet = inlineformset_factory(
     extra=0,
     can_delete=False,
 )
+
+
+class DetalleRutinaPayloadForm(forms.Form):
+    """Valida las filas enviadas por el editor moderno de rutinas."""
+
+    MAX_FILAS = 200
+
+    categoria = forms.CharField(
+        required=False,
+        max_length=DetalleRutina._meta.get_field("categoria").max_length,
+    )
+    ejercicio_id = forms.IntegerField(required=False, min_value=1)
+    ejercicio = forms.IntegerField(required=False, min_value=1)
+    series = forms.CharField(
+        required=False,
+        max_length=DetalleRutina._meta.get_field("series").max_length,
+    )
+    reps = forms.CharField(
+        required=False,
+        max_length=DetalleRutina._meta.get_field("repeticiones").max_length,
+    )
+    kilos = forms.CharField(
+        required=False,
+        max_length=DetalleRutina._meta.get_field("peso").max_length,
+    )
+    descanso = forms.CharField(
+        required=False,
+        max_length=DetalleRutina._meta.get_field("descanso").max_length,
+    )
+    rir = forms.CharField(
+        required=False,
+        max_length=DetalleRutina._meta.get_field("rir").max_length,
+    )
+    sensaciones = forms.CharField(required=False, max_length=2000)
+    notas = forms.CharField(required=False, max_length=2000)
+    es_calentamiento = forms.BooleanField(required=False)
+
+    def clean_categoria(self):
+        categoria = self.cleaned_data.get("categoria") or ""
+        return categoria.strip()
+
+    def clean_series(self):
+        series = self.cleaned_data.get("series") or ""
+        return series.strip()
+
+    def clean_reps(self):
+        reps = self.cleaned_data.get("reps") or ""
+        return reps.strip()
+
+    def clean_kilos(self):
+        kilos = self.cleaned_data.get("kilos") or ""
+        return kilos.strip()
+
+    def clean_descanso(self):
+        descanso = self.cleaned_data.get("descanso") or ""
+        return descanso.strip()
+
+    def clean_rir(self):
+        rir = self.cleaned_data.get("rir") or ""
+        return rir.strip()
+
+    def clean_sensaciones(self):
+        sensaciones = self.cleaned_data.get("sensaciones") or ""
+        return sensaciones.strip()
+
+    def clean_notas(self):
+        notas = self.cleaned_data.get("notas") or ""
+        return notas.strip()
+
+    def clean(self):
+        cleaned = super().clean()
+        # Homogeneizar: preferimos ejercicio_id si está presente.
+        ejercicio_id = cleaned.get("ejercicio_id")
+        ejercicio_alt = cleaned.get("ejercicio")
+        elegido = ejercicio_id or ejercicio_alt
+
+        if elegido:
+            if not Ejercicio.objects.filter(id=elegido).exists():
+                # Asociar el error al campo provisto originalmente
+                campo_error = "ejercicio_id" if ejercicio_id else "ejercicio"
+                self.add_error(campo_error, "El ejercicio seleccionado no existe.")
+            else:
+                cleaned["ejercicio_id"] = elegido
+        else:
+            cleaned["ejercicio_id"] = None
+        return cleaned

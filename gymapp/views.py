@@ -8,7 +8,13 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib import messages
 from django.db import transaction
 
-from .forms import MemberForm, MemberInfoForm, DetalleRutinaFormSet, PaymentForm
+from .forms import (
+    MemberForm,
+    MemberInfoForm,
+    DetalleRutinaFormSet,
+    PaymentForm,
+    DetalleRutinaPayloadForm,
+)
 from .models import Member, Payment, Ejercicio, Rutina, DetalleRutina, ComentarioRutina
 
 from django.utils import timezone
@@ -769,6 +775,59 @@ def guardar_rutina(request, rutina_id):
         return redirect("editar_rutina", rutina_id)
 
     filas = data.get("filas", []) or []
+    if not isinstance(filas, list):
+        messages.error(request, "El formato recibido es inválido: se esperaba una lista de filas.")
+        return redirect("editar_rutina", rutina_id)
+
+    filas_limpias = []
+    errores = []
+
+    for idx, fila in enumerate(filas, start=1):
+        if not isinstance(fila, dict):
+            errores.append(f"Fila {idx}: formato inválido.")
+            continue
+
+        valores = [
+            fila.get("categoria"),
+            fila.get("ejercicio_id") or fila.get("ejercicio"),
+            fila.get("series"),
+            fila.get("reps"),
+            fila.get("kilos"),
+            fila.get("descanso"),
+            fila.get("rir"),
+            fila.get("sensaciones"),
+            fila.get("notas"),
+        ]
+        if all((valor is None or str(valor).strip() == "") for valor in valores):
+            continue
+
+        form = DetalleRutinaPayloadForm(fila)
+        if form.is_valid():
+            filas_limpias.append(form.cleaned_data)
+        else:
+            mensajes = []
+            for field_errors in form.errors.values():
+                mensajes.extend(field_errors)
+            errores.append(f"Fila {idx}: {' | '.join(mensajes)}")
+
+    if errores:
+        for error in errores:
+            messages.error(request, error)
+        return redirect("editar_rutina", rutina_id)
+
+    if len(filas_limpias) > DetalleRutinaPayloadForm.MAX_FILAS:
+        messages.error(
+            request,
+            f"Se excedió el máximo de {DetalleRutinaPayloadForm.MAX_FILAS} filas permitidas.",
+        )
+        return redirect("editar_rutina", rutina_id)
+
+    ejercicio_ids = {
+        fila.get("ejercicio_id")
+        for fila in filas_limpias
+        if fila.get("ejercicio_id")
+    }
+    ejercicios_map = Ejercicio.objects.in_bulk(ejercicio_ids)
 
     with transaction.atomic():
         # versionado: nueva rutina.  Se preserva o actualiza el número de semana
@@ -788,29 +847,21 @@ def guardar_rutina(request, rutina_id):
         )
 
         nuevos = []
-        for f in filas:
-            ej_id = f.get("ejercicio_id") or f.get("ejercicio")
-            ej = Ejercicio.objects.filter(id=ej_id).first() if ej_id else None
-            categoria = f.get("categoria", "") or ""
-            # Convertir es_calentamiento a booleano.  Puede venir como
-            # cadena "true"/"false", entero 0/1 o valor booleano.
-            es_cal = f.get("es_calentamiento", False)
-            if isinstance(es_cal, str):
-                es_cal = es_cal.lower() in ("1", "true", "t", "yes")
-            else:
-                es_cal = bool(es_cal)
+        for f in filas_limpias:
+            ej_id = f.get("ejercicio_id")
+            ej = ejercicios_map.get(ej_id) if ej_id else None
             nuevos.append(DetalleRutina(
                 rutina=nueva,
-                categoria=categoria,
+                categoria=f.get("categoria", "") or "",
                 ejercicio=ej,
                 series=f.get("series", "") or "",
                 repeticiones=f.get("reps", "") or "",
                 peso=f.get("kilos", "") or "",
-                descanso="",  # opcional
+                descanso=f.get("descanso", "") or "",
                 rir=f.get("rir", "") or "",
-                sensaciones="",  # opcional
+                sensaciones=f.get("sensaciones", "") or "",
                 notas=f.get("notas", "") or "",
-                es_calentamiento=es_cal,
+                es_calentamiento=f.get("es_calentamiento", False),
             ))
 
         if nuevos:
