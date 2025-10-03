@@ -50,6 +50,19 @@ class RutinaClienteDuplicationTest(TestCase):
         self.assertEqual(calentamientos.first().repeticiones, "10")
 
 
+    def test_duplica_preserva_semana(self):
+        """La duplicación de rutinas mantiene el número de semana"""
+
+        member = Member.objects.create(dni="2", nombre_apellido="Tester")
+        Rutina.objects.create(member=member, estructura="hipertrofia", semana=4)
+
+        self.client.post(reverse("rutina_cliente", args=[member.id]))
+
+        self.assertEqual(member.rutinas.count(), 2)
+        nueva = member.rutinas.order_by("-fecha_creacion").first()
+        self.assertEqual(nueva.semana, 4)
+
+
 class MemberListViewTest(TestCase):
     def test_member_list_displays_members(self):
         member = Member.objects.create(dni="1", nombre_apellido="Tester")

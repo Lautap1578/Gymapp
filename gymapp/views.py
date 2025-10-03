@@ -342,7 +342,11 @@ def rutina_cliente(request, member_id):
     if request.method == "POST":
         ultima = rutinas.first()
         if ultima:
-            nueva = Rutina.objects.create(member=member, estructura=ultima.estructura)
+            nueva = Rutina.objects.create(
+                member=member,
+                estructura=ultima.estructura,
+                semana=ultima.semana,
+            )
             detalles = ultima.detalles.select_related("ejercicio").values(
                 "categoria", "ejercicio_id", "series", "repeticiones", "peso",
                 "descanso", "rir", "sensaciones", "notas", "es_calentamiento",
