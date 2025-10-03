@@ -120,7 +120,16 @@ def historial_pagos(request, member_id):
     member = get_object_or_404(Member, pk=member_id)
     # Cargar pagos de este socio.  Para el historial, consideramos que un mes
     # está pagado solo si existe un Payment con pagado=True y anulado=False.
-    pagos = Payment.objects.filter(member=member)
+    pagos_realizados = Payment.objects.filter(
+        member=member,
+        pagado=True,
+        anulado=False,
+    ).values_list('mes', flat=True)
+    meses_pagados = {
+        mes.replace(day=1)
+        for mes in pagos_realizados
+        if mes is not None
+    }
 
     historial = []
     hoy = _date.today().replace(day=1)
@@ -129,7 +138,7 @@ def historial_pagos(request, member_id):
     while fecha <= hoy:
         mes_str = fecha.strftime("%m-%Y")
         # Determinar si el mes se marca como pagado (no anulado y pagado=True)
-        pagado = pagos.filter(mes=fecha, pagado=True, anulado=False).exists()
+        pagado = fecha in meses_pagados
         historial.append({'mes': mes_str, 'pagado': pagado})
         if fecha.month == 12:
             fecha = fecha.replace(year=fecha.year + 1, month=1)
