@@ -2,7 +2,7 @@ from datetime import date, datetime
 from decimal import Decimal
 import json
 import openpyxl
-from django.db.models import Q, F, Sum, Count
+from django.db.models import Q, F, Sum, Count, Prefetch
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib import messages
@@ -334,7 +334,10 @@ def update_member_info(request, member_id):
 
 def rutina_cliente(request, member_id):
     member = get_object_or_404(Member, pk=member_id)
-    rutinas = member.rutinas.order_by("-fecha_creacion")
+    rutinas = member.rutinas.order_by("-fecha_creacion").prefetch_related(
+        "detalles__ejercicio",
+        "comentario",
+    )
 
     if request.method == "POST":
         ultima = rutinas.first()
@@ -828,19 +831,49 @@ def eliminar_rutina(request, rutina_id):
 
 def mis_rutinas(request, member_id):
     member = get_object_or_404(Member, pk=member_id)
-    rutinas = member.rutinas.order_by("-fecha_creacion")
+    detalles_prefetch = Prefetch(
+        "detalles",
+        queryset=DetalleRutina.objects.select_related("ejercicio").only(
+            "id",
+            "rutina_id",
+            "categoria",
+            "series",
+            "repeticiones",
+            "peso",
+            "descanso",
+            "rir",
+            "sensaciones",
+            "notas",
+            "ejercicio__nombre",
+        ),
+    )
+    rutinas = member.rutinas.order_by("-fecha_creacion").prefetch_related(
+        detalles_prefetch,
+        "comentario",
+    )
 
     rutina_data = {}
     for rutina in rutinas:
-        data = list(
-            rutina.detalles.all().values(
-                "categoria", "series", "repeticiones", "peso", "descanso",
-                "rir", "sensaciones", "notas", ejercicio=F("ejercicio__nombre"),
-            )
-        )
-        rutina_data[str(rutina.id)] = data
+        detalles = [
+            {
+                "categoria": detalle.categoria,
+                "series": detalle.series,
+                "repeticiones": detalle.repeticiones,
+                "peso": detalle.peso,
+                "descanso": detalle.descanso,
+                "rir": detalle.rir,
+                "sensaciones": detalle.sensaciones,
+                "notas": detalle.notas,
+                "ejercicio": detalle.ejercicio.nombre if detalle.ejercicio else "",
+            }
+            for detalle in rutina.detalles.all()
+        ]
+        rutina_data[str(rutina.id)] = detalles
 
     rutina_data = json.dumps(rutina_data)
+
+    # TODO: Considerar paginar las rutinas o cargar los datos detallados mediante
+    # peticiones AJAX para reducir la carga inicial cuando existen muchas rutinas.
 
     return render(request, "gymapp/mis_rutinas.html", {
         "member": member,
