@@ -14,6 +14,7 @@ urlpatterns = [
     path('toggle_pago/<int:member_id>/<str:mes>/', views.toggle_payment_mes, name='toggle_payment_mes'),  # POST
     path('exportar_excel/', views.export_members_excel, name='export_members_excel'),
     path('eliminar_pago/<int:pago_id>/', views.eliminar_pago, name='eliminar_pago'),
+    path('resumen_mensual/', views.resumen_mensual, name='resumen_mensual'),
 
 
     # Cliente login

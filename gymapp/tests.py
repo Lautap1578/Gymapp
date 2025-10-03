@@ -3,6 +3,7 @@ from datetime import date
 from django.db import IntegrityError
 from django.test import TestCase
 from django.urls import reverse
+from django.utils import timezone
 
 from .models import (
     Member,
@@ -79,6 +80,33 @@ class TogglePaymentViewTest(TestCase):
     def test_toggle_payment_invalid_member(self):
         response = self.client.get(reverse("toggle_payment", args=[999]))
         self.assertEqual(response.status_code, 404)
+
+
+class ResumenMensualViewTest(TestCase):
+    def setUp(self):
+        self.member = Member.objects.create(dni="1", nombre_apellido="Tester")
+        self.mes_actual = timezone.localdate().replace(day=1)
+        Payment.objects.create(
+            member=self.member,
+            mes=self.mes_actual,
+            plan="2",
+            pagado=True,
+            anulado=False,
+        )
+
+    def test_resumen_mensual_default_month(self):
+        response = self.client.get(reverse("resumen_mensual"))
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.context["mes"], self.mes_actual)
+        self.assertEqual(response.context["total_general"], Payment.PRECIOS["2"])
+
+    def test_resumen_mensual_with_query_param(self):
+        response = self.client.get(
+            reverse("resumen_mensual"),
+            {"mes": self.mes_actual.strftime("%Y-%m")},
+        )
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, self.member.nombre_apellido)
 
 
 class LoginClienteViewTest(TestCase):
