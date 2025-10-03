@@ -5,8 +5,8 @@
 <link href="https://unpkg.com/tabulator-tables@5.6.2/dist/css/tabulator.min.css" rel="stylesheet"{% if CDN_INTEGRITY.tabulator_css %} integrity="{{ CDN_INTEGRITY.tabulator_css }}" crossorigin="anonymous"{% endif %}>
 <script src="https://unpkg.com/tabulator-tables@5.6.2/dist/js/tabulator.min.js"{% if CDN_INTEGRITY.tabulator_js %} integrity="{{ CDN_INTEGRITY.tabulator_js }}" crossorigin="anonymous"{% endif %}></script>
 {% else %}
-<link href="{% static 'vendor/tabulator/tabulator.min.css' %}" rel="stylesheet">
-<script src="{% static 'vendor/tabulator/tabulator.min.js' %}"></script>
+<link href="{{ tabulator_css_url }}" rel="stylesheet">
+<script src="{{ tabulator_js_url }}"></script>
 {% endif %}
 {% endblock %}
 

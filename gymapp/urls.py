@@ -18,6 +18,7 @@ urlpatterns = [
 
     # Cliente login
     path('login_cliente/', views.login_cliente, name='login_cliente'),
+    path('logout_cliente/', views.logout_cliente, name='logout_cliente'),
 
     # Partial para recarga con AJAX
     path('member_rows_partial/', views.member_rows_partial, name='member_rows_partial'),

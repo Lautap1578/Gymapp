@@ -1,7 +1,7 @@
 from datetime import date
 
 from django.db import IntegrityError
-from django.test import TestCase
+from django.test import TestCase, override_settings
 from django.urls import reverse
 
 from .models import (
@@ -81,6 +81,7 @@ class TogglePaymentViewTest(TestCase):
         self.assertEqual(response.status_code, 404)
 
 
+@override_settings(USE_CDN=True)
 class LoginClienteViewTest(TestCase):
     def setUp(self):
         self.member = Member.objects.create(dni="123", nombre_apellido="Cliente")
@@ -98,6 +99,49 @@ class LoginClienteViewTest(TestCase):
         response = self.client.post(reverse("login_cliente"), {"dni": "999"})
         self.assertRedirects(response, reverse("login_cliente"))
         self.assertNotIn("cliente_id", self.client.session)
+
+
+@override_settings(USE_CDN=True)
+class LogoutClienteViewTest(TestCase):
+    def setUp(self):
+        self.member = Member.objects.create(dni="456", nombre_apellido="Cliente 2")
+
+    def test_logout_clears_session(self):
+        session = self.client.session
+        session["cliente_id"] = self.member.id
+        session.save()
+
+        response = self.client.get(reverse("logout_cliente"))
+
+        self.assertRedirects(response, reverse("login_cliente"))
+        self.assertNotIn("cliente_id", self.client.session)
+
+
+@override_settings(USE_CDN=True)
+class MisRutinasViewTest(TestCase):
+    def setUp(self):
+        self.member = Member.objects.create(dni="789", nombre_apellido="Cliente 3")
+        self.other_member = Member.objects.create(dni="101", nombre_apellido="Cliente 4")
+
+    def test_redirects_to_login_when_not_authenticated(self):
+        response = self.client.get(reverse("mis_rutinas", args=[self.member.id]))
+        self.assertRedirects(response, reverse("login_cliente"))
+
+    def test_forbidden_when_accessing_other_member(self):
+        session = self.client.session
+        session["cliente_id"] = self.other_member.id
+        session.save()
+
+        response = self.client.get(reverse("mis_rutinas", args=[self.member.id]))
+        self.assertEqual(response.status_code, 403)
+
+    def test_allows_access_for_matching_member(self):
+        session = self.client.session
+        session["cliente_id"] = self.member.id
+        session.save()
+
+        response = self.client.get(reverse("mis_rutinas", args=[self.member.id]))
+        self.assertEqual(response.status_code, 200)
 
 
 class EditarRutinaViewTest(TestCase):

@@ -2,7 +2,7 @@ from datetime import date, datetime
 import json
 import openpyxl
 from django.db.models import Q, F, Sum, Count
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseForbidden
 from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib import messages
 from django.db import transaction
@@ -12,6 +12,7 @@ from .models import Member, Payment, Ejercicio, Rutina, DetalleRutina, Comentari
 
 from django.utils import timezone
 from django.views.decorators.http import require_POST
+from django.templatetags.static import static
 
 from django.urls import reverse
 from django.utils.http import urlencode
@@ -234,6 +235,12 @@ def login_cliente(request):
             messages.error(request, "DNI no registrado. Verificá los datos.")
             return redirect("login_cliente")
     return render(request, "gymapp/login_cliente.html")
+
+
+def logout_cliente(request):
+    request.session.pop("cliente_id", None)
+    messages.info(request, "Sesión finalizada.")
+    return redirect("login_cliente")
 
 
 def member_rows_partial(request):
@@ -763,6 +770,12 @@ def eliminar_rutina(request, rutina_id):
 
 
 def mis_rutinas(request, member_id):
+    session_member_id = request.session.get("cliente_id")
+    if session_member_id is None:
+        return redirect("login_cliente")
+    if session_member_id != member_id:
+        return HttpResponseForbidden()
+
     member = get_object_or_404(Member, pk=member_id)
     rutinas = member.rutinas.order_by("-fecha_creacion")
 
@@ -782,6 +795,8 @@ def mis_rutinas(request, member_id):
         "member": member,
         "rutinas": rutinas,
         "rutina_data": rutina_data,
+        "tabulator_css_url": static("vendor/tabulator/tabulator.min.css"),
+        "tabulator_js_url": static("vendor/tabulator/tabulator.min.js"),
     })
 
 
