@@ -81,8 +81,8 @@ class Rutina(models.Model):
         ("fuerza_base", "Fuerza base"),
         ("deportista", "Deportista avanzado"),
         ("acondicionamiento", "Acondicionamiento físico"),
-        ("edad_temprana", "Edad temprana"),
-        ("original", "Original"),
+        ("iniciacion", "Iniciación"),
+        
     ]
 
     member = models.ForeignKey(Member, on_delete=models.CASCADE, related_name="rutinas")

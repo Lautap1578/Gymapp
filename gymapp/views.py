@@ -20,29 +20,41 @@ from django.utils.http import urlencode
 # === Socios ===
 
 def member_list(request):
-    q = request.GET.get("q") or ""
-    members = Member.objects.filter(
-        Q(nombre_apellido__icontains=q) |
-        Q(gmail__icontains=q) |
-        Q(telefono__icontains=q) |
-        Q(dni__icontains=q)
-    ).order_by("nombre_apellido")
+    q = (request.GET.get('q') or '').strip()
 
-    current_month = date.today().replace(day=1)
-    # Solo consideramos pagados (no anulados) para marcar como pagados en la lista
-    pagos_ids = set(
-        p.member_id for p in Payment.objects.filter(
-            anulado=False,
-            pagado=True,
-            mes=current_month,
+    # Lista de socios (con tu búsqueda actual)
+    members = Member.objects.all().order_by('nombre_apellido')
+    if q:
+        members = members.filter(
+            Q(nombre_apellido__icontains=q) |
+            Q(dni__icontains=q) |
+            Q(telefono__icontains=q) |
+            Q(gmail__icontains=q)
         )
+
+    # Mes actual (día 1)
+    today = date.today()
+    current_month = today.replace(day=1)
+
+    # IDs de socios con pago del mes actual (pagado=True y no anulado)
+    pagos_ids = set(
+        Payment.objects.filter(
+            mes=current_month,
+            pagado=True,
+            anulado=False
+        ).values_list('member_id', flat=True)
     )
 
-    return render(request, "gymapp/member_list.html", {
-        "members": members,
-        "pagos_ids": pagos_ids,
-        "current_month": current_month,
-    })
+    # Deudores = socios SIN pago del mes actual
+    deudores = Member.objects.exclude(id__in=pagos_ids).order_by('nombre_apellido')
+
+    context = {
+        'members': members,
+        'pagos_ids': pagos_ids,        # lo mantenemos por compatibilidad si lo usás en el template
+        'deudores': deudores,          # <<< NUEVO
+        'current_month': current_month # <<< NUEVO (para mostrar "Octubre 2025", etc.)
+    }
+    return render(request, 'gymapp/member_list.html', context)
 
 
 def add_member(request):
@@ -284,17 +296,23 @@ def rutina_cliente(request, member_id):
     })
 
 
+
 def crear_rutina(request, member_id, tipo):
+    import unicodedata
     member = get_object_or_404(Member, id=member_id)
+    def _norm(s):
+        s = unicodedata.normalize('NFKD', s).encode('ascii','ignore').decode('ascii')
+        return s.lower().strip()
+    label = _norm(tipo)
     mapping = {
-        "Hipertrofia": "hipertrofia",
-        "Acondicionamiento físico": "acondicionamiento",
-        "Deportista avanzado": "deportista",
-        "Edad temprana": "edad_temprana",
-        "Fuerza base": "fuerza_base",
-        "Original": "original",
+        "hipertrofia": "hipertrofia",
+        "acondicionamiento fisico": "acondicionamiento",
+        "deportista avanzado": "deportista",
+        "iniciacion": "iniciacion",
+        "edad temprana": "iniciacion",
+        "fuerza base": "fuerza_base",
     }
-    clave = mapping.get(tipo, "hipertrofia")
+    clave = mapping.get(label, "fuerza_base")
     Rutina.objects.create(member=member, estructura=clave)
     return redirect("rutina_cliente", member_id=member.id)
 
@@ -482,8 +500,179 @@ def editar_rutina(request, rutina_id):
         })
         return render(request, "gymapp/editar_rutina_fuerza_base.html", contexto)
 
-    return render(request, "gymapp/editar_rutina.html", contexto)
+    elif rutina.estructura == "acondicionamiento":
+        # Estructura similar a Fuerza base, pero sin columna RIR
+        # y con un grupo adicional en la parte principal: "Variabilidad de movimiento".
+        # Calentamiento
+        filas_cal = []
+        for d in rutina.detalles.filter(es_calentamiento=True).select_related("ejercicio"):
+            filas_cal.append({
+                "id": d.id,
+                "ejercicio_id": d.ejercicio_id or "",
+                "series": d.series or "",
+                "reps": d.repeticiones or "",
+                "kilos": d.peso or "",
+                # "rir" intencionalmente omitido en UI; igual si viene se ignora
+                "notas": d.notas or "",
+            })
+        if not filas_cal:
+            filas_cal = [{"id": None, "ejercicio_id": "", "series": "", "reps": "", "kilos": "", "notas": ""} for _ in range(3)]
 
+        # Parte principal con categorías sugeridas
+        categorias_ac = [
+            "Cadena anterior",
+            "Tracciones",
+            "Cadena posterior",
+            "Empujes",
+            "Variabilidad de movimiento",
+        ]
+
+        filas_principal = []
+        detalles_por_cat = {}
+        for d in rutina.detalles.filter(es_calentamiento=False).select_related("ejercicio"):
+            cat = (d.categoria or "").strip()
+            key = cat.lower()
+            if key and key not in detalles_por_cat:
+                detalles_por_cat[key] = d
+
+        for cat in categorias_ac:
+            key = cat.strip().lower()
+            det = detalles_por_cat.get(key)
+            if det:
+                filas_principal.append({
+                    "id": det.id,
+                    "categoria": cat,
+                    "ejercicio_id": det.ejercicio_id or "",
+                    "series": det.series or "",
+                    "reps": det.repeticiones or "",
+                    "kilos": det.peso or "",
+                    "notas": det.notas or "",
+                })
+            else:
+                filas_principal.append({
+                    "id": None,
+                    "categoria": cat,
+                    "ejercicio_id": "",
+                    "series": "",
+                    "reps": "",
+                    "kilos": "",
+                    "notas": "",
+                })
+
+        contexto.update({
+            "filas_calentamiento": filas_cal,
+            "filas_principal": filas_principal,
+        })
+        return render(request, "gymapp/editar_rutina_acondicionamiento.html", contexto)
+    
+    elif rutina.estructura == "iniciacion":
+        # Iniciación: igual a acondicionamiento pero con:
+        # - Parte inicial: exactamente 5 ejercicios
+        # - Parte principal: exactamente 2 ejercicios (sin columna de categoría/grupo)
+        filas_cal = []
+        for d in rutina.detalles.filter(es_calentamiento=True).select_related("ejercicio"):
+            filas_cal.append({
+                "id": d.id,
+                "ejercicio_id": d.ejercicio_id or "",
+                "series": d.series or "",
+                "reps": d.repeticiones or "",
+                "kilos": d.peso or "",
+                "rir": d.rir or "",
+                "notas": d.notas or "",
+            })
+        # Forzar 5 filas
+        if len(filas_cal) < 5:
+            for _ in range(5 - len(filas_cal)):
+                filas_cal.append({"id": None, "ejercicio_id": "", "series": "", "reps": "", "kilos": "", "rir": "", "notas": ""})
+        else:
+            filas_cal = filas_cal[:5]
+
+        filas_principal = []
+        existentes = list(rutina.detalles.filter(es_calentamiento=False).select_related("ejercicio"))[:2]
+        for d in existentes:
+            filas_principal.append({
+                "id": d.id,
+                "ejercicio_id": d.ejercicio_id or "",
+                "series": d.series or "",
+                "reps": d.repeticiones or "",
+                "kilos": d.peso or "",
+                "rir": d.rir or "",
+                "notas": d.notas or "",
+            })
+        # Completar hasta 2
+        while len(filas_principal) < 2:
+            filas_principal.append({"id": None, "ejercicio_id": "", "series": "", "reps": "", "kilos": "", "rir": "", "notas": ""})
+
+        contexto.update({
+            "filas_calentamiento": filas_cal,
+            "filas_principal": filas_principal,
+        })
+        return render(request, "gymapp/editar_rutina_iniciacion.html", contexto)
+    elif rutina.estructura == "deportista":
+        # Parte inicial: siempre 3 ejercicios
+        filas_cal = []
+        for d in rutina.detalles.filter(es_calentamiento=True).select_related("ejercicio"):
+            filas_cal.append({
+                "id": d.id,
+                "ejercicio_id": d.ejercicio_id or "",
+                "series": d.series or "",
+                "reps": d.repeticiones or "",
+                "kilos": d.peso or "",
+                "notas": d.notas or "",
+            })
+        while len(filas_cal) < 3:
+            filas_cal.append({"id": None, "ejercicio_id": "", "series": "", "reps": "", "kilos": "", "notas": ""})
+
+        # Bloque 1 — Fuerza: 1 ejercicio por grupo fijo
+        grupos_fuerza = ["Cadena anterior", "Cadena posterior", "Empujes o Tracciones"]
+        filas_fuerza = []
+        existentes = {}
+        for d in rutina.detalles.filter(es_calentamiento=False).select_related("ejercicio"):
+            key = (d.categoria or "").strip().lower()
+            existentes.setdefault(key, []).append(d)
+        for cat in grupos_fuerza:
+            key = cat.strip().lower()
+            det = existentes.get(key, [None])[0]
+            if det:
+                filas_fuerza.append({
+                    "id": det.id,
+                    "categoria": cat,
+                    "ejercicio_id": det.ejercicio_id or "",
+                    "series": det.series or "",
+                    "reps": det.repeticiones or "",
+                    "kilos": det.peso or "",
+                    "notas": det.notas or "",
+                })
+            else:
+                filas_fuerza.append({
+                    "id": None,
+                    "categoria": cat,
+                    "ejercicio_id": "",
+                    "series": "",
+                    "reps": "",
+                    "kilos": "",
+                    "notas": "",
+                })
+
+        # Bloque 2 — Potencia: 3..6 (arranca con 3)
+        filas_potencia = []
+        while len(filas_potencia) < 3:
+            filas_potencia.append({"id": None, "ejercicio_id": "", "series": "", "reps": "", "kilos": "", "notas": ""})
+
+        # Bloque 3 — Accesorios: 3..6 (arranca con 3)
+        filas_accesorios = []
+        while len(filas_accesorios) < 3:
+            filas_accesorios.append({"id": None, "ejercicio_id": "", "series": "", "reps": "", "kilos": "", "notas": ""})
+
+        contexto.update({
+            "filas_calentamiento": filas_cal,
+            "filas_fuerza": filas_fuerza,
+            "filas_potencia": filas_potencia,
+            "filas_accesorios": filas_accesorios,
+        })
+        return render(request, "gymapp/editar_rutina_deportista.html", contexto)
+
+    return render(request, "gymapp/editar_rutina.html", contexto)
 
 @require_POST
 def guardar_rutina(request, rutina_id):

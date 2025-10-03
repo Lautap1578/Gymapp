@@ -1,0 +1,506 @@
+{% extends "gymapp/base.html" %}
+{% load static %}
+
+{% block title %}Editar rutina{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/rutinas.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="rutinas-wrapper">
+  <!-- Encabezado -->
+  <header class="rutinas-header">
+    <div class="brand">
+      <div class="logo"></div>
+      <div class="titles">
+        <h1 class="page-title">Editar rutina</h1>
+        <p class="subtitle">Configurá ejercicios, series, repeticiones, kilos y notas</p>
+      </div>
+    </div>
+    <div class="header-actions">
+      <a href="{% url 'member_list' %}" class="btn ghost">← Volver a la lista</a>
+      <button id="btn-guardar" class="btn primary">Guardar cambios</button>
+    </div>
+  </header>
+
+  <!-- Meta información -->
+  <section class="meta">
+    <div class="meta-item">
+      <label>Socio</label>
+      <div class="meta-value">{{ rutina.member.nombre_apellido }} (DNI: {{ rutina.member.dni }})</div>
+    </div>
+    <div class="meta-item">
+      <label>Tipo de rutina</label>
+      <div class="meta-value">{{ rutina.get_estructura_display }}</div>
+    </div>
+    <div class="meta-item">
+      <label>Semana</label>
+      <select id="semana-select" class="input">
+        {% if semanas %}
+          {% for w in semanas %}
+            <option value="{{ w.id }}" {% if w.id == semana_activa_id %}selected{% endif %}>Semana {{ w.numero }}</option>
+          {% endfor %}
+        {% else %}
+          {% for i in "12345678" %}
+            <option value="{{ forloop.counter }}" {% if forloop.counter == 1 %}selected{% endif %}>Semana {{ forloop.counter }}</option>
+          {% endfor %}
+        {% endif %}
+      </select>
+    </div>
+  </section>
+
+  <!-- Parte Inicial (Calentamiento) -->
+  <section class="tabla-rutina-card">
+    <div class="tabla-header">
+      <div class="left">
+        <h2>Parte inicial (calentamiento)</h2>
+        <p class="muted">Seleccioná hasta tres ejercicios de calentamiento</p>
+      </div>
+      <div class="right">
+        <button id="btn-agregar-cal" class="btn success">+ Agregar fila</button>
+        <button id="btn-limpiar-cal" class="btn danger">Vaciar</button>
+      </div>
+    </div>
+    <div class="tabla-scroll">
+      <table id="tabla-calentamiento" class="tabla">
+        <thead>
+          <tr>
+            <th style="width:28%">Ejercicio</th>
+            <th style="width:10%">Series</th>
+            <th style="width:10%">Reps</th>
+            <th style="width:10%">Kilos</th>
+            <th style="width:26%">Notas</th>
+            <th style="width:6%"></th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for fila in filas_calentamiento %}
+          <tr data-cal="1">
+            <td>
+              <select name="ejercicio" class="input select" data-selected="{{ fila.ejercicio_id|default:'' }}">
+                {% for ej in ejercicios %}
+                  <option value="{{ ej.id }}" {% if ej.id == fila.ejercicio_id %}selected{% endif %}>{{ ej.nombre }}</option>
+                {% endfor %}
+              </select>
+            </td>
+            <td><input type="number" min="1" name="series" class="input" value="{{ fila.series|default:'' }}"></td>
+            <td><input type="text" name="reps" class="input" value="{{ fila.reps|default:'' }}"></td>
+            <td><input type="number" min="0" name="kilos" class="input" value="{{ fila.kilos|default:'' }}"></td>
+            <td><textarea name="notas" class="input notas-textarea">{{ fila.notas|default:'' }}</textarea></td>
+            <td class="acciones">
+              <button class="icon-btn duplicate" title="Duplicar fila">⎘</button>
+              <button class="icon-btn remove" title="Eliminar fila">✕</button>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Parte Principal -->
+  <section class="tabla-rutina-card">
+    <div class="tabla-header">
+      <div class="left">
+        <h2>Parte principal</h2>
+        <p class="muted">Ordená y completá los ejercicios por grupo muscular</p>
+      </div>
+      <div class="right"></div>
+    </div>
+    <div class="tabla-scroll">
+      <table id="tabla-principal" class="tabla">
+        <thead>
+          <tr>
+            <th style="width:18%">Grupo</th>
+            <th style="width:22%">Ejercicio</th>
+            <th style="width:10%">Series</th>
+            <th style="width:10%">Reps</th>
+            <th style="width:10%">Kilos</th>
+            <th style="width:14%">Notas</th>
+            <th style="width:6%">Orden</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for fila in filas_principal %}
+          <tr data-categoria="{{ fila.categoria }}">
+            <td class="categoria-cell"><span class="categoria-nombre">{{ fila.categoria }}</span></td>
+            <td>
+              <select name="ejercicio" class="input select" data-selected="{{ fila.ejercicio_id|default:'' }}">
+                {% for ej in ejercicios %}
+                  <option value="{{ ej.id }}" {% if ej.id == fila.ejercicio_id %}selected{% endif %}>{{ ej.nombre }}</option>
+                {% endfor %}
+              </select>
+            </td>
+            <td><input type="number" min="1" name="series" class="input" value="{{ fila.series|default:'' }}"></td>
+            <td><input type="text" name="reps" class="input" value="{{ fila.reps|default:'' }}"></td>
+            <td><input type="number" min="0" name="kilos" class="input" value="{{ fila.kilos|default:'' }}"></td>
+            <td><textarea name="notas" class="input notas-textarea">{{ fila.notas|default:'' }}</textarea></td>
+            <td class="acciones reorder">
+              <button class="icon-btn up" title="Subir">↑</button>
+              <button class="icon-btn down" title="Bajar">↓</button>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <footer class="tabla-footer">
+    <div class="left">
+      <label class="check">
+        <input type="checkbox" id="mostrar-por-semanas" {% if vista_por_semanas %}checked{% endif %}>
+        <span>Vista por semanas</span>
+      </label>
+    </div>
+    <div class="right">
+      <button id="btn-guardar-bottom" class="btn primary">Guardar</button>
+    </div>
+  </footer>
+</div>
+
+<!-- Formulario oculto para enviar datos -->
+<form id="form-guardar" method="post" action="{% url 'guardar_rutina' rutina.id %}" class="hidden">
+  {% csrf_token %}
+  <input type="hidden" name="semana_id" id="semana_id_input" value="{{ semana_activa_id }}">
+  <input type="hidden" name="payload" id="payload_input">
+</form>
+
+<!-- Scripts para manejo de tablas y búsqueda de ejercicios -->
+<script>
+// Dataset global de ejercicios proporcionado desde el backend
+window.__EJERCICIOS__ = [
+    {% for ej in ejercicios %}
+      {"id":"{{ ej.id }}","text":"{{ ej.nombre|escapejs }}"},
+    {% endfor %}
+];
+
+// Normalizar dataset eliminando claves no deseadas y asegurando id/text como cadenas
+(function normalize(){
+  const arr = Array.isArray(window.__EJERCICIOS__) ? window.__EJERCICIOS__ : [];
+  window.__EJERCICIOS__ = arr.map(e => ({
+    id: String(e?.id ?? ''),
+    text: (e?.text ?? e?.nombre ?? '').trim()
+  })).filter(e => e.id && e.text);
+})();
+
+// Si por algún motivo no hay ejercicios en el dataset, reconstruir desde el DOM
+function buildFromDomIfEmpty(){
+  if (window.__EJERCICIOS__.length) return;
+  const first = document.querySelector('select[name="ejercicio"]');
+  if (first && first.options.length){
+    window.__EJERCICIOS__ = [...first.options].map(o => ({ id: o.value, text: o.textContent.trim() }))
+                                              .filter(e => e.id && e.text);
+  }
+}
+
+// Repoblar las opciones de un <select> con el dataset global
+function repopulateOptions(selectEl){
+  if (!selectEl) return;
+  const current = selectEl.getAttribute('data-selected') || selectEl.value || '';
+  selectEl.innerHTML = '';
+  const frag = document.createDocumentFragment();
+  for (const e of window.__EJERCICIOS__){
+    const opt = new Option(e.text, e.id, false, false);
+    frag.appendChild(opt);
+  }
+  selectEl.appendChild(frag);
+  if (current) selectEl.value = current;
+}
+
+// Convertir un <select> en un componente de búsqueda personalizado
+function makeSearchable(selectEl){
+  if (!selectEl || selectEl.dataset.searchified) return;
+  selectEl.dataset.searchified = '1';
+  if (Array.isArray(window.__EJERCICIOS__) && window.__EJERCICIOS__.length){
+    repopulateOptions(selectEl);
+  }
+  const wrapper = document.createElement('div');
+  wrapper.className = 'search-select';
+  const input = document.createElement('input');
+  input.type = 'text';
+  input.className = 'search-input';
+  input.setAttribute('autocomplete','off');
+  input.setAttribute('placeholder','Buscar ejercicio');
+  const currentId = selectEl.getAttribute('data-selected') || '';
+  if (currentId) {
+    const match = window.__EJERCICIOS__.find(e => String(e.id) === String(currentId));
+    if (match) input.value = match.text;
+  }
+  const results = document.createElement('div');
+  results.className = 'search-results-overlay';
+  document.body.appendChild(results);
+  wrapper.appendChild(input);
+  selectEl.style.display = 'none';
+  selectEl.parentNode.insertBefore(wrapper, selectEl.nextSibling);
+  function positionResults(){
+    const rect = input.getBoundingClientRect();
+    results.style.width = rect.width + 'px';
+    results.style.left = rect.left + window.pageXOffset + 'px';
+    results.style.top = rect.bottom + window.pageYOffset + 'px';
+  }
+  function renderResults(term){
+    const needle = term.trim().toLowerCase();
+    const list = window.__EJERCICIOS__.filter(e => e.text.toLowerCase().includes(needle));
+    results.innerHTML = '';
+    list.forEach(e => {
+      const item = document.createElement('div');
+      item.textContent = e.text;
+      item.dataset.id = e.id;
+      results.appendChild(item);
+    });
+    positionResults();
+    results.classList.add('active');
+  }
+  function hideResults(){
+    results.classList.remove('active');
+  }
+  function choose(id, text){
+    selectEl.value = id;
+    selectEl.setAttribute('data-selected', id);
+    input.value = text;
+    hideResults();
+  }
+  input.addEventListener('focus', () => { renderResults(input.value); });
+  input.addEventListener('input', () => { renderResults(input.value); });
+  input.addEventListener('click', () => { renderResults(input.value); });
+  input.addEventListener('blur', () => { setTimeout(() => { hideResults(); }, 200); });
+  window.addEventListener('scroll', positionResults, true);
+  window.addEventListener('resize', positionResults);
+  results.addEventListener('mousedown', (evt) => {
+    const target = evt.target.closest('div[data-id]');
+    if (!target) return;
+    const id = target.dataset.id;
+    const text = target.textContent;
+    choose(id, text);
+  });
+}
+
+// Inicializar búsqueda en todos los select dentro del ámbito dado
+function initSearch(scope){
+  const container = scope || document;
+  const selects = container.querySelectorAll('select[name="ejercicio"]');
+  selects.forEach(selectEl => {
+    try {
+      if (Array.isArray(window.__EJERCICIOS__) && window.__EJERCICIOS__.length) {
+        repopulateOptions(selectEl);
+      }
+      makeSearchable(selectEl);
+    } catch(e) {
+      /* Silenciar para no bloquear otros scripts */
+    }
+  });
+}
+
+// Crear una fila de calentamiento (sin categoría)
+function nuevaFilaCal(data={}){
+  const options = (window.__EJERCICIOS__ || []).map(e =>
+    `<option value="${e.id}" ${e.id == (data.ejercicio_id ?? '') ? 'selected':''}>${e.text}</option>`
+  ).join('');
+  const tr = document.createElement('tr');
+  tr.setAttribute('data-cal','1');
+  tr.innerHTML = `
+      <td>
+        <select name="ejercicio" class="input select" data-selected="${data.ejercicio_id ?? ''}">
+          ${options}
+        </select>
+      </td>
+      <td><input type="number" min="1" name="series" class="input" value="${data.series ?? ''}" placeholder="3"></td>
+      <td><input type="text" name="reps" class="input" value="${data.reps ?? ''}" placeholder="8-10"></td>
+      <td><input type="number" min="0" name="kilos" class="input" value="${data.kilos ?? ''}" placeholder="0"></td>
+      <td><textarea name="notas" class="input notas-textarea" placeholder="Notas">${data.notas ?? ''}</textarea></td>
+      <td class="acciones">
+        <button class="icon-btn duplicate" title="Duplicar fila">⎘</button>
+        <button class="icon-btn remove" title="Eliminar fila">✕</button>
+      </td>
+  `;
+  return tr;
+}
+
+// Crear una fila para la parte principal con categoría
+function nuevaFilaPrincipal(cat, data={}){
+  const options = (window.__EJERCICIOS__ || []).map(e =>
+    `<option value="${e.id}" ${e.id == (data.ejercicio_id ?? '') ? 'selected':''}>${e.text}</option>`
+  ).join('');
+  const tr = document.createElement('tr');
+  tr.setAttribute('data-categoria', cat);
+  tr.innerHTML = `
+    <td class="categoria-cell"><span class="categoria-nombre">${cat}</span></td>
+    <td>
+      <select name="ejercicio" class="input select" data-selected="${data.ejercicio_id ?? ''}">
+        ${options}
+      </select>
+    </td>
+    <td><input type="number" min="1" name="series" class="input" value="${data.series ?? ''}" placeholder="3"></td>
+    <td><input type="text" name="reps" class="input" value="${data.reps ?? ''}" placeholder="8-10"></td>
+    <td><input type="number" min="0" name="kilos" class="input" value="${data.kilos ?? ''}" placeholder="0"></td>
+    <td><textarea name="notas" class="input notas-textarea" placeholder="Notas">${data.notas ?? ''}</textarea></td>
+    <td class="acciones reorder">
+      <button class="icon-btn up" title="Subir">↑</button>
+      <button class="icon-btn down" title="Bajar">↓</button>
+    </td>
+  `;
+  return tr;
+}
+
+document.addEventListener('DOMContentLoaded', function(){
+  // Inicializar búsqueda en todos los select existentes
+  initSearch(document);
+  // Función para reinicializar la búsqueda en una fila nueva
+  function afterRowAdded(tr){ initSearch(tr); }
+
+  // === Calentamiento ===
+  const tablaCal = document.getElementById('tabla-calentamiento');
+  const tbodyCal = tablaCal.querySelector('tbody');
+  const btnAddCal = document.getElementById('btn-agregar-cal');
+  const btnClearCal = document.getElementById('btn-limpiar-cal');
+  // Leer valores de una fila de calentamiento
+  function leerFilaCal(tr){
+    const get = sel => tr.querySelector(sel);
+    return {
+      ejercicio_id: get('select[name="ejercicio"]')?.value || null,
+      series: get('input[name="series"]')?.value || '',
+      reps: get('input[name="reps"]')?.value || '',
+      kilos: get('input[name="kilos"]')?.value || '',
+      rir: get('input[name="rir"]')?.value || '',
+      notas: (tr.querySelector('textarea[name="notas"]')?.value || get('input[name="notas"]')?.value || ''),
+    };
+  }
+  function onClickCal(e){
+    const btn = e.target.closest('.icon-btn');
+    if(!btn) return;
+    const tr = e.target.closest('tr');
+    if(btn.classList.contains('remove')){
+      tr?.remove();
+      return;
+    }
+    if(btn.classList.contains('duplicate')){
+      const clone = nuevaFilaCal(leerFilaCal(tr));
+      tr.after(clone);
+      afterRowAdded(clone);
+      clone.querySelector('select,input')?.focus();
+    }
+  }
+  // Asegurar que haya 3 filas predeterminadas si no hay datos desde el backend
+  (function ensureRows(){
+    if(tbodyCal.children.length === 0){
+      {% if filas_calentamiento %}
+      // Si se proveen filas desde el backend, no se insertan filas vacías aquí
+      {% else %}
+      for(let i=0; i<3; i++){
+        const nf = nuevaFilaCal();
+        tbodyCal.appendChild(nf);
+      }
+      {% endif %}
+    }
+  })();
+  // Rehidratar las filas existentes (tanto las cargadas por el backend como las
+  // predefinidas) para unificar el comportamiento
+  (function rehydrate(){
+    const existentes = [...tbodyCal.querySelectorAll('tr')];
+    if(!existentes.length) return;
+    const datos = existentes.map(leerFilaCal);
+    tbodyCal.innerHTML = '';
+    datos.forEach(d => {
+      const nf = nuevaFilaCal(d);
+      tbodyCal.appendChild(nf);
+      afterRowAdded(nf);
+    });
+  })();
+  btnAddCal?.addEventListener('click', () => {
+    const nf = nuevaFilaCal();
+    tbodyCal.appendChild(nf);
+    afterRowAdded(nf);
+    nf.querySelector('select,input')?.focus();
+  });
+  btnClearCal?.addEventListener('click', () => {
+    tbodyCal.innerHTML = '';
+    const nf = nuevaFilaCal();
+    tbodyCal.appendChild(nf);
+    afterRowAdded(nf);
+  });
+  tbodyCal?.addEventListener('click', onClickCal);
+
+  // === Parte principal ===
+  const tablaPr = document.getElementById('tabla-principal');
+  const tbodyPr = tablaPr.querySelector('tbody');
+  // Leer valores de una fila de la parte principal
+  function leerFilaPr(tr){
+    const get = sel => tr.querySelector(sel);
+    const categoria = tr.getAttribute('data-categoria') || '';
+    return {
+      categoria: categoria,
+      ejercicio_id: get('select[name="ejercicio"]')?.value || null,
+      series: get('input[name="series"]')?.value || '',
+      reps: get('input[name="reps"]')?.value || '',
+      kilos: get('input[name="kilos"]')?.value || '',
+      rir: get('input[name="rir"]')?.value || '',
+      notas: (tr.querySelector('textarea[name="notas"]')?.value || get('input[name="notas"]')?.value || ''),
+    };
+  }
+  // Mover una fila hacia arriba o hacia abajo
+  function moveRow(tr, direction){
+    if(!tr) return;
+    if(direction === 'up'){
+      const prev = tr.previousElementSibling;
+      if(prev) prev.before(tr);
+    } else if(direction === 'down'){
+      const next = tr.nextElementSibling;
+      if(next) next.after(tr);
+    }
+  }
+  function onClickPr(e){
+    const btn = e.target.closest('.icon-btn');
+    if(!btn) return;
+    const tr = e.target.closest('tr');
+    if(btn.classList.contains('up')){
+      e.preventDefault();
+      moveRow(tr, 'up');
+      return;
+    }
+    if(btn.classList.contains('down')){
+      e.preventDefault();
+      moveRow(tr, 'down');
+      return;
+    }
+  }
+  tbodyPr?.addEventListener('click', onClickPr);
+
+  // === Guardar ===
+  const formGuardar = document.getElementById('form-guardar');
+  const payloadInput = document.getElementById('payload_input');
+  const semanaSelect = document.getElementById('semana-select');
+  const semanaIdInput = document.getElementById('semana_id_input');
+  // Serializar ambas tablas en un único payload
+  function serializar(){
+    const filas = [];
+    // Filas de calentamiento
+    [...tbodyCal.querySelectorAll('tr')].forEach(tr => {
+      const data = leerFilaCal(tr);
+      data.es_calentamiento = true;
+      data.categoria = '';
+      filas.push(data);
+    });
+    // Filas de parte principal
+    [...tbodyPr.querySelectorAll('tr')].forEach(tr => {
+      const data = leerFilaPr(tr);
+      data.es_calentamiento = false;
+      filas.push(data);
+    });
+    return JSON.stringify({
+      semana_id: semanaSelect?.value || null,
+      filas: filas,
+    });
+  }
+  function onGuardar(){
+    payloadInput.value = serializar();
+    semanaIdInput.value = semanaSelect?.value || '';
+    formGuardar.submit();
+  }
+  document.getElementById('btn-guardar')?.addEventListener('click', onGuardar);
+  document.getElementById('btn-guardar-bottom')?.addEventListener('click', onGuardar);
+});
+</script>
+
+{% endblock %}

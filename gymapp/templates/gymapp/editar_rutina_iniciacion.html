@@ -1,0 +1,180 @@
+{% extends "gymapp/base.html" %}
+{% load static %}
+
+{% block title %}Editar rutina — Iniciación{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/rutinas.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="rutinas-wrapper">
+  <!-- Header -->
+  <header class="rutinas-header">
+    <div class="brand">
+      <div class="logo"></div>
+      <div class="titles">
+        <h1 class="page-title">Editar rutina — <span class="text-warning">Iniciación</span></h1>
+        <p class="subtitle">Parte inicial + Parte principal</p>
+      </div>
+    </div>
+    <div class="header-actions">
+      <a href="{% url 'mis_rutinas' member_id=rutina.member.id %}" class="btn ghost">← Volver</a>
+      <button id="btn-guardar" class="btn primary">Guardar cambios</button>
+    </div>
+  </header>
+
+  <!-- Meta -->
+  <section class="meta">
+    <div class="meta-item">
+      <label>Socio</label>
+      <div class="meta-value">{{ rutina.member.nombre_apellido }} (DNI: {{ rutina.member.dni }})</div>
+    </div>
+    <div class="meta-item">
+      <label>Tipo de rutina</label>
+      <div class="meta-value">Iniciación</div>
+    </div>
+    <div class="meta-item">
+      <label>Semana</label>
+      <select id="semana-select" class="input">
+        {% if semanas %}
+          {% for w in semanas %}
+            <option value="{{ w.id }}" {% if w.id == semana_activa_id %}selected{% endif %}>Semana {{ w.numero }}</option>
+          {% endfor %}
+        {% else %}
+          {% for i in "12345678" %}
+            <option value="{{ forloop.counter }}" {% if forloop.counter == rutina.semana %}selected{% endif %}>
+              Semana {{ forloop.counter }}
+            </option>
+          {% endfor %}
+        {% endif %}
+      </select>
+    </div>
+  </section>
+
+  <!-- === Parte inicial (calentamiento) === -->
+  <section class="tabla-rutina-card">
+    <div class="tabla-header">
+      <div class="left">
+        <h2>Parte inicial (calentamiento)</h2>
+        <p class="muted">5 ejercicios. Ajustá series/reps según el caso.</p>
+      </div>
+    </div>
+
+    <div class="tabla-scroll">
+      <table id="tabla-inicial" class="tabla">
+        <thead>
+          <tr>
+            <th style="width:30%">Ejercicio</th>
+            <th style="width:10%">Series</th>
+            <th style="width:12%">Reps</th>
+            <th style="width:12%">Kilos</th>
+            <th style="width:10%">RIR</th>
+            <th style="width:26%">Notas</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for i in filas_calentamiento %}
+          <tr data-bloque="inicial">
+            <td>
+              <select name="ejercicio" class="input select" data-selected="{{ i.ejercicio_id|default:'' }}">
+                {% for ej in ejercicios %}
+                  <option value="{{ ej.id }}" {% if ej.id == i.ejercicio_id %}selected{% endif %}>{{ ej.nombre }}</option>
+                {% endfor %}
+              </select>
+            </td>
+            <td><input name="series" type="number" min="1" class="input text-center" value="{{ i.series|default:3 }}"></td>
+            <td><input name="reps"   type="text"   class="input text-center" value="{{ i.reps|default:'8-12' }}"></td>
+            <td><input name="kilos"  type="text"   class="input text-center" value="{{ i.kilos|default:'' }}"></td>
+            <td><input name="rir"    type="text"   class="input text-center" value="{{ i.rir|default:'2-3' }}"></td>
+            <td><textarea name="notas" class="input notas-textarea" placeholder="Notas…">{{ i.notas|default:'' }}</textarea></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- === Parte principal === -->
+  <section class="tabla-rutina-card">
+    <div class="tabla-header">
+      <div class="left">
+        <h2>Parte principal</h2>
+      </div>
+    </div>
+
+    <div class="tabla-scroll">
+      <table id="tabla-principal" class="tabla">
+        <thead>
+          <tr>
+            <th style="width:30%">Ejercicio</th>
+            <th style="width:10%">Series</th>
+            <th style="width:12%">Reps</th>
+            <th style="width:12%">Kilos</th>
+            <th style="width:10%">RIR</th>
+            <th style="width:26%">Notas</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for p in filas_principal %}
+          <tr data-bloque="principal">
+            <td>
+              <select name="ejercicio" class="input select" data-selected="{{ p.ejercicio_id|default:'' }}">
+                {% for ej in ejercicios %}
+                  <option value="{{ ej.id }}" {% if ej.id == p.ejercicio_id %}selected{% endif %}>{{ ej.nombre }}</option>
+                {% endfor %}
+              </select>
+            </td>
+            <td><input name="series" type="number" min="1" class="input text-center" value="{{ p.series|default:4 }}"></td>
+            <td><input name="reps"   type="text"   class="input text-center" value="{{ p.reps|default:'6-10' }}"></td>
+            <td><input name="kilos"  type="text"   class="input text-center" value="{{ p.kilos|default:'' }}"></td>
+            <td><input name="rir"    type="text"   class="input text-center" value="{{ p.rir|default:'1-2' }}"></td>
+            <td><textarea name="notas" class="input notas-textarea" placeholder="Notas…">{{ p.notas|default:'' }}</textarea></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Footer acciones -->
+  <footer class="tabla-footer">
+    <div class="left">
+      <a href="{% url 'mis_rutinas' member_id=rutina.member.id %}" class="btn ghost">← Cancelar</a>
+    </div>
+    <div class="right">
+      <button id="btn-guardar-bottom" class="btn primary">Guardar</button>
+    </div>
+  </footer>
+</div>
+
+<!-- ======= Form oculto ======= -->
+<form id="form-guardar" method="post" action="{% url 'guardar_rutina' rutina.id %}" class="hidden">
+  {% csrf_token %}
+  <input type="hidden" name="semana_id" id="semana_id_input" value="{{ semana_activa_id|default:rutina.semana|default:1 }}">
+  <input type="hidden" name="payload" id="payload_input">
+  <input type="hidden" name="estructura" value="iniciacion">
+</form>
+
+<script>
+  window.__EJERCICIOS__ = [
+    {% for ej in ejercicios %}
+      {"id":"{{ ej.id }}","text":"{{ ej.nombre|escapejs }}"},
+    {% endfor %}
+  ];
+</script>
+<script src="{% static 'js/editar_rutinas.js' %}"></script>
+<script>
+  window.__afterRowAdded = function(tr){
+    try { if (typeof initSelect2 === 'function') initSelect2(tr); } catch(e){}
+  };
+
+  const semanaSelect = document.getElementById('semana-select');
+  const semanaHidden = document.getElementById('semana_id_input');
+  if (semanaSelect && semanaHidden) {
+    const syncWeek = () => semanaHidden.value = semanaSelect.value || 1;
+    semanaSelect.addEventListener('change', syncWeek);
+    syncWeek();
+  }
+</script>
+{% endblock %}

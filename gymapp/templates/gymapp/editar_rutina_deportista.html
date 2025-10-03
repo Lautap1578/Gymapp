@@ -1,0 +1,188 @@
+{% extends "gymapp/base.html" %}
+{% load static %}
+{% block title %}Editar rutina — Deportista avanzado{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/rutinas.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="rutinas-wrapper">
+  <header class="rutinas-header">
+    <div class="brand">
+      <div class="logo"></div>
+      <div class="titles">
+        <h1 class="page-title">Editar rutina — Deportista avanzado</h1>
+        <p class="subtitle">Parte inicial + Bloque de Fuerza + Potencia + Accesorios</p>
+      </div>
+    </div>
+    <div class="header-actions">
+      <a href="{% url 'member_list' %}" class="btn ghost">← Volver</a>
+      <button id="btn-guardar" class="btn primary">Guardar cambios</button>
+    </div>
+  </header>
+
+  <!-- Parte Inicial (3 ejercicios) -->
+  <section class="tabla-rutina-card">
+    <div class="tabla-header">
+      <div class="left"><h2>Parte inicial (calentamiento)</h2></div>
+    </div>
+    <div class="tabla-scroll">
+      <table class="tabla" id="tabla-cal">
+        <thead>
+          <tr>
+            <th style="width:34%">Ejercicio</th>
+            <th style="width:12%">Series</th>
+            <th style="width:12%">Reps</th>
+            <th style="width:12%">Kilos</th>
+            <th style="width:30%">Notas</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for fila in filas_calentamiento %}
+          <tr data-cal="1">
+            <td>
+              <select name="ejercicio" class="input select" data-selected="{{ fila.ejercicio_id|default:'' }}">
+                {% for ej in ejercicios %}
+                  <option value="{{ ej.id }}" {% if ej.id == fila.ejercicio_id %}selected{% endif %}>{{ ej.nombre }}</option>
+                {% endfor %}
+              </select>
+            </td>
+            <td><input type="number" name="series" class="input" value="{{ fila.series|default:'' }}"></td>
+            <td><input type="text" name="reps" class="input" value="{{ fila.reps|default:'' }}"></td>
+            <td><input type="number" name="kilos" class="input" value="{{ fila.kilos|default:'' }}"></td>
+            <td><textarea name="notas" class="input notas-textarea">{{ fila.notas|default:'' }}</textarea></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Bloque 1: Fuerza (1 ejercicio por grupo) -->
+  <section class="tabla-rutina-card">
+    <div class="tabla-header">
+      <div class="left"><h2>Bloque 1 — Fuerza</h2></div>
+      <p class="muted">Cada grupo contiene 1 ejercicio</p>
+    </div>
+    <div class="tabla-scroll">
+      <table class="tabla" id="tabla-fuerza">
+        <thead>
+          <tr>
+            <th style="width:18%">Grupo</th>
+            <th style="width:28%">Ejercicio</th>
+            <th style="width:12%">Series</th>
+            <th style="width:12%">Reps</th>
+            <th style="width:12%">Kilos</th>
+            <th style="width:18%">Notas</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for fila in filas_fuerza %}
+          <tr data-bloque="fuerza" data-categoria="{{ fila.categoria }}">
+            <td class="categoria-cell"><span class="categoria-nombre">{{ fila.categoria }}</span></td>
+            <td>
+              <select name="ejercicio" class="input select" data-selected="{{ fila.ejercicio_id|default:'' }}">
+                {% for ej in ejercicios %}
+                  <option value="{{ ej.id }}" {% if ej.id == fila.ejercicio_id %}selected{% endif %}>{{ ej.nombre }}</option>
+                {% endfor %}
+              </select>
+            </td>
+            <td><input type="number" name="series" class="input" value="{{ fila.series|default:'' }}"></td>
+            <td><input type="text" name="reps" class="input" value="{{ fila.reps|default:'' }}"></td>
+            <td><input type="number" name="kilos" class="input" value="{{ fila.kilos|default:'' }}"></td>
+            <td><textarea name="notas" class="input notas-textarea">{{ fila.notas|default:'' }}</textarea></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Bloque 2: Potencia (3 a 6 ejercicios en circuito) -->
+  <section class="tabla-rutina-card">
+    <div class="tabla-header">
+      <div class="left"><h2>Bloque 2 — Potencia (circuito)</h2></div>
+    </div>
+    <div class="tabla-scroll">
+      <table class="tabla" id="tabla-potencia">
+        <thead>
+          <tr>
+            <th style="width:40%">Ejercicio</th>
+            <th style="width:15%">Series</th>
+            <th style="width:15%">Reps</th>
+            <th style="width:15%">Kilos</th>
+            <th style="width:15%">Notas</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for fila in filas_potencia %}
+          <tr data-bloque="potencia">
+            <td>
+              <select name="ejercicio" class="input select" data-selected="{{ fila.ejercicio_id|default:'' }}">
+                {% for ej in ejercicios %}
+                  <option value="{{ ej.id }}" {% if ej.id == fila.ejercicio_id %}selected{% endif %}>{{ ej.nombre }}</option>
+                {% endfor %}
+              </select>
+            </td>
+            <td><input type="number" name="series" class="input" value="{{ fila.series|default:'' }}"></td>
+            <td><input type="text" name="reps" class="input" value="{{ fila.reps|default:'' }}"></td>
+            <td><input type="number" name="kilos" class="input" value="{{ fila.kilos|default:'' }}"></td>
+            <td><textarea name="notas" class="input notas-textarea">{{ fila.notas|default:'' }}</textarea></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Bloque 3: Accesorios (3 a 6 ejercicios en circuito) -->
+  <section class="tabla-rutina-card">
+    <div class="tabla-header">
+      <div class="left"><h2>Bloque 3 — Accesorios (circuito)</h2></div>
+    </div>
+    <div class="tabla-scroll">
+      <table class="tabla" id="tabla-accesorios">
+        <thead>
+          <tr>
+            <th style="width:40%">Ejercicio</th>
+            <th style="width:15%">Series</th>
+            <th style="width:15%">Reps</th>
+            <th style="width:15%">Kilos</th>
+            <th style="width:15%">Notas</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for fila in filas_accesorios %}
+          <tr data-bloque="accesorios">
+            <td>
+              <select name="ejercicio" class="input select" data-selected="{{ fila.ejercicio_id|default:'' }}">
+                {% for ej in ejercicios %}
+                  <option value="{{ ej.id }}" {% if ej.id == fila.ejercicio_id %}selected{% endif %}>{{ ej.nombre }}</option>
+                {% endfor %}
+              </select>
+            </td>
+            <td><input type="number" name="series" class="input" value="{{ fila.series|default:'' }}"></td>
+            <td><input type="text" name="reps" class="input" value="{{ fila.reps|default:'' }}"></td>
+            <td><input type="number" name="kilos" class="input" value="{{ fila.kilos|default:'' }}"></td>
+            <td><textarea name="notas" class="input notas-textarea">{{ fila.notas|default:'' }}</textarea></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <footer class="tabla-footer">
+    <div class="right">
+      <button id="btn-guardar-bottom" class="btn primary">Guardar</button>
+    </div>
+  </footer>
+</div>
+
+<form id="form-guardar" method="post" action="{% url 'guardar_rutina' rutina.id %}" class="hidden">
+  {% csrf_token %}
+  <input type="hidden" name="semana_id" id="semana_id_input" value="{{ semana_activa_id }}">
+  <input type="hidden" name="payload" id="payload_input">
+</form>
+{% endblock %}
