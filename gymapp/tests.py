@@ -61,23 +61,26 @@ class TogglePaymentViewTest(TestCase):
     def test_toggle_payment_creates_and_toggles(self):
         member = Member.objects.create(dni="1", nombre_apellido="Tester")
         url = reverse("toggle_payment", args=[member.id])
-        mes_actual = date.today().strftime("%m-%Y")
+        mes_actual = date.today().replace(day=1)
 
-        response = self.client.get(url)
+        response = self.client.post(url)
         self.assertRedirects(response, reverse("member_list"))
         pago = Payment.objects.get(member=member, mes=mes_actual)
+        self.assertTrue(pago.pagado)
         self.assertFalse(pago.anulado)
 
-        self.client.get(url)
+        self.client.post(url)
         pago.refresh_from_db()
-        self.assertTrue(pago.anulado)
+        self.assertFalse(pago.pagado)
+        self.assertFalse(pago.anulado)
 
-        self.client.get(url)
+        self.client.post(url)
         pago.refresh_from_db()
+        self.assertTrue(pago.pagado)
         self.assertFalse(pago.anulado)
 
     def test_toggle_payment_invalid_member(self):
-        response = self.client.get(reverse("toggle_payment", args=[999]))
+        response = self.client.post(reverse("toggle_payment", args=[999]))
         self.assertEqual(response.status_code, 404)
 
 
@@ -146,10 +149,10 @@ class EditarRutinaViewTest(TestCase):
 class PaymentModelTest(TestCase):
     def test_payment_str_and_unique(self):
         member = Member.objects.create(dni="1", nombre_apellido="Tester")
-        mes = "07-2024"
+        mes = date(2024, 7, 1)
         Payment.objects.create(member=member, mes=mes)
         pago = Payment.objects.get(member=member, mes=mes)
-        self.assertEqual(str(pago), f"{member} - {mes}")
+        self.assertEqual(str(pago), f"{member} - {mes.strftime('%m-%Y')}")
         with self.assertRaises(IntegrityError):
             Payment.objects.create(member=member, mes=mes)
 
