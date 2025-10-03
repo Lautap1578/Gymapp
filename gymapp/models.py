@@ -50,7 +50,7 @@ class Payment(models.Model):
         ]
 
     def save(self, *args, **kwargs):
-        # Normalizar SIEMPRE al día 1 (clave para que el resumen lo encuentre)
+        # Normalizar SIEMPRE al día 1 para evitar duplicados y facilitar los filtros mensuales
         if self.mes:
             self.mes = self.mes.replace(day=1)
 

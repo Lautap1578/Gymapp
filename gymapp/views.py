@@ -1,8 +1,7 @@
 from datetime import date, datetime
-from decimal import Decimal
 import json
 import openpyxl
-from django.db.models import Q, F, Sum, Count, Prefetch
+from django.db.models import Q, Prefetch
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib import messages
@@ -12,16 +11,12 @@ from .forms import (
     MemberForm,
     MemberInfoForm,
     DetalleRutinaFormSet,
-    PaymentForm,
     DetalleRutinaPayloadForm,
 )
 from .models import Member, Payment, Ejercicio, Rutina, DetalleRutina, ComentarioRutina
 
-from django.utils import timezone
 from django.views.decorators.http import require_POST
 
-from django.urls import reverse
-from django.utils.http import urlencode
 
 
 # === Socios ===
@@ -161,16 +156,13 @@ def historial_pagos(request, member_id):
 @require_POST
 def eliminar_pago(request, pago_id):
     """
-    Anula un pago (no lo borra). Luego redirige al resumen del mismo mes.
+    Anula un pago (no lo borra) y vuelve al historial del socio.
     """
     pago = get_object_or_404(Payment, id=pago_id)
     pago.anulado = True
     pago.save()
 
-    # Volver al mismo mes del resumen
-    mes_param = pago.mes.strftime("%Y-%m")
-    url = reverse("resumen_mensual")
-    return redirect(f"{url}?{urlencode({'mes': mes_param})}")
+    return redirect("historial_pagos", member_id=pago.member_id)
 
 
 @require_POST
@@ -199,56 +191,6 @@ def toggle_payment_mes(request, member_id, mes):
         pago.pagado = not pago.pagado
         pago.save(update_fields=["pagado"])
     return redirect('historial_pagos', member_id=member_id)
-
-
-def resumen_mensual(request):
-    """Muestra el resumen de pagos de un mes determinado."""
-
-    mes_param = (request.GET.get("mes") or "").strip()
-    hoy = timezone.localdate()
-
-    try:
-        mes = datetime.strptime(mes_param, "%Y-%m").date().replace(day=1) if mes_param else hoy.replace(day=1)
-    except ValueError:
-        mes = hoy.replace(day=1)
-
-    pagos_mes = Payment.objects.select_related("member").filter(mes=mes)
-
-    pagos_plan = (
-        pagos_mes
-        .filter(plan__isnull=False, pagado=True, anulado=False)
-        .values("plan")
-        .annotate(cantidad=Count("id"), subtotal=Sum("monto"))
-    )
-
-    plan_labels = dict(Payment.PLAN_CHOICES)
-    datos = []
-    for item in pagos_plan:
-        plan = item["plan"]
-        datos.append({
-            "plan": plan,
-            "nombre": plan_labels.get(plan, plan),
-            "cantidad": item["cantidad"],
-            "subtotal": item["subtotal"],
-        })
-
-    total_general = Decimal("0")
-    for item in datos:
-        total_general += item["subtotal"] or Decimal("0")
-
-    pagos_list = (
-        pagos_mes
-        .filter(plan__isnull=False, anulado=False)
-        .order_by("member__nombre_apellido", "id")
-    )
-
-    context = {
-        "mes": mes,
-        "datos": datos,
-        "total_general": total_general,
-        "pagos_list": pagos_list,
-    }
-    return render(request, "gymapp/resumen_mensual.html", context)
 
 
 def export_members_excel(request):
