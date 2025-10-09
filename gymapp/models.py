@@ -50,10 +50,9 @@ class Payment(models.Model):
         ]
 
     def save(self, *args, **kwargs):
-        # Normalizar SIEMPRE al día 1 para evitar duplicados y facilitar los filtros mensuales
+        # Normalizar SIEMPRE al día 1
         if self.mes:
             self.mes = self.mes.replace(day=1)
-
         # Si hay plan y no hay monto manual, setear automático por plan
         if self.plan and not self.monto:
             self.monto = self.PRECIOS.get(self.plan)
@@ -63,8 +62,6 @@ class Payment(models.Model):
         if self.mes:
             return f"{self.member} - {self.mes.strftime('%m-%Y')}"
         return f"{self.member} - (sin mes)"
-
-
 
 
 # === Rutinas ===
@@ -82,17 +79,12 @@ class Rutina(models.Model):
         ("deportista", "Deportista avanzado"),
         ("acondicionamiento", "Acondicionamiento físico"),
         ("iniciacion", "Iniciación"),
-        
     ]
 
     member = models.ForeignKey(Member, on_delete=models.CASCADE, related_name="rutinas")
     estructura = models.CharField(max_length=50, choices=ESTRUCTURAS)
     fecha_creacion = models.DateTimeField(auto_now_add=True)
-
-    # Número de semana asociado a la rutina (1-8).  Esto permite
-    # conservar la semana seleccionada en el editor de rutinas y mostrarla
-    # posteriormente en el historial de rutinas.  Por defecto se asigna la
-    # primera semana.
+    # Número de semana (1-8)
     semana = models.PositiveSmallIntegerField(default=1)
 
     def __str__(self):
@@ -101,6 +93,9 @@ class Rutina(models.Model):
 
 class DetalleRutina(models.Model):
     rutina = models.ForeignKey(Rutina, on_delete=models.CASCADE, related_name="detalles")
+    # Día al que pertenece el detalle (1..N). Por compat con datos viejos asumimos 1 si no se setea.
+    dia = models.PositiveSmallIntegerField(default=1)
+
     categoria = models.CharField(max_length=100, blank=True)  # Ej: Espalda, Piernas
     ejercicio = models.ForeignKey(Ejercicio, on_delete=models.SET_NULL, null=True, blank=True)
     series = models.CharField(max_length=50, blank=True)
@@ -113,7 +108,7 @@ class DetalleRutina(models.Model):
     es_calentamiento = models.BooleanField(default=False)
 
     def __str__(self):
-        return f"{self.rutina} - {self.ejercicio}"
+        return f"{self.rutina} - Día {self.dia} - {self.ejercicio or 'sin ejercicio'}"
 
 
 class ComentarioRutina(models.Model):
