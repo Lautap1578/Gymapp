@@ -1,43 +1,21 @@
 {% extends "gymapp/base.html" %}
 {% load static %}
-
-{% block title %}Editar rutina – Fuerza base{% endblock %}
+{% block title %}Editar rutina — Fuerza base{% endblock %}
 
 {% block extra_head %}
 <link rel="stylesheet" href="{% static 'css/rutinas.css' %}">
-<style>
-  .dia-card{border:1px solid #e5e7eb;border-radius:12px;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.04);}
-  .dia-header{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;border-bottom:1px solid #f0f0f0}
-  .dia-title{font-weight:700;margin:0;color:#000;} /* texto “Día …” en negro */
-  .tabla-rutina-card{padding:12px 16px}
-  .days-actions{display:flex;gap:8px;align-items:center}
-  .icon-btn{border:1px solid #ddd;background:#fff;border-radius:8px;padding:4px 8px;cursor:pointer}
-  .icon-btn.remove{color:#b42318;border-color:#f1a7a3}
-  .icon-btn.duplicate{color:#1f6feb;border-color:#b6d4fe}
-  .actions-row{display:flex;justify-content:space-between;align-items:center;margin:12px 0}
-  .btn.secondary{background:#e5e7eb;color:#111;border:1px solid #d1d5db}
-  .btn.danger{background:#fee2e2;color:#991b1b;border:1px solid #fecaca}
-  .categoria-select{min-width:180px}
-  .muted{opacity:.7}
-  /* buscador */
-  .search-results-overlay{position:absolute;max-height:260px;overflow:auto;border:1px solid #e5e7eb;border-radius:8px;background:#fff;box-shadow:0 6px 24px rgba(0,0,0,.08);display:none;z-index:50}
-  .search-results-overlay.active{display:block}
-  .search-results-overlay>div{padding:8px 10px;cursor:pointer}
-  .search-results-overlay>div:hover{background:#f5f5f5}
-  .search-input{width:100%;padding:.5rem;border:1px solid #d1d5db;border-radius:8px}
-</style>
+<script defer src="{% static 'js/editar_rutinas.js' %}"></script>
 {% endblock %}
 
 {% block content %}
 <div class="rutinas-wrapper">
-
   <!-- Encabezado -->
   <header class="rutinas-header">
     <div class="brand">
       <div class="logo"></div>
       <div class="titles">
-        <h1 class="page-title">Editar rutina – Fuerza base</h1>
-        <p class="subtitle">Cada “Día” incluye Parte inicial y Parte principal</p>
+        <h1 class="page-title">Editar rutina — Fuerza base</h1>
+        <p class="subtitle">Parte inicial (3 fijas), principal por grupos (4 fijas con RIR) y accesorios (3 fijas)</p>
       </div>
     </div>
     <div class="header-actions">
@@ -53,106 +31,120 @@
       <div class="meta-value">{{ rutina.member.nombre_apellido }} (DNI: {{ rutina.member.dni }})</div>
     </div>
     <div class="meta-item">
-      <label>Tipo de rutina</label>
-      <div class="meta-value">{{ rutina.get_estructura_display }}</div>
-    </div>
-    <div class="meta-item">
       <label>Semana</label>
       <select id="semana-select" class="input">
-        {% for w in semanas %}
-          <option value="{{ w.id }}" {% if w.id == semana_activa_id %}selected{% endif %}>Semana {{ w.numero }}</option>
+        {% for i in "12345678" %}
+          <option value="{{ forloop.counter }}" {% if forloop.counter == 1 %}selected{% endif %}>Semana {{ forloop.counter }}</option>
         {% endfor %}
       </select>
     </div>
   </section>
 
-  <!-- Acciones generales de días -->
+  <!-- Acciones de días -->
   <div class="actions-row">
-    <div class="left">
-      <span class="muted">Gestioná múltiples días de la rutina</span>
-    </div>
-    <div class="right">
-      <button id="btn-agregar-dia" class="btn secondary">+ Agregar día</button>
-    </div>
+    <div class="left"><span class="muted">Gestioná los días de esta rutina</span></div>
+    <div class="right"><button id="btn-agregar-dia" class="btn secondary">+ Agregar día</button></div>
   </div>
 
-  <!-- Contenedor de días -->
   <div id="daysContainer" class="d-flex flex-column gap-3">
     {% for dia in dias %}
     <div class="dia-card" data-dia="{{ dia.numero }}">
       <div class="dia-header">
         <h3 class="dia-title">Día <span class="dia-label">{{ dia.numero }}</span></h3>
         <div class="days-actions">
-          <button type="button" class="icon-btn duplicate btn-duplicar-dia" title="Duplicar este día">⎘ Duplicar día</button>
-          <button type="button" class="icon-btn remove btn-eliminar-dia" title="Eliminar este día" {% if dias|length <= 1 %}style="display:none"{% endif %}>✕ Eliminar día</button>
+          <button type="button" class="icon-btn duplicate btn-duplicar-dia" title="Duplicar día">⎘</button>
+          <button type="button" class="icon-btn remove btn-eliminar-dia" title="Eliminar día" {% if forloop.first %}style="display:none"{% endif %}>✕</button>
         </div>
       </div>
 
-      <div class="tabla-rutina-card">
-        <!-- Parte Inicial (Calentamiento) -->
+      <!-- PARTE INICIAL -->
+      <section class="tabla-rutina-card">
         <div class="tabla-header">
-          <div class="left">
-            <h2>Parte inicial (calentamiento)</h2>
-            <p class="muted">Agregá los ejercicios de movilidad/activación</p>
-          </div>
+          <div class="left"><h2>Parte inicial</h2></div>
           <div class="right">
             <button class="btn success btn-agregar-cal">+ Agregar fila</button>
             <button class="btn danger btn-vaciar-cal">Vaciar</button>
           </div>
         </div>
         <div class="tabla-scroll">
-          <table class="tabla tabla-calentamiento">
+          <table class="tabla" id="tabla-cal">
             <thead>
               <tr>
-                <th style="width:28%">Ejercicio</th>
-                <th style="width:10%">Series</th>
-                <th style="width:10%">Reps</th>
-                <th style="width:10%">Kilos</th>
-                <th style="width:10%">Rir</th>
-                <th style="width:26%">Notas</th>
-                <th style="width:6%"></th>
+                <th>Ejercicio</th><th>Series</th><th>Reps</th><th>Kilos</th><th>Notas</th><th></th>
               </tr>
             </thead>
             <tbody>
               {% for fila in dia.calentamiento %}
-              <tr data-cal="1">
-                <td>
-                  <select name="ejercicio" class="input select" data-selected="{{ fila.ejercicio_id|default:'' }}">
-                    {% for ej in ejercicios %}
-                      <option value="{{ ej.id }}" {% if ej.id == fila.ejercicio_id %}selected{% endif %}>{{ ej.nombre }}</option>
-                    {% endfor %}
-                  </select>
-                </td>
-                <td><input type="number" min="1" name="series" class="input" value="{{ fila.series|default:'' }}"></td>
-                <td><input type="text" name="reps" class="input" value="{{ fila.reps|default:'' }}"></td>
-                <td><input type="number" min="0" name="kilos" class="input" value="{{ fila.kilos|default:'' }}"></td>
-                <td><input type="text" name="rir" class="input" value="{{ fila.rir|default:'' }}"></td>
-                <td><textarea name="notas" class="input notas-textarea">{{ fila.notas|default:'' }}</textarea></td>
+              <tr data-cal="1" data-fixed="1">
+                <td><input type="text" name="ejercicio_txt" class="input" value="{{ fila.ejercicio_txt|default:'' }}"></td>
+                <td><input type="number" name="series" class="input" value="{{ fila.series }}"></td>
+                <td><input type="text" name="reps" class="input" value="{{ fila.reps }}"></td>
+                <td><input type="number" name="kilos" class="input" value="{{ fila.kilos }}"></td>
+                <td><textarea name="notas" class="input notas-textarea">{{ fila.notas }}</textarea></td>
                 <td class="acciones">
-                  <button class="icon-btn duplicate" title="Duplicar fila">⎘</button>
-                  <button class="icon-btn remove" title="Eliminar fila">✕</button>
+                  <button class="icon-btn move-up" title="Subir">▲</button>
+                  <button class="icon-btn move-down" title="Bajar">▼</button>
+                  <button class="icon-btn duplicate" title="Duplicar">⎘</button>
+                  <button class="icon-btn remove" title="Eliminar">✕</button>
+                </td>
+              </tr>
+              {% empty %}
+              <tr data-cal="1" data-fixed="1">
+                <td><input type="text" name="ejercicio_txt" class="input"></td>
+                <td><input type="number" name="series" class="input"></td>
+                <td><input type="text" name="reps" class="input"></td>
+                <td><input type="number" name="kilos" class="input"></td>
+                <td><textarea name="notas" class="input notas-textarea"></textarea></td>
+                <td class="acciones">
+                  <button class="icon-btn move-up" title="Subir">▲</button>
+                  <button class="icon-btn move-down" title="Bajar">▼</button>
+                  <button class="icon-btn duplicate" title="Duplicar">⎘</button>
+                  <button class="icon-btn remove" title="Eliminar">✕</button>
+                </td>
+              </tr>
+              <tr data-cal="1" data-fixed="1">
+                <td><input type="text" name="ejercicio_txt" class="input"></td>
+                <td><input type="number" name="series" class="input"></td>
+                <td><input type="text" name="reps" class="input"></td>
+                <td><input type="number" name="kilos" class="input"></td>
+                <td><textarea name="notas" class="input notas-textarea"></textarea></td>
+                <td class="acciones">
+                  <button class="icon-btn move-up" title="Subir">▲</button>
+                  <button class="icon-btn move-down" title="Bajar">▼</button>
+                  <button class="icon-btn duplicate" title="Duplicar">⎘</button>
+                  <button class="icon-btn remove" title="Eliminar">✕</button>
+                </td>
+              </tr>
+              <tr data-cal="1" data-fixed="1">
+                <td><input type="text" name="ejercicio_txt" class="input"></td>
+                <td><input type="number" name="series" class="input"></td>
+                <td><input type="text" name="reps" class="input"></td>
+                <td><input type="number" name="kilos" class="input"></td>
+                <td><textarea name="notas" class="input notas-textarea"></textarea></td>
+                <td class="acciones">
+                  <button class="icon-btn move-up" title="Subir">▲</button>
+                  <button class="icon-btn move-down" title="Bajar">▼</button>
+                  <button class="icon-btn duplicate" title="Duplicar">⎘</button>
+                  <button class="icon-btn remove" title="Eliminar">✕</button>
                 </td>
               </tr>
               {% endfor %}
             </tbody>
           </table>
         </div>
-      </div>
+      </section>
 
-      <div class="tabla-rutina-card">
-        <!-- Parte Principal -->
+      <!-- PARTE PRINCIPAL -->
+      <section class="tabla-rutina-card">
         <div class="tabla-header">
-          <div class="left">
-            <h2>Parte principal</h2>
-            <p class="muted">Podés agregar varias filas por grupo</p>
-          </div>
+          <div class="left"><h2>Parte principal</h2></div>
           <div class="right">
             <button class="btn success btn-agregar-principal">+ Agregar fila</button>
             <button class="btn danger btn-vaciar-principal">Vaciar</button>
           </div>
         </div>
         <div class="tabla-scroll">
-          <table class="tabla tabla-principal">
+          <table class="tabla" id="tabla-principal">
             <thead>
               <tr>
                 <th style="width:18%">Grupo</th>
@@ -160,397 +152,288 @@
                 <th style="width:10%">Series</th>
                 <th style="width:10%">Reps</th>
                 <th style="width:10%">Kilos</th>
-                <th style="width:10%">Rir</th>
+                <th style="width:10%">RIR</th>
                 <th style="width:14%">Notas</th>
-                <th style="width:6%">Acciones</th>
+                <th style="width:6%"></th>
               </tr>
             </thead>
             <tbody>
               {% for fila in dia.principal %}
-              <tr>
-                <td>
-                  <select name="categoria" class="input categoria-select" data-selected="{{ fila.categoria|default:'' }}">
-                    {% for c in categorias %}
-                      <option value="{{ c }}" {% if c == fila.categoria %}selected{% endif %}>{{ c }}</option>
-                    {% endfor %}
-                    <option value="Accesorios" {% if fila.categoria == "Accesorios" %}selected{% endif %}>Accesorios</option>
-                  </select>
-                </td>
-                <td>
-                  <select name="ejercicio" class="input select" data-selected="{{ fila.ejercicio_id|default:'' }}">
-                    {% for ej in ejercicios %}
-                      <option value="{{ ej.id }}" {% if ej.id == fila.ejercicio_id %}selected{% endif %}>{{ ej.nombre }}</option>
-                    {% endfor %}
-                  </select>
-                </td>
-                <td><input type="number" min="1" name="series" class="input" value="{{ fila.series|default:'' }}"></td>
-                <td><input type="text" name="reps" class="input" value="{{ fila.reps|default:'' }}"></td>
-                <td><input type="number" min="0" name="kilos" class="input" value="{{ fila.kilos|default:'' }}"></td>
-                <td><input type="text" name="rir" class="input" value="{{ fila.rir|default:'' }}"></td>
-                <td><textarea name="notas" class="input notas-textarea">{{ fila.notas|default:'' }}</textarea></td>
+              <tr data-categoria="{{ fila.categoria }}" data-fixed="1">
+                <td class="categoria-cell"><span class="categoria-nombre">{{ fila.categoria }}</span></td>
+                <td><input type="text" name="ejercicio_txt" class="input" value="{{ fila.ejercicio_txt|default:'' }}"></td>
+                <td><input type="number" name="series" class="input" value="{{ fila.series }}"></td>
+                <td><input type="text" name="reps" class="input" value="{{ fila.reps }}"></td>
+                <td><input type="number" name="kilos" class="input" value="{{ fila.kilos }}"></td>
+                <td><input type="text" name="rir" class="input" value="{{ fila.rir }}"></td>
+                <td><textarea name="notas" class="input notas-textarea">{{ fila.notas }}</textarea></td>
                 <td class="acciones">
-                  <button class="icon-btn duplicate" title="Duplicar fila">⎘</button>
-                  <button class="icon-btn remove" title="Eliminar fila">✕</button>
+                  <button class="icon-btn move-up" title="Subir">▲</button>
+                  <button class="icon-btn move-down" title="Bajar">▼</button>
+                  <button class="icon-btn duplicate" title="Duplicar">⎘</button>
+                  <button class="icon-btn remove" title="Eliminar">✕</button>
                 </td>
               </tr>
               {% endfor %}
             </tbody>
           </table>
         </div>
-      </div>
+      </section>
 
-    </div>
+      <!-- PARTE FINAL: Accesorios -->
+      <section class="tabla-rutina-card">
+        <div class="tabla-header">
+          <div class="left"><h2>Parte final — Accesorios</h2></div>
+          <div class="right">
+            <button class="btn success btn-agregar-accesorios">+ Agregar fila</button>
+            <button class="btn danger btn-vaciar-accesorios">Vaciar</button>
+          </div>
+        </div>
+        <div class="tabla-scroll">
+          <table class="tabla" id="tabla-accesorios">
+            <thead>
+              <tr>
+                <th>Grupo</th><th>Ejercicio</th><th>Series</th><th>Reps</th><th>Kilos</th><th>Notas</th><th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr data-categoria="Accesorios" data-fixed="1">
+                <td class="categoria-cell"><span class="categoria-nombre">Accesorios</span></td>
+                <td><input type="text" name="ejercicio_txt" class="input"></td>
+                <td><input type="number" name="series" class="input"></td>
+                <td><input type="text" name="reps" class="input"></td>
+                <td><input type="number" name="kilos" class="input"></td>
+                <td><textarea name="notas" class="input notas-textarea"></textarea></td>
+                <td class="acciones">
+                  <button class="icon-btn move-up" title="Subir">▲</button>
+                  <button class="icon-btn move-down" title="Bajar">▼</button>
+                  <button class="icon-btn duplicate" title="Duplicar">⎘</button>
+                  <button class="icon-btn remove" title="Eliminar">✕</button>
+                </td>
+              </tr>
+              <tr data-categoria="Accesorios" data-fixed="1">
+                <td class="categoria-cell"><span class="categoria-nombre">Accesorios</span></td>
+                <td><input type="text" name="ejercicio_txt" class="input"></td>
+                <td><input type="number" name="series" class="input"></td>
+                <td><input type="text" name="reps" class="input"></td>
+                <td><input type="number" name="kilos" class="input"></td>
+                <td><textarea name="notas" class="input notas-textarea"></textarea></td>
+                <td class="acciones">
+                  <button class="icon-btn move-up" title="Subir">▲</button>
+                  <button class="icon-btn move-down" title="Bajar">▼</button>
+                  <button class="icon-btn duplicate" title="Duplicar">⎘</button>
+                  <button class="icon-btn remove" title="Eliminar">✕</button>
+                </td>
+              </tr>
+              <tr data-categoria="Accesorios" data-fixed="1">
+                <td class="categoria-cell"><span class="categoria-nombre">Accesorios</span></td>
+                <td><input type="text" name="ejercicio_txt" class="input"></td>
+                <td><input type="number" name="series" class="input"></td>
+                <td><input type="text" name="reps" class="input"></td>
+                <td><input type="number" name="kilos" class="input"></td>
+                <td><textarea name="notas" class="input notas-textarea"></textarea></td>
+                <td class="acciones">
+                  <button class="icon-btn move-up" title="Subir">▲</button>
+                  <button class="icon-btn move-down" title="Bajar">▼</button>
+                  <button class="icon-btn duplicate" title="Duplicar">⎘</button>
+                  <button class="icon-btn remove" title="Eliminar">✕</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+    </div><!-- /dia-card -->
     {% endfor %}
-  </div>
+  </div><!-- /daysContainer -->
 
   <footer class="tabla-footer">
-    <div class="left"></div>
-    <div class="right">
-      <button id="btn-guardar-bottom" class="btn primary">Guardar</button>
-    </div>
+    <div class="right"><button id="btn-guardar-bottom" class="btn primary">Guardar</button></div>
   </footer>
 </div>
 
-<!-- Form oculto -->
+<!-- Form oculto de guardado -->
 <form id="form-guardar" method="post" action="{% url 'guardar_rutina' rutina.id %}" class="hidden">
   {% csrf_token %}
-  <input type="hidden" name="semana_id" id="semana_id_input" value="{{ semana_activa_id }}">
+  <input type="hidden" name="semana_id" id="semana_id_input" value="{{ semana_activa_id|default:1 }}">
   <input type="hidden" name="payload" id="payload_input">
 </form>
 
+<!-- Interacciones específicas del template -->
 <script>
-// Dataset de ejercicios para el buscador custom
-window.__EJERCICIOS__ = [
-  {% for ej in ejercicios %}
-    {"id":"{{ ej.id }}","text":"{{ ej.nombre|escapejs }}"},
-  {% endfor %}
-];
-// CATEGORÍAS + “Accesorios”
-const CATEGORIAS = [{% for c in categorias %}"{{ c }}",{% endfor %}"Accesorios"];
-
-(function normalize(){
-  window.__EJERCICIOS__ = (Array.isArray(window.__EJERCICIOS__)?window.__EJERCICIOS__:[])
-    .map(e=>({id:String(e.id||''),text:String(e.text||'').trim()}))
-    .filter(e=>e.id && e.text);
-})();
-
-function repopulateOptions(selectEl, list, getText=(x)=>x.text, getVal=(x)=>x.id){
-  if(!selectEl) return;
-  const curr = selectEl.getAttribute('data-selected') || selectEl.value || '';
-  selectEl.innerHTML = '';
-  const frag = document.createDocumentFragment();
-  (list||[]).forEach(e=>{
-    const opt = new Option(getText(e), getVal(e), false, false);
-    frag.appendChild(opt);
-  });
-  selectEl.appendChild(frag);
-  if(curr) selectEl.value = curr;
-}
-
-function makeSearchable(selectEl){
-  if(!selectEl || selectEl.dataset.searchified) return;
-  selectEl.dataset.searchified = '1';
-  const isEj = (selectEl.getAttribute('name') === 'ejercicio');
-  if(!isEj){ 
-    // si es categoría, repoblamos incluyendo “Accesorios”
-    repopulateOptions(selectEl, CATEGORIAS.map(c=>({id:c,text:c})));
-    return; 
-  }
-
-  repopulateOptions(selectEl, window.__EJERCICIOS__);
-  const wrapper = document.createElement('div');
-  wrapper.className = 'search-select';
-  const input = document.createElement('input');
-  input.type = 'text'; input.className='search-input'; input.autocomplete='off'; input.placeholder='Buscar ejercicio';
-  const current = selectEl.getAttribute('data-selected');
-  if(current){
-    const m = window.__EJERCICIOS__.find(e=>String(e.id)===String(current));
-    if(m) input.value = m.text;
-  }
-  const results = document.createElement('div');
-  results.className = 'search-results-overlay';
-  document.body.appendChild(results);
-  selectEl.style.display='none';
-  selectEl.parentNode.insertBefore(wrapper, selectEl.nextSibling);
-  wrapper.appendChild(input);
-
-  function position(){
-    const r = input.getBoundingClientRect();
-    results.style.width = r.width+'px';
-    results.style.left = (r.left + window.pageXOffset)+'px';
-    results.style.top  = (r.bottom + window.pageYOffset)+'px';
-  }
-  function render(term){
-    const q = (term||'').toLowerCase().trim();
-    const list = window.__EJERCICIOS__.filter(e=>e.text.toLowerCase().includes(q));
-    results.innerHTML='';
-    list.forEach(e=>{
-      const item = document.createElement('div');
-      item.textContent = e.text;
-      item.dataset.id = e.id;
-      results.appendChild(item);
-    });
-    position();
-    results.classList.add('active');
-  }
-  function hide(){ results.classList.remove('active'); }
-  function choose(id, text){
-    selectEl.value = id;
-    selectEl.setAttribute('data-selected', id);
-    input.value = text;
-    hide();
-  }
-
-  input.addEventListener('focus', ()=>render(input.value));
-  input.addEventListener('input', ()=>render(input.value));
-  input.addEventListener('click', ()=>render(input.value));
-  input.addEventListener('blur', ()=>setTimeout(hide,150));
-  window.addEventListener('scroll', position, true);
-  window.addEventListener('resize', position);
-  results.addEventListener('mousedown', (ev)=>{
-    const it = ev.target.closest('div[data-id]'); if(!it) return;
-    choose(it.dataset.id, it.textContent);
-  });
-}
-
-function initSearch(scope){
-  (scope||document).querySelectorAll('select[name="ejercicio"]').forEach(makeSearchable);
-  (scope||document).querySelectorAll('select[name="categoria"]').forEach(sel=>{
-    repopulateOptions(sel, CATEGORIAS.map(c=>({id:c,text:c})));
-  });
-}
-
-function nuevaFilaCal(data={}){
-  const tr = document.createElement('tr');
-  tr.setAttribute('data-cal','1');
-  tr.innerHTML = `
-    <td>
-      <select name="ejercicio" class="input select" data-selected="${data.ejercicio_id??''}"></select>
-    </td>
-    <td><input type="number" min="1" name="series" class="input" value="${data.series??''}" placeholder="3"></td>
-    <td><input type="text"   name="reps"   class="input" value="${data.reps??''}"   placeholder="8-10"></td>
-    <td><input type="number" min="0" name="kilos"  class="input" value="${data.kilos??''}"  placeholder="0"></td>
-    <td><input type="text"   name="rir"    class="input" value="${data.rir??''}"    placeholder="1-2"></td>
-    <td><textarea name="notas" class="input notas-textarea" placeholder="Notas">${data.notas??''}</textarea></td>
-    <td class="acciones">
-      <button class="icon-btn duplicate" title="Duplicar fila">⎘</button>
-      <button class="icon-btn remove" title="Eliminar fila">✕</button>
-    </td>
-  `;
-  return tr;
-}
-
-function nuevaFilaPrincipal(data={}){
-  const tr = document.createElement('tr');
-  tr.innerHTML = `
-    <td>
-      <select name="categoria" class="input categoria-select" data-selected="${data.categoria??''}"></select>
-    </td>
-    <td>
-      <select name="ejercicio" class="input select" data-selected="${data.ejercicio_id??''}"></select>
-    </td>
-    <td><input type="number" min="1" name="series" class="input" value="${data.series??''}" placeholder="3"></td>
-    <td><input type="text"   name="reps"   class="input" value="${data.reps??''}"   placeholder="8-10"></td>
-    <td><input type="number" min="0" name="kilos"  class="input" value="${data.kilos??''}"  placeholder="0"></td>
-    <td><input type="text"   name="rir"    class="input" value="${data.rir??''}"    placeholder="1-2"></td>
-    <td><textarea name="notas" class="input notas-textarea" placeholder="Notas">${data.notas??''}</textarea></td>
-    <td class="acciones">
-      <button class="icon-btn duplicate" title="Duplicar fila">⎘</button>
-      <button class="icon-btn remove" title="Eliminar fila">✕</button>
-    </td>
-  `;
-  return tr;
-}
-
-function leerFila(tr, isPrincipal){
-  const sel = (s)=>tr.querySelector(s);
-  const base = {
-    ejercicio_id: sel('select[name="ejercicio"]')?.value || null,
-    series:       sel('input[name="series"]')?.value || '',
-    reps:         sel('input[name="reps"]')?.value   || '',
-    kilos:        sel('input[name="kilos"]')?.value  || '',
-    rir:          sel('input[name="rir"]')?.value    || '',
-    notas: (sel('textarea[name="notas"]')?.value || sel('input[name="notas"]')?.value || '')
-  };
-  if(isPrincipal){
-    base.categoria = sel('select[name="categoria"]')?.value || '';
-  }
-  return base;
-}
-
-function serializarDia(card){
-  const cal = [];
-  card.querySelectorAll('.tabla-calentamiento tbody tr').forEach(tr=>{
-    cal.push(leerFila(tr, false));
-  });
-  const pr = [];
-  card.querySelectorAll('.tabla-principal tbody tr').forEach(tr=>{
-    pr.push(leerFila(tr, true));
-  });
-  return {calentamiento: cal, principal: pr};
-}
-
-document.addEventListener('DOMContentLoaded', function(){
-  const daysContainer = document.getElementById('daysContainer');
-  const btnAddDay = document.getElementById('btn-agregar-dia');
-
-  // Iniciar buscadores y selects en contenido existente
-  initSearch(document);
-
-  function hydrateDay(card){
-    initSearch(card);
-  }
-
-  // Duplicar día
-  daysContainer.addEventListener('click', function(e){
-    const dup = e.target.closest('.btn-duplicar-dia');
-    if(dup){
-      const card = dup.closest('.dia-card');
-      const data = serializarDia(card);
-      const newCard = card.cloneNode(true);      // clon correcto
-      // limpiar tablas
-      newCard.querySelectorAll('tbody').forEach(tb=>tb.innerHTML='');
-      // reinyectar filas
-      data.calentamiento.forEach(f=> newCard.querySelector('.tabla-calentamiento tbody').appendChild(nuevaFilaCal(f)));
-      data.principal.forEach(f=> newCard.querySelector('.tabla-principal tbody').appendChild(nuevaFilaPrincipal(f)));
-      card.after(newCard);
-      renumerarDias();
-      hydrateDay(newCard);
-      return;
-    }
-    const del = e.target.closest('.btn-eliminar-dia');
-    if(del){
-      const cards = daysContainer.querySelectorAll('.dia-card');
-      if(cards.length<=1) return;
-      del.closest('.dia-card').remove();
-      renumerarDias();
-      return;
-    }
-  });
-
-  // Agregar día (FIX: clonar Node, NO envolver outerHTML)
-  btnAddDay.addEventListener('click', function(){
-    const source = daysContainer.querySelector('.dia-card');   // tomamos el primero como plantilla
-    const card = source.cloneNode(true);                       // CLONE correcto (antes se hacía un wrapper + outerHTML)
-    // limpiar contenido
-    card.querySelectorAll('tbody').forEach(tb=>tb.innerHTML='');
-    // Parte inicial: 1 fila vacía
-    const tbc = card.querySelector('.tabla-calentamiento tbody');
-    tbc.appendChild(nuevaFilaCal({}));
-    // Parte principal: 4 filas base (una por categoría + “Accesorios” si querés que arranque con 5, descomentá)
-    const tbp = card.querySelector('.tabla-principal tbody');
-    CATEGORIAS.forEach(c=>{
-      // Si no querés arrancar con todas, podés limitar a 4 base y luego usar agregar fila.
-      if (["Cadena anterior","Tracciones","Cadena posterior","Empujes"].includes(c)) {
-        tbp.appendChild(nuevaFilaPrincipal({categoria:c}));
-      }
-    });
-    daysContainer.appendChild(card);
-    renumerarDias();
-    hydrateDay(card);
-  });
+document.addEventListener('DOMContentLoaded', () => {
+  const days = document.getElementById('daysContainer');
+  const addDayBtn = document.getElementById('btn-agregar-dia');
 
   function renumerarDias(){
-    const cards = [...daysContainer.querySelectorAll(':scope > .dia-card')]; // solo top-level
-    cards.forEach((card, idx)=>{
-      const n = idx+1;
+    const cards = [...days.querySelectorAll(':scope > .dia-card')];
+    cards.forEach((card, idx) => {
+      const n = idx + 1;
       card.dataset.dia = n;
-      const lbl = card.querySelector('.dia-label');
-      if(lbl) lbl.textContent = n;
-      const delBtn = card.querySelector('.btn-eliminar-dia');
-      if(delBtn) delBtn.style.display = (cards.length>1)?'':'none';
+      const lbl = card.querySelector('.dia-label'); if (lbl) lbl.textContent = n;
+      const del = card.querySelector('.btn-eliminar-dia'); if (del) del.style.display = (cards.length>1)?'':'none';
+    });
+  }
+  function moverFila(tr, dir){
+    const sib = (dir==='up') ? tr.previousElementSibling : tr.nextElementSibling;
+    if (!sib) return;
+    if (dir==='up') tr.parentNode.insertBefore(tr, sib);
+    else sib.after(tr);
+  }
+  function vaciarManteniendo(tbody, cantidadFijas){
+    const rows = [...tbody.querySelectorAll('tr')];
+    rows.forEach((tr, i) => {
+      if (i < cantidadFijas) tr.querySelectorAll('input,textarea').forEach(el => el.value='');
+      else tr.remove();
     });
   }
 
-  // Botones de filas (duplicar / eliminar) en ambas tablas
-  daysContainer.addEventListener('click', function(e){
+  days.addEventListener('click', (e) => {
+    const card = e.target.closest('.dia-card'); if (!card) return;
+
+    // Días
+    if (e.target.closest('.btn-duplicar-dia')) {
+      const clone = card.cloneNode(true);
+      clone.querySelectorAll('input,textarea').forEach(el => el.value='');
+      card.after(clone); renumerarDias(); return;
+    }
+    if (e.target.closest('.btn-eliminar-dia')) {
+      const cards = days.querySelectorAll('.dia-card'); if (cards.length<=1) return;
+      card.remove(); renumerarDias(); return;
+    }
+
+    // Movimientos fila
+    if (e.target.classList.contains('move-up')) moverFila(e.target.closest('tr'), 'up');
+    if (e.target.classList.contains('move-down')) moverFila(e.target.closest('tr'), 'down');
+
+    // Parte inicial
+    if (e.target.closest('.btn-agregar-cal')) {
+      card.querySelector('#tabla-cal tbody').insertAdjacentHTML('beforeend', `
+        <tr data-cal="1">
+          <td><input type="text" name="ejercicio_txt" class="input"></td>
+          <td><input type="number" name="series" class="input"></td>
+          <td><input type="text" name="reps" class="input"></td>
+          <td><input type="number" name="kilos" class="input"></td>
+          <td><textarea name="notas" class="input notas-textarea"></textarea></td>
+          <td class="acciones">
+            <button class="icon-btn move-up" title="Subir">▲</button>
+            <button class="icon-btn move-down" title="Bajar">▼</button>
+            <button class="icon-btn duplicate" title="Duplicar">⎘</button>
+            <button class="icon-btn remove" title="Eliminar">✕</button>
+          </td>
+        </tr>`);
+      return;
+    }
+    if (e.target.closest('.btn-vaciar-cal')) { vaciarManteniendo(card.querySelector('#tabla-cal tbody'), 3); return; }
+
+    // Parte principal
+    if (e.target.closest('.btn-agregar-principal')) {
+      card.querySelector('#tabla-principal tbody').insertAdjacentHTML('beforeend', `
+        <tr data-categoria="Accesorios">
+          <td class="categoria-cell"><span class="categoria-nombre">Accesorios</span></td>
+          <td><input type="text" name="ejercicio_txt" class="input"></td>
+          <td><input type="number" name="series" class="input"></td>
+          <td><input type="text" name="reps" class="input"></td>
+          <td><input type="number" name="kilos" class="input"></td>
+          <td><input type="text" name="rir" class="input"></td>
+          <td><textarea name="notas" class="input notas-textarea"></textarea></td>
+          <td class="acciones">
+            <button class="icon-btn move-up" title="Subir">▲</button>
+            <button class="icon-btn move-down" title="Bajar">▼</button>
+            <button class="icon-btn duplicate" title="Duplicar">⎘</button>
+            <button class="icon-btn remove" title="Eliminar">✕</button>
+          </td>
+        </tr>`);
+      return;
+    }
+    if (e.target.closest('.btn-vaciar-principal')) {
+      const tbody = card.querySelector('#tabla-principal tbody');
+      tbody.innerHTML = `
+        <tr data-categoria="Cadena anterior" data-fixed="1">
+          <td class="categoria-cell"><span class="categoria-nombre">Cadena anterior</span></td>
+          <td><input type="text" name="ejercicio_txt" class="input"></td>
+          <td><input type="number" name="series" class="input"></td>
+          <td><input type="text" name="reps" class="input"></td>
+          <td><input type="number" name="kilos" class="input"></td>
+          <td><input type="text" name="rir" class="input"></td>
+          <td><textarea name="notas" class="input notas-textarea"></textarea></td>
+          <td class="acciones"><button class="icon-btn move-up">▲</button><button class="icon-btn move-down">▼</button><button class="icon-btn duplicate">⎘</button><button class="icon-btn remove">✕</button></td>
+        </tr>
+        <tr data-categoria="Cadena posterior" data-fixed="1">
+          <td class="categoria-cell"><span class="categoria-nombre">Cadena posterior</span></td>
+          <td><input type="text" name="ejercicio_txt" class="input"></td>
+          <td><input type="number" name="series" class="input"></td>
+          <td><input type="text" name="reps" class="input"></td>
+          <td><input type="number" name="kilos" class="input"></td>
+          <td><input type="text" name="rir" class="input"></td>
+          <td><textarea name="notas" class="input notas-textarea"></textarea></td>
+          <td class="acciones"><button class="icon-btn move-up">▲</button><button class="icon-btn move-down">▼</button><button class="icon-btn duplicate">⎘</button><button class="icon-btn remove">✕</button></td>
+        </tr>
+        <tr data-categoria="Tracciones" data-fixed="1">
+          <td class="categoria-cell"><span class="categoria-nombre">Tracciones</span></td>
+          <td><input type="text" name="ejercicio_txt" class="input"></td>
+          <td><input type="number" name="series" class="input"></td>
+          <td><input type="text" name="reps" class="input"></td>
+          <td><input type="number" name="kilos" class="input"></td>
+          <td><input type="text" name="rir" class="input"></td>
+          <td><textarea name="notas" class="input notas-textarea"></textarea></td>
+          <td class="acciones"><button class="icon-btn move-up">▲</button><button class="icon-btn move-down">▼</button><button class="icon-btn duplicate">⎘</button><button class="icon-btn remove">✕</button></td>
+        </tr>
+        <tr data-categoria="Empujes" data-fixed="1">
+          <td class="categoria-cell"><span class="categoria-nombre">Empujes</span></td>
+          <td><input type="text" name="ejercicio_txt" class="input"></td>
+          <td><input type="number" name="series" class="input"></td>
+          <td><input type="text" name="reps" class="input"></td>
+          <td><input type="number" name="kilos" class="input"></td>
+          <td><input type="text" name="rir" class="input"></td>
+          <td><textarea name="notas" class="input notas-textarea"></textarea></td>
+          <td class="acciones"><button class="icon-btn move-up">▲</button><button class="icon-btn move-down">▼</button><button class="icon-btn duplicate">⎘</button><button class="icon-btn remove">✕</button></td>
+        </tr>`;
+      return;
+    }
+
+    // Accesorios
+    if (e.target.closest('.btn-agregar-accesorios')) {
+      card.querySelector('#tabla-accesorios tbody').insertAdjacentHTML('beforeend', `
+        <tr data-categoria="Accesorios">
+          <td class="categoria-cell"><span class="categoria-nombre">Accesorios</span></td>
+          <td><input type="text" name="ejercicio_txt" class="input"></td>
+          <td><input type="number" name="series" class="input"></td>
+          <td><input type="text" name="reps" class="input"></td>
+          <td><input type="number" name="kilos" class="input"></td>
+          <td><textarea name="notas" class="input notas-textarea"></textarea></td>
+          <td class="acciones">
+            <button class="icon-btn move-up" title="Subir">▲</button>
+            <button class="icon-btn move-down" title="Bajar">▼</button>
+            <button class="icon-btn duplicate" title="Duplicar">⎘</button>
+            <button class="icon-btn remove" title="Eliminar">✕</button>
+          </td>
+        </tr>`);
+      return;
+    }
+    if (e.target.closest('.btn-vaciar-accesorios')) { vaciarManteniendo(card.querySelector('#tabla-accesorios tbody'), 3); return; }
+
+    // Acciones en fila
     const btn = e.target.closest('.icon-btn');
-    if(!btn) return;
-    const tr = e.target.closest('tr');
-    if(!tr) return;
-
-    if(btn.classList.contains('duplicate')){
-      const isPrincipal = !!tr.closest('.tabla-principal');
-      const data = leerFila(tr, isPrincipal);
-      const nf = isPrincipal ? nuevaFilaPrincipal(data) : nuevaFilaCal(data);
-      tr.after(nf);
-      initSearch(nf);
-      nf.querySelector('select,input,textarea')?.focus();
-    }
-    if(btn.classList.contains('remove')){
-      const tbody = tr.parentNode;
-      tr.remove();
-      // asegurar al menos 1 fila en cada tabla
-      if(!tbody.children.length){
-        const isPrincipal = !!tbody.closest('.tabla-principal');
-        const base = isPrincipal ? nuevaFilaPrincipal({categoria:CATEGORIAS[0]}) : nuevaFilaCal({});
-        tbody.appendChild(base);
-        initSearch(base);
-      }
+    if (btn) {
+      const tr = btn.closest('tr');
+      if (btn.classList.contains('duplicate')) tr.after(tr.cloneNode(true));
+      if (btn.classList.contains('remove')) tr.remove();
     }
   });
 
-  // Acciones de tabla por día
-  daysContainer.addEventListener('click', function(e){
-    // Agregar/vaciar calentamiento
-    if(e.target.closest('.btn-agregar-cal')){
-      const tbody = e.target.closest('.dia-card').querySelector('.tabla-calentamiento tbody');
-      const nf = nuevaFilaCal({});
-      tbody.appendChild(nf);
-      initSearch(nf);
-    }
-    if(e.target.closest('.btn-vaciar-cal')){
-      const tbody = e.target.closest('.dia-card').querySelector('.tabla-calentamiento tbody');
-      tbody.innerHTML='';
-      const nf = nuevaFilaCal({});
-      tbody.appendChild(nf);
-      initSearch(nf);
-    }
-    // Agregar/vaciar principal
-    if(e.target.closest('.btn-agregar-principal')){
-      const tbody = e.target.closest('.dia-card').querySelector('.tabla-principal tbody');
-      const nf = nuevaFilaPrincipal({categoria:CATEGORIAS[0]});
-      tbody.appendChild(nf);
-      initSearch(nf);
-    }
-    if(e.target.closest('.btn-vaciar-principal')){
-      const tbody = e.target.closest('.dia-card').querySelector('.tabla-principal tbody');
-      tbody.innerHTML='';
-      // reponer 4 bases
-      ["Cadena anterior","Tracciones","Cadena posterior","Empujes"].forEach(c=>{
-        const nf = nuevaFilaPrincipal({categoria:c});
-        tbody.appendChild(nf);
-      });
-      initSearch(e.target.closest('.dia-card'));
-    }
+  // Agregar día
+  addDayBtn?.addEventListener('click', () => {
+    const first = days.querySelector('.dia-card'); if (!first) return;
+    const clone = first.cloneNode(true);
+    clone.querySelectorAll('input,textarea').forEach(el => el.value='');
+    days.appendChild(clone); renumerarDias();
   });
-
-  // Guardar
-  const formGuardar = document.getElementById('form-guardar');
-  const payloadInput = document.getElementById('payload_input');
-  const semanaSelect = document.getElementById('semana-select');
-  const semanaIdInput = document.getElementById('semana_id_input');
-
-  function serializar(){
-    const dias = [];
-    document.querySelectorAll('.dia-card').forEach(card=>{
-      dias.push(serializarDia(card));
-    });
-    return JSON.stringify({
-      semana_id: semanaSelect?.value || null,
-      dias: dias
-    });
-  }
-  function onGuardar(){
-    payloadInput.value = serializar();
-    semanaIdInput.value = semanaSelect?.value || '';
-    formGuardar.submit();
-  }
-  document.getElementById('btn-guardar')?.addEventListener('click', onGuardar);
-  document.getElementById('btn-guardar-bottom')?.addEventListener('click', onGuardar);
-
-  // Hidratar al cargar
-  document.querySelectorAll('.dia-card').forEach(hydrateDay);
 });
 </script>
 {% endblock %}
+
+
+
+

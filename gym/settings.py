@@ -1,9 +1,10 @@
 import os
 from pathlib import Path
-BASE_DIR = Path(__file__).resolve().parent.parent  # C:\gym
+BASE_DIR = Path(__file__).resolve().parent.parent  # C:\Gymapp
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR / 'static'] 
+# Archivos estáticos en el directorio raíz del proyecto
+STATICFILES_DIRS = [BASE_DIR / 'static']
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", "django-insecure-1234567890-esto-es-un-ejemplo")
 
 DEBUG = True

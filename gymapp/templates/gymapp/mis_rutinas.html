@@ -3,8 +3,8 @@
 
 {% block extra_head %}
 {% if USE_CDN %}
-<link href="https://unpkg.com/tabulator-tables@5.6.2/dist/css/tabulator.min.css" rel="stylesheet"{% if CDN_INTEGRITY.tabulator_css %} integrity="{{ CDN_INTEGRITY.tabulator_css }}" crossorigin="anonymous"{% endif %}>
-<script src="https://unpkg.com/tabulator-tables@5.6.2/dist/js/tabulator.min.js"{% if CDN_INTEGRITY.tabulator_js %} integrity="{{ CDN_INTEGRITY.tabulator_js }}" crossorigin="anonymous"{% endif %}></script>
+<link href="https://unpkg.com/tabulator-tables@5.6.2/dist/css/tabulator.min.css" rel="stylesheet">
+<script src="https://unpkg.com/tabulator-tables@5.6.2/dist/js/tabulator.min.js"></script>
 {% else %}
 <link href="{% static 'vendor/tabulator/tabulator.min.css' %}" rel="stylesheet">
 <script src="{% static 'vendor/tabulator/tabulator.min.js' %}"></script>
@@ -13,45 +13,59 @@
 
 {% block content %}
 <div class="container mt-4 rutina-form">
-    <!-- Botón de volver -->
-    <div class="d-flex justify-content-start mb-3">
-        <a href="{% url 'member_list' %}" class="btn-volver">
-            ← Volver
-        </a>
+
+  <!-- Encabezado -->
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <a href="{% url 'member_list' %}" class="btn-volver">← Volver</a>
+    <div class="d-flex gap-2">
+      <a href="{% url 'rutina_cliente' member.id %}" class="btn btn-outline-secondary">Ver historial</a>
     </div>
+  </div>
 
-    <h3 class="text-center">Rutinas de {{ member.nombre_apellido }}</h3>
-    <hr>
+  <h3 class="text-center mb-2">Última rutina de {{ member.nombre_apellido }}</h3>
+  <hr>
 
-    {% for rutina in rutinas %}
-        <div class="card mb-4 shadow-sm">
-            <div class="card-header rutinas-card-header">
-                {{ rutina.get_estructura_display }}{% if rutina.semana %} - Semana {{ rutina.semana }}{% endif %} - {{ rutina.fecha_creacion|date:"d/m/Y H:i" }}
-            </div>
-            <div class="card-body">
-                <div class="table-responsive">
-                    <div id="rutinasTable{{ forloop.counter }}" class="tabulator--bootstrap5"></div>
-                </div>
-
-                {% if rutina.comentario %}
-                <div class="mt-2">
-                    <strong>Comentario:</strong> {{ rutina.comentario.texto }}
-                </div>
-                {% endif %}
-            </div>
+  {% if not ultima_rutina %}
+    <p class="text-muted text-center">Todavía no tenés rutinas cargadas.</p>
+  {% else %}
+    <div class="card mb-4 shadow-sm">
+      <div class="card-header rutinas-card-header">
+        <strong>
+          {% if ultima_rutina.get_estructura_display %}
+            {{ ultima_rutina.get_estructura_display }}
+          {% else %}
+            {{ ultima_rutina.estructura|title }}
+          {% endif %}
+        </strong>
+        {% if ultima_rutina.semana %} - Semana {{ ultima_rutina.semana }}{% endif %}
+        - {{ ultima_rutina.fecha_creacion|date:"d/m/Y H:i" }}
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <div id="rutinaTable" class="tabulator--bootstrap5"></div>
         </div>
-    {% empty %}
-        <p class="text-muted">Todavía no tenés rutinas cargadas.</p>
-    {% endfor %}
+
+        {% if ultima_rutina.comentario %}
+          <div class="mt-2">
+            <strong>Comentario:</strong> {{ ultima_rutina.comentario.texto }}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  {% endif %}
 </div>
 
 <script>
+  // Espera en contexto un dict con solo { "<id>": [filas] }
   const rutinasData = {{ rutina_data|safe }};
-  Object.keys(rutinasData).forEach((id, index) => {
-    new Tabulator(`#rutinasTable${index + 1}`, {
-      data: rutinasData[id],
+  const firstKey = Object.keys(rutinasData)[0];
+
+  if (firstKey) {
+    new Tabulator('#rutinaTable', {
+      data: rutinasData[firstKey],
       layout: "fitDataFill",
       columns: [
+        {title: "Día", field: "dia", hozAlign: "center"},
         {title: "Categoría", field: "categoria"},
         {title: "Ejercicio", field: "ejercicio"},
         {title: "Series", field: "series", hozAlign: "center"},
@@ -63,6 +77,6 @@
         {title: "Notas", field: "notas"}
       ]
     });
-  });
+  }
 </script>
 {% endblock %}

@@ -29,6 +29,8 @@ urlpatterns = [
     path('rutina/eliminar/<int:rutina_id>/', views.eliminar_rutina, name='eliminar_rutina'),
     path('socio/<int:member_id>/rutina/nueva/<str:tipo>/', views.crear_rutina, name='crear_rutina'),
     path('rutina/guardar/<int:rutina_id>/', views.guardar_rutina, name='guardar_rutina'),
+    path("rutina/hipertrofia_opciones/<int:member_id>/", views.hipertrofia_opciones, name="hipertrofia_opciones"),
+
 
     # Rutinas cliente
     path('mis_rutinas/<int:member_id>/', views.mis_rutinas, name='mis_rutinas'),

@@ -1,5 +1,6 @@
 from django.db import models
 from decimal import Decimal
+from .constants import RUTINA_CHOICES
 
 # === Socios ===
 class Member(models.Model):
@@ -72,27 +73,27 @@ class Ejercicio(models.Model):
         return self.nombre
 
 
-class Rutina(models.Model):
-    ESTRUCTURAS = [
-        ("hipertrofia", "Hipertrofia"),
-        ("fuerza_base", "Fuerza base"),
-        ("deportista", "Deportista avanzado"),
-        ("acondicionamiento", "Acondicionamiento físico"),
-        ("iniciacion", "Iniciación"),
-    ]
+# Choices centralizados
+ESTRUCTURAS = RUTINA_CHOICES
 
+
+class Rutina(models.Model):
+    """
+    Modelo principal de Rutinas.
+    Cada rutina pertenece a un socio (Member) y tiene una estructura definida.
+    """
     member = models.ForeignKey(Member, on_delete=models.CASCADE, related_name="rutinas")
     estructura = models.CharField(max_length=50, choices=ESTRUCTURAS)
     fecha_creacion = models.DateTimeField(auto_now_add=True)
-    # Número de semana (1-8)
-    semana = models.PositiveSmallIntegerField(default=1)
+    semana = models.PositiveSmallIntegerField(default=1)  # Número de semana (1–8)
 
     def __str__(self):
+        # get_estructura_display usa los choices para mostrar el nombre legible
         return f"Rutina {self.get_estructura_display()} - {self.member.nombre_apellido} ({self.fecha_creacion.date()})"
 
 
 class DetalleRutina(models.Model):
-    rutina = models.ForeignKey(Rutina, on_delete=models.CASCADE, related_name="detalles")
+    rutina = models.ForeignKey("Rutina", on_delete=models.CASCADE, related_name="detalles")
     # Día al que pertenece el detalle (1..N). Por compat con datos viejos asumimos 1 si no se setea.
     dia = models.PositiveSmallIntegerField(default=1)
 
@@ -112,7 +113,7 @@ class DetalleRutina(models.Model):
 
 
 class ComentarioRutina(models.Model):
-    rutina = models.OneToOneField(Rutina, on_delete=models.CASCADE, related_name="comentario")
+    rutina = models.OneToOneField("Rutina", on_delete=models.CASCADE, related_name="comentario")
     texto = models.TextField(blank=True)
 
     def __str__(self):

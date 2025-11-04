@@ -1,0 +1,238 @@
+{% extends "gymapp/base.html" %}
+{% load static %}
+{% block title %}Editar rutina — Edad temprana{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/rutinas.css' %}">
+<script defer src="{% static 'js/editar_rutinas.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+<div class="rutinas-wrapper">
+  <header class="rutinas-header">
+    <div class="brand">
+      <div class="logo"></div>
+      <div class="titles">
+        <h1 class="page-title">Editar rutina — Edad temprana</h1>
+        <p class="subtitle">Parte inicial con 4 fijas y parte principal con 2 fijas (podés agregar más)</p>
+      </div>
+    </div>
+    <div class="header-actions">
+      <a href="{% url 'rutina_cliente' rutina.member.id %}" class="btn ghost">← Volver</a>
+      <button id="btn-guardar" class="btn primary">Guardar cambios</button>
+    </div>
+  </header>
+
+  <section class="meta">
+    <div class="meta-item">
+      <label>Socio</label>
+      <div class="meta-value">{{ rutina.member.nombre_apellido }} (DNI: {{ rutina.member.dni }})</div>
+    </div>
+    <div class="meta-item">
+      <label>Tipo de rutina</label>
+      <div class="meta-value">Edad temprana</div>
+    </div>
+    <div class="meta-item">
+      <label>Semana</label>
+      <select id="semana-select" class="input">
+        {% for i in "12345678" %}
+        <option value="{{ forloop.counter }}" {% if forloop.counter == 1 %}selected{% endif %}>Semana {{ forloop.counter }}</option>
+        {% endfor %}
+      </select>
+    </div>
+  </section>
+
+  <div class="actions-row">
+    <div class="left"><span class="muted">Gestioná múltiples días de la rutina</span></div>
+    <div class="right"><button id="btn-agregar-dia" class="btn secondary">+ Agregar día</button></div>
+  </div>
+
+  <div id="daysContainer" class="d-flex flex-column gap-3">
+    <div class="dia-card" data-dia="1">
+      <div class="dia-header">
+        <h3 class="dia-title">Día <span class="dia-label">1</span></h3>
+        <div class="days-actions">
+          <button type="button" class="icon-btn duplicate btn-duplicar-dia" title="Duplicar este día">⎘</button>
+          <button type="button" class="icon-btn remove btn-eliminar-dia" title="Eliminar este día" style="display:none">✕</button>
+        </div>
+      </div>
+
+      <!-- Parte inicial (4 fijas) -->
+      <section class="tabla-rutina-card">
+        <div class="tabla-header">
+          <div class="left"><h2>Parte inicial</h2></div>
+          <div class="right">
+            <button class="btn success btn-agregar-cal">+ Agregar fila</button>
+            <button class="btn danger btn-vaciar-cal">Vaciar</button>
+          </div>
+        </div>
+        <div class="tabla-scroll">
+          <table class="tabla" id="tabla-cal">
+            <thead>
+              <tr>
+                <th style="width:34%">Ejercicio</th>
+                <th style="width:12%">Series</th>
+                <th style="width:12%">Reps</th>
+                <th style="width:12%">Kilos</th>
+                <th style="width:24%">Notas</th>
+                <th style="width:6%"></th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for fila in filas_inicial %}
+              <tr data-cal="1" data-fixed="1">
+                <td><input type="text" name="ejercicio_txt" class="input" value="{{ fila.ejercicio_txt }}"></td>
+                <td><input type="number" name="series" class="input" value="{{ fila.series }}"></td>
+                <td><input type="text" name="reps" class="input" value="{{ fila.reps }}"></td>
+                <td><input type="number" name="kilos" class="input" value="{{ fila.kilos }}"></td>
+                <td><textarea name="notas" class="input notas-textarea">{{ fila.notas }}</textarea></td>
+                <td class="acciones">
+                  <button class="icon-btn duplicate" title="Duplicar fila">⎘</button>
+                  <button class="icon-btn remove" title="Eliminar fila">✕</button>
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Parte principal (2 fijas) -->
+      <section class="tabla-rutina-card">
+        <div class="tabla-header">
+          <div class="left"><h2>Parte principal</h2></div>
+          <div class="right">
+            <button class="btn success btn-agregar-principal">+ Agregar fila</button>
+            <button class="btn danger btn-vaciar-principal">Vaciar</button>
+          </div>
+        </div>
+        <div class="tabla-scroll">
+          <table class="tabla" id="tabla-principal">
+            <thead>
+              <tr>
+                <th style="width:30%">Ejercicio</th>
+                <th style="width:12%">Series</th>
+                <th style="width:12%">Reps</th>
+                <th style="width:12%">Kilos</th>
+                <th style="width:28%">Notas</th>
+                <th style="width:6%"></th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for fila in filas_principal %}
+              <tr data-bloque="principal" data-fixed="1">
+                <td><input type="text" name="ejercicio_txt" class="input" value="{{ fila.ejercicio_txt }}"></td>
+                <td><input type="number" name="series" class="input" value="{{ fila.series }}"></td>
+                <td><input type="text" name="reps" class="input" value="{{ fila.reps }}"></td>
+                <td><input type="number" name="kilos" class="input" value="{{ fila.kilos }}"></td>
+                <td><textarea name="notas" class="input notas-textarea">{{ fila.notas }}</textarea></td>
+                <td class="acciones">
+                  <button class="icon-btn duplicate" title="Duplicar fila">⎘</button>
+                  <button class="icon-btn remove" title="Eliminar fila">✕</button>
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <footer class="tabla-footer">
+    <div class="right">
+      <button id="btn-guardar-bottom" class="btn primary">Guardar</button>
+    </div>
+  </footer>
+</div>
+
+<form id="form-guardar" method="post" action="{% url 'guardar_rutina' rutina.id %}" class="hidden">
+  {% csrf_token %}
+  <input type="hidden" name="semana_id" id="semana_id_input" value="{{ semana_activa_id|default:1 }}">
+  <input type="hidden" name="payload" id="payload_input">
+</form>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const days = document.getElementById('daysContainer');
+  const addDayBtn = document.getElementById('btn-agregar-dia');
+
+  function renumerarDias(){
+    const cards = [...days.querySelectorAll(':scope > .dia-card')];
+    cards.forEach((card, idx) => {
+      const n = idx + 1;
+      card.dataset.dia = n;
+      card.querySelector('.dia-label').textContent = n;
+      const del = card.querySelector('.btn-eliminar-dia');
+      if (del) del.style.display = (cards.length>1)?'':'none';
+    });
+  }
+
+  function vaciarManteniendoFijas(tbody, fijas){
+    const rows = [...tbody.querySelectorAll('tr')];
+    rows.forEach((tr, i) => {
+      if (i < fijas) tr.querySelectorAll('input,textarea').forEach(el => el.value='');
+      else tr.remove();
+    });
+  }
+
+  days.addEventListener('click', (e) => {
+    const card = e.target.closest('.dia-card'); if (!card) return;
+
+    if (e.target.closest('.btn-duplicar-dia')) {
+      const clone = card.cloneNode(true);
+      clone.querySelectorAll('input,textarea').forEach(el => el.value='');
+      card.after(clone); renumerarDias(); return;
+    }
+    if (e.target.closest('.btn-eliminar-dia')) {
+      const cards = days.querySelectorAll('.dia-card'); if (cards.length<=1) return;
+      card.remove(); renumerarDias(); return;
+    }
+
+    if (e.target.closest('.btn-agregar-cal')) {
+      card.querySelector('#tabla-cal tbody').insertAdjacentHTML('beforeend', `
+        <tr data-cal="1"><td><input type="text" name="ejercicio_txt" class="input"></td>
+        <td><input type="number" name="series" class="input"></td>
+        <td><input type="text" name="reps" class="input"></td>
+        <td><input type="number" name="kilos" class="input"></td>
+        <td><textarea name="notas" class="input notas-textarea"></textarea></td>
+        <td class="acciones"><button class="icon-btn duplicate">⎘</button><button class="icon-btn remove">✕</button></td></tr>`);
+      return;
+    }
+    if (e.target.closest('.btn-vaciar-cal')) {
+      vaciarManteniendoFijas(card.querySelector('#tabla-cal tbody'), 4); return;
+    }
+
+    if (e.target.closest('.btn-agregar-principal')) {
+      card.querySelector('#tabla-principal tbody').insertAdjacentHTML('beforeend', `
+        <tr data-bloque="principal"><td><input type="text" name="ejercicio_txt" class="input"></td>
+        <td><input type="number" name="series" class="input"></td>
+        <td><input type="text" name="reps" class="input"></td>
+        <td><input type="number" name="kilos" class="input"></td>
+        <td><textarea name="notas" class="input notas-textarea"></textarea></td>
+        <td class="acciones"><button class="icon-btn duplicate">⎘</button><button class="icon-btn remove">✕</button></td></tr>`);
+      return;
+    }
+    if (e.target.closest('.btn-vaciar-principal')) {
+      vaciarManteniendoFijas(card.querySelector('#tabla-principal tbody'), 2); return;
+    }
+
+    const btn = e.target.closest('.icon-btn');
+    if (btn) {
+      const tr = btn.closest('tr');
+      if (btn.classList.contains('duplicate')) tr.after(tr.cloneNode(true));
+      if (btn.classList.contains('remove')) tr.remove();
+    }
+  });
+
+  addDayBtn?.addEventListener('click', () => {
+    const first = days.querySelector('.dia-card');
+    const clone = first.cloneNode(true);
+    clone.querySelectorAll('input,textarea').forEach(el => el.value='');
+    days.appendChild(clone); renumerarDias();
+  });
+});
+</script>
+{% endblock %}
+

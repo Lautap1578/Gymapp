@@ -14,10 +14,10 @@
     <!-- Tipos de rutinas -->
     <h4 class="mb-3 text-center">Elegí un tipo de rutina</h4>
     <div class="d-flex flex-wrap justify-content-center gap-3 mb-4">
-        <a href="{% url 'crear_rutina' member.id 'Hipertrofia' %}" class="btn btn-outline-primary btn-lg">Hipertrofia</a>
+        <a href="{% url 'hipertrofia_opciones' member.id %}" class="btn tipo">Hipertrofia</a>
         <a href="{% url 'crear_rutina' member.id 'Acondicionamiento físico' %}" class="btn btn-outline-primary btn-lg">Acondicionamiento físico</a>
         <a href="{% url 'crear_rutina' member.id 'Deportista avanzado' %}" class="btn btn-outline-primary btn-lg">Deportista avanzado</a>
-        <a href="{% url 'crear_rutina' member.id 'Iniciación' %}" class="btn btn-outline-primary btn-lg">Iniciación</a>
+        <a href="{% url 'crear_rutina' member.id 'Edad temprana' %}" class="btn btn-outline-primary btn-lg">Edad temprana</a>
         <a href="{% url 'crear_rutina' member.id 'Fuerza base' %}" class="btn btn-outline-primary btn-lg">Fuerza base</a>
     </div>
 

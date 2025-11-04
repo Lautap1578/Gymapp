@@ -1,0 +1,387 @@
+{% extends "gymapp/base.html" %}
+{% load static %}
+{% block title %}Editar rutina — Deportista avanzado{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/rutinas.css' %}">
+<script defer src="{% static 'js/editar_rutinas.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+<div class="rutinas-wrapper">
+  <!-- Encabezado -->
+  <header class="rutinas-header">
+    <div class="brand">
+      <div class="logo"></div>
+      <div class="titles">
+        <h1 class="page-title">Editar rutina — Deportista avanzado</h1>
+        <p class="subtitle">
+          Parte inicial (3 fijas) · Bloque 1 Fuerza (3 fijas por grupo) · Bloque 2 Potencia (Circuito: 3 fijas + agregar) · Bloque 3 Accesorios (Circuito: 3 fijas + agregar)
+        </p>
+      </div>
+    </div>
+    <div class="header-actions">
+      <a href="{% url 'rutina_cliente' rutina.member.id %}" class="btn ghost">← Volver</a>
+      <button id="btn-guardar" class="btn primary">Guardar cambios</button>
+    </div>
+  </header>
+
+  <!-- Meta -->
+  <section class="meta">
+    <div class="meta-item">
+      <label>Socio</label>
+      <div class="meta-value">{{ rutina.member.nombre_apellido }} (DNI: {{ rutina.member.dni }})</div>
+    </div>
+    <div class="meta-item">
+      <label>Semana</label>
+      <select id="semana-select" class="input">
+        {% for i in "12345678" %}
+          <option value="{{ forloop.counter }}" {% if forloop.counter == 1 %}selected{% endif %}>Semana {{ forloop.counter }}</option>
+        {% endfor %}
+      </select>
+    </div>
+  </section>
+
+  <!-- Acciones de días -->
+  <div class="actions-row">
+    <div class="left"><span class="muted">Gestioná los días de esta rutina</span></div>
+    <div class="right"><button id="btn-agregar-dia" class="btn secondary">+ Agregar día</button></div>
+  </div>
+
+  <div id="daysContainer" class="d-flex flex-column gap-3">
+    <!-- Día 1 -->
+    <div class="dia-card" data-dia="1">
+      <div class="dia-header">
+        <h3 class="dia-title">Día <span class="dia-label">1</span></h3>
+        <div class="days-actions">
+          <button type="button" class="icon-btn duplicate btn-duplicar-dia" title="Duplicar día">⎘</button>
+          <button type="button" class="icon-btn remove btn-eliminar-dia" title="Eliminar día" style="display:none">✕</button>
+        </div>
+      </div>
+
+      <!-- PARTE INICIAL (3 fijas) -->
+      <section class="tabla-rutina-card">
+        <div class="tabla-header">
+          <div class="left"><h2>Parte inicial</h2></div>
+          <div class="right">
+            <button class="btn success btn-agregar-inicial">+ Agregar fila</button>
+            <button class="btn danger btn-vaciar-inicial">Vaciar</button>
+          </div>
+        </div>
+        <div class="tabla-scroll">
+          <table class="tabla" id="tabla-inicial">
+            <thead>
+              <tr>
+                <th>Ejercicio</th><th>Series</th><th>Reps</th><th>Kilos</th><th>Notas</th><th></th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for fila in filas_inicial %}
+              <tr data-fixed="1">
+                <td><input type="text" name="ejercicio_txt" class="input" value="{{ fila.ejercicio_txt }}"></td>
+                <td><input type="number" name="series" class="input" value="{{ fila.series }}"></td>
+                <td><input type="text" name="reps" class="input" value="{{ fila.reps }}"></td>
+                <td><input type="number" name="kilos" class="input" value="{{ fila.kilos }}"></td>
+                <td><textarea name="notas" class="input notas-textarea">{{ fila.notas }}</textarea></td>
+                <td class="acciones">
+                  <button class="icon-btn move-up" title="Subir">▲</button>
+                  <button class="icon-btn move-down" title="Bajar">▼</button>
+                  <button class="icon-btn duplicate" title="Duplicar">⎘</button>
+                  <button class="icon-btn remove" title="Eliminar">✕</button>
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- BLOQUE 1: FUERZA (3 fijas por grupo) -->
+      <section class="tabla-rutina-card">
+        <div class="tabla-header">
+          <div class="left"><h2>Bloque 1 — Fuerza</h2></div>
+          <div class="right">
+            <button class="btn success btn-agregar-fuerza">+ Agregar fila</button>
+            <button class="btn danger btn-vaciar-fuerza">Vaciar</button>
+          </div>
+        </div>
+        <div class="tabla-scroll">
+          <table class="tabla" id="tabla-fuerza">
+            <thead>
+              <tr>
+                <th style="width:20%">Grupo</th>
+                <th style="width:24%">Ejercicio</th>
+                <th style="width:12%">Series</th>
+                <th style="width:12%">Reps</th>
+                <th style="width:12%">Kilos</th>
+                <th style="width:20%">Notas</th>
+                <th style="width:6%"></th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for fila in filas_fuerza %}
+              <tr data-categoria="{{ fila.categoria }}" data-fixed="1">
+                <td class="categoria-cell"><span class="categoria-nombre">{{ fila.categoria }}</span></td>
+                <td><input type="text" name="ejercicio_txt" class="input" value="{{ fila.ejercicio_txt }}"></td>
+                <td><input type="number" name="series" class="input" value="{{ fila.series }}"></td>
+                <td><input type="text" name="reps" class="input" value="{{ fila.reps }}"></td>
+                <td><input type="number" name="kilos" class="input" value="{{ fila.kilos }}"></td>
+                <td><textarea name="notas" class="input notas-textarea">{{ fila.notas }}</textarea></td>
+                <td class="acciones">
+                  <button class="icon-btn move-up">▲</button>
+                  <button class="icon-btn move-down">▼</button>
+                  <button class="icon-btn duplicate">⎘</button>
+                  <button class="icon-btn remove">✕</button>
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- BLOQUE 2: POTENCIA (Circuito: 3 fijas + agregar) -->
+      <section class="tabla-rutina-card">
+        <div class="tabla-header">
+          <div class="left"><h2>Bloque 2 — Potencia <span class="badge">Circuito</span></h2></div>
+          <div class="right">
+            <button class="btn success btn-agregar-potencia">+ Agregar ejercicio</button>
+            <button class="btn danger btn-vaciar-potencia">Vaciar</button>
+          </div>
+        </div>
+        <div class="tabla-scroll">
+          <table class="tabla" id="tabla-potencia">
+            <thead>
+              <tr>
+                <th>Ejercicio</th><th>Series</th><th>Reps</th><th>Kilos</th><th>Notas</th><th></th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for fila in filas_potencia %}
+              <tr data-fixed="1">
+                <td><input type="text" name="ejercicio_txt" class="input" value="{{ fila.ejercicio_txt }}"></td>
+                <td><input type="number" name="series" class="input" value="{{ fila.series }}"></td>
+                <td><input type="text" name="reps" class="input" value="{{ fila.reps }}"></td>
+                <td><input type="number" name="kilos" class="input" value="{{ fila.kilos }}"></td>
+                <td><textarea name="notas" class="input notas-textarea">{{ fila.notas }}</textarea></td>
+                <td class="acciones">
+                  <button class="icon-btn move-up">▲</button>
+                  <button class="icon-btn move-down">▼</button>
+                  <button class="icon-btn duplicate">⎘</button>
+                  <button class="icon-btn remove">✕</button>
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- BLOQUE 3: ACCESORIOS (Circuito: 3 fijas + agregar) -->
+      <section class="tabla-rutina-card">
+        <div class="tabla-header">
+          <div class="left"><h2>Bloque 3 — Accesorios <span class="badge">Circuito</span></h2></div>
+          <div class="right">
+            <button class="btn success btn-agregar-accesorios">+ Agregar ejercicio</button>
+            <button class="btn danger btn-vaciar-accesorios">Vaciar</button>
+          </div>
+        </div>
+        <div class="tabla-scroll">
+          <table class="tabla" id="tabla-accesorios">
+            <thead>
+              <tr>
+                <th>Ejercicio</th><th>Series</th><th>Reps</th><th>Kilos</th><th>Notas</th><th></th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for fila in filas_accesorios %}
+              <tr data-fixed="1">
+                <td><input type="text" name="ejercicio_txt" class="input" value="{{ fila.ejercicio_txt }}"></td>
+                <td><input type="number" name="series" class="input" value="{{ fila.series }}"></td>
+                <td><input type="text" name="reps" class="input" value="{{ fila.reps }}"></td>
+                <td><input type="number" name="kilos" class="input" value="{{ fila.kilos }}"></td>
+                <td><textarea name="notas" class="input notas-textarea">{{ fila.notas }}</textarea></td>
+                <td class="acciones">
+                  <button class="icon-btn move-up">▲</button>
+                  <button class="icon-btn move-down">▼</button>
+                  <button class="icon-btn duplicate">⎘</button>
+                  <button class="icon-btn remove">✕</button>
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+    </div><!-- /dia-card -->
+  </div><!-- /daysContainer -->
+
+  <footer class="tabla-footer">
+    <div class="right"><button id="btn-guardar-bottom" class="btn primary">Guardar</button></div>
+  </footer>
+</div>
+
+<!-- Form oculto de guardado -->
+<form id="form-guardar" method="post" action="{% url 'guardar_rutina' rutina.id %}" class="hidden">
+  {% csrf_token %}
+  <input type="hidden" name="semana_id" id="semana_id_input" value="{{ semana_activa_id|default:1 }}">
+  <input type="hidden" name="payload" id="payload_input">
+</form>
+
+<!-- Interacciones específicas del template -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const days = document.getElementById('daysContainer');
+  const addDayBtn = document.getElementById('btn-agregar-dia');
+
+  /* Utilidades */
+  function renumerarDias(){
+    const cards = [...days.querySelectorAll(':scope > .dia-card')];
+    cards.forEach((card, idx) => {
+      const n = idx + 1;
+      card.dataset.dia = n;
+      const lbl = card.querySelector('.dia-label'); if (lbl) lbl.textContent = n;
+      const del = card.querySelector('.btn-eliminar-dia'); if (del) del.style.display = (cards.length>1)?'':'none';
+    });
+  }
+  function moverFila(tr, dir){
+    const sib = (dir==='up') ? tr.previousElementSibling : tr.nextElementSibling;
+    if (!sib) return;
+    if (dir==='up') tr.parentNode.insertBefore(tr, sib);
+    else sib.after(tr);
+  }
+  function vaciarManteniendo(tbody, cantidadFijas){
+    const rows = [...tbody.querySelectorAll('tr')];
+    rows.forEach((tr, i) => {
+      if (i < cantidadFijas) tr.querySelectorAll('input,textarea').forEach(el => el.value='');
+      else tr.remove();
+    });
+  }
+  function nuevaFilaGenerica(cols){
+    /* cols: array de claves para construir celdas: ['grupo'?,'ejercicio','series','reps','kilos','notas'] */
+    const tieneGrupo = cols[0] === 'grupo';
+    return `
+      <tr>
+        ${tieneGrupo ? `<td class="categoria-cell"><span class="categoria-nombre">Personalizado</span></td>` : ``}
+        <td><input type="text" name="ejercicio_txt" class="input"></td>
+        <td><input type="number" name="series" class="input"></td>
+        <td><input type="text" name="reps" class="input"></td>
+        <td><input type="number" name="kilos" class="input"></td>
+        <td><textarea name="notas" class="input notas-textarea"></textarea></td>
+        <td class="acciones">
+          <button class="icon-btn move-up" title="Subir">▲</button>
+          <button class="icon-btn move-down" title="Bajar">▼</button>
+          <button class="icon-btn duplicate" title="Duplicar">⎘</button>
+          <button class="icon-btn remove" title="Eliminar">✕</button>
+        </td>
+      </tr>`;
+  }
+
+  /* Delegación de eventos */
+  days.addEventListener('click', (e) => {
+    const card = e.target.closest('.dia-card'); if (!card) return;
+
+    // Duplicar / Eliminar día
+    if (e.target.closest('.btn-duplicar-dia')) {
+      const clone = card.cloneNode(true);
+      clone.querySelectorAll('input,textarea').forEach(el => el.value='');
+      card.after(clone); renumerarDias(); return;
+    }
+    if (e.target.closest('.btn-eliminar-dia')) {
+      const cards = days.querySelectorAll('.dia-card'); if (cards.length<=1) return;
+      card.remove(); renumerarDias(); return;
+    }
+
+    // Mover filas
+    if (e.target.classList.contains('move-up')) moverFila(e.target.closest('tr'), 'up');
+    if (e.target.classList.contains('move-down')) moverFila(e.target.closest('tr'), 'down');
+
+    /* Parte inicial */
+    if (e.target.closest('.btn-agregar-inicial')) {
+      card.querySelector('#tabla-inicial tbody').insertAdjacentHTML('beforeend', nuevaFilaGenerica(['ejercicio','series','reps','kilos','notas']));
+      return;
+    }
+    if (e.target.closest('.btn-vaciar-inicial')) {
+      vaciarManteniendo(card.querySelector('#tabla-inicial tbody'), 3);
+      return;
+    }
+
+    /* Bloque 1 — Fuerza (con columna Grupo) */
+    if (e.target.closest('.btn-agregar-fuerza')) {
+      card.querySelector('#tabla-fuerza tbody').insertAdjacentHTML('beforeend', nuevaFilaGenerica(['grupo','ejercicio','series','reps','kilos','notas']));
+      return;
+    }
+    if (e.target.closest('.btn-vaciar-fuerza')) {
+      const tbody = card.querySelector('#tabla-fuerza tbody');
+      tbody.innerHTML = `
+        <tr data-categoria="Cadena anterior" data-fixed="1">
+          <td class="categoria-cell"><span class="categoria-nombre">Cadena anterior</span></td>
+          <td><input type="text" name="ejercicio_txt" class="input"></td>
+          <td><input type="number" name="series" class="input"></td>
+          <td><input type="text" name="reps" class="input"></td>
+          <td><input type="number" name="kilos" class="input"></td>
+          <td><textarea name="notas" class="input notas-textarea"></textarea></td>
+          <td class="acciones"><button class="icon-btn move-up">▲</button><button class="icon-btn move-down">▼</button><button class="icon-btn duplicate">⎘</button><button class="icon-btn remove">✕</button></td>
+        </tr>
+        <tr data-categoria="Cadena posterior" data-fixed="1">
+          <td class="categoria-cell"><span class="categoria-nombre">Cadena posterior</span></td>
+          <td><input type="text" name="ejercicio_txt" class="input"></td>
+          <td><input type="number" name="series" class="input"></td>
+          <td><input type="text" name="reps" class="input"></td>
+          <td><input type="number" name="kilos" class="input"></td>
+          <td><textarea name="notas" class="input notas-textarea"></textarea></td>
+          <td class="acciones"><button class="icon-btn move-up">▲</button><button class="icon-btn move-down">▼</button><button class="icon-btn duplicate">⎘</button><button class="icon-btn remove">✕</button></td>
+        </tr>
+        <tr data-categoria="Empujes/Tracciones" data-fixed="1">
+          <td class="categoria-cell"><span class="categoria-nombre">Empujes/Tracciones</span></td>
+          <td><input type="text" name="ejercicio_txt" class="input"></td>
+          <td><input type="number" name="series" class="input"></td>
+          <td><input type="text" name="reps" class="input"></td>
+          <td><input type="number" name="kilos" class="input"></td>
+          <td><textarea name="notas" class="input notas-textarea"></textarea></td>
+          <td class="acciones"><button class="icon-btn move-up">▲</button><button class="icon-btn move-down">▼</button><button class="icon-btn duplicate">⎘</button><button class="icon-btn remove">✕</button></td>
+        </tr>`;
+      return;
+    }
+
+    /* Bloque 2 — Potencia (Circuito) */
+    if (e.target.closest('.btn-agregar-potencia')) {
+      card.querySelector('#tabla-potencia tbody').insertAdjacentHTML('beforeend', nuevaFilaGenerica(['ejercicio','series','reps','kilos','notas']));
+      return;
+    }
+    if (e.target.closest('.btn-vaciar-potencia')) {
+      vaciarManteniendo(card.querySelector('#tabla-potencia tbody'), 3);
+      return;
+    }
+
+    /* Bloque 3 — Accesorios (Circuito) */
+    if (e.target.closest('.btn-agregar-accesorios')) {
+      card.querySelector('#tabla-accesorios tbody').insertAdjacentHTML('beforeend', nuevaFilaGenerica(['ejercicio','series','reps','kilos','notas']));
+      return;
+    }
+    if (e.target.closest('.btn-vaciar-accesorios')) {
+      vaciarManteniendo(card.querySelector('#tabla-accesorios tbody'), 3);
+      return;
+    }
+
+    // Acciones en fila
+    const btn = e.target.closest('.icon-btn');
+    if (btn) {
+      const tr = btn.closest('tr');
+      if (btn.classList.contains('duplicate')) tr.after(tr.cloneNode(true));
+      if (btn.classList.contains('remove')) tr.remove();
+    }
+  });
+
+  // Agregar día
+  addDayBtn?.addEventListener('click', () => {
+    const first = days.querySelector('.dia-card'); if (!first) return;
+    const clone = first.cloneNode(true);
+    clone.querySelectorAll('input,textarea').forEach(el => el.value='');
+    days.appendChild(clone); renumerarDias();
+  });
+});
+</script>
+{% endblock %}
+

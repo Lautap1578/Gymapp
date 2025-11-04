@@ -1,0 +1,50 @@
+{% extends "gymapp/base.html" %}
+{% load static %}
+
+{% block title %}Elegí un subtipo{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/rutinas.css' %}">
+<style>
+  /* Hero con el fondo azul + patrón de puntos (independiente del wrapper oscuro) */
+  .hero-bg{
+    padding:28px 16px 32px;
+    /* Fondo azul + patrón de puntos; no depende de clases del wrapper */
+    background:
+      radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px) 0 0/16px 16px,
+      radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px) 8px 8px/16px 16px,
+      linear-gradient(#0f1d3a, #0f1d3a);
+  }
+  .hero-inner{max-width:1100px;margin:0 auto}
+  .hero-title{
+    color:#fff; text-align:center; margin:0 0 18px; font-weight:700; font-size:1.6rem;
+  }
+  .tipos-grid{
+    display:flex; flex-wrap:wrap; gap:14px; justify-content:center; align-items:center;
+  }
+  /* Misma “pill” que usás en el menú principal */
+  .btn.tipo{
+    display:inline-flex; align-items:center; justify-content:center;
+    padding:10px 18px; border-radius:12px; background:#1e293b; color:#fff;
+    font-weight:700; text-decoration:none; transition:transform .15s ease, background .15s ease;
+    border:none;
+  }
+  .btn.tipo:hover{ background:#334155; transform:translateY(-2px) }
+  /* Quitamos cualquier card/box oscuro heredado del wrapper */
+  .rutinas-wrapper, .rutinas-header, .meta{ background:transparent !important; box-shadow:none !important; border:none !important; }
+</style>
+{% endblock %}
+
+{% block content %}
+  <!-- Fondo azul con título y pills, sin headers ni cards -->
+  <section class="hero-bg">
+    <div class="hero-inner">
+      <h2 class="hero-title">Elegí un subtipo</h2>
+      <div class="tipos-grid">
+        {% for clave, nombre in subtipos %}
+          <a href="{% url 'crear_rutina' member.id clave %}" class="btn tipo">{{ nombre }}</a>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+{% endblock %}
